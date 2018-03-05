@@ -1,0 +1,55 @@
+.shop-type{padding:0.9rem 0; }
+.shop-type .icon-sp{display: block;float: left;height:1rem;width: 0.3rem;background:#eb6877;margin-right: 0.3rem;margin-top: 0.5rem }
+.content .type-span{color:#6c6868;font-size: 0.9rem }
+.shop-type p{padding-left:0.3rem;text-align: left; }
+.more>a{display: block;border: 1px solid #979595;color: #979595;margin-right: 0.5rem;text-align: center;height:1.5rem;
+line-height: 1.5rem;border-radius: 0.3rem;margin-top: 0.8rem;float: left}
+.type-a a{padding:0 1.5rem;font-size: 0.7rem;}
+.fan a{padding: 0 0.5rem;font-size: 0.7rem}
+.input-box{padding: 0 0.3rem;display:-webkit-box; -webkit-box-pack: justify}
+.input-box input{display:block;height:1.5rem;width:85%;background:#e5e5e5;font-size: 0.7rem;color: #979595;border-radius: 0.3rem;
+    padding-left:0.7rem ;margin-top:0.7rem ;}
+.input-box a{display: block;height: 1.5rem;width: 1.5rem;background: url("../img/icon_fangda.png")no-repeat center center;
+  background-size: cover;margin-top:0.7rem }
+.search-p{margin: 0.5rem 0.3rem}
+.search input{width:28%;height: 1.5rem;background:#e5e5e5;font-size: 0.7rem;color: #979595;padding-left: 0.7rem;
+    float: left;border-radius: 0.3rem}
+.ss-search i{display:block;height: 1rem;width: 1rem;float: left;margin-left: 0.3rem;
+margin-top: 0.25rem;}
+.ss-search .true{background: url("../img/duicuo.png")0 0 no-repeat;background-size: 1rem;margin-right:1rem  }
+.ss-search .false{background: url("../img/duicuo.png")0 -1rem no-repeat;background-size: 1rem;margin-right:1rem  }
+.ss-search .nothing{background-color:#fff ;height: 1rem ;width: 1rem; margin-right:1rem}
+.menu-btn{padding:0 0.3rem;;}
+.menu-btn li{width: 25%;float: left;margin-top:0.6rem;}
+.menu-btn a{display: block;line-height: 1.5rem;font-size: 0.5rem;color:#979595;width: 3.7rem;height: 1.5rem;overflow: hidden;
+  border-radius: 0.3rem;border: 1px solid #979595;text-align: center;margin: 0 auto}
+.menu-btn2{margin: 0.5rem;background:#eeeeee;padding: 0.5rem 0; }
+.menu-btn2 li{width: 25%;float: left}
+.menu-btn2 li a{display: block;height: 1.3rem;font-size: 0.5rem;border-radius: 0.7rem;margin: 0.4rem auto;
+    width:3.4rem;overflow: hidden;
+color: #979595;border: 1px solid #979595;line-height: 1.3rem}
+.shop-bottom{border-top:1px solid #bcb5b5}
+.content .list{border-top: 1px solid #bcb5b5;box-sizing: border-box;}
+.shop-bottom{text-align: center;padding-top:0.9rem}
+.shop-bottom img{height: 3rem;width:3rem}
+.shop-bottom p{font-size: 0.9rem;color:#979595;padding-top:0.7rem;text-align: center }
+.footer  a{display: block;background:#eb6877;height: 2.5rem;line-height: 2.5rem;text-align: center;color: #FFFFFF;font-size: 0.9rem}
+.content .color{color:#00baff;border-color: #00baff}
+
+
+.Menu {
+    position:absolute;
+    height: 1.5rem;
+    width:28%;
+    z-index:1;
+    font-size: 0.7rem;
+    line-height: 1.5rem;
+    display: none;
+}
+.Menu p{ background: rgba(0, 0, 0, 0.72);color: #FFFFFF}
+
+#List1{left:0.1rem;top:1.5rem;}
+
+.ss-pop-ups{
+	display: none;
+}

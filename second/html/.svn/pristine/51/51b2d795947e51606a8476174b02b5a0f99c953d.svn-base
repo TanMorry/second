@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no"/>
+    <title>喵</title>
+    <link href="../css/global.css" rel="stylesheet" type="text/css">
+    <link href="../css/public.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+    </style>
+    <script src="../js/jquery-2.2.4.min.js"></script>
+    <script>
+        $().ready(function () {
+            $('.btn-b').click(function(){
+                $('.content').css({
+                    "overflow-x":"hidden",
+                    "overflow-y":"hidden"
+                });
+                $('.btn-y').find('i').removeClass('btn-up')
+                $('.btn-y').find('span').removeClass('btn1-b-color')
+                $('.top-btn1-y').removeClass('btn-block');
+                $('.content-cover').show();
+                if($(this).find('i').hasClass('btn-up')){
+                    $(this).find("i").removeClass(' btn-up');
+                    $(this).find('span').removeClass('btn1-b-color');
+                    $('.top-btn1-b').removeClass('btn-block');
+                    $('.content-cover').hide();
+                    $('.content').css({
+                        "overflow-x":"auto",
+                        "overflow-y":"auto"
+                    });
+                }else{
+                    $(this).find("i").addClass(' btn-up');
+                    $(this).find('span').addClass('btn1-b-color');
+                    $('.top-btn1-b').addClass('btn-block');
+                    $('.content-cover').show();
+                }
+            });
+            $('.btn-y').click(function(){
+                $('.btn-b').find('i').removeClass('btn-up');
+                $('.btn-b').find('span').removeClass('btn1-b-color');
+                $('.top-btn1-b').removeClass('btn-block');
+                $('.content').css({
+                    "overflow-x":"hidden",
+                    "overflow-y":"hidden"
+                });
+                $('.content-cover').show();
+                if($(this).find('i').hasClass('btn-up')){
+                    $(this).find("i").removeClass(' btn-up');
+                    $(this).find('span').removeClass('btn1-b-color');
+                    $('.top-btn1-y').removeClass('btn-block');
+                    $('.content-cover').hide();
+                    $('.content').css({
+                        "overflow-x":"auto",
+                        "overflow-y":"auto"
+                    });
+                }else{
+                    $(this).find("i").addClass(' btn-up');
+                    $(this).find('span').addClass('btn1-b-color');
+                    $('.top-btn1-y').addClass('btn-block');
+                    $('.content-cover').show();
+                }
+            });
+            $('.content-cover').click(function(){
+                $(this).hide();
+                $('.btn-y,.btn-b').find('i').removeClass('btn-up');
+                $('.btn-y,.btn-b').find('span').removeClass('btn1-b-color');
+                $('.top-btn1-y,.top-btn1-b').removeClass('btn-block');
+                $('.content').css({
+                    "overflow-x":"auto",
+                    "overflow-y":"auto"
+                });
+            });
+            $('.top-btn1-b,.top-btn1-y').on('click', 'a', function(){
+                $(this).addClass('btn1-b-color').siblings().removeClass('btn1-b-color');
+                $('.content-cover').hide();
+                $('.btn-y,.btn-b').find('i').removeClass('btn-up');
+                $('.btn-y,.btn-b').find('span').removeClass('btn1-b-color');
+                $('.content').css({
+                    "overflow-x":"auto",
+                    "overflow-y":"auto"
+                });
+                $('.top-btn1-y,.top-btn1-b').removeClass('btn-block');
+                if($(this).parent().hasClass("top-btn1-b")){
+                    $('.btn-b>span').text($(this).text())
+                }else{
+                    if($(this).parent().hasClass("top-btn1-y")){
+                        $('.btn-y>span').text($(this).text())
+                    }
+                }
+            });
+            $('.direction_f').click(function(){
+                $(this).toggleClass('direction_f_bg')
+            })
+        })
+    </script>
+
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex">
+    <section class="header">
+        <div class="header-bg normal">
+            <div class="header-l"><a href="#"></a></div>
+            <div class="header-c header-dz header_pad">原作名称</div>
+            <div class="header-s"></div>
+            <div class="header-r"><a href="#"></a></div>
+        </div>
+        <div class="btn">
+            <div class="top-nav top-border">
+                <a href="#" class="top-btn1 btn-b"><span>日榜</span><i class="down"></i></a>
+                <a href="#" class="top-btn1 btn-y"><span>全部类型</span ><i class="down"></i></a>
+                <a href="#" class="top-btn2"><i class="direction_f "></i><span>只看上新</span></a>
+            </div>
+            <div class="top-btn1-b">
+                <a href="#" class="btn1-b-color">日榜</a>
+                <a href="#">周榜</a>
+                <a href="#">月榜</a>
+            </div>
+            <div class="top-btn1-y">
+                <a href="#" class="btn1-b-color">全部类型</a>
+                <a href="#">仅本子</a>
+                <a href="#">仅周边</a>
+            </div>
+        </div>
+    </section>
+    <!-- 主体 -->
+    <section class="content">
+        <div class="content-cover"></div>
+        <div class="sale-item3 part">
+            <ul class="sale-ones tie clearfix" id="matterList">
+                <li>
+                    <div class="sale-ones-front tie">
+                        <p class="sale-of-img">
+                            <i class="up-one up-one-a sale-i"></i>
+                            <a href="#">
+                            <img src="../img/test/item1.png"></a>
+                        </p>
+                        <p class="sale-of-name">测试</p>
+                        <p class="sale-of-text">原作:伪装者</p>
+                        <p class="sale-of-text">销量:<span>5688</span></p>
+                        <p class="sale-of-price">￥100.00</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="sale-ones-front tie">
+                        <p class="sale-of-img">
+                            <i class="up-one up-one-b sale-i"></i>
+                            <a href="#">
+                            <img src="../img/test/item1.png"></a>
+                        </p>
+                        <p class="sale-of-name">测试</p>
+                        <p class="sale-of-text">原作:伪装者</p>
+                        <p class="sale-of-text">销量:<span>5688</span></p>
+                        <p class="sale-of-price">￥100.00</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="sale-ones-front tie">
+                        <p class="sale-of-img">
+                            <i class="up-one up-one-c sale-i"></i>
+                            <a href="#">
+                            <img src="../img/test/item1.png"></a>
+                        </p>
+                        <p class="sale-of-name">测试</p>
+                        <p class="sale-of-text">原作:伪装者</p>
+                        <p class="sale-of-text">销量:<span>5688</span></p>
+                        <p class="sale-of-price">￥100.00</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="sale-ones-front tie">
+                        <p class="sale-of-img">
+                            <a href="#">
+                                <img src="../img/test/item1.png"></a>
+                        </p>
+                        <p class="sale-of-name">测试</p>
+                        <p class="sale-of-text">原作:伪装者</p>
+                        <p class="sale-of-text">销量:<span>5688</span></p>
+                        <p class="sale-of-price">￥100.00</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="sale-ones-front tie">
+                        <p class="sale-of-img">
+                            <a href="#">
+                                <img src="../img/test/item1.png"></a>
+                        </p>
+                        <p class="sale-of-name">测试</p>
+                        <p class="sale-of-text">原作:伪装者</p>
+                        <p class="sale-of-text">销量:<span>5688</span></p>
+                        <p class="sale-of-price">￥100.00</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="sale-ones-front tie">
+                        <p class="sale-of-img">
+                            <a href="#">
+                                <img src="../img/test/item1.png"></a>
+                        </p>
+                        <p class="sale-of-name">测试</p>
+                        <p class="sale-of-text">原作:伪装者</p>
+                        <p class="sale-of-text">销量:<span>5688</span></p>
+                        <p class="sale-of-price">￥100.00</p>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+
+    </section>
+    <section class="footer">
+        <div class="page horizontal-center">
+            <a class="page-up" href="#" id="page-up" onclick="page(this)" data-val="prev"></a>
+            <i class="auto-width"><!-- auto width --></i>
+            <input class="page-write" type="text" id="skipPage">
+            <a class="page-go" href="#" id="go" onclick="page(this)" data-val="GO">GO</a>
+            <span class="page-count"><b id="current"></b><i>/</i><b id="totalPage"></b></span>
+            <i class="auto-width"><!-- auto width --></i>
+            <a class="page-down" href="#" id="page-down" onclick="page(this)" data-val="next"></a>
+        </div>
+    </section>
+</section>
+</body>
+</html>

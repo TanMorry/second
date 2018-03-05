@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>修改手机号</title>
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<link href="../css/global.css" rel="stylesheet" type="text/css">
+<link href="../css/layout.css" rel="stylesheet" type="text/css">
+<link href="../css/buyer.css" rel="stylesheet" type="text/css">
+<link href="../css/access.css" rel="stylesheet" type="text/css">
+
+<script src="../js/jquery.min.js"></script>
+<script src="../js/jquery.date_input.pack.js"></script>
+<script src="../js/expo.public.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+	/*expired表示已过期，used表示已使用*/
+	var tag = "expired";
+	if(tag == "expired"){
+		$(".ti-pic2").addClass("expired");
+		$(".ti-pic2").find("p").html("已过期");
+		$("h2.color-lightred").html("过期时间：2016.05.28&nbsp;15:30");
+		$(".ticket-img-blank").find("p").html("");
+	};
+	if(tag == "used"){
+		$(".ti-pic2").addClass("used");
+		$(".ti-pic2").find("p").html("已使用");
+		$("h2.color-lightred").html("使用时间：2016.05.28&nbsp;09:00");
+		$(".ticket-img-blank").find("p").html("");
+	};
+});
+
+</script>
+
+<body>
+	<div class="M_Header M_BTM_25">
+		<div class="hd-bg">
+			<p class="hd-pink"></p>
+		</div>
+		<div class="hd-index M_Center">
+			<div class="hd-main">
+				<ul class="float-center clearfix">
+					<li class="hd-m-btn" ><a href="#">展会</a></li>
+					<li class="hd-m-btn"><a href="#">社团铺</a></li>
+					<li class="hd-m-logo"></li>
+					<li class="hd-m-btn fixed" ><a href="#">我的</a></li>
+					<li class="hd-m-btn" ><a href="#">同人闲情</a></li>
+				</ul>
+			</div>
+			<div class="hd-nav-r">
+				<ul class="hd-nav-not">
+					<li><a href="#">登录</a></li>
+					<li><a href="#">注册</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="M_Center">
+
+		<div class="M_Left M_Layout M_BTM_175">
+			<div class="left-tree">
+				<div class="user-img">
+					<a href="#"><img src="../images/security_settings.png" alt=""></a>
+				</div>
+				<dl>
+					<dt class="fixed"><a href="#">已买到的商品</a></dt>
+					<dt><a href="#">关注の铺</a></dt>
+					<dt><a href="#">评价管理</a></dt>
+					<dt><a href="#">退货/退款</a></dt>
+					<dt><a href="#">账户设置</a></dt>
+					<dd><a href="#">我の资料</a></dd>
+					<dd><a href="#">收货地址</a></dd>
+					<dd><a href="#">安全设置</a></dd>
+					<dt><a href="#">财布</a></dt>
+					<dd><a href="#">我の财布</a></dd>
+					<dd><a href="#">交易记录</a></dd>
+					<dt><a href="#">站内信</a></dt>
+				</dl>
+			</div>
+		</div>
+
+		<div class="M_Right M_Layout M_BTM_175">
+			<div class="user-step header-title">
+				<p><a href="#">我的</a>><a href="#">我的电子票</a>><a>电子票详情</a></p>
+			</div>
+			<div class="ticket-img">
+				<i class="ti-pic1"><i class="ti-pic2"><p></p></i></i>
+			</div>
+			<div class="ticket-img-text">
+				<strong>Chinajoy&nbsp;2016&nbsp;动漫展门票</strong>
+				<p class="color-lightred">单价：260.00元</p>
+				<a href="#" class="color-black"><ins>所属订单：123456789</ins></a>
+				<h2 class="color-lightred">入场时间：2016.05.28&nbsp;09:00——15:30</h2>
+			</div>
+			<div class="ticket-img-2">
+				<img src="../images/qr.png"/>
+			</div>
+			<div class="ticket-img-text">
+				<small>序列号：2885584848QXE7GE</small>
+			</div>
+			<div class="ticket-img-blank">
+				<p class="color-grey">为了保障您的利益，请根据上述时间使用该服务</p>
+				<p class="color-grey">一人一票，验票后即作废，不可循环使用，请妥善保存</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

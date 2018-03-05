@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="format-detection" content="telephone=no"/>
+<title>喵</title>
+<link href="../css/global.css" rel="stylesheet" type="text/css">
+<link href="../css/public.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	
+</style>
+
+<script src="../js/jquery-2.2.4.min.js"></script>
+	<script>
+		$().ready(function () {
+			$('.store-up').on('click', function(){
+				$(this).toggleClass('store-up-btn');
+			})
+		})
+	</script>
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex">
+
+	<section class="header">
+		<div class="header-bg normal">
+			<div class="header-l"><a href="sousuo.html"></a></div>
+			<div class="header-c"><input class="search" type="text" placeholder="输入铺名关键字"></div>
+			<div class="header-r"><a href="#"></a></div>
+		</div>
+	</section>
+	<!-- 主体 -->
+	<section class="content ">
+		<div class="store-search part clearfix">
+			<div class="store-box clearfix">
+				<div class="store-img">
+					<img src="../img/test/item2.jpg" alt="">
+				</div>
+				<div class="store-info">
+					<p class="store-i-name">二次元之家二次元之家</p>
+					<div class="store-info-box">
+						<p class="font1">60</p>
+						<p class="font2">关注人数</p>
+					</div>
+					<div class="store-info-box">
+						<p class="font1">60</p>
+						<p class="font2">全部宝贝</p>
+					</div>
+					
+				</div>
+				<div class="store-up"><a href="#">收 藏</a></div>
+			</div>
+		</div>
+		<div class="store-search part clearfix">
+			<div class="store-box clearfix">
+				<div class="store-img">
+					<img src="../img/test/item2.jpg" alt="">
+				</div>
+				<div class="store-info">
+					<p class="store-i-name">二次元之家二次元之家</p>
+					<p class="store-i-text">关注人数 60</p>
+					<p class="store-i-text">全部宝贝 60</p>
+				</div>
+				<div class="store-up"><a href="#">收 藏</a></div>
+			</div>
+		</div>
+		<div class="store-search part clearfix">
+			<div class="store-box clearfix">
+				<div class="store-img">
+					<img src="../img/test/item2.jpg" alt="">
+				</div>
+				<div class="store-info">
+					<p class="store-i-name">二次元之家二次元之家</p>
+					<p class="store-i-text">关注人数 60</p>
+					<p class="store-i-text">全部宝贝 60</p>
+				</div>
+				<div class="store-up"><a href="#">收 藏</a></div>
+			</div>
+		</div>
+		
+
+	</section>
+
+	<section class="footer">
+	</section>
+</section>
+</body>
+</html>

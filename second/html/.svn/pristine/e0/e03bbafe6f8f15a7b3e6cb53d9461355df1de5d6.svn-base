@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>展会</title>
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<link href="css/global.css" rel="stylesheet" type="text/css">
+<link href="css/layout.css" rel="stylesheet" type="text/css">
+<link href="css/item_flexslider.css" rel="stylesheet" type="text/css">
+<link href="css/city-picker.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+
+#slideshow{
+	margin: 0 0 20px;
+}
+#carousel ul li{
+	border: transparent solid 3px;
+}
+#carousel ul li:hover{
+	border: #ff7c8b solid 3px;
+}
+
+.l-txt{
+	text-align: left;
+	line-height: 16px;
+	margin: 20px 20px 0;
+	padding: 20px 0 0 5px;
+	border-top: #dfdfdf solid 1px;
+	color: #464646;
+}
+
+</style>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.flexslider-min.js"></script>
+<script src="js/city-picker.data.js"></script>
+<script src="js/city-picker.js"></script>
+<script src="js/miao-Dialog.js"></script>
+<script src="js/expo.public.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+	/*左侧折叠菜单*/
+	$(".mass-group").on('click', '.mg-fold', function(event) {
+		if($(this).hasClass('mg-push'))
+		{
+			$(this).removeClass('mg-push').addClass('mg-minus');
+		}
+		else if($(this).hasClass('mg-minus'))
+		{
+			$(this).removeClass('mg-minus').addClass('mg-push');
+		}
+		return false;
+	});
+	/*排序的小箭头切换*/
+	$(".store-sort").on('click', 'a', function(event) {
+		/*共有三种class*/
+		var test = ['ss-curr-all','ss-curr-up','ss-curr-down'];
+		var $class = $(this).attr('class');
+		for (var i = 0; i < test.length; i++)
+		{
+			if($(this).hasClass(test[i]))
+			{
+				$(this).removeClass().addClass(i + 1 == test.length ? test[0] : test[i + 1]);
+				break;
+			}
+		}
+		return false;
+	});
+	/*输入数量验证*/
+	$(".ig-count input").on('blur input propertychange', function(event) {
+		function isEmpty (val)
+		{
+			return val == '' || val === null || val === undefined;
+		}
+
+		var val = $(this).val();
+		/*如果不是空则强转数字*/
+		if (!isEmpty(val))
+		{
+			val = parseInt(val.replace(/[^\d]/ig,''), 10);
+		}
+
+		isNaN(val) ? $(this).val(1) : $(this).val(val);
+		
+		if(event.type == 'blur' || event.type == 'focusout')
+		{
+			if(isEmpty(val))
+			{
+				$(this).val(1);
+			}
+		}
+	});
+	/*加减数量*/
+	$(".ig-count").on('click', 'span', function(event) {
+		var $count = $(".ig-count input");
+		if($(this).hasClass('ig-c-minus'))
+		{
+			$count.val(parseInt($count.val(), 10) - 1 || 1);
+		}
+		else if($(this).hasClass('ig-c-push'))
+		{
+			$count.val(parseInt($count.val(), 10) + 1 || 1);
+		}
+	});
+	/*评论点击大图*/
+	$(".ir-grid").on('click', '.ir-gc-img img', function(event) {
+
+		var $big = $(this).parent().next(".ir-gc-big");
+		var src = $(this).attr('src');
+
+		if($(this).hasClass('fixed'))
+		{
+			$(this).removeClass('fixed');
+			$big.removeClass('fixed');
+		}
+		else
+		{
+			$(this).parent().find('img').removeClass('fixed');
+			$(this).addClass('fixed');
+			$big.addClass('fixed').find('img').attr('src', src);
+		}
+		
+	});
+
+	/*中部list切换*/
+	$("#M_BookList .flexslider").flexslider({
+		slideshow: false,
+		animationSpeed: 500,
+		slideToStart: 0,
+		animation: "slide",
+		itemWidth: 178,
+		itemMargin: 8,
+		keyboardNav: false,
+		directionNav: true,
+		controlNav: false,
+		pauseOnHover: true,
+		prevText: "",
+		nextText: "",
+		pauseText: "",
+		playText: ""
+	});
+	/*轮播底部缩略图*/
+	$('#carousel').flexslider({
+		animation: 'slide',
+		controlNav: false,
+		animationLoop: true,
+		slideshow: false,
+		itemWidth: 64,
+		itemMargin: 20,
+		keyboardNav: false,
+		directionNav: false,
+		asNavFor: '#slideshow'
+	});
+	/*轮播主图*/
+	$('#slideshow').flexslider({
+		animation: 'slide',
+		animationSpeed: 288,
+		controlNav: false,
+		animationLoop: false,
+		slideshow: false,
+		keyboardNav: false,
+		directionNav: false,
+		sync: '#carousel'
+	});
+	/*插件不支持hover,所以模拟点击*/
+	$('#carousel').on('mouseover', 'li', function(event) {
+		$(this).click();
+	});
+	/*详情 评论 就这样吧*/
+	$(".item-tab").on('click', 'li a', function(event) {
+		var attr = $(this).attr('menu');
+
+		$(this).parent('li').siblings().removeClass('fixed');
+		$(this).parent('li').addClass('fixed');
+
+		if(attr == 'spxq')
+		{
+			$('body').find("div[parent=spxq]").show();
+		}
+		else if(attr == 'ljpj')
+		{
+			$('body').find("div[parent=spxq]").hide();
+		}
+
+		return false;
+	});
+	/*搜索默认文字*/
+	$('.mg-search').on('focus blur input propertychange', 'input', function(event) {
+		if(event.type == 'focusout')
+		{
+			$(this).val() == '' ? $(this).val('搜本店') : false;
+		}
+		else
+		{
+			$(this).val() == '搜本店' ? $(this).val('') : false;
+		}
+	});
+
+	$('#city-picker').citypicker();
+
+	var cart = $('.add-cart').MiaoDialog();
+
+	$('.ig-basket').on('click', function(event) {
+		cart.MiaoDialog('open','fade');
+	});
+	$('.add-c-back').on('click', function(event) {
+		cart.MiaoDialog('close','fade');
+	});
+});
+
+</script>
+
+<body>
+	<div class="M_Header">
+		<div class="hd-bg">
+			<p class="hd-pink"></p>
+		</div>
+		<div class="hd-index M_Center">
+			<div class="hd-main">
+				<ul class="float-center clearfix">
+					<li class="hd-m-btn" ><a href="#">展会</a></li>
+					<li class="hd-m-btn fixed"><a href="#">社团铺</a></li>
+					<li class="hd-m-logo"></li>
+					<li class="hd-m-btn" ><a href="#">我的</a></li>
+					<li class="hd-m-btn" ><a href="#">同人闲情</a></li>
+				</ul>
+			</div>
+			<div class="hd-nav-r">
+				<ul class="hd-nav-not">
+					<li><a href="#">登录</a></li>
+					<li><a href="#">注册</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="M_Center">
+		<div class="M_Layout M_BTM_20 shelf-info">
+			<!-- background 100% of < IE9 -->
+			<img src="images/miao-mass-info-bg.png">
+			<div class="si-mass">
+				<p class="si-name">黑森林</p>
+				<p class="si-time">开张时间:2016.12.34</p>
+				<p class="si-disc">社团介绍社团介绍社团介绍社团介绍社团介绍社团介绍社团介绍社团介绍社团介绍社团介绍社团介绍社团介绍社团介绍社团介绍社团介绍社团介绍</p>
+				<a class="si-img" href="#"><img src="images/miao-mass-info.png"></a>
+				<p class="si-right">
+					<a class="si-call" href="#"><b>联系客服</b></a>
+					<a class="si-follow" href="#"><b>&#43;</b>关注</a>
+					<span class="si-num">关注人数:<i>115</i>人</span>
+				</p>
+			</div>
+		</div>
+
+		<div class="M_Layout M_BTM_15">
+			<div class="item-grid clearfix">
+				<div class="ig-view">
+					<div id="slideshow" class="flexslider">
+						<ul class="slides">
+							<li><img src="images/s1.jpg" /></li>
+							<li><img src="images/s2.jpg" /></li>
+							<li><img src="images/s3.jpg" /></li>
+							<li><img src="images/s4.jpg" /></li>
+							<li><img src="images/s5.jpg" /></li>
+						</ul>
+					</div>
+					<div id="carousel" class="flexslider">
+						<ul class="slides">
+							<li><img src="images/s1.jpg" /></li>
+							<li><img src="images/s2.jpg" /></li>
+							<li><img src="images/s3.jpg" /></li>
+							<li><img src="images/s4.jpg" /></li>
+							<li><img src="images/s5.jpg" /></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="ig-spec">
+					<h3>世界与世界的游戏</h3>
+					<h6>副标题副标题副标题</h6>
+					<h6>原作:血界战线</h6>
+					<h6>所属同人圈:史蒂芬克劳斯</h6>
+					<div class="ig-beige clearfix">
+						<div class="ig-price">价格:<i>￥160</i></div>
+						<div class="ig-vol">
+							<p> <i>152</i> <i>销量</i> </p>
+							<p> <i>45678</i> <i>累计评论</i></p>
+						</div>
+					</div>
+					<div class="ig-logistic clearfix" id="distpicker">
+						<ul>
+							<li>运费: 上海 至</li>
+							<li>
+								<!-- 设置默认区:使用分隔符 上海市/上海市/虹口区 -->
+								<input id="city-picker" readonly="readonly" type="text" value="" data-toggle="city-picker">
+							</li>
+							<li>快递: 5.00</li>
+						</ul>
+					</div>
+
+					<div class="ig-type clearfix">
+						<i>选择版本:</i>
+						<p>
+							<a href="#">同人本</a>
+							<a class="fixed" href="#">同人本+特典</a>
+							<a href="#">同人本</a>
+							<a href="#">同人本+特典</a>
+							<a href="#">同人本+特典</a>
+							<a href="#">同人本+特典</a>
+							<a href="#">同人本+特典</a>
+							<a href="#">同人本+特典</a>
+							<a href="#">同人本+特典</a>
+						</p>
+					</div>
+					<div class="ig-count clearfix">
+						<i>选择版本:</i>
+						<span class="ig-c-minus"></span>
+						<input type="text" value="1" />
+						<span class="ig-c-push"></span>
+						<i>件</i>
+						<i>(库存100008件)</i>
+					</div>
+					<div class="ig-btn">
+						<div class="float-center">
+							<a class="ig-buy" href="#">
+								<i class="ig-b-size1">买</i>
+								<i class="ig-b-size2">买</i>
+								<i class="ig-b-size3">买</i>
+							</a>
+							<a class="ig-basket" href="#">长&nbsp;草</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<p class="l-txt">店铺其他商品</p>
+			<div id="M_BookList" class="M_ItemFive clearfix">
+				<div class="flexslider">
+					<ul class="slides">
+						<li>
+							<a class="M_ItemSmall" href="#">
+								<ul>
+									<li class="M_Item_1"><img src="images/s1.jpg"></li>
+									<li class="M_Item_3">神的情书的情书情书书</li>
+									<li class="M_Item_2">￥58</li>
+								</ul>
+							</a>
+						</li>
+						<li>
+							<a class="M_ItemSmall" href="#">
+								<ul>
+									<li class="M_Item_1"><img src="images/s1.jpg"></li>
+									<li class="M_Item_3">神的情书的情书情书书</li>
+									<li class="M_Item_2">￥58</li>
+								</ul>
+							</a>
+						</li>
+						<li>
+							<a class="M_ItemSmall" href="#">
+								<ul>
+									<li class="M_Item_1"><img src="images/s1.jpg"></li>
+									<li class="M_Item_3">神的情书的情书情书书</li>
+									<li class="M_Item_2">￥58</li>
+								</ul>
+							</a>
+						</li>
+						<li>
+							<a class="M_ItemSmall" href="#">
+								<ul>
+									<li class="M_Item_1"><img src="images/s1.jpg"></li>
+									<li class="M_Item_3">神的情书的情书情书书</li>
+									<li class="M_Item_2">￥58</li>
+								</ul>
+							</a>
+						</li>
+						<li>
+							<a class="M_ItemSmall" href="#">
+								<ul>
+									<li class="M_Item_1"><img src="images/s1.jpg"></li>
+									<li class="M_Item_3">神的情书的情书情书书</li>
+									<li class="M_Item_2">￥58</li>
+								</ul>
+							</a>
+						</li>
+						<li>
+							<a class="M_ItemSmall" href="#">
+								<ul>
+									<li class="M_Item_1"><img src="images/s1.jpg"></li>
+									<li class="M_Item_3">神的情书的情书情书书</li>
+									<li class="M_Item_2">￥58</li>
+								</ul>
+							</a>
+						</li>
+						<li>
+							<a class="M_ItemSmall" href="#">
+								<ul>
+									<li class="M_Item_1"><img src="images/s1.jpg"></li>
+									<li class="M_Item_3">神的情书的情书情书书</li>
+									<li class="M_Item_2">￥58</li>
+								</ul>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="M_Layout M_Left mass-group">
+			<div class="mg-search">
+				<input type="text" name="search" value="搜本店">
+				<a href="#"></a>
+			</div>
+			<p class="mg-head">分类</p>
+			<ul class="mg-main">
+				<li>
+					<a class="mg-fold mg-push clearfix" href="#"><i></i><b>全部</b></a>
+					<ul class="mg-ul">
+						<li><a href="#">卡贴</a></li>
+						<li><a href="#">钥匙扣</a></li>
+						<li><a href="#">杯子</a></li>
+					</ul>
+				</li>
+				<li>
+					<a class="mg-fold mg-minus clearfix" href="#"><i></i><b>生活小物</b></a>
+					<ul class="mg-ul">
+						<li><a href="#">卡贴</a></li>
+						<li><a href="#">钥匙扣</a></li>
+						<li><a href="#">杯子</a></li>
+					</ul>
+				</li>
+				<li>
+					<a class="mg-fold mg-minus clearfix" href="#"><i></i><b>本子</b></a>
+					<ul class="mg-ul">
+						<li><a href="#">同人本</a></li>
+						<li><a href="#">原创本</a></li>
+					</ul>
+				</li>
+				<li>
+					<a class="mg-fold mg-minus clearfix" href="#"><i></i><b>服装</b></a>
+					<ul class="mg-ul">
+						<li><a href="#">T恤衫</a></li>
+						<li><a href="#">帽子</a></li>
+					</ul>
+				</li>
+			</ul>
+			<div class="mg-shop">
+				<h3>黑森林</h3>
+				<p>店铺类型：同人铺</p>
+				<a href="#"><b>联系客服</b></a>
+			</div>
+		</div>
+
+		<div class="M_Layout M_Right">
+			<div class="item-tab border clearfix">
+				<ul>
+					<li class="fixed"><a href="#" menu="spxq">商品详情</a></li>
+					<li><a href="#" menu="ljpj">累计评价(490)</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="M_Layout M_Right M_BTM_20" parent="spxq">
+			<div class="item-attr">
+				<dl class="ia-index">
+					<dt>商品规格</dt>
+					<dd>
+						<ul>
+							<li>所属圈子：非crossover</li>
+							<li>原作：血界战线</li>
+							<li>所属同人圈：史蒂芬克劳斯</li>
+							<li>二次元属性：大众向</li>
+						</ul>
+					</dd>
+					<dd>
+						<ul>
+							<li>所属圈子：非crossover</li>
+							<li>原作：血界战线</li>
+							<li>所属同人圈：史蒂芬克劳斯</li>
+							<li>二次元属性：大众向</li>
+						</ul>
+					</dd>
+					<dd>
+						<ul>
+							<li>所属圈子：非crossover</li>
+							<li>原作：血界战线</li>
+							<li>所属同人圈：史蒂芬克劳斯</li>
+							<li>二次元属性：大众向</li>
+						</ul>
+					</dd>
+				</dl>
+				<img src="images/item.jpg">
+			</div>
+		</div>
+
+		<div class="M_Layout M_Right" parent="spxq">
+			<div class="item-tab border clearfix">
+				<ul>
+					<li><a href="javascript:;">累计评价(490)</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="M_Layout M_Right M_BTM_175"  parent="ljpj">
+			<div class="item-review">
+				<p class="ir-filter clearfix">
+					<label><input type="radio" name="filter" checked="checked">全部</label>
+					<label><input type="radio" name="filter">晒图</label>
+					<label><input type="radio" name="filter">好评</label>
+					<label><input type="radio" name="filter">中评</label>
+					<label><input type="radio" name="filter">差评</label>
+				</p>
+				<div class="ir-grid">
+					<ul class="ir-g-ul clearfix">
+						<li class="ir-g-head"><img src="images/head1.png"></li>
+						<li class="ir-g-context">
+							<p class="ir-gc-name">
+								<b>JCSED……匿名</b>
+								<i>2015年12月5日晚上12点18分</i>
+							</p>
+							<p class="ir-gc-txt"> Great ,Very like it!! awesome work, so the world is lighter  Great ,Very like it!! awesome work, so the world is lighter </p>
+							<p class="ir-gc-img clearfix">
+								<img src="images/book-1.png">
+								<img src="images/book-2.png">
+								<img src="images/book-3.png">
+							</p>
+							<p class="ir-gc-big">
+								<img src="images/book-2.png">
+							</p>
+							<p class="ir-gc-reply">店家回复:你的满意是对我们最大的支持和认可，志伟一定会继续努力传播美丽志伟一定会继续努力传播美丽志伟一定会继续努力传播美丽</p>
+						</li>
+						<li class="ir-g-star"><i></i> <i></i> <i></i> <i></i> <i></i></li>
+						<li class="ir-g-ver"><b>版本:</b><i>同人本</i></li>
+					</ul>
+
+					<ul class="ir-g-ul clearfix">
+						<li class="ir-g-head"><img src="images/head1.png"></li>
+						<li class="ir-g-context">
+							<p class="ir-gc-name">
+								<b>JCSED……匿名</b>
+								<i>2015年12月5日晚上12点18分</i>
+							</p>
+							<p class="ir-gc-txt"> 很不错，质量也特别好 很不错，质量也特别好 很不错，质量也特别好 很不错，质量也特别好 很不错，质量也特别好 很不错，质量也特别好 很不错，质量也特别好 很不错，质量也特别好 很不错，质量也特别好 很不错，质量也特别好 很不错，质量也特别好 </p>
+							<p class="ir-gc-img clearfix">
+								<img src="images/book-1.png">
+								<img src="images/book-2.png">
+								<img src="images/book-3.png">
+							</p>
+							<p class="ir-gc-big">
+								<img src="images/book-2.png">
+							</p>
+							<p class="ir-gc-reply"></p>
+						</li>
+						<li class="ir-g-star"><i></i> <i></i> <i></i></li>
+						<li class="ir-g-ver"><b>版本:</b><i>同人本+金典</i></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="M_Page">
+				<span>共 <i>9998</i> 页</span>
+				<a class="index" href="#">首页</a>
+				<a href="#">&lt;</a>
+				<a class="fixed" href="#">1</a>
+				<a href="#">2</a>
+				<a href="#">3</a>
+				<a href="#">4</a>
+				<a href="#">5</a>
+				<a href="#">6</a>
+				<a href="#">&gt;</a>
+				<a class="index" href="#">尾页</a>
+			</div>
+		</div>
+	</div>
+	<!-- 添加购物车弹框 -->
+	<div class="add-cart">
+		<p class="add-c-cap">添加成功<i class="add-c-true"></i></p>
+		<p class="add-c-count">购物车共有N件商品</p>
+		<p class="add-c-img"><img src="images/applyshop.png" alt=""></p>
+		<p class="add-c-goto"><a href="#">去购物车结算</a></p>
+		<p class="add-c-back"><i>在逛逛</i></p>
+	</div>
+</body>
+</html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>文库 - <if condition="$attr eq 1">大众<elseif condition="$attr eq 3"/>百合<else/>腐</if> - 同人闲情 - 同人瞄</title>
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<tc_include file="Public:nav" />
+<link href="__TMPL__Public/css/trxq_wdr.css" rel="stylesheet" type="text/css" />
+<link href="__TMPL__Public/css/dropkick.css" rel="stylesheet" type="text/css" />
+
+<script src="__TMPL__Public/js/noticeRoll.js"></script>
+<script src="__TMPL__Public/js/miao-GoTop.js"></script>
+<script src="__TMPL__Public/js/miao-Dialog.js"></script>
+<script src="__TMPL__Public/js/jquery.Rotate.2.2.js"></script>
+<script src="__TMPL__Public/js/jquery.dropkick-min.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+	new Slide("notice_picture","left",13)
+	//下拉选择框
+	$('.dropkick').dropkick({autoWidth:true});
+
+	$(".M-H-li").on('mouseout mouseover', 'a', function(event) {
+		if(event.type == 'mouseover')
+		{
+			$(this).parent().addClass('checked');
+		}
+		else if(event.type == 'mouseout')
+		{
+			$(this).parent().removeClass('checked');
+		}
+	});
+
+
+	$(".M_GoTop").MiaoGoTop({
+		fixed: true,
+		x: 960, //960是页面宽
+		xMargin: 15, //距离页面和屏幕右边最小的边距
+		y: 60 //距离底部
+	});
+
+	$(".align_left a").each(function(){
+		var text = $(this).text();
+		if($(this).text().length > 42)
+		{
+			$(this).text(text.substring(0, 42) + "...");
+		}
+	})
+});
+
+
+
+
+</script>
+
+<style>
+	.dk_container {
+		border: 1px solid #ccc;
+
+	}
+
+	.dk_options {
+		border: 1px solid #ccc;
+
+	}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+	<!--上面是页头-->
+
+
+	<!--下面是海报三大块-->
+	<div class="wdr_Center">
+		<div class="wdr_Layout trxq-info clearfix">
+			<!-- background 100% of < IE9 -->
+			<div class="top_Picture">
+				<img src="__TMPL__Public/images/banner.jpg" style="margin-bottom:-5px;">
+				 <ul>
+				     <a href="{:U('index/index',array('attr'=>1))}" class="left_picture <if condition='$attr eq 1'>act</if>">大  众</a>
+				     <a href="{:U('index/index',array('attr'=>2))}" class="middle_picture <if condition='$attr eq 2'>act</if>">广 付 肉</a>
+				     <a href="{:U('index/index',array('attr'=>3))}" class="right_picture <if condition='$attr eq 3'>act</if>">百 合</a>
+   				 </ul>
+			</div>
+
+			<div class="notice_picture" id="notice_picture">
+				<ul class="clearfix">
+					<foreach name="rollNotice" item="vo">
+						<li>
+							<a class="stopNotice" target="_blank" style="color:#f09170;" href="{:U('index/topicDetail',array('noticeId'=>$rollNotice[0]['id'],'isglobal'=>$rollNotice[0]['type'],'type'=>3,address=>1,'tzAttr'=>$attr))}">{$vo.title}</a>
+						</li>
+					</foreach>
+				</ul>
+			</div>
+
+			<!--下面是复选框-->
+			<div class="select111">
+        		<div class="select">
+					<form action="{:U('index/trleisure_library',array('attr'=>$attr))}" method="post" id="tagForm">
+						<foreach name="libraryTag" item="tag">
+							<if condition="$libTagArr neq ''">
+								<div class="<in name='key' value='$libTagArr'>select_qx checked</in>" onclick="formTag(this)">
+									<label class="select_1"></label>
+									<a class="select_bj">{$tag}</a>
+									<in name='key' value="$libTagArr"><input type="hidden" name="tagId[]" value="{$key}"><else/><input type="hidden" value="{$key}"></in>
+								</div>
+								<else/>
+								<div class="select_qx checked" onclick="formTag(this)">
+									<label class="select_1"></label>
+									<a class="select_bj">{$tag}</a>
+									<input type="hidden" name="tagId[]" value="{$key}">
+								</div>
+							</if>
+						</foreach>
+						<div class="right_select">
+							<a href="{:U(index/trleisure_library,array('attr'=>$attr,'status'=>1))}" class="<if condition='$status eq 1'>act<else/>first</if>">【全部】</a>
+							<a href="{:U(index/trleisure_library,array('attr'=>$attr,'status'=>2))}" class="<if condition='$status eq 2'>act<else/>first</if>">【套红区】</a>
+							<a href="{:U(index/trleisure_library,array('attr'=>$attr,'status'=>3))}" class="<if condition='$status eq 3'>act<else/>first</if>">【精品区】</a>
+							<input name="status" value="{$status}" type="hidden">
+							<input name="attr" value="{$attr}" type="hidden">
+						</div>
+					</form>
+				</div>
+			</div>
+
+            <!-- 板块start-->
+			<div class="fan_plate">
+				<ul class="M_ColumnList1">
+					<li class="checked" ><a target="_blank" href="{:U('index/newInvitation',array('attr'=>$attr,lib=>1))}" style="color:#fff;font-weight:bold">发表&nbsp;<span style="color: #000;">文章</span></a></li>
+					<if condition="$login eq '1'">
+						<li><a href="{:U('index/selfInvitation')}" style="color:#666">我的帖子</a></li>
+						<else/>
+						<li style="cursor:auto">我的帖子</li>
+					</if>
+				</ul>
+				<form action="{:U('index/xqTrleisureSearch',array('lib'=>1,attr=>$attr))}" method="post">
+					<div class="mediate_library">
+						<div class="search_library">
+							<input type="text" class="library_Input" name="searchInfo"/>
+							<input type="image" style="margin-top: 4px;" src="__TMPL__Public/images/trxq/search_03.png"  />
+						</div>
+					</div>
+					<div class="library_xiala">
+						<select name="titleType" class="dropkick" tabindex="2">
+							<foreach name="searchField" item="field">
+								<option value="{$key}">{$field}</option>
+							</foreach>
+						</select>
+					</div>
+				</form>
+			</div>
+
+            <!-- 板块end -->
+
+             <!-- 发帖start-->
+
+			<!-- 发帖end-->
+
+
+			<!-- 新的start-->
+
+			<div class="fan_post">
+				<table cellpadding="0" cellspacing="0">
+					<tr class="title">
+						<td class="bianqian title">标签</td>
+						<td class="zhuti title">主题</td>
+						<td class="zuozhe title">作者<td>
+						<td class="fabushijian title" style="font-size: 14px;">发布时间</td>
+						<td class="huifushu title" style="font-size: 14px;">回复数</td>
+						<td class="huifushijian title" style="font-size: 14px;">回复时间</td>
+					</tr>
+					<foreach name="notice" item="vo">
+						<if condition="$vo.sort neq 0">
+							<tr class="bg" height="40px;">
+								<td style="color: red;">公告</td>
+								<td class="align_left" ><a target="_blank" href="{:U('index/topicDetail',array('noticeId'=>$vo['id'],'type'=>4,'address'=>2,'tzAttr'=>$attr))}" style="color:red;font-size: 16px;">{$vo.title}</a></td>
+								<td style="color:red;font-size: 16px;">{$vo.nickname}<td>
+								<td class="fabushijian">{$vo.createtime|date='Y-m-d H:i',###}</td>
+								<td class="huifushu">{$vo['replies']}</td>
+								<td class="huifushijian">{$vo['lasttime']|date='Y-m-d H:i',###}</td>
+							</tr>
+						</if>
+					</foreach>
+
+				</table>
+				<div class="theme_title">主题</div>
+				<table cellpadding="0" cellspacing="0">
+					<volist name="AllArticle" id="topic">
+						<tr class="bg" style="vertical-align: top;">
+							<td class="bianqian" <if condition="$topic['type'] eq 3">style="color:red"<else/>style="color: #BBA324;"</if>>{$topic['typename']}</td>
+							<td class="zhuti align_left">
+
+									<if condition="$topic['uptime'] neq null">
+										<span class="ding"></span>
+									</if>
+									<if condition="$topic['isexcellent'] eq 1">
+										<span class="jing"></span>
+									</if>
+									<if condition="$topic['sort'] neq 0">
+										<span class="ding"></span>
+									</if>
+									<a target="_blank" href="{:U('index/topicDetail',array(id=>$topic['tid'],attr=>$topic['attr'],type=>$topic['rtype'],'address'=>2,'tzAttr'=>$attr))}" <if condition="($topic['isred'] eq 1) OR ($topic['type'] eq 3)">style="color:red;font-size: 16px;"</if> class="theme" style="font-size: 16px;"><if condition="$topic.type neq '3'">{$topic['author']}{$topic['cpname']}</if>{$topic['title']}</a>
+
+								<p style="margin: 10px 0;">
+								<if condition="$topic['tagInfo'] neq null">
+									<volist name="topic['tagInfo']" id="tagInfo">
+										<div class="hobby_text">{$tagInfo}</div>
+									</volist>
+								</if>
+								</p>
+							</td>
+							<if condition="$topic.type eq 3 || $topic.isadmin eq 1">
+								<td class="zuozhe" style="color: red;padding-bottom:10px;font-size: 16px;">{$topic['nickname']}<td>
+								<else/>
+								<td class="zuozhe" style="padding-bottom:10px;font-size: 16px;">{$topic['nickname']}<td>
+							</if>
+							<td class="fabushijian">{$topic['createtime']|date='Y-m-d H:i',###}</td>
+							<td class="huifushu">{$topic['replies']}</td>
+							<td class="huifushijian">{$topic['lasttime']|date='Y-m-d H:i',###}</td>
+						</tr>
+					</volist>
+				</table>
+			</div>
+			<!-- 新的end-->
+
+			<!-- 底部开始-->
+			<div class="bottom_title">
+				<!--<a href="javascript:history.go(-1)" style="float: left; font-size: 14px;">-->
+					<!--<< 返回 同人闲情-<if condition="$attr eq 1">大众<elseif condition="$attr eq 2"/>腐向<else/>百合</if></a>-->
+				<div style="float:right; width: 770px; text-align: right;">
+				{$page}
+				</div>
+				<!--<a href="#" class="home_page">首页</a>-->
+				<!--<a href="#" class="home_page">上一页</a>-->
+				<!--<a href="#" class="home_page">下一页</a>-->
+				<!--<a href="#" class="home_page">末页</a>-->
+				<!--<span class="bottom_skip">&nbsp;跳转到&nbsp;<input type="text" size="4" class="skiptext"  />&nbsp;页 <input type="button" value="跳转" />&nbsp;共&nbsp;2333&nbsp;页</span>-->
+           </div>
+			<!-- 底部end-->
+			<p style="color: #000;font-size: 12px;position: absolute; left: 0; bottom: 5px; right: 0;  " >沪ICP备16017797号</p>
+		</div>
+	</div>
+	<!--<a class="M_GoTop" href="javascript:;"></a>-->
+	<input type="hidden" id="tagNum" value={$jsonTagArr}>
+</body>
+</html>
+<script>
+	$(function() {
+		var attr = '{$attr}';
+		var url = $('.tiaozhuan').attr("href");
+		var totalPage = $("#totalPage").text();//获取总页数
+		var tagId = $("#tagNum").val();
+		var status = {$status};
+		if(totalPage<2)
+		{
+			$("#jump").hide();
+		}
+		var prev = $(".prev").attr('href');//获取上一页
+		var next = $(".next").attr('href');//获取下一页
+		var newprev = prev+'&status='+status+'&tag='+tagId;
+		var newnext = next+'&status='+status+'&tag='+tagId;
+		$(".prev").attr('href',newprev);
+		$(".next").attr('href',newnext);
+		$("#test").removeAttr('href');//禁止跳转
+		$('#z').bind('input propertychange', function() {
+			var totalPage = $("#totalPage").text();
+			var value = this.value;
+			var all = $('.all').attr("title");
+			var i = parseFloat(all);//将字符转化成数字
+			if (value <= i && !isNaN(value) && value > 0 && value !="") {
+				value = Math.ceil(value);
+				var newurl = url+ value+'&attr='+attr;
+				$('.tiaozhuan').attr("href", newurl);
+			}
+			else
+			{
+				$("#test").removeAttr('href');//禁止跳转
+			}
+		})
+	})
+	//回车触发按钮点击
+	document.onkeydown=function()
+	{
+		if (event.keyCode == 13)
+		{
+			document.getElementById("test").click();
+		}
+	}
+	//筛选标签
+	function formTag(obj)
+	{
+		var tag = $("#tagNum").val();
+
+		if($(obj).hasClass('checked'))
+		{
+			if(tag)
+			{
+				var tagNum = eval("("+tag+")");
+				if(tagNum.length < 2)
+				{
+					alert("至少要选择一项");
+					return false;
+				}
+			}
+			$(obj).find('input').removeAttr('name');
+		}
+		else
+		{
+			$(obj).find('input').attr('name','tagId[]');
+		}
+		$("#tagForm").submit();
+	}
+
+</script>
+
+

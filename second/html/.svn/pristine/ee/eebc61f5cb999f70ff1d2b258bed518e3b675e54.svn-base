@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="format-detection" content="telephone=no"/>
+<title>喵</title>
+<link href="../css/global.css" rel="stylesheet" type="text/css">
+<link href="../css/public.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+
+</style>
+
+<script src="../js/jquery-2.2.4.min.js"></script>
+<script src="../js/jqurey-filter.js"></script>
+<script type="text/javascript">
+
+$().ready(function() {
+	/*调用jqurey-filter.js*/
+	})
+
+
+</script>
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex">
+	<section class="header">
+		<div class="header-bg normal">
+			<div class="header-off"><a href="#" ></a></div>
+			<div class="header-c "><p class="detail">全部原作</p></div>
+		</div>
+		<div class="search-in"><input type="text" placeholder="输入地区名称或使用拼音检索"></div>
+	</section>
+	<!-- 主体 -->
+	<section class="content">
+        <div id="filter_sort">
+		</div>
+		<div class="search-whole">
+			<div class="search-filter  clearfix">
+				<i id="sequence"></i>
+				<b id="A">A</b>
+				<p>132132</p>
+				<p>132132</p>
+				<p>132132</p>
+				<p>132132</p>
+				<b id="B">B</b>
+				<p>132132</p>
+				<p>132132</p>
+				<p>132132</p>
+				<p>132132</p>
+				<b id="C">C</b>
+				<p>132132</p>
+				<p>132132</p>
+				<p>132132</p>
+				<p>132132</p>
+				<b id="D">D</b>
+				<b id="E">E</b>
+				<b id="F">F</b>
+				<b id="G">G</b>
+				<b id="H">H</b>
+				<b id="I">I</b>
+				<p>132132</p>
+				<p>132132</p>
+				<p>132132</p>
+				<p>132132</p>
+				<b id="J">J</b>
+				<b id="K">K</b>
+				<b id="L">L</b>
+				<b id="M">M</b>
+				<p>132132</p>
+				<p>132132</p>
+				<p>132132</p>
+				<b id="N">N</b>
+				<b id="O">O</b>
+				<b id="P">P</b>
+				<b id="Q">Q</b>
+				<b id="R">R</b>
+				<b id="S">S</b>
+				<b id="T">T</b>
+				<b id="U">U</b>
+				<b id="V">V</b>
+				<b id="W">W</b>
+				<p>132132</p>
+				<p>132132</p>
+				<p>132132</p>
+				<b id="X">X</b>
+				<b id="Y">Y</b>
+				<b id="Z">Z</b>
+				<b id="num">#</b>
+				<!--<a class="filter-determine" href="#">-->
+				<!--保存-->
+				<!--</a>-->
+			</div>
+			<div class="initials" id="initials-css1" >
+				<ul>
+					<li> </li>
+				</ul>
+			</div>
+			<div class="filter-letter">
+			</div>
+		</div>
+
+	</section>
+	<div class="content-cover2"></div>
+	<section class="footer">
+	</section>
+</section>
+</body>
+</html>
+<script>
+//	$(function(){
+//		IndexList();
+//	})
+//	function IndexList()
+//	{
+//		var url = "/tongrenmiao/index.php?g=Mall&m=index&a=main";
+//		$.ajax({
+//			url:url,
+//			data:{},
+//			dataType:'json',
+//			type:'post',
+//		}).done(function(ret)
+//		{
+//			/*调用jqurey-filter.js*/
+//			initials(ret.new);
+//		})
+//	}
+
+$(".search-in >input").bind('input','oninput',function(){
+	if($(this).val() == "")
+	{
+		$(".search-whole").show();
+		$("#filter_sort").hide();
+		return false;
+	}
+	  $(".search-whole").hide();
+	$.ajax({
+		url:'',
+		data:{'name':$(this).val()},
+		type:'get',
+		dataType:'json',
+		success:function(res){
+		handleHtml(res);
+		},
+		error:function(){
+
+		}
+	})
+});
+
+	function handleHtml(list)
+	{
+		var str = '';
+		$.each(list,function(k,v){
+			str += '<p>'+v+'</p>';
+		})
+		$('#filter_sort').html(str);
+	}
+
+</script>

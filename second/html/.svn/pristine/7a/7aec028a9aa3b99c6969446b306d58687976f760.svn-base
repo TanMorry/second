@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="format-detection" content="telephone=no"/>
+<title>喵</title>
+<link href="css/global.css" rel="stylesheet" type="text/css">
+<link href="css/public.css" rel="stylesheet" type="text/css">
+<link href="plugin/swiper.css" rel="stylesheet" type="text/css">
+<link href="css/detail.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	
+</style>
+
+<script src="js/jquery-2.2.4.min.js"></script>
+<script src="plugin/swiper.jquery.min.js"></script>
+<script src="plugin/iscroll.js"></script>
+<script src="plugin/pullToRefresh.js"></script>
+<script src="js/obtainArguments.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+	var mySwiper = new Swiper('.swiper-container', {
+		autoplay: 2000,
+		speed: 500,
+		autoplayDisableOnInteraction: false,
+		autoHeight: true,
+		loop: true,
+		pagination : '.swiper-pagination'
+	});
+	
+	
+	/*弹框*/
+	$('.header').on('click', '.other', function(event) {
+		if( $(".header-pop-ups").css('display') == 'none' ){
+			$(".header-pop-ups").slideDown();
+		}
+		else{
+			$(".header-pop-ups").css('display','none');
+		}
+	});	
+	$('.content').on('click', function(event) {
+		$(".header-pop-ups").css('display','none');
+	});	
+	$('.footer').on('click', function(event) {
+		$(".header-pop-ups").css('display','none');
+	});	
+	
+	/*弹框*/
+	$('.dp-style').on('click', function(event) {
+		if( $(".footer-pop-ups").css('display') == 'none' ){
+			$(".footer-pop-ups-blackground").css('display','block');
+			$(".footer-pop-ups").slideDown();
+		}
+		else{
+			
+		}
+	});	
+	$('.fpp-X').on('click','a', function(event) {
+		$(".footer-pop-ups-blackground").css('display','none');
+		$(".footer-pop-ups").css('display','none');
+	});	
+	
+	/*数量加减*/
+	$(".detail-count").on('click', 'a', function(event) {
+		var $count = $(this).parents(".detail-count").find("input");
+		if($(this).hasClass('detail-count-sub'))
+		{
+			$count.val(parseInt($count.val(), 10) - 1 || 1);
+		}
+		else if($(this).hasClass('detail-count-add'))
+		{
+			$count.val(parseInt($count.val(), 10) + 1 || 1);
+		}
+	});
+	/*输入数量验证*/
+	$(".detail-count input").on('blur input propertychange', function(event) {
+
+		function isEmpty (val)
+		{
+			return val == '' || val === null || val === undefined;
+		}
+
+		var val = $(this).val();
+		/*如果不是空则强转数字*/
+		if (!isEmpty(val))
+		{
+			val = parseInt(val.replace(/[^\d]/ig,''), 10);
+		}
+
+		isNaN(val) ? $(this).val(1) : $(this).val(val);
+		
+		if(event.type == 'blur' || event.type == 'focusout')
+		{
+			if(isEmpty(val))
+			{
+				$(this).val(1);
+			}
+		}
+	});
+	
+	/*颜色选择*/
+	$(".fpp-color").on('click', 'a', function(event) {
+		$(this).addClass('fpp-color-select');
+		$(this).siblings('a').removeClass('fpp-color-select');
+	});
+	
+});
+	
+	
+	
+</script>
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex">
+
+	<section class="header">
+		<div class="header-float">
+			<div class="header-l">
+				<div class="header-float-pad"><a class="back" href="#"></a></div>
+			</div>
+			<div class="header-r">
+				<div class="header-float-pad"><a class="other" href="#"></a></div>
+			</div>
+			<div class="header-r">
+				<div class="header-float-pad"><a class="cart" href="#"></a></div>
+			</div>
+		</div>
+		<div class="header-pop-ups">
+			<div class="hpp-arrow"></div>
+			<a href="#">
+				<div class="hpp-content border-dashed">
+					<i class="nav1"></i>消息
+				</div>
+			</a>
+			<a href="#">
+				<div class="hpp-content border-dashed">
+					<i class="nav2"></i>首页
+				</div>
+			</a>
+			<a href="#">
+				<div class="hpp-content">
+					<i class="nav3"></i>分享
+				</div>
+			</a>
+		</div>
+	</section>
+	<!-- 主体 -->
+	<section class="content">
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide"><a href="#"><img src="img/slide/1.jpg"></a></div>
+				<div class="swiper-slide"><a href="#"><img src="img/slide/2.jpg"></a></div>
+				<div class="swiper-slide"><a href="#"><img src="img/slide/3.jpg"></a></div>
+			</div>
+			<!-- 分页器 -->
+			<div class="swiper-pagination"></div>
+		</div>
+		
+		<div class="detail part">
+			<div class="detail-share clearfix">
+				<p>满踪二次元主题多款开衫针织衫卡通游戏毛衣动漫外套周边衣服现货</p>
+				<div><a class="nav1" href="#">分享</a></div>
+			</div>
+			<p class="detail-money">￥69</p>
+			<ul class="detail-share-foot">
+				<li class="text-left">快递：6.00</li>
+				<li>月销200笔</li>
+				<li class="text-right">广州广东</li>
+			</ul>
+		</div>
+		<div class="detail part">
+			<a class="detail-share-enter dp-style clearfix" href="#">
+				<p>选择 规格/样式</p>
+				<i class="enter"></i>
+			</a>
+		</div>	
+		<div class="detail part">
+			<div class="detail-share-enter clearfix">
+				<p>商品价格(176)</p>
+			</div>
+			<div class="detail-access-img clearfix">
+				<img class="img2" src="img/flower.png"/><p>好评(123)</p>
+				<img class="img3" src="img/flower.png"/><p>中评(32)</p>
+				<img class="img4" src="img/flower.png"/><p>差评(12)</p>
+			</div>
+			<div class="detail-access clearfix">
+				<div class="detail-access-title clearfix">
+					<img src="img/test/item2.jpg"/><p>狗*蛋</p>
+				</div>
+				<div class="detail-access-content clearfix">
+					<p>很好看！！很好看！！很好看！！很好看！！很好看！！很好看！！很好看！！很好看！！很好看！！很好看！！很好看！！很好看！！很好看！！很好看！！</p>
+				</div>
+				<div class="detail-access-foot clearfix">
+					<p>规格/样式</p><p>2016-04-12</p>
+				</div>
+				<div class="detail-access-all">
+					<a class="detail-access-pad" href="#">查看全部评价</a>
+				</div>
+			</div>
+		</div>
+		<div class="detail part">
+			<div class="detail-commodity detail-access-borderbtm clearfix">
+				<div class="detail-commodity-box1">
+					<img src="img/test/item2.jpg"/>
+				</div>
+				<div class="detail-commodity-box1">
+					<p>二次元之家</p>
+					<a href="#"><div class="detail-commodity-enter">进店逛逛</div></a>
+				</div>
+				<div class="detail-commodity-box3">
+					<div class="detail-commodity-box3-pad borderl">
+						<p class="font1">60</p>
+						<p class="font2">全部宝贝</p>
+					</div>
+				</div>
+				<div class="detail-commodity-box3">
+					<div class="detail-commodity-box3-pad">
+						<p class="font1">60</p>
+						<p class="font2">关注人数</p>
+					</div>
+				</div>
+			</div>
+			<div class="detail-commodity clearfix">
+				<div class="detail-commodity-box2">
+					<p>热卖商品</p>
+				</div>
+				<div class="detail-commodity-box1">
+					<img src="img/test/item2.jpg"/>
+				</div>
+				<div class="detail-commodity-box1">
+					<p>商品名称</p>
+					<p class="price">￥69</p>
+				</div>
+			</div>
+		</div>	
+		<div class="detail part2">
+			<a class="dropdown" href="#">点击或下拉加载图文详情</a>
+		</div>
+
+		
+	</section>
+
+	<section class="footer">
+		<div class="foot-border"></div>
+		<div class="foot-left">
+			<div><a class="nav1" href="#">客服</a></div>
+			<div><a class="nav2" href="#">店铺</a></div>
+		</div>
+		<div class="foot-right">
+			<div><a class="nav1" href="#">加入购物车</a></div>
+			<div><a class="nav2" href="#">立即购买</a></div>
+		</div>
+		
+		
+	</section>
+		
+		
+		
+		<div class="footer-pop-ups-blackground">
+			
+		</div>
+		<div class="footer-pop-ups">
+			<div class="fpp-alpha">
+				<img src="img/test/item2.jpg" class="fpp-logo"/>
+			</div>
+			<div class="fpp-pad">
+				<div class="detail part">
+					<div class="fpp-title detail-access-borderbtm">
+						<b>￥69</b>
+						<p>库存</p>
+						<p>选择颜色</p>
+						<div class="fpp-X">
+							<a href="#">×</a>
+						</div>
+					</div>
+					<div class="fpp-color clearfix">
+						<p class="clearfix">颜色分类</p>
+						<a class="fpp-color-select" href="#">颜色分类</a>
+						<a href="#">颜色分类</a>
+						<a href="#">颜色分类</a>
+						<a href="#">颜色分类</a>
+						<a href="#">颜色分类颜色分类</a>
+						<a href="#">颜色分类颜色分类颜色分类</a>
+					</div>
+				</div>
+				<div class="detail part">
+					<div class="detail-count horizontal-center">
+						<p>购买数量</p>
+						<i class="auto-width"></i>
+						<a class="detail-count-sub" href="#">-</a>
+						<input class="detail-count-write" type="text" value="1">
+						<a class="detail-count-add" href="#">+</a>
+					</div>
+				</div>
+				<div class="dpp-blank"></div>
+				<div class="fpp-cart">
+					<a class="font1" href="#">加入购物车</a>
+					<a class="font2" href="#">立即购买</a>
+				</div>
+			</div>
+			
+			
+		</div>
+	
+</section>
+</body>
+</html>
+<script>
+	var url = new Arguments();
+	var param = url.Request();
+	$(function(){
+
+		
+		IndexList();
+	})
+	function IndexList()
+	{
+		var id = param.id;
+
+		var url = "/tongrenmiao/index.php?g=Mall&m=index&a=goodsDetails";
+		$.ajax({
+			url:url,
+			data:{'id':id},
+			dataType:'json',
+			type:'get',
+		}).done(function(ret)
+		{
+			var newProduct = "";
+			var moods = "";
+			var sales = "";
+			if(ret.maxSales == "" || ret.moods == "" || ret.new == "")
+			{
+				alert('数据加载失败');
+			}
+			else
+			{
+				$.each(ret.new,function(key,val)
+				{
+					newProduct +='<li>\
+									<div class="sale-ones-front" >\
+										<p class="sale-of-img"><img src="img/test/item1.png"></p>\
+										<p class="sale-of-name">'+val.name+'</p>\
+										<p class="sale-of-price">'+val.price+'</p>\
+									</div>\
+								</li>'
+				});
+				$.each(ret.moods,function(key,val)
+				{
+					moods +='<li>\
+								<div class="sale-ones-front">\
+									<p class="sale-of-img"><img src="img/test/item1.png"></p>\
+									<p class="sale-of-name">'+val.name+'</p>\
+									<p class="sale-of-text">原著:伪装者</p>\
+									<p class="sale-of-text">CP圈:楼城</p>\
+									<p class="sale-of-price">'+val.price+'</p>\
+								</div>\
+							</li>'
+				});
+				$.each(ret.maxSales,function(key,val)
+				{
+					sales +='<li>\
+								<div class="sale-ones-front tie">\
+									<p class="sale-of-img"><img src="img/test/item1.png"></p>\
+									<p class="sale-of-name">'+val.name+'</p>\
+									<p class="sale-of-price">'+val.price+'</p>\
+								</div>\
+							</li>'
+				});
+				$("#newProduct").html(newProduct);
+				$("#moods").html(moods);
+				$("#sales").html(sales);
+//				wrapper.refresh();
+			}
+		})
+	}
+</script>

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="format-detection" content="telephone=no"/>
+<title>喵</title>
+<link href="../css/global.css" rel="stylesheet" type="text/css">
+<link href="../css/public.css" rel="stylesheet" type="text/css">
+<link href="../css/receipt-dizhi.css" rel="stylesheet" type="text/css">
+<style type="text/css"></style>
+<script src="../js/jquery-2.2.4.min.js"></script>
+<script src="../js/miao-Dialog.js"></script>
+<script src="../js/jquerty-moveDelete.js"></script>
+<script src="../js/obtainArguments.js"></script>
+
+<script>
+$().ready(function(){
+    var userid = 22;
+	var username;
+	var phone = $('#cpp').MiaoDialog();
+	var phoneF = $('#cppF').MiaoDialog();
+
+
+    /*Ajax*/
+   	var Request = new Arguments();
+	var urlMember = Request.Request();//获取url参数
+	var Default //用来存储该用户的默认地址的id
+
+//	function getUserInfo(id,name)
+//	{
+//		loadAjax(id,name);
+//	}
+	if( !isEmpty(userid) ){
+		loadAjax();
+	}
+	else{
+	}
+
+
+    function loadAjax()//id,name
+	{
+//		userid = id;
+//		username = name;
+        var url = "/tongrenmiao/index.php?g=Mall&m=index&a=addressManagement";
+        $.ajax({
+            url:url,
+            data:{'userid':userid},
+            dataType:'json',
+            type:'get',
+            beforeSend:function()
+            {
+
+            },
+            success:function(ret)
+            {
+            	var queren = urlMember.queren;
+				var from = urlMember.from;
+				var pid = urlMember.pid;
+            	var address = "";
+            	for( i = 0 ; i < ret.addressList.length ; i++ ){
+            		address += '<div class="content-gl content-receipt" id="' + ret.addressList[i].id + '">'
+									if(queren)
+									{
+										if(from)
+										{
+								address += '<a href="../shop-cart/confirm-order.html?from='+from+'&address='+ret.addressList[i].id+'">'
+										}
+										else if(pid)
+										{
+								address += '<a href="../shop-cart/confirm-order.html?pid='+pid+'&address='+ret.addressList[i].id+'">'
+										}
+										else
+										{
+								address += '<a href="../shop-cart/confirm-order.html?address='+ret.addressList[i].id+'">'
+										}
+							address += '<div class="content-gl-one">'
+											if(parseInt(urlMember.address) == ret.addressList[i].id)
+										{
+								address += '<span class="content-gl-color">' + ret.addressList[i].name + '</span>\
+											<span class="content-gl-color">' + ret.addressList[i].mobile + '</span>'
+										}
+										else
+										{
+								address += '<span>' + ret.addressList[i].name + '</span>\
+											<span>' + ret.addressList[i].mobile + '</span>'
+										}
+								address += '<span>' + ret.addressList[i].zip + '</span>\
+										</div >\
+										<div class="content-gl-two">' + ret.addressList[i].address + '</div></a>'
+									}
+									else
+									{
+							address += '<div class="content-gl-one">\
+											<span>' + ret.addressList[i].name + '</span>\
+											<span>' + ret.addressList[i].mobile + '</span>\
+											<span>' + ret.addressList[i].zip + '</span>\
+										</div >\
+										<div class="content-gl-two">' + ret.addressList[i].address + '</div>'
+									}
+							address += '<div class="content-gl-three clearfix">\
+						                <div class="content-three-l">'
+						                if(ret.addressList[i].default == 2)
+						                {
+						                	address +='<span class="content-gl-btn content-gl-bg"></span>'
+						                	Default = ret.addressList[i].id
+						                }
+						                else
+						                {
+						                	address +='<span class="content-gl-btn"></span>'
+						                }
+
+			                    address += '<span >设为默认</span>\
+						                </div>\
+						                <div class="content-three-r">\
+						                    <a class="content-r-first" href="javascript:" >\
+						                        <span class="content-r-icon"></span>\
+						                        <span>编辑</span>\
+						                    </a>\
+						                    <p class="content-r-last">\
+						                        <span class="content-r-icon2 "></span>\
+						                        <span class="delete">删除</span>\
+						                    </p>\
+						                </div>\
+						            </div>\
+					            </div>'
+            	}
+
+            	$('#content').html(address);
+				var str1 = '../shop-cart/confirm-order.html';
+				var str2 = 'new-add-dizhi.html';
+				if(urlMember.pid || urlMember.from)
+				{
+					if(urlMember.pid)
+					{
+						str1 += '?pid='+urlMember.pid;
+						str2 += '?pid='+urlMember.pid;
+					}
+					else if(urlMember.from)
+					{
+						str1 += '?from='+urlMember.from;
+						str2 += '?from='+urlMember.from;
+					}
+
+					if(urlMember.queren)
+					{
+						if(urlMember.address)
+						{
+							str1 += '&address='+urlMember.address;
+							str2 += '&queren=' + urlMember.queren+'&address='+urlMember.address;
+						}
+						else
+						{
+							str2 += '&queren=' + urlMember.queren;
+						}
+					}
+					$("#prev").attr('href',str1);
+				}
+				else
+				{
+					$("#prev").attr('href','javascript:history.go(-1)');
+				}
+
+				$('.footer-btn').find('a').attr('href',str2);
+
+				for( i = 0 ; i < ret.addressList.length ; i++ ){
+					myHref( $('#' + ret.addressList[i].id).find('.content-r-first') );
+				}
+            	$('.content-gl-btn').on('touchend',function(){
+            		loadAjax2( $(this).parents('.content-gl') );
+			    });
+
+            	/*滑动删除*/
+  				movetouch( '.content-gl');
+
+				/*保存*/
+				$('.mtDelete').on('touchend', function(event) {
+					$('.content-cover').show();
+					phone.MiaoDialog('open');
+					cannotMove = true;
+				});
+//				$('.miao-shade').on('touchend',function(event) {
+//					phone.MiaoDialog('close');
+//					cannotMove = false;
+//				});
+				$('#cancel').on('touchend',function(event) {
+					phone.MiaoDialog('close');
+					cannotMove = false;
+					$('.content-cover').hide();
+					return false;
+				});
+				$('#determine').on('touchend',function(event) {
+					var $this;
+					$('.content-gl').each(function(){
+						if( $(this).hasClass('isTurnOn') ){
+							$this = $(this);
+						}
+					});
+					loadAjax3($this);
+					phone.MiaoDialog('close');
+					cannotMove = false;
+				});
+            }
+        })
+    };
+
+    function loadAjax2(e){
+        var url = "/tongrenmiao/index.php?g=Mall&m=index&a=setDefault";
+        var isDefault = 1;
+        if( e.find('.content-gl-btn').hasClass('conten t-gl-bg') ){
+    		isDefault = 2;
+    	}
+        data={};
+        data['userid'] = userid;
+        data['id'] = e.attr('id');
+        data['isDefault'] = isDefault;
+        if(Default)
+        {
+        	data['Default'] = Default;
+        }
+        $.ajax({
+            url:url,
+            data:data,
+            dataType:'json',
+            type:'get',
+            beforeSend:function()
+            {
+
+            },
+            success:function(ret)
+            {
+            	if(ret.error == 1)
+            	{
+	            	if( e.find('.content-gl-btn').hasClass('content-gl-bg') ){
+			    		e.find('.content-gl-btn').removeClass('content-gl-bg');
+			    	}
+			    	else{
+			    		e.siblings('.content-gl').find('.content-gl-btn').removeClass('content-gl-bg');
+			    		e.find('.content-gl-btn').addClass('content-gl-bg');
+			    	}
+			    	if(ret.defaultId)
+			    	{
+			    		Default=ret.defaultId
+			    	}
+            	}
+            	else
+            	{
+            		//失败
+            		phoneF.MiaoDialog('open');
+	            	setTimeout(function(){
+	            		phoneF.MiaoDialog('close');
+	            	},1400);
+            	}
+
+   			}
+        })
+    };
+
+    function loadAjax3(e){
+        var url = "/tongrenmiao/index.php?g=Mall&m=index&a=deleteAddress";
+		var id = e.attr('id');
+        $.ajax({
+            url:url,
+            data:{'id' : e.attr('id')},
+            dataType:'json',
+            type:'get',
+            beforeSend:function()
+            {
+
+            },
+            success:function(ret)
+            {
+				var str = 'guanli-shouhuo-dz.html';
+				e.fadeOut(100);
+				if(urlMember.queren)
+				{
+					if(urlMember.address && parseInt(urlMember.address) == parseInt(id))
+					{
+						//暂时刷新下改变url地址
+						window.location.href = 'guanli-shouhuo-dz.html?queren='+urlMember.queren;
+					}
+				}
+				if(urlMember.pid)
+				{
+					str += '?pid='+urlMember.pid;
+				}
+				else if(urlMember.from)
+				{
+					str += '?from='+urlMember.from;
+				}
+
+				if(parseInt(urlMember.address) == parseInt(id))
+				{
+					window.location.href = str+'&queren='+urlMember.queren;
+				}
+				else
+				{
+					if(urlMember.queren)
+					{
+						str += '&queren='+urlMember.queren;
+					}
+					if(urlMember.address)
+					{
+						str += '&address='+urlMember.address;
+					}
+					location.href = str;
+				}
+				$('.content-cover').hide();
+//				else
+//				{
+//
+//				}
+   			}
+        })
+    };
+
+	function myHref( e ){
+		var str = 'Receipt-dizhi2.html';
+		e.on('touchstart',function(){
+			if(urlMember.pid)
+			{
+				str += '?pid='+urlMember.pid;
+			}
+			else if(urlMember.from)
+			{
+				str += '?from='+urlMember.from;
+			}
+			if(urlMember.queren)
+			{
+				str += '&id='+e.parents('.content-gl').attr('id') + '&queren='+urlMember.queren;
+			}
+			else
+			{
+				str += '&id=' + e.parents('.content-gl').attr('id') ;
+			}
+			if(urlMember.address)
+			{
+				str += '&address='+urlMember.address;
+			}
+			location.href = str;
+
+		});
+	}
+
+    function isEmpty(e){
+		if( e = "" || e == null || e == undefined  ){
+			return true;
+		}
+		else{
+			return false;
+		}
+	};
+})
+</script>
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex">
+    <section class="header">
+        <div class="header-bg normal">
+            <div class="header-l"><a id="prev" href="javascript:history.go(-1)"></a></div>
+            <div class="header-c header-dz new-dz">管理收货地址</div>
+        </div>
+    </section>
+    <!-- 主体 -->
+
+    <section class="content flex ">
+		<div class="content-cover" style="opacity:0;"></div>
+    	<div id="content">
+    		<!--<div class="content-gl content-receipt">
+	            <div class="content-gl-one">
+	                <span>君莫邪</span>
+	                <span>18212345678</span>
+	                <span>201100</span>
+	            </div >
+	            <div class="content-gl-two">上海浦东新区郭守敬路</div>
+	            <div class="content-gl-three clearfix">
+	                <div class="content-three-l">
+	                    <span class="content-gl-btn content-gl-bg"></span>
+	                    <span >设为默认</span>
+	                </div>
+	                <div class="content-three-r">
+	                    <p class="content-r-first">
+	                        <span class="content-r-icon"></span>
+	                        <span>编辑</span>
+	                    </p>
+	                    <p class="content-r-last">
+	                        <span class="content-r-icon2 "></span>
+	                        <span class="delete">删除</span>
+	                    </p>
+	                </div>
+	            </div>
+	        </div>
+	
+	
+	        <div class="content-gl content-receipt">
+	            <div class="content-gl-one">
+	                <span>君莫邪</span>
+	                <span>18212345678</span>
+	                <span>201100</span>
+	            </div >
+	            <div class="content-gl-two">上海浦东新区郭守敬路</div>
+	            <div class="content-gl-three clearfix">
+	                <div class="content-three-l">
+	                    <span class="content-gl-btn "></span>
+	                    <span>设为默认</span>
+	                </div>
+	                <div class="content-three-r">
+	                    <p class="content-r-first">
+	                        <span class="content-r-icon"></span>
+	                        <span>编辑</span>
+	                    </p>
+	                    <p class="content-r-last">
+	                        <span class="content-r-icon2"></span>
+	                        <span class="delete">删除</span>
+	                    </p>
+	                </div>
+	            </div>
+	        </div>-->
+    	</div>
+        
+    </section>
+    <section class="footer">
+        <div class="footer-btn"><a href="new-add-dizhi.html">新增地址</a></div>
+    </section>
+    <div class="confirm-pop-ups font1" id="cpp">
+		<p>确认要删除该地址？</p>
+		<div class="box1">
+			<div class="auto-width"><!-- auto width --></div>
+			<a href="javascript:" id="cancel">取消</a>
+			<div class="auto-width"><!-- auto width --></div>
+			<a href="javascript:" id="determine">确定</a>
+			<div class="auto-width"><!-- auto width --></div>
+		</div>
+	</div>
+	<div class="confirm-pop-ups font3" id="cppF">
+        <p>更新失败</p>
+    </div>
+</section>
+</body>
+</html>

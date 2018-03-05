@@ -1,0 +1,19 @@
+.content-comm{text-align: left}
+.content-comm li{padding-left: 20px;}
+.content-comm-a{height: 50px;line-height: 50px;background:#fff5e7;;font-size:16px;}
+.content-comm-b p {padding:20px  0}
+.comm-b-sp{color:#eb6877;font-size: 16px; }
+.content-comm-b .comm-b-sp2,.content-comm-c .comm-c-sp,.content-comm-d .comm-d-sp{font-size: 14px;color:#000000;font-weight: bold}
+.content-comm-b .comm-b-sp2 span,.content-comm-c .comm-c-sp2,.content-comm-d .comm-d-sp2 i{color:#a8a8a8;font-size: 12px; }
+.comm-c-sp,.comm-d-sp{font-size: 14px;}
+.content-comm-c .comm-c-sp2 span,.comm-d-sp2{color:#595959;font-size: 12px; }
+.content-comm-c p{padding:15px 0 }
+.comm-b-sp2,.comm-c-sp2{border-bottom: 1px solid #d3d3d3}
+.content-comm-d p{padding:15px 0 }
+.comm-d-sp2 span {padding-right:50px;}
+.more-div{text-align: right}
+.more-div p{padding:35px 17px;display: inline-block}
+.content-c{height: 150px;}
+.more-div{text-align: right;}
+.more-div p{color: #8c642d;font-size: 14px;padding:35px 16px;}
+.more-div span{color: #eb6877}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="format-detection" content="telephone=no"/>
+<title>喵</title>
+<link href="../../css/global.css" rel="stylesheet" type="text/css">
+<link href="../../css/public.css" rel="stylesheet" type="text/css">
+<link href="../../css/confirm-order.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	
+</style>
+
+<script src="../../js/jquery-2.2.4.min.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+	//
+	
+});
+</script>
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex">
+
+	<section class="header">
+		<div class="header-bg confirm">
+			<div class="header-l"><a href="#"></a></div>
+			<div class="header-c"><p>消息</p></div>
+		</div>
+	</section>
+	<!-- 主体 -->
+	<section class="content">
+		<div class="detail part2">
+			<div class="information-center clearfix">
+				<div class="ic-pic">
+					<i class="font1"></i>
+				</div>
+				<div class="ic-content">
+					<b>系统消息</b>
+					<p>您的资料没有补全哦</p>
+				</div>
+			</div>
+		</div>
+		<div class="detail part2">
+			<div class="information-center clearfix">
+				<div class="ic-pic">
+					<i class="font2"></i>
+				</div>
+				<div class="ic-content">
+					<b>商城消息</b>
+					<p>您购买的动漫抱枕已发货，请耐心等待哦…</p>
+				</div>
+			</div>
+		</div>
+		<div class="detail part2">
+			<div class="information-center clearfix">
+				<div class="ic-pic">
+					<i class="font3"></i>
+				</div>
+				<div class="ic-content">
+					<b>店铺消息</b>
+					<p>还没发货吗？亲</p>
+				</div>
+			</div>
+		</div>
+		<div class="detail part2">
+			<div class="information-center clearfix">
+				<div class="ic-pic">
+					<i class="font3"></i>
+				</div>
+				<div class="ic-content">
+					<b>店铺消息</b>
+					<p>还没发货吗？亲</p>
+				</div>
+			</div>
+		</div>
+		<div class="detail part2">
+			<div class="information-center clearfix">
+				<div class="ic-pic">
+					<i class="font3"></i>
+				</div>
+				<div class="ic-content">
+					<b>店铺消息</b>
+					<p>还没发货吗？亲</p>
+				</div>
+			</div>
+		</div>
+		<div class="ic-BLANK"></div>
+		
+
+	</section>
+
+	
+</section>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no"/>
+    <title>喵</title>
+    <link href="../css/global.css" rel="stylesheet" type="text/css">
+    <link href="../css/public.css" rel="stylesheet" type="text/css">
+    <link href="../css/fengxiang.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+    </style>
+
+    <script src="../js/jquery-2.2.4.min.js"></script>
+</head>
+<body>
+<!-- 首页 -->
+<div class="flex">
+    <div class="header header-top">
+      <p>分享到</p>
+    </div>
+    <!-- 主体 -->
+    <div class="content flex con-bg">
+        <div class="more clearfix">
+              <ul>
+                  <li>
+                      <a href="#" class="btn1"></a>
+                      <p>微信</p>
+                  </li>
+                  <li>
+                      <a href="#" class="btn2"></a>
+                      <p>微信朋友圈</p>
+                  </li>
+                  <li>
+                      <a href="#" class="btn3"></a>
+                      <p>微博</p>
+                  </li>
+                  <li>
+                      <a href="#" class="btn4"></a>
+                      <p>QQ</p>
+                  </li>
+                  <li>
+                      <a href="#" class="btn5"></a>
+                      <p>QQ空间</p>
+                  </li>
+                  <li style="display: none">
+                      <a href="#" class="btn6"></a>
+                      <p>我的喵窝</p>
+                  </li>
+              </ul>
+
+          </div>
+        <div class="btn-bottom">
+            <a href="">取消</a>
+        </div>
+    </div>
+    <section class="footer">
+    </section>
+</div>
+</body>
+</html>

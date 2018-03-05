@@ -1,0 +1,273 @@
+ <html>
+<head>
+    <title>发表新帖 - <if condition="$attr eq 1">大众<elseif condition="$attr eq 3"/>百合<else/>腐</if> - 同人闲情 - 同人瞄</title>
+
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+   <tc_include file="Public:nav" />
+    <link href="__TMPL__Public/css/advance.css" rel="stylesheet" type="text/css" />
+    <link href="__TMPL__Public/css/trxq_wdr.css" rel="stylesheet" type="text/css" />
+    <link href="__TMPL__Public/css/dropkick.css" rel="stylesheet" type="text/css" />
+    <link href="__TMPL__Public/css/add_article.css" rel="stylesheet" type="text/css" />
+
+    <script src="__TMPL__Public/js/systemHead.js"></script>
+    <script src="__TMPL__Public/js/miao-GoTop.js"></script>
+    <script src="__TMPL__Public/js/miao-Dialog.js"></script>
+    <script src="__TMPL__Public/js/jquery.Rotate.2.2.js"></script>
+    <script src="__TMPL__Public/js/jquery.dropkick-min.js"></script>
+    <script src="__TMPL__Public/js/common.js"></script>
+    <script src="__TMPL__Public/js/filterSubtleWord.js"></script>
+
+    <script type="text/javascript" src="__PUBLIC__/js/content_addtop.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/ueditor/ueditor.all.min.js"></script>
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+
+            //下拉选择框
+            $('.dropkick').dropkick({autoWidth:true});
+
+            $("#nimingdiv").on('click', function() {
+                if($(this).hasClass('checked'))
+                {
+                    $(this).removeClass('checked');
+                } else{
+                    $(this).addClass('checked');
+                }
+            });
+        });
+
+    </script>
+
+    <style>
+    </style>
+
+</head>
+
+<body>
+
+<!--上面是页头-->
+
+
+<!--下面是海报三大块-->
+<div class="wdr_Center">
+    <div class="top_impression"></div>
+
+    <div class="wdr_Layout trxq-info clearfix">
+
+        <div class="search_List clearfix">
+            <div class="search_head"><a href="{:U('index/index',array(attr=>$attr))}">同人闲情</a><a href="{:U('index/index',array(attr=>$attr))}"><if condition="$attr eq 1">&gt;大众<elseif condition="$attr eq 2"/>&gt;腐向<elseif condition="$attr eq 3"/>&gt;百合</if></a>&gt;发帖</div>
+
+            <div class="fabu_fu clearfix">
+                <form action="{:U('index/addInvitation')}" method="post" id="myForm">
+                   <table class="release" style="margin-left:70px">
+                        <tr class="release_z">
+                            <td class="release_text">发帖人：</td>
+                            <td class="release_middle" colspan="2">
+                                <input id="nickname" type="text" name="nickname" class="poster_input" style="float: left;"  >
+                                <if condition="$login eq '1'">
+                                    <div class="select_qx checked" id="nimingdiv" style="float: left;" onclick="changName(this)"><label class="select_checkbox" style="margin-top: 5px;"></label>匿名聊天</div>
+                                </if>
+                            </td>
+                        </tr>
+                       <tr class="release_z">
+                           <td class="release_text" style="vertical-align: middle;">选择头像：</td>
+                           <td class="imgTd">
+                               <ul id="systemHead">
+                                   <li onclick="choose(this);" class="selected"><img src="__TMPL__Public/images/systemHead/default-1.png" /></li>
+                                   <li onclick="choose(this);"><img src="__TMPL__Public/images/systemHead/default-2.png" /></li>
+                                   <li onclick="choose(this);"><img src="__TMPL__Public/images/systemHead/default-3.png" /></li>
+                                   <li onclick="choose(this);"><img src="__TMPL__Public/images/systemHead/default-4.png" /></li>
+                                   <li onclick="choose(this);"><img src="__TMPL__Public/images/systemHead/default-5.png" /></li>
+                                   <li onclick="choose(this);"><img src="__TMPL__Public/images/systemHead/default-6.png" /></li>
+                                   <li onclick="choose(this);"><img src="__TMPL__Public/images/systemHead/default-7.png" /></li>
+                               </ul>
+                           </td>
+                           <input name="systemHead" type="hidden">
+                       </tr>
+                        <tr>
+                            <td class="release_text">属性：</td>
+                            <td class="release_middle">
+                                <div class="xiala">
+                                    <select name="attr" class="dropkick" tabindex="2">
+                                        <option value="1" <if condition='$attr eq 1'>selected="selected"</if>>大众</option>
+                                        <option value="2" <if condition='$attr eq 2'>selected="selected"</if>>广付肉</option>
+                                        <option value="3" <if condition='$attr eq 3'>selected="selected"</if>>百合</option>
+                                    </select>
+                                </div>
+                            </td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="release_text">标签：</td>
+                            <td class="release_middle">
+                                <div class="xiala">
+                                    <select name="tag" class="dropkick" tabindex="2">
+                                        <foreach name="tagArr" item="tag">
+                                            <option value="{$key}">{$tag}</option>
+                                        </foreach>
+                                    </select>
+                                </div>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr class="release_z">
+                            <td class="release_text">主题：</td>
+                            <td class="release_middle" colspan="2"> <input id="theme" type="text" name="theme" style="width: 750px;" class="poster_input"></td>
+                            <!--<td class="release_right"></td>-->
+                        </tr>
+                        <tr class="release_z">
+                            <td class="release_text">内容：</td>
+                            <td class="release_middle" colspan="2"> <script type="text/plain" id="editor" name="post[post_content]"></script></td>
+                            <!--<td class="release_right"></td>-->
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td><button type="button" class='className_fb' onclick="return doSubmit()">发布</button></td>
+                        </tr>
+                    </table>
+                    <input type="hidden" name="createIp" value="{$Ip}"/>
+                    <input type="hidden" name="isCryptonym" value="1">
+                </form>
+            </div>
+
+            <!--表格-->
+            <p style="color: #000;font-size: 12px;position: absolute; left: 0; bottom: 5px; right: 0;">沪ICP备16017797号</p>
+        </div>
+
+    </div>
+
+</div>
+<!--<a class="M_GoTop" href="javascript:;"></a>-->
+</body>
+</html>
+<script>
+    var ue = UE.getEditor('editor');
+    var poster = true;
+    $(function()
+    {
+        $("input[name=systemHead]").val($("#systemHead").find('.selected').find('img').attr('src'));
+    })
+    //ajax发帖人信息
+    $('#nickname').blur(function(){
+        var info = $(this).val();
+        if(info)
+        {
+            $.get('/tongrenmiao/index.php?g=Xq&m=Index&a=ajax_poster',{'name':info},function(res){
+                if(res)
+                {
+                    alert('发帖人名称已存在，请更换名称');
+                    poster = false;
+                }
+                else
+                {
+                    poster = true;
+                }
+            })
+        }
+    })
+    //更改发帖人名称
+    function changName(obj)
+    {
+        var newName = '{$nickname}';
+        if($(obj).hasClass('checked'))
+        {
+            $("#nickname").val(newName);
+            $("#nickname").attr('readonly','readonly');
+            $('input[name=isCryptonym]').val(2);
+        }
+        else
+        {
+            $("#nickname").removeAttr('readonly','readonly');
+            $("#nickname").val('');
+            $('input[name=isCryptonym]').val(1);
+        }
+    }
+
+    //验证字段是否为空
+    function doSubmit()
+    {
+        var content = $.trim(UE.getEditor('editor').getContent());
+        var theme = $.trim($("#theme").val());
+        if($.trim($('#nickname').val()) == '')
+        {
+            alert('请输入发帖人名称');
+            return false;
+        }
+        else
+        {
+            if($.trim($('#nickname').val()).length>20)
+            {
+                alert('发帖人字数不得超过20个字');
+                return false;
+            }
+            else
+            {
+                if(!poster)
+                {
+                    alert('发帖人名称已存在，请更改名称');
+                    return false;
+                }
+            }
+        }
+        if(theme == "")
+        {
+            alert('请填写主题');
+            return false;
+        }
+        else if(theme.length >90)
+        {
+            alert("主题名称最大不要超过90个字");
+            return false;
+        }
+        else if(content == "")
+        {
+            alert('请填写内容');
+            return false;
+        }
+        else
+        {
+            $.ajax({
+                url:"{:U('index/ajaxInterval')}",
+                type:"GET",
+				data:{'type':1,'lib':1},
+                success:function(res)
+                {
+                    if(res['info'] == 1)
+                    {
+                        alert("连续发帖时间不能少于"+res['time']+"秒");
+                    }
+                    else if(res['info'] == 2)
+                    {
+                        alert('您已被禁言');
+                    }
+                    else
+                    {
+                        UE.getEditor('editor').setContent(filter(content));
+                        $("#theme").val(filter(theme));
+                        $('#nickname').val(filter($('#nickname').val()));
+                        $("#myForm").submit();
+                        $(".className_fb").attr('disabled','true');
+                        $(".className_fb").text("正在提交");
+                    }
+                },
+                error:function()
+                {
+                    alert('请求失败');
+                }
+            })
+        }
+
+    }
+
+</script>

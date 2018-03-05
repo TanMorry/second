@@ -1,0 +1,429 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<!--[if lt IE 9]>
+<script type="text/javascript" src="lib/html5.js"></script>
+<script type="text/javascript" src="lib/respond.min.js"></script>
+<script type="text/javascript" src="lib/PIE_IE678.js"></script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/static/h-ui/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/lib/Hui-iconfont/1.0.7/iconfont.css" />
+<!--<link rel="stylesheet" type="text/css" href="__TMPL__Public/lib/icheck/icheck.css" />-->
+<!--<link rel="stylesheet" type="text/css" href="__TMPL__Public/static/h-ui/css/style.css" />-->
+<!--[if IE 6]>
+<script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script>DD_belatedPNG.fix('*');</script>
+<![endif]-->
+<title>闲情（回帖）</title>
+	<style>
+		#DataTables_Table_0_info
+		{
+			display:none;
+		}
+		/*table*/
+		/*{*/
+			/*table-layout: fixed;*/
+			/*width: 100%;*/
+		/*}*/
+		/*table td*/
+		/*{*/
+			/*max-width: 300px;*/
+			/*max-height: 200px;*/
+		/*}*/
+		.articlesDetail img{max-width:800px;max-height: 800px;}
+	</style>
+</head>
+<body>
+<nav class="breadcrumb">
+	<i class="Hui-iconfont">&#xe67f;</i>
+		同人闲情 <span class="c-gray en">&gt;</span>
+		闲情（回帖） <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" >
+	<i class="Hui-iconfont">&#xe68f;</i></a>
+</nav>
+
+<div class="page-container">
+	<form action="{:U('Admin/reply',array('type'=>$type))}" method="post" id="myForm">
+		<span class="text-c">属性：
+			<span class="select-box inline">
+				<select name="attrs" class="select" onchange="attr()">
+					<option value="0" <if condition="$attr eq 0">selected</if>>全部</option>
+					<option value="1" <if condition="$attr eq 1">selected</if>>大众</option>
+					<option value="2" <if condition="$attr eq 2">selected</if>>腐向</option>
+					<option value="3" <if condition="$attr eq 3">selected</if>>百合</option>
+				</select>
+			</span>
+		</span>
+		<span class="text-c"> <span style="padding-right: 65px;"></span>标签：
+			<span class="select-box inline">
+				<select name="tags" class="select" onchange="attr()">
+					<option value="0" <if condition="$tags eq 0">selected</if>>全部</option>
+					<foreach name="tagList" item="tag">
+						<option value="{$key}" <if condition="$tags eq $key">selected</if>>{$tag}</option>
+					</foreach>
+				</select>
+			</span>
+		</span>
+
+		<span class="text-c"> <span style="padding-right: 65px;"></span>回帖状态：
+			<span class="select-box inline">
+				<select name="states" class="select" onchange="attr()">
+					<option value="0" <if condition="$state eq 0">selected</if>>全部</option>
+					<option value="2" <if condition="$state eq 2">selected</if>>正常</option>
+					<option value="1" <if condition="$state eq 1">selected</if>>已屏蔽</option>
+				</select>
+			</span>
+		</span>
+		<input name="replyfilter" type="hidden" value="1">
+		<div class="cl pd-5 bg-1 bk-gray mt-20">
+			<!--自定义一个属性表示批量操作-->
+			<a href="javascript:;" data-cate="2" data-type="{$isXq}" onclick="del(this)" class="btn btn-danger radius"><i class="Hui-iconfont"></i> 批量删除</a>
+			<a href="javascript:;" data-type="3" data-value="1" onclick="batchShieldAndRecover(this)" class="btn btn-danger radius"><i class="Hui-iconfont"></i> 批量恢复</a>
+			<a href="javascript:;" data-type="3" data-value="2" onclick="batchShieldAndRecover(this)" class="btn btn-danger radius"><i class="Hui-iconfont"></i> 批量屏蔽</a>
+		</div>
+	<div style="float: right;margin: 20px 0px;"><input name="searchInfo" value="{$searchInfo}"/> <button type="button" onclick="search()">搜索</button></div>
+	</form>
+	<div class="mt-20">
+		<table class="table table-border table-bordered table-bg table-hover table-sort">
+			<thead>
+				<tr class="text-c">
+					<th width="25"><input type="checkbox" id="selectAll"></th>
+					<th>回帖ID</th>
+					<th>属性</th>
+					<th>标签</th>
+					<th>所属主题ID</th>
+					<th>楼层</th>
+					<th>内容</th>
+					<th>回复人昵称</th>
+					<th>回复人IP</th>
+					<th>发帖人邮箱</th>
+					<th>发帖人手机</th>
+					<th>回帖时间</th>
+					<if condition="$type eq 2"><th>编辑时间</th></if>
+					<th>回帖状态</th>
+					<th>操作</th>
+			</thead>
+			<tbody>
+				<volist name="xq_reply" id="vo">
+				<tr class="text-c">
+					<td width="15px"><input type="checkbox" value="{$vo.id}" data-position="{$vo.position}" onclick="isChecked(this)"></td>
+					<td width="100px">{$vo.id}</td>
+					<td width="50px">{$vo.attrname}</td>
+					<td width="50px">{$vo.typename}</td>
+					<td width="100px">{$vo.tid}</td>
+					<td width="50px">{$vo.position}</td>
+					<td width="330px"><a href="{:U('index/topicDetail#dw',array('id'=>$vo[tid],'rid'=>$vo[id],p=>$vo[p],type=>$vo[rtype],isAdmin=>1,backReply=>1))}{$vo.position}" target="_blank" class="text-ys">{$vo.newcontent.pic}{$vo.newcontent.text}</a></td>
+					<td width="100px">{$vo.nickname}</td>
+					<td width="100px">{$vo.createip}</td>
+					<td width="170px">{$vo.user_email}</td>
+					<td width="85px">{$vo.mobile}</td>
+					<td width="135px">{$vo.createtime|date='Y-m-d H:i:s',###}</td>
+					<if condition="$type eq 2">
+						<if condition="$vo.edittime neq 0">
+							<td width="135px">{$vo.edittime|date='Y-m-d H:i:s',###}</td>
+							<else/>
+							<td width="135px"></td>
+						</if>
+					</if>
+					<td width="100px">{$vo.state}</td>
+				    <td width="50px">
+						<p><a class="text-ys" onclick="changeState(this)" data-id="{$vo.id}" data-type="3" data-value="{$vo.shield}" data-tid="{$vo.tid}"><if condition="$vo.shield eq 2">屏蔽<else/>恢复</if></a></p>
+						<if condition="$vo.first eq '2'"><p><a class="text_cs" data-id="{$vo.id}" onclick="del(this)"> 删除</a></p></if>
+						<if condition="$type eq '2'"><p><a href="{:U('Admin/editReply',array('id'=>$vo[tid],'rid'=>$vo[id],type=>$vo[rtype]))}" class="text_cs"> 编辑</a></p></if>
+				    </td>
+
+				</tr>
+			</volist>
+			</tbody>
+			<input type="hidden" value={$jsonSearchInfo} id="search"/>
+		</table>
+		<div style="margin: 20px 0px; float:right;">{$page}</div>
+	</div>
+</div>
+<script type="text/javascript" src="__TMPL__Public/lib/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="__TMPL__Public/lib/layer/2.1/layer.js"></script>
+<script type="text/javascript" src="__TMPL__Public/lib/My97DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="__TMPL__Public/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="__TMPL__Public/static/h-ui/js/H-ui.js"></script>
+<script type="text/javascript" src="__TMPL__Public/static/h-ui/js/H-ui.admin.js"></script>
+<script>
+	var ids = new Array;//页面中选中的id
+	var idText = new Array//暂且用来存文本数组，判断数组里面是否有重复
+	var positions = new Array//判断里面是否存在1楼
+
+	$(function() {
+		var search = $("#search").val()?$("#search").val():"";
+		var attr = $('select[name=attrs]').val();//分页要带的参数  属性
+		var tagList = $("select[name=tags]").val(); //标签
+		var state = $("select[name=states]").val();//状态
+		var url = $('.tiaozhuan').attr("href");
+		var totalPage = $("#totalPage").text();//获取总页数
+		if(totalPage<2)
+		{
+			$("#jump").hide();
+		}
+		var prev = $(".prev").attr('href');//获取上一页
+		var next = $(".next").attr('href');//获取下一页
+		var newprev = prev+'&states='+state+'&attrs='+attr+'&tags='+tagList+'&type='+{$type}+'&replyfilter=1&searchInfo='+search;
+		var newnext = next+'&states='+state+'&attrs='+attr+'&tags='+tagList+'&type='+{$type}+'&replyfilter=1&searchInfo='+search;
+		$(".prev").attr('href',newprev);
+		$(".next").attr('href',newnext);
+		$("#test").removeAttr('href');//禁止跳转
+		$('#z').bind('input propertychange', function() {
+			var totalPage = $("#totalPage").text();
+			var value = this.value;
+			var all = $('.all').attr("title");
+			var i = parseFloat(all);//将字符转化成数字
+			if (value <= i && !isNaN(value) && value > 0 && value !="") {
+				value = Math.ceil(value);
+				var newurl = url+ value+'&states='+state+'&attrs='+attr+'&tags='+tagList+'&type='+{$type}+'&replyfilter=1&searchInfo='+search;
+				$('.tiaozhuan').attr("href", newurl);
+			}
+			else
+			{
+				$("#test").removeAttr('href');//禁止跳转
+			}
+		})
+	})
+</script>
+<script type="text/javascript">
+
+//$('.table-sort').dataTable({
+//	"aaSorting": [[ 1, "desc" ]],//默认第几个排序
+//	"bStateSave": true,//状态保存
+//	"aoColumnDefs": [
+//	  //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
+//	  {"orderable":true,"aTargets":[0,8]}// 不参与排序的列
+//	]
+//});
+
+
+//改变状态
+function changeState(obj)
+{
+	var prevText = $(obj).parents('td').prev();//当前td的上一个td
+	var currentTd = $(obj).parents('td');//当前td
+	var mesId = $(obj).attr('data-id');//当前帖子id;
+	var stateVal = $(obj).attr('data-value');//当前状态值
+	var stateType = $(obj).attr('data-type');//区分当前状态(改状态是自定义的)
+	ajaxStatus(mesId,stateVal,stateType,currentTd,prevText)
+}
+
+function ajaxStatus(mesId,stateVal,stateType,currentTd,prevText)
+{
+	var url = "{:U('Admin/ajaxChangeState')}";
+	$.ajax({
+		url: url,
+		data: {'mesId': mesId, 'stateVal': stateVal, 'stateType': stateType, 'type': 3},//3回复（自定义(回复直接根据reply的id进行操作)）
+		type: 'POST',
+		success: function (res)
+		{
+			if (res)
+			{
+				if(res == 1)
+				{
+					window.location.reload();
+				}
+				else
+				{
+					var str = "";
+					var label = "";
+					label += "<a class='text-ys' onclick='changeState(this)' data-id='"+mesId+"' data-type='3' data-value='"+res[0]['shield']+"'>";
+					if(res[0]['shield'] == 2)
+					{
+						label += "屏蔽";
+						str = '正常';
+					}
+					else
+					{
+						label += "恢复";
+						str = '已屏蔽';
+					}
+					label += "</a>";
+					currentTd.find('a').eq(0).replaceWith(label);
+					prevText.text(str);
+				}
+			}
+			else
+			{
+				alert("设置失败");
+			}
+		},
+		error: function () {
+			alert("请求失败");
+		}
+	});
+}
+
+function attr(){
+	$("#myForm").submit();
+}
+//删除当前回复
+function del(obj)
+{
+	if($(obj).attr('data-cate') == 2)
+	{
+		if(ids.length<1)
+		{
+			alert('请选择要操作的数据');
+			return false;
+		}
+		var idBatch = 1;//自定义用来判断是批量操作  是，返回刷新页面
+		var noticeId = ids.join(',');
+		var repeat = checkArrayRepeat(positions,2);
+		if(repeat>0)
+		{
+			alert('1楼不能删除');
+			return false;
+		}
+	}
+	else
+	{
+		var idBatch = 2;
+		var noticeId = $(obj).attr('data-id');
+	}
+	var url = "{:U('admin/ajaxReplyDel')}";
+	$.ajax({
+		url:url,
+		data:{'id':noticeId,'idBatch':idBatch},
+		type:'GET',
+		success:function(res)
+		{
+			if(res == 1)
+			{
+				$(obj).parents('tr').remove();
+			}
+			else if(res == 2)
+			{
+				window.location.reload();
+			}
+			else
+			{
+				alert('删除失败');
+			}
+		},
+		error:function()
+		{
+			alert('请求失败');
+		}
+	})
+}
+//搜索
+function search()
+{
+	var search = $('input[name=searchInfo]').val();
+	if(search == "")
+	{
+		alert('请输入搜索内容');
+		return false;
+	}
+	$("#myForm").submit();
+}
+
+//全选存id，全不选清空数组
+$("#selectAll").click(function()
+{
+	if(ids.length>0)
+	{
+		ids = [];
+	}
+	if(idText.length>0)
+	{
+		idText = [];
+	}
+	if($(this).is(':checked'))
+	{
+		$('tbody input').each(function()
+		{
+			ids.push($.trim($(this).val()));//将选中的复选框id存入数组中
+			positions.push($.trim($(this).attr('data-position')));
+			idText.push($(this).parents('tr').find('td:last').find('p').eq(0).find('a').text());
+		})
+	}
+	else
+	{
+		ids = [];//清空数组
+		idText = [];
+	}
+})
+
+//是否选中（选中追加到数组中，取消删除数组中该元素，页面中有一个没选中，全选按钮也不选中）
+function isChecked(obj)
+{
+	var id = $(obj).val();
+	var posiArr = $(obj).attr('data-position');
+	var statusText = $(obj).parents('tr').find('td:last').find('p').eq(0).find('a').text();
+
+	if($(obj).is(':checked'))
+	{
+		ids.push($.trim(id));
+		positions.push($.trim(posiArr));
+		idText.push($.trim(statusText));//存入所有选中的状态文本
+	}
+	else
+	{
+		ids.splice($.inArray(id,ids),1);
+		idText.splice($.inArray(statusText,idText),1);
+		positions.splice($.inArray(posiArr,positions),1);
+	}
+	if(ids.length != $('tbody input:checkbox').length)
+	{
+		$("#selectAll").prop('checked',false);
+	}
+	else
+	{
+		$("#selectAll").prop('checked',true);
+	}
+	console.log(positions);
+}
+
+//批量屏蔽/批量恢复
+function batchShieldAndRecover(obj)
+{
+	var repeat = checkArrayRepeat(idText,1);//检查是否有重复，有提示选择正确数据
+	if(repeat>0)
+	{
+		alert('请选择正确的数据');
+		return false;
+	}
+//	var type = '{$type}';//闲情or文库
+	var stateVal = $(obj).attr('data-value');//当前状态值
+	var stateType = $(obj).attr('data-type');//区分当前状态
+	ajaxStatus(ids.join(','),stateVal,stateType);
+}
+
+//检查数组中有没有重复
+function checkArrayRepeat(idText,type)
+{
+	//type  用来去分时判断楼层还是判断状态文字
+	var nary = idText;
+	var num = 0;
+	for (var i = 0; i < nary.length - 1; i++) {
+		if(type == 1)
+		{
+			if (nary[i] != nary[i + 1])
+			{
+				num++;
+			}
+		}
+		else
+		{
+			//判断手否含有1楼
+			if (nary[i] == 1)
+			{
+				num++;
+			}
+		}
+	}
+	return num;
+}
+</script>
+
+</body>
+</html>

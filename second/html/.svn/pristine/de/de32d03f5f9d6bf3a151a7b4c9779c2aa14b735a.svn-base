@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="format-detection" content="telephone=no"/>
+<title>喵</title>
+<link href="css/global.css" rel="stylesheet" type="text/css">
+<link href="css/public.css" rel="stylesheet" type="text/css">
+<link href="css/detail.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+	
+</style>
+
+<script src="js/jquery-2.2.4.min.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+	/*数量加减*/
+	$(".detail-count").on('click', 'a', function(event) {
+		var $count = $(this).parents(".detail-count").find("input");
+		if($(this).hasClass('detail-count-sub'))
+		{
+			$count.val(parseInt($count.val(), 10) - 1 || 1);
+		}
+		else if($(this).hasClass('detail-count-add'))
+		{
+			$count.val(parseInt($count.val(), 10) + 1 || 1);
+		}
+	});
+	/*输入数量验证*/
+	$(".detail-count input").on('blur input propertychange', function(event) {
+
+		function isEmpty (val)
+		{
+			return val == '' || val === null || val === undefined;
+		}
+
+		var val = $(this).val();
+		/*如果不是空则强转数字*/
+		if (!isEmpty(val))
+		{
+			val = parseInt(val.replace(/[^\d]/ig,''), 10);
+		}
+
+		isNaN(val) ? $(this).val(1) : $(this).val(val);
+		
+		if(event.type == 'blur' || event.type == 'focusout')
+		{
+			if(isEmpty(val))
+			{
+				$(this).val(1);
+			}
+		}
+	});
+});
+</script>
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex">
+
+	<section class="header">
+		<div class="header-bg confirm">
+			<div class="header-l"><a href="detail-page1.html"></a></div>
+			<div class="header-c"><p>确 认 订  单</p></div>
+		</div>
+	</section>
+	<!-- 主体 -->
+	<section class="content">
+		<div class="detail part">
+			<a class="detail-address clearfix" href="#">
+				<div class="detail-address1">
+					<i></i>
+				</div>
+				<div class="detail-address-content">
+					<p class="title-l">收货人：小明</p>
+					<p class="title-r">156123476781</p><br>
+					<p class="title-l">上海 上海市 闵行区 浦江镇 浦连路XXX弄，XXX号，XXX室</p>
+				</div>
+				<div class="detail-address2">
+					<i></i>
+				</div>
+			</a>
+		</div>
+		<div class="detail part2">
+			<a class="detail-share-enter detail-access-borderbtm clearfix" href="#">
+				<p><b>社团：第三空间</b> ></p>
+				<i><b>待发货</b></i>
+			</a>
+		</div>
+		<div class="detail part">
+			<div class="detail-commodity detail-access-borderbtm clearfix">
+				<div class="detail-commodity-box1">
+					<img src="img/test/item2.jpg"/>
+				</div>
+				<div class="detail-commodity-box1">
+					<p>商品名称</p>
+					<p class="price">￥6.00</p>
+				</div>
+				<div class="detail-commodity-box3">
+					<p class="font3">×<b>1</b></p>
+				</div>
+			</div>
+		</div>
+		<div class="detail part">
+			<div class="detail-count horizontal-center">
+				<p>购买数量</p>
+				<i class="auto-width"><!-- auto width --></i>
+				<a class="detail-count-sub" href="#">-</a>
+				<input class="detail-count-write" type="text" value="1">
+				<a class="detail-count-add" href="#">+</a>
+			</div>
+		</div>
+		
+		<div class="detail part2">
+			<a class="detail-share-enter detail-access-borderbtm clearfix" href="#">
+				<p>运费</p>
+				<i>￥6.00</i>
+			</a>
+			<a class="detail-share-enter detail-access-borderbtm clearfix" href="#">
+				<p>配送方式</p>
+				<i>快递</i>
+			</a>
+			<a class="detail-share-enter detail-access-borderbtm clearfix" href="#">
+				<p>支付方式</p>
+				<i>在线支付</i>
+			</a>
+			<a class="detail-share-input detail-access-borderbtm clearfix" href="#">
+				<p>买家留言：</p>
+				<input placeholder="可选，可填写您与卖家达成一致的要求"/>
+			</a>
+			<a class="detail-share-enter detail-access-borderbtm clearfix" href="#">
+				<p>商品总额</p>
+				<i class="color-red">￥106.00</i>
+			</a>
+			<div class="detail-confirm-blank"></div>
+		</div>
+
+
+
+	</section>
+
+	<section class="footer">
+		<div class="foot-border2"></div>
+		<div class="foot-pay">
+			<p>实付款：<b>￥106.00</b></p>
+			<a href="">立 即 支 付</a>
+		</div>
+	</section>
+</section>
+</body>
+</html>

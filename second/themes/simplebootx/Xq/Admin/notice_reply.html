@@ -1,0 +1,232 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="lib/html5.js"></script>
+    <script type="text/javascript" src="lib/respond.min.js"></script>
+    <script type="text/javascript" src="lib/PIE_IE678.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="__TMPL__Public/static/h-ui/css/H-ui.min.css" />
+    <link rel="stylesheet" type="text/css" href="__TMPL__Public/static/h-ui/css/H-ui.admin.css" />
+    <link rel="stylesheet" type="text/css" href="__TMPL__Public/lib/Hui-iconfont/1.0.7/iconfont.css" />
+    <!--<link rel="stylesheet" type="text/css" href="__TMPL__Public/lib/icheck/icheck.css" />-->
+    <!--<link rel="stylesheet" type="text/css" href="__TMPL__Public/static/h-ui/css/style.css" />-->
+    <!--[if IE 6]>
+    <script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
+    <script>DD_belatedPNG.fix('*');</script>
+    <![endif]-->
+    <title>公告（回帖）</title>
+    <style>
+        #DataTables_Table_0_info
+        {
+            display:none;
+        }
+        .articlesDetail img{max-width:800px;max-height: 800px;}
+    </style>
+</head>
+<body>
+<nav class="breadcrumb">
+    <i class="Hui-iconfont">&#xe67f;</i>
+    同人闲情 <span class="c-gray en">&gt;</span>
+    闲情（回帖） <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" >
+    <i class="Hui-iconfont">&#xe68f;</i></a>
+</nav>
+
+<div class="page-container">
+    <span class="text-c">公告类型：<if condition="$type eq '1'">全局公告<else/>全站公告</if></span>
+    <if condition="$attr neq ''">
+        <span class="text-c">&emsp;属性：<if condition="$attr eq 1">大众<elseif condition="$attr eq 2"/>广付肉<else/>百合</if></span>
+    </if>
+    <if condition="$type eq 3"><span class="text-c">&emsp;板块：文库</span><elseif condition="$type eq 6"/><span class="text-c">&emsp;板块：闲情</span></if>
+    <div class="cl pd-5 mt-20">
+		<span class="text-c">标题：{$noticeHead[0][title]}</span>
+    </div>
+    <!--<div class="cl pd-5 bg-1 bk-gray mt-20">-->
+		<!--<span class="l">-->
+			<!--<a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>-->
+		<!--</span>-->
+    <!--</div>-->
+    <div class="mt-20">
+        <table class="table table-border table-bordered table-bg table-hover table-sort">
+            <thead>
+            <tr class="text-c">
+                <th width="25"><input type="checkbox" name="" value=""></th>
+                <th>回帖ID</th>
+                <!--<th>属性</th>-->
+                <!--<th>标签</th>-->
+                <th>所属主题ID</th>
+                <th>楼层</th>
+                <th>内容</th>
+                <th>回复人昵称</th>
+                <th>回复人IP</th>
+                <th>发帖人邮箱</th>
+                <th>发帖人手机</th>
+                <th>回帖时间</th>
+                <th>回帖状态</th>
+                <th>操作</th>
+
+            </thead>
+            <tbody>
+            <volist name="notice_reply" id="vo">
+                <tr class="text-c">
+                    <td width="15px"><input type="checkbox" value="" name=""></td>
+                    <td width="100px">{$vo.id}</td>
+                    <!--<td width="100px">{$vo.id}</td>-->
+                    <!--<td width="100px">{$vo.id}</td>-->
+                    <td width="100px">{$vo.tid}</td>
+                    <td width="50px">{$vo.position}</td>
+                    <td width="330px" class="articlesDetail"><a href="{:U('index/topicDetail#dw',array('id'=>$vo[tid],'rid'=>$vo[id],p=>$vo[p],type=>$vo[rtype],isAdmin=>1,backReply=>1,gb=>$vo[rtype]))}{$vo.position}" target="_blank" class="text-ys">{$vo.newcontent.pic}{$vo.newcontent.text}</a></td>
+                    <td width="100px">{$vo.nickname}</td>
+                    <td width="100px">{$vo.createip}</td>
+                    <td width="170px">{$vo.user_email}</td>
+                    <td width="85px">{$vo.mobile}</td>
+                    <td width="135px">{$vo.createtime|date='Y-m-d H:i:s',###}</td>
+                    <td width="100px">{$vo.state}</td>
+                    <td width="50px">
+                        <!--<a class="text-ys" onclick="changeState(this)" data-id="{$vo.id}" data-type="3" data-value="{$vo.shield}"><if condition="$vo.shield eq 2">屏蔽<else/>恢复</if></a>-->
+                        <if condition="$vo.first eq '2'"><p><a class="text_cs" data-id="{$vo.id}" onclick="del(this)"> 删除</a></p></if>
+                        <!--<if condition="$type eq '2'"><p><a href="{:U('Admin/editReply',array('id'=>$vo[tid],'rid'=>$vo[id],type=>$vo[rtype]))}" class="text_cs"> 编辑</a></p></if>-->
+                    </td>
+
+                </tr>
+            </volist>
+            </tbody>
+        </table>
+        <div style="margin: 20px 0px; float:right;">{$page}</div>
+    </div>
+</div>
+<script type="text/javascript" src="__TMPL__Public/lib/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="__TMPL__Public/lib/layer/2.1/layer.js"></script>
+<script type="text/javascript" src="__TMPL__Public/lib/My97DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="__TMPL__Public/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="__TMPL__Public/static/h-ui/js/H-ui.js"></script>
+<script type="text/javascript" src="__TMPL__Public/static/h-ui/js/H-ui.admin.js"></script>
+<script>
+    $(function() {
+        var attr = $('input[name=attrs]').val();//分页要带的参数  属性
+        var tagList = $("input[name=tags]").val(); //标签
+        var state = $("input[name=states]").val();//状态
+        var url = $('.tiaozhuan').attr("href");
+        var totalPage = $("#totalPage").text();//获取总页数
+        if(totalPage<2)
+        {
+            $("#jump").hide();
+        }
+        var prev = $(".prev").attr('href');//获取上一页
+        var next = $(".next").attr('href');//获取下一页
+        var newprev = prev+'&states='+state+'&attrs='+attr+'&tags='+tagList+'&type='+{$type}+'&replyfilter=1';
+        var newnext = next+'&states='+state+'&attrs='+attr+'&tags='+tagList+'&type='+{$type}+'&replyfilter=1';
+        $(".prev").attr('href',newprev);
+        $(".next").attr('href',newnext);
+        $("#test").removeAttr('href');//禁止跳转
+        $('#z').bind('input propertychange', function() {
+            var totalPage = $("#totalPage").text();
+            var value = this.value;
+            var all = $('.all').attr("title");
+            var i = parseFloat(all);//将字符转化成数字
+            if (value <= i && !isNaN(value) && value > 0 && value !="") {
+                value = Math.ceil(value);
+                var newurl = url+ value+'&states='+state+'&attrs='+attr+'&tags='+tagList+'&type='+{$type}+'&replyfilter=1';
+                $('.tiaozhuan').attr("href", newurl);
+            }
+            else
+            {
+                $("#test").removeAttr('href');//禁止跳转
+            }
+        })
+    })
+</script>
+<script type="text/javascript">
+
+//    $('.table-sort').dataTable({
+//        "aaSorting": [[ 1, "desc" ]],//默认第几个排序
+//        "bStateSave": true,//状态保存
+//        "aoColumnDefs": [
+//            //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
+//            {"orderable":true,"aTargets":[0,8]}// 不参与排序的列
+//        ]
+//    });
+
+
+    //改变状态
+//    function changeState(obj)
+//    {
+//        var prevText = $(obj).parents('td').prev();//当前td的上一个td
+//        var currentTd = $(obj).parents('td');//当前td
+//        var mesId = $(obj).attr('data-id');//当前帖子id;
+//        var stateVal = $(obj).attr('data-value');//当前状态值
+//        var stateType = $(obj).attr('data-type');//区分当前状态
+//        var url = "{:U('Admin/ajaxChangeState')}";
+//        $.ajax({
+//            url: url,
+//            data: {'mesId': mesId, 'stateVal': stateVal, 'stateType': stateType, 'type': 3},
+//            type: 'POST',
+//            success: function (res)
+//            {
+//                if (res)
+//                {
+//                    var str = "";
+//                    var label = "";
+//                    label += "<a class='text-ys' onclick='changeState(this)' data-id='"+mesId+"' data-type='3' data-value='"+res[0]['shield']+"'>";
+//                    if(res[0]['shield'] == 2)
+//                    {
+//                        label += "屏蔽";
+//                        str = '正常';
+//                    }
+//                    else
+//                    {
+//                        label += "恢复";
+//                        str = '已屏蔽';
+//                    }
+//                    label += "</a>";
+//                    currentTd.html(label);
+//                    prevText.text(str);
+//                }
+//                else
+//                {
+//                    alert("设置失败");
+//                }
+//            },
+//            error: function () {
+//                alert("请求失败");
+//            }
+//        });
+//    }
+
+    //删除当前回复
+    function del(obj)
+    {
+        var noticeId = $(obj).attr('data-id');
+//	var noticeType = $(obj).attr('data-type');
+        var url = "{:U('admin/ajaxReplyDel')}";
+        $.ajax({
+            url:url,
+            data:{'id':noticeId},
+            type:'GET',
+            success:function(res)
+            {
+                if(res == 1)
+                {
+                    $(obj).parents('tr').remove();
+                }
+                else
+                {
+                    alert('删除失败');
+                }
+            },
+            error:function()
+            {
+                alert('请求失败');
+            }
+        })
+    }
+</script>
+
+</body>
+</html>

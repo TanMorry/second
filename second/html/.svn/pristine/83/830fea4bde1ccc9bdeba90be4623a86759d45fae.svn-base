@@ -1,0 +1,20 @@
+.position-relative{position: relative;}
+.header-input{padding: 0 0.3rem;position: relative;}
+.header-input .header-c input{padding-left:3rem !important;}
+.header-btn-a{position: absolute;left: 0rem;top:22%;}
+.header-btn-a>a{display: block;width: 2.5rem;font-size: 0.7rem;color:#979595;height: 1.075rem;line-height: 1.075rem}
+.header-btn-a>a:before{height: 0;width: 0;border:0.2rem solid transparent;border-top-color:#979595;content: "";position: absolute;right:0;top:48%;}
+.header-in-btn{display: none ; z-index: 20;}
+.header-more{line-height: 1.5rem;}
+.header-more a{font-size: 0.8rem;color: #FFFFFF; padding-left:0.3rem;}
+.header-in-btn{position: absolute;background: rgba(76, 76, 76, 0.91);left:0.3rem;top:101%;width:5rem;text-align: left;display: none}
+.header-in-btn>a{color: #ffffff;;display: block;padding:0.3rem 0.9rem;font-size: 0.6rem;border-bottom:1px dashed #817f7f}
+.guild{padding:0 0.3rem;text-align: left}
+.guild>p{margin-top: 0.7rem;}
+.guild-l span{font-size: 0.9rem;float: left}
+.guild-l a{display: block;height:1.18rem;width: 1rem;background: url("../img/shanchu.png")0 0 no-repeat;
+    background-size: cover;float: right}
+.guild-r a{color:#959595;border: 1px solid #959595;border-radius: 0.3rem;font-size: 0.8rem;padding: 0 0.8rem;
+    display: block;height: 2rem;line-height:2rem;float: left;margin-right: 0.7rem}
+.guild-color1{color:#00baff}
+.guild-color2{color:#eb6877}

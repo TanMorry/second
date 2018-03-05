@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no"/>
+    <title>喵</title>
+    <link type="text/css"  rel="stylesheet" href="../css/global.css">
+    <link type="text/css"  rel="stylesheet" href="../css/public.css">
+    <link href="../css/shop-shaixuan.css" rel="stylesheet" type="text/css">
+    <script src="../js/jquery-2.2.4.min.js"></script>
+	<script src="../js/miao-Dialog.js"></script>
+    <!--<script src="../js/shuaixuan.js"></script>-->
+    <style type="text/css">
+    </style>
+    <script>
+$().ready(function(){
+	/*点击…*/
+    $('.header-r').on('click', '.header-bg-btn', function(event) {
+        if( $(".header-r-tc").css('display') == 'none' ){
+            $(".header-r-tc").slideDown();
+        }
+        else{
+            $(".header-r-tc").css('display','none');
+        }
+    });
+    $('.content').on('click', function(event) {
+        $(".header-r-tc").css('display','none');
+    });
+    $('.footer').on('click', function(event) {
+        $(".header-r-tc").css('display','none');
+    });
+    
+    /*输入框*/
+    $('.header-X').on('click', 'a', function(event) {
+		$(this).parents('.header-X').siblings('input[type=text]').val('');
+		$(this).parents('.header-X').css('display','none');
+	});	
+	$('.header-c').on('blur', 'input[type=text]', function(event) {
+		function isEmpty (val){
+			return val == '' || val === null || val === undefined;
+		}
+		if(   !isEmpty($(this).val())  ){
+			$(this).siblings('.header-X').css('display','block');
+		}
+		else{
+			$(this).siblings('.header-X').css('display','none');
+		}
+	});	
+	
+	/*商品，同人铺，商业店切换*/
+	$(function(){
+        var h1=$(".header-btn-a>a");
+        var text=$(".header-input .header-in-btn");
+        var val=text.find("a");
+        h1.click(function () {
+            text.slideDown();
+            text.focus();
+        });
+        h1.blur(function () {
+            text.slideUp();
+        });
+        val.click(function(){
+            var tex=$(this).text();
+            h1.html(tex);
+        })
+    });
+    
+    var phone = $('#cpp').MiaoDialog();
+    
+	$('.miao-shade').on('click',function(event) {
+		phone.MiaoDialog('close');
+	});
+	$('#cancel').on('click',function(event) {
+		phone.MiaoDialog('close');
+	});
+    
+    /*Ajax*/
+   	loadAjax();
+	
+	function loadAjax(){
+		var url = "/tongrenmiao/index.php?g=Mall&m=index&a=searchFilter";
+		$.ajax({
+			url:url,
+			data:{},
+			dataType:'json',
+			type:'get',
+			beforeSend:function()
+			{
+				
+			},
+			success:function(ret)
+			{
+				var productLevel1 = new Array();
+				var productLevel2 = new Array();
+				var productLevel3 = new Array();
+				var productLevel1Id = new Array();
+				var productLevel2Id = new Array();
+				var productLevel3Id = new Array();
+				var chooseFoods  = new Array();
+				var categories = "";
+				for( i = 0 ; i < ret.product.length ; i++ ){
+					if( ret.product[i].catid < 2000){
+						productLevel1.push( ret.product[i].cat );
+						productLevel1Id.push( ret.product[i].catid );
+					}
+					else if( ret.product[i].catid < 200000 ){
+						productLevel2.push( ret.product[i].cat );
+						productLevel2Id.push( ret.product[i].catid );
+					}
+					else if( ret.product[i].catid < 20000000 ){
+						productLevel3.push( ret.product[i].cat );
+						productLevel3Id.push( ret.product[i].catid );
+					}
+				}
+				for( i = 0 ; i < productLevel1.length ; i++ ){
+					categories += '<li><a id="' + productLevel1Id[i] + '" >' + productLevel1[i] + '</a></li>';
+					$('#categories1').after( '<ul class="menu-btn2 clearfix ss-pop-ups" id="' + productLevel1Id[i] + '"></ul>' );
+					for( j = 0 ; j < productLevel2.length ; j++ ){
+						if( parseInt( productLevel2Id[j]/100 ) == productLevel1Id[i] ){
+							$('ul#' + productLevel1Id[i] ).append( '<li><a id=' + productLevel2Id[j] + '>' + productLevel2[j] + '</a></li>' );
+						}
+					}
+				}
+				$('#categories1').html(categories);
+				$('ul').each(function(){
+					/*不含有三级列表*/
+					if( $(this).attr('id') == 1003 || $(this).attr('id') == 1004 ){
+						$(this).prepend( '<li class="btn-qb"><a>全选</a></li>' );
+					}
+					
+					/*含有三级列表*/
+					else if( $(this).attr('id') == 1005 || $(this).attr('id') == 1006  || $(this).attr('id') == 1002){
+						
+					}
+				});
+				
+				/*页面逻辑*/
+			    $('.btn').on('click', 'a', function(event){
+			        $(this).toggleClass('color');
+			    });
+			    
+			    /*周边逻辑*/
+				
+				/*一级列表逻辑*/
+			    $('.ss-pop-button').on('click', 'a', function(event) {
+					var $this = $(this);
+					var popups = $(this).parents('.ss-pop-button').siblings('.ss-pop-ups');
+					var id = $(this).attr('id');
+					
+					popups.each(function(){
+						if( $(this).attr('id') == id ){
+							if( $(this).css('display') == 'block' ){
+								$(this).slideUp();
+							}
+							else{
+								$(this).slideDown();
+								$(this).siblings('.ss-pop-ups').slideUp();
+								$this.parents('li').siblings('li').find('a').removeClass('color');
+								$(this).siblings('.ss-pop-ups').find('a').removeClass('color');
+								if( $(this).find('li').eq(0).hasClass('btn-qb') ){
+									$(this).find('.btn-qb').find('a').addClass('color');
+									$this.addClass('color');
+								}
+							}
+						}
+					});
+				});	
+				
+			  	/*二级列表逻辑*/
+				$('.ss-pop-ups').on('click', 'a', function(event) {
+					/*点击二级列表后一级列表逻辑*/
+					var isChoose = false;
+					$(this).toggleClass( 'color' );
+					$(this).parents('.ss-pop-ups').find('a').each(function(){
+						if( $(this).hasClass( 'color' ) ){
+							isChoose = true;
+						}
+					});
+					var id = $(this).parents('.ss-pop-ups').attr('id');
+					if(isChoose){
+						$(this).parents('.ss-pop-ups').siblings('.ss-pop-button').find('a').each(function(){
+							if( $(this).attr('id') == id ){
+								$(this).addClass( 'color' );
+							}
+						});
+					}
+					else{
+						$(this).parents('.ss-pop-ups').siblings('.ss-pop-button').find('a').each(function(){
+							if( $(this).attr('id') == id ){
+								$(this).removeClass( 'color' );
+							}
+						});
+					}
+					
+					/*含有全选框逻辑*/
+					if( $(this).parents('li').hasClass('btn-qb') ){
+						$(this).parents('li').siblings('li').find('a').removeClass('color');
+					}
+					if( $(this).parents('li').siblings('li').eq(0).hasClass('btn-qb') ){
+						$(this).parents('li').siblings('li').eq(0).find('a').removeClass('color');
+						if( $(this).parents('li').siblings('li').find('.color').length + 1 == $(this).parents('li').siblings('li').length ){
+							$(this).parents('ul').find('a').removeClass('color');
+							$(this).parents('li').siblings('li').eq(0).find('a').addClass('color');
+						}
+					}
+					
+					/*不含有全选框逻辑*/
+					else{
+						$(this).parents('li').siblings('li').find('a').removeClass('color');
+						functionPopUp( $(this).attr('id') );
+					}
+				});
+				
+				/*三级列表Ajax*/
+				function functionPopUp(e){
+					var level3 = "";
+					phone.MiaoDialog('open');
+					for( i = 0 ; i < productLevel3.length ; i++ ){
+						if( parseInt( productLevel3Id[i]/100 ) == e ){
+							level3 += '<b class="text-clamp-one" name="' + productLevel3[i] + '">' + productLevel3[i] + '</b>';
+						}
+					}
+					$('#level3').html(level3);
+					
+					/*三级列表逻辑*/
+					$('#level3').on('click','b',function(){
+						
+					});
+				};
+				
+				/*重置*/
+				$('.shop-bottom>p').click(function(event){
+					$('.btn').find('a').removeClass('color');
+					$('.ss-pop-button').find('a').removeClass('color');
+					$('.ss-pop-ups').find('a').removeClass('color');
+					$('.ss-pop-ups').css('display','none');
+					$('.shop-type').find('.input-box').find('input[type=text]').val('');
+					$('.shop-type').find('.ss-search').find('input[type=text]').val('');
+				});
+				
+			}
+		})
+	};
+	
+	
+	
+	function isEmpty (val){
+		return val == '' || val === null || val === undefined;
+	}
+
+});
+
+        
+    </script>
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex">
+    <section class="header">
+        <div class="header-bg normal header-input">
+            <div class="header-l"><a href="#"></a></div>
+            <div class="header-c position-relative">
+                <input type="text" value="动漫抱枕" >
+                <div class="header-btn-a"><a href="#" >商店</a></div>
+                <div class="header-in-btn">
+                    <a href="#">商品</a>
+                    <a href="#">同人铺</a>
+                    <a href="#">商业店</a>
+                </div>
+                <div class="header-X">
+                    <a href="#">×</a>
+                </div>
+            </div>
+            <div class="header-r">
+                <a  href="#" class="header-bg-btn"></a>
+                <div class="header-r-tc">
+                    <a href="#" class="header-tc-a"><img src="../img/xinfeng.png">消息</a>
+                    <a href="../main.html" class="header-tc-b"><img src="../img/shouy.png">首页</a>
+                </div>
+            </div>
+        </div>
+        <div class="nav-btn ">
+            <a href="#" class="nav-btn-color nav-btn-a position-a nav-btn-top">人气排序</a>
+            <a href="#">销量优先</a>
+            <a href="#" class="nav-btn-a position-c">筛选</a>
+            <ul class="nav-btn-ul">
+                <li><a href="#" >人气排序</a> </li>
+                <li><a href="#">价格从低到高</a></li>
+                <li><a href="#">价格从高到低</a></li>
+            </ul>
+        </div>
+    </section>
+    <section class="content ">
+             <div class="shop-type clearfix">
+                  <p>
+                      <span class="icon-sp"></span>
+                      <span class="type-span">店 铺 类 型</span>
+                  </p>
+                  <p class="more  type-a btn">
+                      <a>同人铺</a>
+                      <a>商业店</a>
+                  </p>
+             </div>
+
+             <div class="shop-type list clearfix">
+                 <p>
+                     <span class="icon-sp"></span>
+                     <span class="type-span">同 人 圈 类 型</span>
+                 </p>
+                 <p class="more fan btn">
+                     <a>非crossover</a>
+                     <a>crossover</a>
+                     <a>衍生圈</a>
+                 </p>
+             </div>
+
+             <div class="shop-type list clearfix">
+                 <p>
+                     <span class="icon-sp"></span>
+                    <span class="type-span">偏 好</span>
+                 </p>
+                 <p class="more fan btn">
+                    <a >百合</a>
+                    <a>腐向</a>
+                    <a>大众向</a>
+                 </p>
+            </div>
+
+            <!--<div class="shop-type list clearfix">
+                <p>
+                    <span class="icon-sp"></span>
+                    <span class="type-span">原 作</span>
+                </p>
+                <div class="input-box">
+                   <input type="text" placeholder="海贼王、火影忍着、圣斗士星矢、西游记大圣..." readonly="readonly">
+                   <a></a>
+                </div>
+            </div>
+
+
+            <div class="shop-type list  search">
+                <p>
+                    <span class="icon-sp"></span>
+                    <span class="type-span">原 著</span>
+                </p>
+                <div class="clearfix search-p">
+                    <div class="ss-search ">
+                        <input type="text" value="黑崎"  id="txt" name="txt">
+                        <i class="nothing"></i>
+                     </div>
+                    <div class="ss-search">
+                        <input type="text" value="红孩儿">
+                        <i class="true"></i>
+                    </div>
+
+                </div>
+            <div class="shop-type list clearfix">
+                <p>
+                    <span class="icon-sp"></span>
+                    <span class="type-span">同 人 圈</span>
+                </p>
+                <ul class="menu-btn btn">
+                    <li><a>柯哀</a></li>
+                    <li><a>楼诚</a></li>
+                    <li><a>邪瓶</a></li>
+                    <li><a>楼诚</a></li>
+                    <li><a>柯哀</a></li>
+                    <li><a>楼诚</a></li>
+                </ul>
+            </div>-->
+
+            <div class="shop-type list clearfix" id="categories">
+                <p>
+                    <span class="icon-sp"></span>
+                    <span class="type-span">商品类型</span>
+                </p>
+                <div class="type-input clearfix">
+                	<p class="text-clamp-one"></p>
+                	<i>×</i>
+                </div>
+                <ul class="menu-btn clearfix ss-pop-button" id="categories1">
+                    <!--<li><a id="同人本" >同人本</a></li>
+                    <li><a id="原创本">原创本</a></li>
+                    <li><a id="同人周边">同人周边</a></li>-->
+                </ul>
+                <!--<ul class="menu-btn2 clearfix ss-pop-ups" id="同人本">
+                    <li class="btn-qb"><a>全选</a></li>
+                    <li><a>茶杯</a></li>
+                    <li><a>茶杯</a></li>
+                    <li><a>茶杯</a></li>
+                    <li><a>茶杯</a></li>
+                    <li><a>茶杯</a></li>
+                    <li><a>茶杯</a></li>
+                    <li><a>茶杯</a></li>
+                </ul>
+                <ul class="menu-btn2 clearfix ss-pop-ups" id="原创本">
+                    <li class="btn-qb"><a>全选</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                </ul>
+                <ul class="menu-btn2 clearfix ss-pop-ups" id="同人周边">
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                </ul>-->
+            </div>
+            <!--<div class="shop-type list clearfix">
+                <ul class="menu-btn clearfix ss-pop-button">
+                    <li><a id="生活小物">生活小物</a></li>
+                    <li><a id="毛绒">毛绒</a></li>
+                    <li><a id="服装">服装</a></li>
+                    <li><a id="文具">文具</a></li>
+                    <li><a id="数码物品">数码物品</a></li>
+                    <li><a id="手办">手办</a></li>
+                    <li><a id="包包">包包</a></li>
+                    <li><a id="其他">其他</a></li>
+                </ul>
+                <ul class="menu-btn2 clearfix ss-pop-ups" id="生活小物">
+                    <li><a>生活小物</a></li>
+                    <li><a>茶杯</a></li>
+                    <li><a>茶杯</a></li>
+                    <li><a>茶杯</a></li>
+                    <li><a>茶杯</a></li>
+                    <li><a>茶杯</a></li>
+                    <li><a>茶杯</a></li>
+                    <li><a>茶杯</a></li>
+                </ul>
+                <ul class="menu-btn2 clearfix ss-pop-ups" id="毛绒">
+                    <li><a>毛绒</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                </ul>
+                <ul class="menu-btn2 clearfix ss-pop-ups" id="服装">
+                    <li><a>服装</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                </ul>
+                <ul class="menu-btn2 clearfix ss-pop-ups" id="文具">
+                    <li><a>文具</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                </ul>
+                <ul class="menu-btn2 clearfix ss-pop-ups" id="数码物品">
+                    <li><a>数码物品</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                </ul>
+                <ul class="menu-btn2 clearfix ss-pop-ups" id="手办">
+                    <li><a>手办</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                </ul>
+                <ul class="menu-btn2 clearfix ss-pop-ups" id="包包">
+                    <li><a>包包</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                </ul>
+                <ul class="menu-btn2 clearfix ss-pop-ups" id="其他">
+                    <li><a>其他</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                    <li><a>玩具</a></li>
+                </ul>
+            </div>-->
+
+            <div class=" clearfix list more-bottom ">
+                <p class="more  type-a btn ">
+                    <a>虚 拟 商 品</a>
+                </p>
+            </div>
+           <div class="shop-bottom">
+               <p>重 置</p>
+           </div>
+       </div>
+    </section>
+    <section class="footer">
+        <div>
+            <a href="#">确 认</a>
+        </div>
+    </section>
+    <div class="confirm-pop-ups font5" id="cpp">
+		<div class="cpp-top"><i id="cancel">×</i></div>
+		<span id="level3">
+			<!--<b class="text-clamp-one color">1</b>
+			<b class="text-clamp-one">1</b>
+			<b class="text-clamp-one">1</b>
+			<b class="text-clamp-one">1</b>
+			<b class="text-clamp-one">1</b>
+			<b class="text-clamp-one">1</b>
+			<b class="text-clamp-one">1</b>
+			<b class="text-clamp-one">1</b>-->
+		</span>
+		<div class="finish" id="determine">完成</div>
+	</div>
+</section>
+</body>
+</html>

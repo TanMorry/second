@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no"/>
+    <title>喵</title>
+    <link type="text/css"  rel="stylesheet" href="../css/global.css">
+    <link type="text/css"  rel="stylesheet" href="../css/public.css">
+    <!--<link type="text/css"  rel="stylesheet" href="../css/shop-fenlei.css">-->
+    <link href="../css/shop-shaixuan.css" rel="stylesheet" type="text/css">
+
+    <script src="../js/jquery-2.2.4.min.js"></script>
+	<script src="../js/jquery-footer.js"></script>
+    <script src="../js/obtainArguments.js"></script>
+    <script src="../js/miao-Dialog.js"></script>
+    <script src="../js/filter.js"></script>
+    <style type="text/css">
+    </style>
+    <script>
+        $().ready(function () {
+            $('.header-r').on('click', '.header-bg-btn', function(event) {
+                if( $(".header-r-tc").css('display') == 'none' ){
+                    $(".header-r-tc").slideDown();
+                }
+                else{
+                    $(".header-r-tc").css('display','none');
+                }
+            });
+            $('.content').on('click', function(event) {
+                $(".header-r-tc").css('display','none');
+            });
+            $('.footer').on('click', function(event) {
+                $(".header-r-tc").css('display','none');
+            });
+
+            var h1=$(".nav-btn-color");
+            var text=$(".nav-btn-ul");
+            var none=$(".content-cover");
+            var val=text.find("li a");
+            h1.click(function(){
+                text.show();
+                none.show();
+                text.focus();
+            });
+
+            text.on('click', 'li a',function(){
+                var t = $(this).text();
+                h1.text(t);
+                text.hide();
+                none.hide();
+            });
+
+            none.click(function() {
+                text.hide();
+                none.hide();
+            });
+           
+           
+	        $('.header-X').on('click', 'a', function(event) {
+				$(this).parents('.header-X').siblings('input[type=text]').val('');
+				$(this).parents('.header-X').css('display','none');
+			});	
+			$('.header-c').on('blur', 'input[type=text]', function(event) {
+				function isEmpty (val){
+					return val == '' || val === null || val === undefined;
+				}
+				if(   !isEmpty($(this).val())  ){
+					$(this).siblings('.header-X').css('display','block');
+				}
+				else{
+					$(this).siblings('.header-X').css('display','none');
+				}
+			});	
+			
+//			$(function() {
+//                var h1 = $(".header-btn-a>a");
+//                var text = $(".header-in-btn");
+//                h1.click(function () {
+//                    text.slideDown();
+//                    text.focus();
+//                });
+//                text.on('click', 'a', function () {
+//                    var t = $(this).text();
+//                    h1.text(t);
+//                    text.hide();
+//                });
+//            })
+            $('#filter> a').click(function(){
+                $(this).addClass('nav-btn-color').addClass('nav-btn-b');
+                $(this).siblings().removeClass('nav-btn-color').removeClass('nav-btn-b')
+                if($(this).attr('data-val') != 'shaixuan')
+                {
+                    $("#main").show();
+                    $("#footer").show();
+                    $(".shaixuan").hide();
+                }
+                else
+                {
+                    $("#main").hide();
+                    $("#footer").hide();
+                    $(".shaixuan").show();
+                }
+            })
+            });
+
+
+    </script>
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex">
+    <section class="header">
+        <div class="header-bg normal header-input">
+            <div class="header-l"><a href=""></a></div>
+            <div class="header-c  position-relative">
+            	<input type="text" placeholder="请输入商品名" >
+	            <!--<div class="header-btn-a"><a href="#" >商店</a></div>-->
+	            <!--<div class="header-in-btn">-->
+	                <!--<a href="#">商品</a>-->
+	                <!--<a href="#">同人铺</a>-->
+	                <!--<a href="#">商业店</a>-->
+	            <!--</div>-->
+	            <div class="header-X">
+					<a href="#">×</a>
+				</div>
+            </div>
+            <div class="header-r">
+                <a  href="#" class="header-bg-btn"></a>
+                <div class="header-r-tc">
+                    <a href="#" class="header-tc-a"><img src="../img/xinfeng.png">消息</a>
+                    <a href="../main.html" class="header-tc-b"><img src="../img/shouy.png">首页</a>
+                </div>
+            </div>
+        </div>
+        <div class="nav-btn " id="filter">
+            <a href="#" class="nav-btn-color nav-btn-a position-a nav-btn-top" >人气排序</a>
+            <a href="#" data-val="sales" onclick="IndexList(this)">销量优先</a>
+            <a href="#" class="nav-btn-a position-c" id="choose" data-val="shaixuan">筛选</a>
+            <ul class="nav-btn-ul">
+                <li><a href="#" data-val="clicks" onclick="IndexList(this)">人气排序</a> </li>
+                <li><a href="#" data-val="sort_asc" onclick="IndexList(this)">价格从低到高</a></li>
+                <li><a href="#" data-val="sort_desc" onclick="IndexList(this)">价格从高到低</a></li>
+            </ul>
+        </div>
+    </section>
+    <div class="content-cover"></div>
+
+    <section class="content cover" id="main">
+        <div id="loading" style="display:none;">
+            <img src="../img/loading.jpg">
+        </div>
+        <div class="sale-item2 part bus-goods" id="content">
+            <ul class="sale-ones tie clearfix">
+                <!--<li>-->
+                    <!--<div class="sale-ones-front tie">-->
+                        <!--<p class="sale-of-img"><img src="../img/huibai-bg.png"></p>-->
+                        <!--<p class="sale-of-name">商品名称</p>-->
+                        <!--<p class="sale-of-text">-->
+                            <!--<span>原作:伪装者</span>-->
+                            <!--<span>CP圈:楼成</span>-->
+                        <!--</p>-->
+                        <!--<p class="sale-of-price">￥6</p>-->
+                    <!--</div>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<div class="sale-ones-front tie">-->
+                        <!--<p class="sale-of-img"><img src="../img/huibai-bg.png"></p>-->
+                        <!--<p class="sale-of-name">商品名称</p>-->
+                        <!--<p class="sale-of-text">-->
+                            <!--<span>原作:伪装者</span>-->
+                            <!--<span>CP圈:楼成</span>-->
+                        <!--</p>-->
+                        <!--<p class="sale-of-price">￥6</p>-->
+                    <!--</div>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<div class="sale-ones-front tie">-->
+                        <!--<p class="sale-of-img"><img src="../img/huibai-bg.png"></p>-->
+                        <!--<p class="sale-of-name">商品名称</p>-->
+                        <!--<p class="sale-of-text">-->
+                            <!--<span>原作:伪装者</span>-->
+                            <!--<span>CP圈:楼成</span>-->
+                        <!--</p>-->
+                        <!--<p class="sale-of-price">￥6</p>-->
+                    <!--</div>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<div class="sale-ones-front tie">-->
+                        <!--<p class="sale-of-img"><img src="../img/huibai-bg.png"></p>-->
+                        <!--<p class="sale-of-name">商品名称</p>-->
+                        <!--<p class="sale-of-text">-->
+                            <!--<span>原作:伪装者</span>-->
+                            <!--<span>CP圈:楼成</span>-->
+                        <!--</p>-->
+                        <!--<p class="sale-of-price">￥6</p>-->
+                    <!--</div>-->
+                <!--</li>-->
+            </ul>
+        </div>
+    </section>
+    <section class="footer" id="footer">
+        <div class="page horizontal-center">
+            <a class="page-up" href="#" id="page-up" onclick="page(this)" data-val="prev"></a>
+            <i class="auto-width"><!-- auto width --></i>
+            <input class="page-write" type="text" id="skipPage">
+            <a class="page-go" href="#" id="go" onclick="page(this)" data-val="GO">GO</a>
+            <span class="page-count"><b id="current"></b><i>/</i><b id="totalPage"></b></span>
+            <i class="auto-width"><!-- auto width --></i>
+            <a class="page-down" href="#" id="page-down" onclick="page(this)" data-val="next"></a>
+        </div>
+    </section>
+
+
+    <section class="content shaixuan" style="display: none;">
+        <div class="shop-type clearfix">
+            <p>
+                <span class="icon-sp"></span>
+                <span class="type-span">店 铺 类 型</span>
+            </p>
+            <p class="more  type-a btn">
+                <a>同人铺</a>
+                <a>商业店</a>
+            </p>
+        </div>
+
+        <div class="shop-type list clearfix">
+            <p>
+                <span class="icon-sp"></span>
+                <span class="type-span">同 人 圈 类 型</span>
+            </p>
+            <p class="more fan btn">
+                <a>非crossover</a>
+                <a>crossover</a>
+                <a>衍生圈</a>
+            </p>
+        </div>
+
+        <div class="shop-type list clearfix">
+            <p>
+                <span class="icon-sp"></span>
+                <span class="type-span">偏 好</span>
+            </p>
+            <p class="more fan btn">
+                <a >百合</a>
+                <a>腐向</a>
+                <a>大众向</a>
+            </p>
+        </div>
+
+        <div class="shop-type list clearfix" id="categories">
+            <p>
+                <span class="icon-sp"></span>
+                <span class="type-span">商品类型</span>
+            </p>
+            <div class="type-input clearfix">
+                <p class="text-clamp-one" id="text"></p>
+                <i>×</i>
+            </div>
+            <ul class="menu-btn clearfix ss-pop-button" id="categories1">
+
+            </ul>
+
+        </div>
+        <div class="shop-bottom">
+            <p>重 置</p>
+        </div>
+        </div>
+    </section>
+    <section class="footer shaixuan footer-sx" style="display: none;">
+            <a href="#">确 认</a>
+    </section>
+    <div class="confirm-pop-ups font5" id="cpp">
+        <div class="cpp-top"><i id="cancel">×</i></div>
+		<span id="level3">
+
+		</span>
+        <div class="finish" id="determine">完成</div>
+    </div>
+</section>
+</body>
+</html>
+<script>
+    var countPage = 1;//总页数
+    var currentPage = 1;//当前页数
+    var urlParam = new Arguments();
+    var getCateId = urlParam.Request();
+    $(function()
+    {
+        IndexList();
+    })
+    function IndexList(obj,param)
+    {
+        //筛选导航
+        var data = {};
+        if(param)
+        {
+            AllFilter = param;
+            data['shaixuan'] = AllFilter;
+        }
+        var url = '/tongrenmiao/index.php?g=Mall&m=Index&a=search';
+        data['cateid'] = 100201;//getCateId.cateId;
+        if(obj)
+        {
+            data['filterType'] = $(obj).attr('data-val');
+        }
+        $.ajax({
+            url:url,
+            data:data,
+            type:'get',
+            dataType:'json',
+            beforeSend:function()
+            {
+                $("#loading").show();
+                $("#content").hide();
+            },
+            success:function(res)
+            {
+                if(res.Info != "")
+                {
+                    handleHtml(res.Info);
+                }
+                else
+                {
+                    $("#content").html('<div class="load-fail">没有找到该分类下的商品</div><div>');
+                }
+                $("#loading").hide();
+                $("#content").show();
+
+            },
+            error:function()
+            {
+                $("#content").html('<div class="load-fail">加载失败</div><div>');
+            }
+        })
+    }
+
+    function handleHtml(list)
+    {
+        var str = '';
+        $.each(list,function(k,v)
+        {
+            str += '<li>\
+                        <div class="sale-ones-front tie">\
+                            <p class="sale-of-img"><img src="'+v.pic+'"></p>\
+                            <p class="sale-of-name">'+v.name+'</p>\
+                            <p class="sale-of-text">\
+                                <span>原作:伪装者</span>\
+                                <span>CP圈:楼成</span>\
+                            </p>\
+                            <p class="sale-of-price">￥'+v.price+'</p>\
+                        </div>\
+                    </li>';
+        })
+        $('#content>ul').html(str);
+    }
+
+    function page(obj)
+    {
+        /*---点击分页用---*/
+        var prev = $(obj).attr('data-val');
+        var next = $(obj).attr('data-val');
+        var go = $(obj).attr('data-val');
+        var skipPage = $("#skipPage").val();
+        /*---点击分页用---*/
+
+        var prevPage = parseInt(currentPage)-1;//上一页
+        var nextPage = parseInt(currentPage)+1;//下一页
+        var data = {};
+        data['type'] = type;
+        data['shopId'] = param.shopId;
+        if(prev == 'prev')
+        {
+            data['page'] = prevPage;
+            product_ajax(data,prevPage);
+        }
+        if(next == 'next')
+        {
+            data['page'] = nextPage;
+            product_ajax(data,nextPage);
+        }
+        if(go == 'GO')
+        {
+            if(skipPage == "" || parseInt(skipPage)>parseInt(countPage))
+            {
+                return false;
+            }
+            else
+            {
+                data['page'] = skipPage;
+                product_ajax(data,skipPage);
+            }
+        }
+        if(currentPage <=1)
+        {
+            $("#page-up").addClass('disable');
+            $("#footer").addClass('updisable');
+        }
+        else
+        {
+            $("#page-up").removeClass('disable');
+            $("#footer").removeClass('updisable');
+        }
+    }
+
+    function showPage(){
+        if(currentPage>=countPage)
+        {
+            $("#page-down").addClass('downdisable');
+            $("#footer").addClass('downdisable');
+        }
+        else
+        {
+            $("#page-down").removeClass('disable');
+            $("#footer").removeClass('downdisable');
+        }
+        if(currentPage == 1)
+        {
+            $("#page-up").addClass('disable');
+            $("#footer").addClass('updisable');
+        }
+        else
+        {
+            $("#page-up").removeClass('disable');
+            $("#footer").removeClass('updisable');
+        }
+    }
+
+    /*输入数量验证*/
+    $(".footer input").on('blur input propertychange', function(event) {
+        function isEmpty (val)
+        {
+            return val == '' || val === null || val === undefined;
+        }
+        var val = $(this).val();
+        /*如果不是空则强转数字*/
+        if (!isEmpty(val))
+        {
+            val = parseInt(val.replace(/[^\d]/ig,''), 10);
+        }
+
+        isNaN(val) ? $(this).val("") : $(this).val(val);
+        if(val > countPage)
+        {
+            $("#go").css('background','#999');
+        }
+        else
+        {
+            $("#go").css('background','#eb6877');
+        }
+    })
+</script>

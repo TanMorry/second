@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>主办方机构申请</title>
+<tc_include file="Public:head" />
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<link href="__TMPL__Public/css/global.css" rel="stylesheet" type="text/css">
+<link href="__TMPL__Public/css/layout.css" rel="stylesheet" type="text/css">
+<link href="__TMPL__Public/css/expo_style.css" rel="stylesheet" type="text/css">
+<link href="__TMPL__Public/css/idangerous.swiper.css" rel="stylesheet" type="text/css">
+
+<script src="__TMPL__Public/js/jquery.min.js"></script>
+<script src="__TMPL__Public/js/idangerous.swiper.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+	$(".sidebar-list").on('click', 'li', function(event) {
+		$(".sidebar-list").find('li').removeClass('checked');
+		$(this).addClass('checked');
+	});
+
+	$(".column-list").on('click', 'li', function(event) {
+		$(".column-list").find('li').removeClass('checked');
+		$(this).addClass('checked');
+	});
+
+	var mySwiper = new Swiper('.swiper-container',{
+		autoplay: 1000,
+		speed: 800,
+		autoplayDisableOnInteraction:false,
+		slidesPerGroup: 4,
+		slidesPerView: 4,
+		pagination: '.pagination',
+		paginationClickable :true,
+		createPagination :true,
+		paginationAsRange : true
+	});
+});
+
+</script>
+
+<body>
+<form id="form1" name="form1" method="post" action="{:U('Exhibition/sponsor/oapply')}">
+  <p>机构信息
+</p>
+<input type="hidden" name="id_sponsor" value="{$user[id]}"/><!-- 不写这个拿不到$user[id] -->
+  <table width="296" border="1">
+    <tr>
+      <td width="149">机构名称：</td>
+      <td width="131"><label for="institution"></label>
+      <input type="text" name="institution" id="institution" />        <label for="truename"></label></td>
+    </tr>
+    <tr>
+      <td height="29">负责人姓名：</td>
+      <td><label for="identityimg1"></label>
+        <label for="truename2"></label>
+        <label for="truename3"></label>
+        <input type="text" name="truename" id="truename3" />
+      <label for="identityimg2"></label></td>
+    </tr>
+    <tr>
+      <td>负责人身份证：</td>
+      <td><label for="phone"></label>
+        <label for="identityimg4"></label>
+        <input type="text" name="identityimg1" id="identityimg4" />
+        <label for="identityimg5"></label>
+        <input type="text" name="identityimg2" id="identityimg5" />
+<label for="identityimg3"></label></td>
+    </tr>
+    <tr>
+      <td>负责人手机号：</td>
+      <td><label for="phone2"></label>
+      <input type="text" name="phone" id="phone2" />        <label for="qq"></label></td>
+    </tr>
+    <tr>
+      <td>负责人qq：</td>
+      <td><label for="qq"></label>
+      <input type="text" name="qq" id="qq" /></td>
+    </tr>
+    <tr>
+      <td>负责人邮箱：</td>
+      <td><label for="sheng"></label>
+        <label for="email"></label>
+        <input type="text" name="email" id="email" /></td>
+    </tr>
+    <tr>
+      <td>三证详细图：</td>
+      <td><label for="papersimgs"></label>
+      <input type="text" name="papersimgs" id="papersimgs" />        <label for="adress"></label></td>
+    </tr>
+  </table>
+  <p>展会信息</p>
+  <table width="375" border="1">
+    <tr>
+      <td width="169">官方链接：</td>
+      <td width="226"><label for="homeurl"></label>
+      <input type="text" name="homeurl" id="homeurl" /></td>
+    </tr>
+    <tr>
+      <td><p>是否举办过展会：</p></td>
+      <td><label for="iscreate"></label>
+      <input type="text" name="iscreate" id="iscreate" /></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><label for="oldurl"></label>
+      <input type="text" name="oldurl" id="oldurl" /></td>
+    </tr>
+    <tr>
+      <td>说明：</td>
+      <td><label for="decription"></label>
+      <input type="text" name="decription" id="decription" /></td>
+    </tr>
+    <tr>
+      <td>相关资料图：</td>
+      <td><label for="decimgs"></label>
+      <input type="text" name="decimgs" id="decimgs" /></td>
+    </tr>
+  </table>
+  <p>
+    <input name="submit" type="submit" id="submit" value="提交资料" />
+  </p>
+  <p>&nbsp; </p>
+</form>
+</body>
+</html>

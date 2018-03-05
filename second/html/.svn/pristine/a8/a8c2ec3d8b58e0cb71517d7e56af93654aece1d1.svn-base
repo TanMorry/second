@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="format-detection" content="telephone=no"/>
+<title>喵</title>
+<link href="css/global.css" rel="stylesheet" type="text/css">
+<link href="css/public.css" rel="stylesheet" type="text/css">
+<link href="plugin/pullToRefresh.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	
+</style>
+
+<script src="js/jquery-2.2.4.min.js"></script>
+<script src="plugin/iscroll.js"></script>
+<script src="plugin/pullToRefresh.js"></script>
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex">
+
+	<section class="header">
+		<div class="header-bg internal">
+			<div class="header-l"><a href="main.html"></a></div>
+			<div class="header-c"><p>人 气 同 人 本</p></div>
+			<div class="header-r"><a class="disabled "></a></div>
+		</div>
+	</section>
+	<!-- 主体 -->
+	<section class="content">
+		<div id="wrapper">
+			<div class="iscroll-main">
+				<div class="sale-item2 part">
+
+					<ul class="sale-ones tie clearfix" id="hotTongRen">
+						<li>
+							<div class="sale-ones-front tie">
+								<p class="sale-of-img"><img src="img/test/item1.png"></p>
+								<p class="sale-of-name">商品名称</p>
+								<p class="sale-of-text">原作:布吉岛</p>
+								<p class="sale-of-text">CP圈:不知道</p>
+								<p class="sale-of-price">￥321</p>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!--<section class="footer">-->
+		<!--<div class="page horizontal-center">-->
+			<!--<a class="page-up" href="#"></a>-->
+			<!--<i class="auto-width">&lt;!&ndash; auto width &ndash;&gt;</i>-->
+			<!--<input class="page-write" type="text">-->
+			<!--<a class="page-go" href="#">GO</a>-->
+			<!--<span class="page-count">100/100</span>-->
+			<!--<i class="auto-width">&lt;!&ndash; auto width &ndash;&gt;</i>-->
+			<!--<a class="page-down" href="#"></a>-->
+		<!--</div>-->
+	<!--</section>-->
+</section>
+</body>
+</html>
+<script>
+	$(function()
+	{
+		list();
+	})
+	function list()
+	{
+		var url = "/tongrenmiao/index.php?g=Mall&m=index&a=moodsProduct";
+		$.ajax({
+			url:url,
+			data:{'detail':2},
+			type:'get',
+			dataType:'json',
+			beforeSend:function()
+			{
+
+			},
+			success:function(ret)
+			{
+				if(ret)
+				{
+					var result = handleHtml(ret.moods);
+					$("#hotTongRen").html(result);
+					wrapper.refresh();
+					return 1;
+				}
+				else
+				{
+					alert('刷新失败');
+				}
+			},
+			error:function()
+			{
+
+			}
+		})
+	}
+	function handleHtml(list)
+	{
+		var str="";
+		$.each(list,function(key,val)
+		{
+			str += '<li>\
+					<div class="sale-ones-front tie">\
+						<p class="sale-of-img"><img src="img/test/item1.png"></p>\
+						<p class="sale-of-name">'+val.name+'</p>\
+						<p class="sale-of-text">原作:布吉岛</p>\
+						<p class="sale-of-text">CP圈:不知道</p>\
+						<p class="sale-of-price">'+val.price+'</p>\
+					</div>\
+				</li>'
+		})
+		return str;
+	}
+
+	//下拉刷新
+	refresher.init({
+		id: "wrapper",
+		pullDownAction: Refresh
+	});
+	function Refresh() {
+			setTimeout(function () {
+				list();
+				wrapper.refresh();
+			}, 1000);
+
+	}
+</script>

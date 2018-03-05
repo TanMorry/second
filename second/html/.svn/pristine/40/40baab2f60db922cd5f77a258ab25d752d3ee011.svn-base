@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no"/>
+    <title>喵</title>
+    <link type="text/css"  rel="stylesheet" href="../css/baby-fenlei.css">
+    <link type="text/css"  rel="stylesheet" href="../css/global.css">
+    <link type="text/css"  rel="stylesheet" href="../css/public.css">
+    <link type="text/css"  rel="stylesheet" href="../css/suoyou.css">
+
+    <style type="text/css">
+    </style>
+    <script src="../js/jquery-2.2.4.min.js"></script>
+    <script>
+        $(function(){
+            var h1=$(".header-btn-a>a");
+            var text=$(".header-input .header-in-btn");
+            var val=text.find("a");
+            h1.click(function () {
+                text.slideDown();
+                text.focus();
+            });
+            h1.blur(function () {
+                text.slideUp();
+            });
+            val.click(function(){
+                var tex=$(this).text();
+                h1.html(tex);
+            })
+        });
+    </script>
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex">
+    <section class="header">
+        <div class="header-bg normal header-input">
+            <div class="header-c "><input type="text" >
+            <div class="header-btn-a"><a href="#" >商店</a></div>
+            <div class="header-in-btn">
+                <a href="#">商店</a>
+                <a href="#">同人铺</a>
+                <a href="#">商业店</a>
+                <a href="#">定制厂</a>
+            </div>
+            </div>
+            <div class="header-more"><a href="#">取消</a></div>
+        </div>
+    </section>
+    <section class="content">
+        <div class="guild clearfix">
+            <p class="guild-l clearfix">
+                <span class="guild-color1">最近搜索</span>
+                <a href="#"></a>
+            </p>
+            <p class="guild-r">
+                <a href="#">十万个冷笑话</a>
+                <a href="#">火影忍者</a>
+            </p>
+        </div>
+        <div class="guild">
+            <p class="guild-l clearfix">
+                <span class="guild-color2">热卖搜索</span>
+            </p>
+            <p class="guild-r">
+                <a href="#">十万个冷笑话</a>
+                <a href="#">火影忍者</a>
+            </p>
+        </div>
+    </section>
+</section>
+</body>
+</html>

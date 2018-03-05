@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>展会</title>
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<link href="css/global.css" rel="stylesheet" type="text/css">
+<link href="css/rec-layout.css" rel="stylesheet" type="text/css">
+
+<script src="js/jquery.min.js"></script>
+<script src="js/expo.public.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+	/*input提示判定*/
+	$(".rm-input").on('focus blur input propertychange', function(event) {
+		if(event.type == 'focus' || event.type == 'input' || event.type == 'propertychange')
+		{
+			$(this).parent("div").addClass('rm-be');
+		}
+		else if(event.type == 'blur')
+		{
+			!$(this).val().length && $(this).parent("div").removeClass('rm-be');
+		}
+	});
+});
+</script>
+
+<body>
+	<div class="M_Header M_BTM_25">
+		<div class="header-bg">
+			<p class="header-pink"></p>
+			<p class="header-beige"></p>
+		</div>
+		<div class="header-rec">
+			<div class="M_Center clearfix">
+				<ul class="clearfix">
+					<li class="M_LOGO"></li>
+					<li><b href="#">找回密码</b></li>
+				</ul>
+				<div class="header-info">
+					<a href="#" type="login">登录</a>
+					<a href="#" type="register">注册</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="M_Layout M_Center M_BTM_50">
+
+		<p class="rec-tips">你正在找回主办方账号1*****1253的密码</p>
+
+		<div class="run-step clearfix">
+			<ul class="rs-ul float-center">
+				<li><b>01</b>进行安全验证<i></i></li>
+				<li class="fixed"><b>02</b>设置新密码</li>
+			</ul>
+		</div>
+
+		<div class="rec-main">
+
+			<div class="rm-main clearfix">
+				<i>新密码：</i>
+				<div class="rm-normal">
+					<input class="rm-input" type="text" sign="account" />
+					<input class="rm-hint" type="text" value="6-16个字符，区分大小写" />
+				</div>
+			</div>
+
+			<div class="rm-main clearfix M_BTM_50">
+				<i>再次输入：</i>
+				<div class="rm-normal">
+					<input class="rm-input" type="text" sign="account" />
+					<input class="rm-hint" type="text" value="" />
+					<p class="rm-msg">密码输入不一致！</p>
+				</div>
+			</div>
+
+			<p class="rm-submit">
+				<a href="#">完成</a>
+			</p>
+		</div>
+	</div>
+</body>
+</html>

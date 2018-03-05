@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="format-detection" content="telephone=no"/>
+<title>喵</title>
+<link href="css/global.css" rel="stylesheet" type="text/css">
+<link href="css/public.css" rel="stylesheet" type="text/css">
+<link href="css/shop-fenlei.css" rel="stylesheet" type="text/css">
+<link href="css/personal.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+</style>
+<script src="js/jquery-2.2.4.min.js"></script>
+<script src="js/miao-Dialog.js"></script>
+<script src="plugin/plupload.full.min.js"></script>
+<script>
+    $().ready(function(){
+        $('.header-r').on('click', '.header-bg-btn', function(event) {
+            if( $(".header-r-tc").css('display') == 'none' ){
+                $(".header-r-tc").css('display','block')
+            }
+            else{
+                $(".header-r-tc").css('display','none');
+            }
+        });
+        $('.content').on('click', function(event) {
+            $(".header-r-tc").css('display','none');
+        });
+        $('.footer').on('click', function(event) {
+            $(".header-r-tc").css('display','none');
+        });
+    })
+</script>
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex">
+    <section class="header">
+        <div class="header-bg normal">
+            <div class="header-l"><a href="javascript:history.go(-1)"></a></div>
+            <div class="header-c header-fot">意见反馈</div>
+            <div class="header-r">
+                <a  href="javascript:" class="header-bg-btn"></a>
+                <div class="header-r-tc">
+                    <a href="javascript:" class="header-tc-a"><img src="img/xinfeng.png">消息</a>
+                    <a href="main.html" class="header-tc-b"><img src="img/shouy.png">首页</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 主体 -->
+    <section class="content flex">
+        <textarea class="pf-text" onblur="advance(this)" placeholder="亲，您遇到什么系统发、问题啦，或有什么共同建议吗？欢迎提给我们谢谢"></textarea>
+        <div class="pf-pic">
+            <ul id="ul_pics" >
+        	<!--<img src="img/test/item2.jpg" />-->
+        	<!--<img src="img/test/item2.jpg" />-->
+            </ul>
+        	<a href="javascript:" id="upload">上传凭证</br>(最多三张)<input type="file" id="btn"/></a>
+        </div>
+        
+    </section>
+    <section class="footer">
+        <div class="footer-last ">
+            <a class="font-size-18 grey-disable" href="javascript:" >发表</a>
+        </div>
+    </section>
+    <div class="confirm-pop-ups font1" id="cpp2" >
+        <img src="img/zhuan.gif" id="img1">
+        <span></span>
+    </div>
+    <div class="confirm-pop-ups font3" id="cppF">
+        <p></p>
+    </div>
+</section>
+</body>
+</html>
+<script>
+    var con = "";
+//    var imgSrc = "";
+    var userid =1;
+    var phone2 = $('#cpp2').MiaoDialog();
+
+    function getUserInfo(id,name)
+    {
+        userInfo(id,name);
+    }
+    function userInfo(id,name)
+    {
+        userid = id;
+    }
+    //建议
+    function advance(obj)
+    {
+        if($(obj).val().trim() != "")
+        {
+            con = $(obj).val();
+            //按钮变亮， 可点击跳转
+            $(".font-size-18").removeClass('grey-disable');
+//            doSubmit();
+            $(".font-size-18").attr('onclick','doSubmit()');
+        }
+    }
+
+    //发表
+    function doSubmit()
+    {
+        var data={};
+        if ($("#ul_pics").find("div").length >0) {
+            //将上传图片的url组装起来
+            var str = '';
+            var cont = $("#ul_pics").find("img").length
+            for(var i=0;i<cont;i++)
+            {
+                str += $("#ul_pics").find("img").eq([i]).attr('src')+',';
+            }
+            data['pic'] = str.substring(0,str.length-1);
+        }
+        data['userid'] = userid;
+        data['con'] = con;
+        var url = '/tongrenmiao/index.php?g=Mall&m=Index&a=save_feedback';
+        $.ajax({
+            url:url,
+            data:data,
+            type:'post',
+            dataType:'json',
+            beforeSend:function()
+            {
+                phone2.MiaoDialog('open');
+            },
+            success:function(res)
+            {
+                phone2.MiaoDialog('close');
+                if(res.status ==1)
+                {
+//                        $(".font-size-18").removeAttr('onclick');
+                    alertInfo('提交成功');
+                    setTimeout(function(){
+                        $("#error").show();
+//                            $(".font-size-18").addClass('grey-disable');
+
+                    },1500)
+                }
+                else if(res.status == 2)
+                {
+                    alertInfo('请勿提交重复的建议')
+                }
+                else
+                {
+                    alertInfo('提交失败');
+                }
+            },
+            error:function()
+            {
+                alertInfo('请求失败')
+            }
+        })
+    }
+
+
+
+    /*-------图片上传  实时预览-------*/
+    var uploader = new plupload.Uploader({ //创建实例的构造方法
+        runtimes: 'html5,flash,silverlight,html4',
+        //上传插件初始化选用那种方式的优先级顺序
+        browse_button: 'btn',
+        // 上传按钮
+        url: "/tongrenmiao/index.php?g=Mall&m=Index&a=upload_pic_ajax",
+        //远程上传地址
+//        flash_swf_url: 'plupload/Moxie.swf',
+        //flash文件地址
+//        silverlight_xap_url: 'plupload/Moxie.xap',
+        //silverlight文件地址
+        filters: {
+            max_file_size: '2mb',
+            //最大上传文件大小（格式100b, 10kb, 10mb, 1gb）
+            mime_types: [ //允许文件上传类型
+                {
+                    title: "files",
+                    extensions: "jpg,png,gif"
+                }]
+        },
+        multi_selection: false,
+        //true:ctrl多文件上传, false 单文件上传
+        init: {
+            FilesAdded: function(uploader, files) { //文件上传前
+//                if ($("#ul_pics").children("img").length >= 3) {
+////                    alertInfo("最多只能上传3张图");
+//                    $("#upload").hide();
+//                    uploader.destroy();
+//                }
+//                else {
+//                    var li = '';
+//                    plupload.each(files,
+//                            function(file) { //遍历文件
+//                                li += "<li id='" + file['id'] + "'><div class='progress'><span class='bar'></span><span class='percent'>0%</span></div></li>";
+//                            });
+//                    $("#ul_pics").append(li);
+                    $("#upload").show();
+                    uploader.start();
+//                }
+            },
+//            UploadProgress: function(up, file) { //上传中，显示进度条
+//                $("#" + file.id).find('.bar').css({
+//                    "width": file.percent + "%"
+//                }).find(".percent").text(file.percent + "%");
+//            },
+            FileUploaded: function(uploader, files, info) { //文件上传成功的时候触发
+                var result = JSON.parse(info.response);
+                $("#ul_pics").append("<div class='img_num' onclick='del_img(this)'><img src='" + result.pic + "' data-name='"+result.name+"'/></div>");
+                if ($("#ul_pics").find("div").length >= 3) {
+//                    alertInfo("最多只能上传3张图");
+                    $("#upload").hide();
+                }
+            },
+            Error: function(uploader, error) { //上传出错的时候触发
+                alert(1)
+                alertInfo(err.message);
+            }
+        }
+    });
+    uploader.init();
+
+    function del_img(obj)
+    {
+        $(obj).remove();
+        $("#upload").show();
+
+    }
+    function alertInfo(mes)
+    {
+        var phoneF = $('#cppF').MiaoDialog();
+        phoneF.MiaoDialog('open');
+        $('#cppF').find('p').text(mes);
+        setTimeout(function(){
+            phoneF.MiaoDialog('close');
+        },1400);
+    }
+</script>

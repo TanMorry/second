@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="format-detection" content="telephone=no"/>
+<title>喵</title>
+<link type="text/css"  rel="stylesheet" href="../css/shop-fenlei.css">
+<link type="text/css"  rel="stylesheet" href="../css/global.css">
+<link type="text/css"  rel="stylesheet" href="../css/public.css">
+<style type="text/css">
+</style>
+<script src="../js/jquery-2.2.4.min.js"></script>
+<script src="../js/obtainArguments.js"></script>
+<script>
+$(document).ready(function(){
+
+
+
+	/*Ajax*/
+	var Request = new Arguments();
+	var urlMember = Request.Request();//获取url参数
+	if( !isEmpty(urlMember.shopId) ){
+		loadAjax();
+	}
+	else{
+	}
+
+	function loadAjax(){
+		var url = "/tongrenmiao/index.php?g=Mall&m=index&a=babyCate";
+		$.ajax({
+			url:url,
+			data:{'userid':urlMember.shopId},
+			dataType:'json',
+			type:'get',
+			beforeSend:function()
+			{
+			},
+			success:function(ret)
+			{
+				var htmlFL = "";
+				for( i = 0 ; i < ret.cate.length ; i++){
+					if( ret.cate[i].part ){
+						htmlFL += '<li class="level1"><a class="nav-hover2">' + ret.cate[i].name + '</a></li>';
+						for( j = 0 ; j < ret.cate[i].part.length ; j++ ){
+							htmlFL += '<li class="none"><a href="../shop-xiangqiye/shop-sousuo.html?shopId='+ret.cate[i]['userid']+'&cateId=' + ret.cate[i].part[j].id + '" class="nav-list-2">' + ret.cate[i].part[j].name + '</a></li>';
+						}
+					}
+					else{
+						htmlFL += '<li class="level1"><a href="../shop-xiangqiye/shop-sousuo.html?shopId='+ret.cate[i]['userid']+'&cateId=' + ret.cate[i].id + '">' + ret.cate[i].name + '</a></li>';
+					}
+				}
+				$('.nav-bottom').find('ul').html(htmlFL);
+				$('.level1').on('click','a',function(){
+					if( $(this).hasClass('nav-hover2') ){
+						$(this).removeClass('nav-hover2').addClass('nav-hover3');
+						$(this).parents('li').nextUntil('.level1').removeClass('none');
+					}
+					else if( ( $(this).hasClass('nav-hover3') ) ){
+						$(this).removeClass('nav-hover3').addClass('nav-hover2');
+						$(this).parents('li').nextUntil('.level1').addClass('none');
+					}
+				});
+				$("#fenleiAllBaby").html('<a href="../shop-xiangqiye/shop-sousuo.html?shopId='+urlMember.shopId+'">全 部 宝 贝</a>')
+
+			}
+		})
+	};
+
+	function isEmpty(e){
+		if( e = "" || e == null || e == undefined  ){
+			return true;
+		}
+		else{
+			return false;
+		}
+	};
+
+
+});
+
+</script>
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex">
+    <section class="header">
+        <div class="header-bg normal">
+            <div class="header-l"><a href="javascript:history.go(-1)"></a></div>
+            <div class="header-c header-fot">宝 贝 分 类</div>
+            <div class="header-r"><a  href="#" class="header-bg-btn"></a></div>
+        </div>
+    </section>
+    <section class="content">
+        <div class="nav-top " id="fenleiAllBaby"></div>
+        <div class="nav-bottom">
+            <ul>
+                <!--<li class="level1"><a href="../shop-xiangqiye/shop-sousuo.html" class="nav-hover2">同 人 本</a></li>
+                <li class="none"><a href="#" class="nav-list-2">123</a></li>
+            	<li class="none"><a href="#" class="nav-list-2">234</a></li>
+            	<li class="none"><a href="#" class="nav-list-2">345</a></li>
+                <li class="level1"><a href="#" class="nav-hover2">T 恤</a></li>
+            	<li class="none"><a href="#" class="nav-list-2">456</a></li>
+                <li class="level1"><a href="#" class="nav-hover2">宝 宝</a></li>
+                <li class="level1"><a href="#" class="nav-hover2">首 饰</a></li>-->
+            </ul>
+        </div>
+    </section>
+</section>
+</body>
+</html>

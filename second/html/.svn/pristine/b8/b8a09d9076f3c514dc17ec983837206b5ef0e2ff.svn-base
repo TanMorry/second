@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="format-detection" content="telephone=no"/>
+<title>喵</title>
+<link href="css/global.css" rel="stylesheet" type="text/css">
+<link href="css/public.css" rel="stylesheet" type="text/css">
+<link href="css/detail.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+
+</style>
+
+<script src="js/jquery-2.2.4.min.js"></script>
+<script src="js/obtainArguments.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+	/*弹框*/
+	$('.foot-right').on('click', 'a' , function(event) {
+		if( $(".footer-pop-ups").css('display') == 'none' ){
+			$(".footer-pop-ups-blackground").css('display','block');
+			$(".footer-pop-ups").slideDown();
+		}
+		else{
+
+		}
+	});
+	$('.foot-right').on('click','a', function(event) {
+		if( $(".footer-pop-ups").css('display') == 'none' ){
+			$(".footer-pop-ups-blackground").css('display','block');
+			$(".footer-pop-ups").slideDown();
+		}
+		else{
+
+		}
+	});
+	$('.fpp-X').on('click','a', function(event) {
+		$(".footer-pop-ups-blackground").css('display','none');
+		$(".footer-pop-ups").css('display','none');
+	});
+
+	$('.btn-bottom').on('click', function(event) {
+		$(".footer-pop-ups-blackground").css('display','none');
+		$(".btn-fenxiang").css('display','none');
+	});
+	
+	/*弹框*/
+		$('.header').on('click', '#other', function(event) {
+			if( $(".header-pop-ups").css('display') == 'none' ){
+				$(".header-pop-ups").slideDown();
+			}
+			else{
+				$(".header-pop-ups").css('display','none');
+			}
+		});
+		$('.content').on('click', function(event) {
+			$(".header-pop-ups").css('display','none');
+		});
+		$('.footer').on('click', function(event) {
+			$(".header-pop-ups").css('display','none');
+		});
+	/*数量加减*/
+	$(".detail-count").on('click', 'a', function(event) {
+		var $count = $(this).parents(".detail-count").find("input");
+		if($(this).hasClass('detail-count-sub'))
+		{
+			$count.val(parseInt($count.val(), 10) - 1 || 1);
+		}
+		else if($(this).hasClass('detail-count-add'))
+		{
+			$count.val(parseInt($count.val(), 10) + 1 || 1);
+		}
+	});
+	/*输入数量验证*/
+	$(".detail-count input").on('blur input propertychange', function(event) {
+
+		function isEmpty (val)
+		{
+			return val == '' || val === null || val === undefined;
+		}
+
+		var val = $(this).val();
+		/*如果不是空则强转数字*/
+		if (!isEmpty(val))
+		{
+			val = parseInt(val.replace(/[^\d]/ig,''), 10);
+		}
+
+		isNaN(val) ? $(this).val(1) : $(this).val(val);
+
+		if(event.type == 'blur' || event.type == 'focusout')
+		{
+			if(isEmpty(val))
+			{
+				$(this).val(1);
+			}
+		}
+	});
+});
+</script>
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex">
+
+	<section class="header">
+		<div class="header-bg internal">
+			<div class="header-l"><a id="prevHref" href="javascript:history.go(-1)"></a></div>
+			<div class="header-c"><p class="cart">评 价 详 情</p></div>
+			<div class="header-r horizontal-center"><a class="cart" href="#"></a><a id="other" href="#"></a></div>
+		</div>
+		<div class="header-pop-ups">
+			<div class="hpp-arrow"></div>
+			<a href="shop-cart/information/information-center.html">
+				<div class="hpp-content border-dashed">
+					<i class="nav1"></i>消息
+				</div>
+			</a>
+			<a href="main.html">
+				<div class="hpp-content border-dashed">
+					<i class="nav2"></i>首页
+				</div>
+			</a>
+			<a href="#">
+				<div onclick="fenxiang()" class="hpp-content " id="btn-fx">
+					<i class="nav3"></i>分享
+				</div>
+			</a>
+		</div>
+	</section>
+	<!-- 主体 -->
+	<div id="loading" style="display:none">
+		<img src="img/loading.jpg">
+	</div>
+	<section class="content" >
+		<div class="detail love part2" id="Info">
+			<div class="detail-first clearfix">
+				<a class="fixed" href="#" data-val="0" onclick="changeCom(this)"><img class="img1" src="img/flower.png"/><i>全部(<n id="allCom">132</n>)</i></a>
+				<a href="#" data-val="3" onclick="changeCom(this)"><img class="img2" src="img/flower.png"/><i>好评(<n id="good">88</n>)</i></a>
+				<a href="#" data-val="2" onclick="changeCom(this)"><img class="img3" src="img/flower.png"/><i>中评(<n id="middle">32</n>)</i></a>
+				<a href="#" data-val="1" onclick="changeCom(this)"><img class="img4" src="img/flower.png"/><i>差评(<n id="bad">12</n>)</i></a>
+			</div>
+			<div class="detail-access detail-access-borderbtm clearfix" id="comInfo"></div>
+			<div class="detail-access-blank"></div>
+		</div>
+
+		<div class="sale-item2 part"></div>
+
+	</section>
+		<div class="footer-pop-ups-blackground"></div>
+		<div class="footer-pop-ups">
+			<div class="fpp-alpha">
+				<img src="img/test/item2.jpg" class="fpp-logo"/>
+			</div>
+			<div class="fpp-pad">
+				<div class="detail part">
+					<div class="fpp-title detail-access-borderbtm">
+						<b>￥<i id="goodsPrice2">69</i></b>
+						<p>库存：<i id="stock"></i></p>
+						<p id="specInfo">请选择：</p>
+						<div class="fpp-X">
+							<a href="#">×</a>
+						</div>
+					</div>
+					<div class="">
+						<div class="fpp-color detail-access-borderbtm clearfix" id="spec"></div>
+						<!--<div class="fpp-color detail-access-borderbtm clearfix">-->
+							<!--<p class="clearfix">颜色分类</p>-->
+							<!--<a class="fpp-color-select" href="#">颜色分类</a>-->
+							<!--<a href="#">颜色分类</a>-->
+						<!--</div>-->
+						<!--<div class="fpp-color clearfix">-->
+							<!--<p class="clearfix">颜色分类</p>-->
+							<!--<a class="fpp-color-select" href="#">颜色分类</a>-->
+							<!--<a href="#">颜色分类</a>-->
+							<!--<a href="#">颜色分类</a>-->
+						<!--</div>-->
+						<div class="detail-count horizontal-center">
+							<p>购买数量</p>
+							<i class="auto-width"></i>
+							<a class="detail-count-sub" href="#">-</a>
+							<input class="detail-count-write" type="text" value="1">
+							<a class="detail-count-add" href="#">+</a>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="fpp-cart">
+					<a id="addCar" class="font1" href="shop-cart/shop-cart-edit.html" onclick="addCar()">加入购物车</a>
+					<a id="buy" class="font2" href="detail-confirm.html" onclick="buy()">立即购买</a>
+				</div>
+			</div>
+		</div>
+	
+
+	<section class="footer">
+		<div class="foot-border"></div>
+		<div class="foot-left">
+			<div><a class="nav1" href="#">客服</a></div>
+			<div><a id="shop_addr" class="nav2" href="#">店铺</a></div>
+		</div>
+		<div class="foot-right">
+			<div><a class="nav1" href="#">加入购物车</a></div>
+			<div><a class="nav2" href="#">立即购买</a></div>
+		</div>
+	</section>
+</section>
+</body>
+</html>
+<script>
+	var setmeal=new Array();
+	var url = new Arguments();
+	var param = url.Request();
+	$(function()
+	{
+		indexList();
+	})
+
+	function indexList(type)
+	{
+		//ajax请求当前页面数据
+		var url = '/tongrenmiao/index.php?g=Mall&m=index&a=commentDetail';
+		if(type)
+		{
+			var data = {'type':type,'id':param.id};
+		}
+		else
+		{
+			var data = {'type':0,'id':param.id};
+			//返回按钮带上商品id返回商品详情页
+//			var prevHref = $("#prevHref").attr('href')
+//			var productId = param.id;
+//			$("#prevHref").attr('href','detail-page1.html?id='+productId);
+		}
+		$.ajax({
+			url:url,
+			data:data,
+			type:'get',
+			dataType:'json',
+			beforeSend:function()
+			{
+				$("#loading").show();
+				$("#Info").hide();
+				$('#Info').parent().addClass('loading');
+			},
+			success:function(res)
+			{
+				if(res)
+				{
+					$("#loading").hide();
+					$("#Info").show();
+					$('#Info').parent().removeClass('loading');
+					setmeal = res.setmeal;
+					//替换页面结构
+					handleHtml(res);
+					//进入店铺要带上当前商品id，用于店铺页面返回该页面
+					$("#shop_addr").attr('href','shangye_xiangqi.html?shopId='+param.shopId+'&productId='+param.id);
+				}
+				else
+				{
+					location.href = 'error.html?status=1';
+				}
+			},
+			error:function()
+			{
+				location.href = 'error.html?status=2';//请求失败
+			}
+		})
+	}
+
+	//点击切换评论
+	function changeCom(obj)
+	{
+		var type = $(obj).attr('data-val');
+		$(obj).addClass('fixed').siblings().removeClass('fixed');
+		indexList(type);
+	}
+
+	function handleHtml(list)
+	{
+		/*--------替换评价统计-------*/
+		$("#allCom").html(list.num.countnum);
+		$("#good").html(list.num.good);
+		$("#middle").html(list.num.middle);
+		$("#bad").html(list.num.bad);
+		/*--------替换评价统计 END-------*/
+
+		/*--------替换评价列表-----------*/
+		var str = "";
+		if(list.comInfo == "")
+		{
+			str = '<div class="detail-access detail-access-borderbtm clearfix" id="comInfo">没有找到该商品的评价</div>';
+		}
+		else
+		{
+			$.each(list.comInfo,function(k,v){
+				str += '<div class="detail-access detail-access-borderbtm clearfix" id="comInfo">\
+							<div class="detail-access-title clearfix">\
+							<img src="'+v.logo+'"><p>'+v.user+'</p>\
+							</div>\
+							<div class="detail-access-content clearfix">\
+								<p>'+v.con+'</p>\
+							</div>\
+							<div class="detail-access-foot clearfix">\
+								<p>'+v.spec+'</p><p>'+v.date+'</p>\
+							</div>\
+						</div>';
+			})
+		}
+		$("#comInfo").replaceWith(str);
+		/*--------替换评价列表 END-----------*/
+		spec_val(list.spec,list.spec_val);
+	}
+
+	function spec_val(spec,spec_val)
+	{
+		if(spec == "")
+		{
+			return false;
+		}
+		var str = "";
+		$.each(spec,function(k,v){
+			str += '<div class="fpp-color detail-access-borderbtm clearfix" genre="property"><p class="clearfix">'+v+'</p>';
+			for(var i=0;i<spec_val[k].length;i++)
+			{
+				str += '<a href="#" onclick="chooseColor(this)">'+spec_val[k][i]+'</a>';
+			}
+			str +='</div>';
+		})
+		$("#spec").replaceWith(str);
+	}
+	/*颜色选择*/
+	var specs = new Array();
+	function chooseColor(obj)
+	{
+		$(obj).addClass('fpp-color-select');
+		$(obj).siblings().removeClass('fpp-color-select');
+		var sign = 't';
+		$('div[genre="property"]').each(function(){
+			if(!$(this).find('a').hasClass('fpp-color-select')){
+				sign = 'f';
+			}
+		});
+		if (sign == 't')
+		{
+			var str = "";
+			//选择完成之后重新循环获取组合套餐
+			$('div[genre="property"]').each(function(){
+				str += $(this).find('a.fpp-color-select').text()+',';
+			});
+			findSetMeal(str.substring(0,str.length-1));
+		}
+	}
+	var addCarUrl = $("#addCar").attr('href');
+	var buyUrl = $("#buy").attr('href');
+	//循环套餐，在套餐中找到选择的组合套餐，返回价格和库存
+	function findSetMeal (str)
+	{
+		$.each(setmeal,function(k,v){
+			if(str == k)
+			{
+				$('#goodsPrice2').html(v[0]);
+				$('#stock').html(v[1]);
+				$('#specInfo').html('已选择：'+str);
+				if(v[1] == 0)
+				{
+					$("#addCar").removeClass('font1').addClass('grey-disable');
+					$("#buy").removeClass('font2').addClass('grey-disable');
+				}
+				else
+				{
+					//还原a标签的默认事件
+					$("#addCar").removeClass('grey-disable').addClass('font1');
+					$("#buy").removeClass('grey-disable').addClass('font2');
+				}
+			}
+		})
+	}
+
+	//加入购物车
+	function addCar()
+	{
+		checkSubmit()
+	}
+
+	//立即购买
+	function buy()
+	{
+		checkSubmit()
+	}
+
+	//提交前验证
+	function checkSubmit()
+	{
+		var B = false;
+		$('div[genre="property"]').each(function(){
+			if(!$(this).find('a').hasClass('fpp-color-select')){
+				B = true;
+			}
+		});
+		var stock = $('#stock').text();
+		if(B || stock == '0')
+		{
+			alert('选择相应的规格');
+			$("#addCar").removeAttr('href');
+			$("#buy").removeAttr('href');
+		}
+		else
+		{
+			$("#addCar").attr('href',addCarUrl);
+			$("#buy").attr('href',buyUrl);
+		}
+	}
+</script>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no"/>
+    <title>喵</title>
+    <link type="text/css"  rel="stylesheet" href="../css/global.css">
+    <link type="text/css"  rel="stylesheet" href="../css/public.css">
+    <style type="text/css">
+    </style>
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex">
+    <section class="header">
+        <div class="header-bg normal">
+            <div class="header-l"><a href="shop-xiangqing.html"></a></div>
+            <div class="header-c "><input type="text" class="search" placeholder="搜索店铺内的宝贝"></div>
+            <div class="header-r"><a  href="#" class="header-bg-btn"></a></div>
+        </div>
+    </section>
+    <section class="content content-nav-bg">
+         <div class="nav-sub">
+             <ul>
+                 <li><a href="">综合</a> </li>
+                 <li><a href="">销量</a> </li>
+                 <li><a href="">商品</a> </li>
+                 <li class="nav-sub-a"><a href="">价格</a> </li>
+             </ul>
+         </div>
+        <div class="sale-item2 part bus-goods" >
+            <ul class="sale-ones tie clearfix">
+                <li>
+                    <div class="sale-ones-front tie">
+                        <p class="sale-of-img"><img src="../img/huibai-bg.png"></p>
+                        <p class="sale-of-name">商品名称</p>
+                        <p class="sale-of-text">
+                            <span>原作:伪装者</span>
+                            <span>CP圈:楼成</span>
+                        </p>
+                        <p class="sale-of-price">￥6.00</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="sale-ones-front tie">
+                        <p class="sale-of-img"><img src="../img/huibai-bg.png"></p>
+                        <p class="sale-of-name">商品名称</p>
+                        <p class="sale-of-text">
+                            <span>原作:伪装者</span>
+                            <span>CP圈:楼成</span>
+                        </p>
+                        <p class="sale-of-price">￥6.00</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="sale-ones-front tie">
+                        <p class="sale-of-img"><img src="../img/huibai-bg.png"></p>
+                        <p class="sale-of-name">商品名称</p>
+                        <p class="sale-of-text">
+                            <span>原作:伪装者</span>
+                            <span>CP圈:楼成</span>
+                        </p>
+                        <p class="sale-of-price">￥6.00</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="sale-ones-front tie">
+                        <p class="sale-of-img"><img src="../img/huibai-bg.png"></p>
+                        <p class="sale-of-name">商品名称</p>
+                        <p class="sale-of-text">
+                            <span>原作:伪装者</span>
+                            <span>CP圈:楼成</span>
+                        </p>
+                        <p class="sale-of-price">￥6.00</p>
+                    </div>
+                </li>
+                </ul>
+            </div>
+    </section>
+</section>
+</body>
+</html>

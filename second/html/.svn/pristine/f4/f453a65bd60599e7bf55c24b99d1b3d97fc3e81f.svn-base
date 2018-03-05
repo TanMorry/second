@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="format-detection" content="telephone=no"/>
+<title>喵</title>
+<link href="css/global.css" rel="stylesheet" type="text/css">
+<link href="css/public.css" rel="stylesheet" type="text/css">
+<link href="plugin/swiper.css" rel="stylesheet" type="text/css">
+<link href="css/detail.css" rel="stylesheet" type="text/css">
+<link href="plugin/pullToRefresh.css" rel="stylesheet" type="text/css">
+<link href="css/fengxiang.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+
+
+</style>
+
+<script src="js/jquery-2.2.4.min.js"></script>
+<script src="plugin/swiper.jquery.min.js"></script>
+<script src="plugin/iscroll.js"></script>
+<script src="plugin/pullToRefresh.js"></script>
+<script src="js/obtainArguments.js"></script>
+<script src="js/miao-Dialog.js"></script>
+<script src="js/getUserInfo.js"></script>
+
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex">
+
+	<section class="header" id="moveHeader">
+		<div class="header-bg float">
+			<div class="header-l"><a href="javascript:history.go(-1)"></a></div>
+			<div class="header-c"><p class="cart"></p></div>
+			<div class="header-r horizontal-center"><a class="cart" href="#" id="cart"></a><a class="other" href="#"></a></div>
+		</div>
+		<div class="header-mask" id="moveMask">
+		</div>
+		<div class="header-pop-ups">
+			<div class="hpp-arrow"></div>
+			<a href="shop-cart/information/information-center.html">
+				<div class="hpp-content border-dashed">
+					<i class="nav1"></i>消息
+				</div>
+			</a>
+			<a href="main.html">
+				<div class="hpp-content border-dashed">
+					<i class="nav2"></i>首页
+				</div>
+			</a>
+			<a href="#">
+				<div onclick="fenxiang()" class="hpp-content " id="btn-fx">
+					<i class="nav3"></i>分享
+				</div>
+			</a>
+		</div>
+	</section>
+	<!-- 主体 -->
+	<section class="content">
+
+		<div id="wrapper" class="i-wrapper">
+			<div class="iscroll-main">
+
+				<div id="page1">
+					<div class="swiper-container" id="moveSwiper">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide"></div>
+						</div>
+						<!-- 分页器 -->
+						<div class="swiper-pagination"></div>
+					</div>
+
+					<div class="detail part" id="goodInfo">
+						<div class="detail-share clearfix">
+							<p  id="goodsName">满踪二次元主题多款开衫针织衫卡通游戏毛衣动漫外套周边衣服现货</p>
+							<div onclick="fenxiang()"><a class="nav1" href="#">分享</a></div>
+						</div>
+							<p class="detail-money" id="goodsPrice">￥69</p>
+						<ul class="detail-share-foot">
+							<li class="text-left">快递：6.00</li>
+							<li>月销200笔</li>
+							<li class="text-right" id="goodsArea">广州广东</li>
+						</ul>
+					</div>
+
+					<div class="detail part" id="chooseSpec">
+						<a class="detail-share-enter dp-style clearfix" href="#">
+							<p>选择 规格/样式</p>
+							<i class="enter"></i>
+						</a>
+					</div>
+					<div class="detail part">
+						<div class="detail-share-enter clearfix">
+							<p>商品评论(<i id="countCom">176</i>)</p>
+
+						</div>
+						<div class="detail-access-img clearfix" id="comNum">
+							<img class="img2" src="img/flower.png"/><p>好评(123)</p>
+							<img class="img3" src="img/flower.png"/><p>中评(32)</p>
+							<img class="img4" src="img/flower.png"/><p>差评(12)</p>
+						</div>
+						<div class="detail-access clearfix" id="comDetail">
+							<div class="detail-access-title clearfix">
+								<img src="img/test/item2.jpg"/><p>狗*蛋</p>
+							</div>
+							<div class="detail-access-content clearfix">
+								<p>很好看！！很好看！！很好看！！很好看！！很好看！！很好看！！很好看！！很好看！！很好看！！很好看！！很好看！！很好看！！很好看！！很好看！！</p>
+							</div>
+							<div class="detail-access-foot clearfix">
+								<p>规格/样式</p><p>2016-04-12</p>
+							</div>
+							<div class="detail-access-all">
+								<a id="allComment" class="detail-access-pad" href="detail-access.html">查看全部评价</a>
+							</div>
+						</div>
+					</div>
+					<div class="detail part">
+						<div class="detail-commodity detail-access-borderbtm clearfix">
+							<div class="detail-commodity-box1">
+								<img id="shop_logo" src="img/test/item2.jpg"/>
+							</div>
+							<div class="detail-commodity-box1">
+								<p id="shopName">二次元之家</p>
+								<a class="shop_addr" href="shangye_xiangqi.html"><div class="detail-commodity-enter">进店逛逛</div></a>
+							</div>
+							<div class="detail-commodity-box3">
+								<div class="detail-commodity-box3-pad borderl">
+									<p class="font1" id="allBaby">60</p>
+									<p class="font2">全部宝贝</p>
+								</div>
+							</div>
+							<div class="detail-commodity-box3">
+								<div class="detail-commodity-box3-pad">
+									<p class="font1" id="attentionNum">60</p>
+									<p class="font2">关注人数</p>
+								</div>
+							</div>
+						</div>
+						<div class="detail-commodity box clearfix" id="hotContent">
+							<div class="detail-commodity-box2">
+								<p>热卖商品</p>
+							</div>
+							<div id="hotProduct">
+								<!--<div class="detail-commodity-box1 flexBox">-->
+									<!--<img src="img/test/item2.jpg"/>-->
+								<!--</div>-->
+								<!--<div class="detail-commodity-box1 flexBox">-->
+									<!--<p>商品名称商品名称</p>-->
+									<!--<p class="price">￥69</p>-->
+								<!--</div>-->
+								<!--<div class="detail-commodity-box1 flexBox">-->
+									<!--<img src="img/test/item2.jpg"/>-->
+								<!--</div>-->
+								<!--<div class="detail-commodity-box1 flexBox">-->
+									<!--<p>商品名称</p>-->
+									<!--<p class="price">￥69</p>-->
+								<!--</div>-->
+							</div>
+
+						</div>
+					</div>
+					<div class="detail part2">
+						<a class="dropdown" href="#">下拉加载图文详情</a>
+					</div>
+
+				</div>
+
+
+
+				<div id="page2">
+					<div class="detail love part" id="detailInfo">
+						<div class="detail-access detail-access-borderbtm clearfix">
+							<div class="detail-access-content clearfix">
+								<p>同人圈类型：corssover</p>
+								<p>偏好：腐向</p>
+								<p>原作：学界战线</p>
+								<p>作者：千早</p>
+								<p>圈子名称：钢铁侠，钢铁侠，钢铁侠</p>
+								<p>角色名：史蒂芬X克劳斯，史蒂芬X钢铁侠</p>
+								<p>类型：本子 同人本</p>
+								<p>语言：简体中文</p>
+								<p>页数：280P</p>
+								<p>尺寸：A8</p>
+								<p>发售日：2016.04.01</p>
+								<p>商品简介：</p>
+							</div>
+						</div>
+						<a href="#"><img src="img/slide/1.jpg"></a>
+					</div>
+
+					<div class="sale-item part">
+						<div class="shopping horizontal-center">
+							<p class="sp-l"></p>
+							<p class="sp-w">• 看了又看 •</p>
+							<p class="sp-r"></p>
+						</div>
+
+						<ul class="sale-ones tie clearfix" id="tuijian">
+							<li>
+								<div class="sale-ones-front tie">
+									<p class="sale-of-img"><img src="img/test/item1.png"></p>
+									<p class="sale-of-name">商品名称</p>
+									<p class="sale-of-price">￥321</p>
+								</div>
+							</li>
+							<li>
+								<div class="sale-ones-front tie">
+									<p class="sale-of-img"><img src="img/test/item2.png"></p>
+									<p class="sale-of-name">商品名称</p>
+									<p class="sale-of-price">￥123</p>
+								</div>
+							</li>
+							<li>
+								<div class="sale-ones-front tie">
+									<p class="sale-of-img"><img src="img/test/item3.png"></p>
+									<p class="sale-of-name">商品名称超级长长长</p>
+									<p class="sale-of-price">￥321333</p>
+								</div>
+							</li>
+							<li>
+								<div class="sale-ones-front tie">
+									<p class="sale-of-img"><img src="img/test/item1.jpg"></p>
+									<p class="sale-of-name">商品名称</p>
+									<p class="sale-of-price">￥321333</p>
+								</div>
+							</li>
+							<li>
+								<div class="sale-ones-front tie">
+									<p class="sale-of-img"><img src="img/test/item2.jpg"></p>
+									<p class="sale-of-name">商品名称超级长长长</p>
+									<p class="sale-of-price">￥321333</p>
+								</div>
+							</li>
+							<li>
+								<div class="sale-ones-front tie">
+									<p class="sale-of-img"><img src="img/test/item3.jpg"></p>
+									<p class="sale-of-name">商品名称</p>
+									<p class="sale-of-price">￥321333</p>
+								</div>
+							</li>
+							<li>
+								<div class="sale-ones-front tie">
+									<p class="sale-of-img"><img src="img/test/item3.png"></p>
+									<p class="sale-of-name">商品名称超级长长长</p>
+									<p class="sale-of-price">￥321333</p>
+								</div>
+							</li>
+							<li>
+								<div class="sale-ones-front tie">
+									<p class="sale-of-img"><img src="img/test/item1.jpg"></p>
+									<p class="sale-of-name">商品名称</p>
+									<p class="sale-of-price">￥321333</p>
+								</div>
+							</li>
+							<li>
+								<div class="sale-ones-front tie">
+									<p class="sale-of-img"><img src="img/test/item2.jpg"></p>
+									<p class="sale-of-name">商品名称超级长长长</p>
+									<p class="sale-of-price">￥321333</p>
+								</div>
+							</li>
+							<li>
+								<div class="sale-ones-front tie">
+									<p class="sale-of-img"><img src="img/test/item3.jpg"></p>
+									<p class="sale-of-name">商品名称</p>
+									<p class="sale-of-price">￥321333</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+	<section class="footer">
+		<div class="foot-border"></div>
+		<div class="foot-left">
+			<div><a class="nav1" href="#">客服</a></div>
+			<div><a class="nav2 shop_addr" href="#">店铺</a></div>
+		</div>
+		<div class="foot-right">
+			<div><a class="nav1" id="preAddCar" href="javascript:">加入购物车</a></div>
+			<div><a class="nav2" id="preBuy" href="javascript:">立即购买</a></div>
+		</div>
+
+
+	</section>
+		<div class="footer-pop-ups-blackground">
+		</div>
+		<div class="footer-pop-ups">
+			<div class="fpp-alpha">
+				<img src="img/test/item2.jpg" class="fpp-logo"/>
+			</div>
+			<div class="fpp-pad">
+				<div class="detail part">
+					<div class="fpp-title detail-access-borderbtm">
+						<b>￥<i id="goodsPrice2">69</i></b>
+						<p>库存：<i id="stock"></i></p>
+						<p id="specInfo">请选择：</p>
+						<div class="fpp-X">
+							<a href="#">×</a>
+						</div>
+					</div>
+					<div class="" >
+						<div class="fpp-color detail-access-borderbtm clearfix" id="spec">
+
+						</div>
+						<!--<div class="fpp-color detail-access-borderbtm clearfix">-->
+							<!--<p class="clearfix">颜色分类</p>-->
+							<!--<a class="fpp-color-select" href="#">颜色分类</a>-->
+							<!--<a href="#">颜色分类</a>-->
+						<!--</div>-->
+						<!--<div class="fpp-color clearfix">-->
+							<!--<p class="clearfix">颜色分类</p>-->
+							<!--<a class="fpp-color-select" href="#">颜色分类</a>-->
+							<!--<a href="#">颜色分类</a>-->
+							<!--<a href="#">颜色分类</a>-->
+						<!--</div>-->
+						<div class="detail-count horizontal-center">
+							<p>购买数量</p>
+							<i class="auto-width"></i>
+							<a class="detail-count-sub" href="#">-</a>
+							<input class="detail-count-write" type="text" value="1" id="quantity">
+							<a class="detail-count-add" href="#">+</a>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="fpp-cart">
+					<a id="addCar" class="font1" href="javascript:" onclick="addCarAndBuy(1)">加入购物车</a>
+					<a id="buy" class="font2" href="javascript:" onclick="addCarAndBuy(2)">立即购买</a>
+				</div>
+			</div>
+		</div>
+	   <div class=" btn-fenxiang">
+			<div class="header header-top">
+				<p>分 享 到</p>
+			</div>
+			<div class="content flex con-bg">
+				<div class="more clearfix">
+					<ul>
+						<li>
+							<a href="#" class="btn1"></a>
+							<p>微信</p>
+						</li>
+						<li>
+							<a href="#" class="btn2"></a>
+							<p>朋友圈</p>
+						</li>
+						<li>
+							<a href="#" class="btn3"></a>
+							<p>微博</p>
+						</li>
+						<li>
+							<a href="#" class="btn4"></a>
+							<p>QQ</p>
+						</li>
+						<li>
+							<a href="#" class="btn5"></a>
+							<p>QQ空间</p>
+						</li>
+						<li >
+							<a href="#" class="btn6"></a>
+							<p>复制链接</p>
+						</li>
+					</ul>
+
+				</div>
+				<div class="btn-bottom">
+					<a href="#">取 消</a>
+				</div>
+			</div>
+			<section class="footer">
+
+			</section>
+		</div>
+	 	<section class="footer">
+
+		</section>
+	</section>
+	<div class="confirm-pop-ups font4" id="cpp">
+		<p></p>
+	</div>
+	<div class="confirm-pop-ups font3" id="cpp2">
+		<p>&nbsp;</p>
+	</div>
+</body>
+</html>
+<script type="text/javascript">
+	var setmeal=new Array();
+	var setmealId;
+	var catid;
+	var stock;
+	var addCarUrl = 'shop-cart/shop-cart-edit.html';
+	var buyUrl = '';
+	var url = new Arguments();
+	var param = url.Request();
+	var userid = 1;//暂定
+	var shopId;//暂定
+	$(document).ready(function(){
+		//调用获取用户信息js，将id赋值给userid变量(暂无)
+		//		var userInfo = new getUserInfo();
+		//		userid = userInfo.getInfo;
+		/*页面部分隐藏*/
+		$('#page1').css('display','block');
+		$('#page2').css('display','none');
+
+
+		/*弹框*/
+		$('.header').on('click', '.other', function(event) {
+			if( $(".header-pop-ups").css('display') == 'none' ){
+				$(".header-pop-ups").slideDown();
+			}
+			else{
+				$(".header-pop-ups").css('display','none');
+			}
+		});
+		$('.content').on('click', function(event) {
+			$(".header-pop-ups").css('display','none');
+		});
+		$('.footer').on('click', function(event) {
+			$(".header-pop-ups").css('display','none');
+		});
+
+		/*弹框*/
+		$('.dp-style').on('click', function(event) {
+			if( $(".footer-pop-ups").css('display') == 'none' ){
+				$(".footer-pop-ups-blackground").css('display','block');
+				$(".footer-pop-ups").slideDown();
+			}
+			else{
+
+			}
+		});
+		$('.fpp-X').on('click','a', function(event) {
+			$(".footer-pop-ups-blackground").css('display','none');
+			$(".footer-pop-ups").css('display','none');
+		});
+
+		$('.btn-bottom').on('click', function(event) {
+			$(".footer-pop-ups-blackground").css('display','none');
+			$(".btn-fenxiang").css('display','none');
+		});
+		$('.footer-pop-ups-blackground').on('click', function(event) {
+			$(".footer-pop-ups-blackground").css('display','none');
+			$(".footer-pop-ups").css('display','none');
+		});
+
+		/*数量加减*/
+		$(".detail-count").on('click', 'a', function(event) {
+			var $count = $(this).parents(".detail-count").find("input");
+			if($(this).hasClass('detail-count-sub'))
+			{
+				$count.val(parseInt($count.val(), 10) - 1 || 1);
+			}
+			else if($(this).hasClass('detail-count-add'))
+			{
+                $count.val((parseInt($count.val(), 10) + 1) < $("#stock").text() ? (parseInt($count.val(), 10) + 1) : $("#stock").text());
+			}
+		});
+		/*输入数量验证*/
+		$(".detail-count input").on('blur input propertychange', function(event) {
+			if($(this).val() >= parseInt($("#stock").text()))
+			{
+                $(this).val(parseInt($("#stock").text()));
+			}
+			function isEmpty (val)
+			{
+				return val == '' || val === null || val === undefined;
+			}
+
+			var val = $(this).val();
+			/*如果不是空则强转数字*/
+			if (!isEmpty(val))
+			{
+				val = parseInt(val.replace(/[^\d]/ig,''), 10);
+			}
+
+			isNaN(val) ? $(this).val(1) : $(this).val(val);
+
+			if(event.type == 'blur' || event.type == 'focusout')
+			{
+				if(isEmpty(val))
+				{
+					$(this).val(1);
+				}
+			}
+		});
+
+		/*滚动侦听事件*/
+		function functionScroll( positionSwiper ){
+			var positionSwiper = $('#wrapper .scroller').position().top * -1 - 40;
+
+			//console.log(positionSwiper);
+//		var positionSwiper = - $('#moveSwiper').offset().top;
+			if( $('#page1').css('display') == 'block' && $('#page2').css('display') == 'none' ){
+				var changeY = ( $('#moveSwiper').height() - $('#moveMask').height() ) / 2;
+				if( positionSwiper <= changeY ){
+					var opacityMask ;
+					var opacityHeader ;
+					$('.header-bg').removeClass('float2').addClass('float');
+					opacityMask = positionSwiper / changeY / 2;
+					opacityHeader = (changeY-positionSwiper) / changeY;
+					$('.header-mask').css('opacity',opacityMask);
+					$('.header-bg').css('opacity',opacityHeader);
+				}
+				else if ( positionSwiper > changeY && positionSwiper <= 2 *  changeY ){
+					var opacityMask ;
+					var opacityHeader ;
+					$('.header-bg').removeClass('float').addClass('float2');
+					opacityMask = positionSwiper / changeY / 2;
+					opacityHeader = (positionSwiper-changeY) / changeY;
+					$('.header-mask').css('opacity',opacityMask);
+					$('.header-bg').css('opacity',opacityHeader);
+				}
+				else {
+					$('.header-mask').css('opacity','1');
+					$('.header-bg').removeClass('float').addClass('float2').css('opacity',1);
+				}
+			}
+		}
+
+//		/*切换页面2*/
+//		$('.dropdown').on('click',function(){
+////		page1.destroy();
+//			moveToPage2();
+//		});
+
+		/*滑动页面*/
+		refresher.init({
+			id: "wrapper",
+			header: true,
+			footer: true,
+			pullDownAction: moveToPage1,
+			pullUpAction: moveToPage2,
+			info:{
+				"pullDownLable": "下拉刷新",
+				"pullingDownLable": "松开刷新",
+				"pullUpLable": "上拉显示下一屏",
+				"pullingUpLable": "显示下一屏",
+				"loadingLable": "加载中"
+			},
+			timeout: null,
+			start:function(e){
+				clearTimeout(this.timeout);
+				this.timeout = setInterval(functionScroll, 33);
+			},
+			end: function() {
+				clearTimeout(this.timeout);
+			}
+		});
+
+
+		function Refresh() {
+			setTimeout(function () {
+				IndexList();
+			}, 500);
+		}
+
+		function Load() {
+			setTimeout(function () {
+				seeAgain(2);
+				wrapper.refresh();
+			}, 500);
+		}
+
+		/*moveToPage1*/
+		function moveToPage1(){
+			if( $('#page1').css('display') == 'none' && $('#page2').css('display') == 'block' ){
+				$('#page1').css('display','block');
+
+				var pageHeight = Math.ceil($('#page2').offset().top - $('#page1').offset().top - $('#moveMask').height());
+
+				wrapper.scrollTo(0,-pageHeight-40,0,false);
+				wrapper.scrollTo(0,-40,500,false);
+				setTimeout(function(){
+					$('#page2').css('display','none');$('.content').scrollTop(0);
+					$('.header-bg').removeClass('float2').addClass('float');
+					$('.header-mask').css('position', 'absolute');
+					$('.header-mask').css('opacity','0');
+					wrapper.refresh();
+
+				}, 500);
+				refresher.rename({
+					"pullDownLable": "下拉显示上一屏",
+					"pullingDownLable": "显示上一屏",
+					"pullUpLable": "上拉显示下一屏",
+					"pullingUpLable": "显示上一屏",
+					"loadingLable": "加载中"
+				});
+			}
+			else{
+				Refresh();
+			}
+		}
+
+		/*moveToPage2*/
+		function moveToPage2(){
+			if( $('#page1').css('display') == 'block' && $('#page2').css('display') == 'none' ){
+				seeAgain(1);
+				$('#page2').css('display','block');
+				var pageHeight = Math.ceil($('#page2').offset().top - $('#page1').offset().top - $('#moveMask').height());
+
+				wrapper.scrollTo(0,-pageHeight-40,500,false);
+				setTimeout(function(){
+					$('#page1').css('display','none');$('.content').scrollTop(0);
+					$('.header-bg').removeClass('float').addClass('float2');
+					$('.header-mask').css('position', 'static');
+					$('.header-mask').css('opacity','1');
+					wrapper.refresh();
+					wrapper.scrollTo(0,-40,0,false);
+				}, 500);
+				refresher.rename({
+					"pullDownLable": "下拉显示上一屏",
+					"pullingDownLable": "显示上一屏",
+					"pullUpLable": "上拉加载更多 ",
+					"pullingUpLable": "松开加载更多",
+					"loadingLable": "加载中"
+
+				});
+				wrapper.refresh();
+			}
+			else
+			{
+				//加载产品推荐
+				Load();
+			}
+		}
+		IndexList();
+		wrapper.refresh();
+	});
+
+
+
+	function fenxiang()
+	{
+		if( $(".btn-fenxiang").css('display') == 'none' ){
+			$(".footer-pop-ups-blackground").css('display','block');
+			$(".btn-fenxiang").slideDown();
+		}
+		else{
+
+		}
+
+	}
+
+	function IndexList()
+	{
+		var id = param.id;
+		var url = "/tongrenmiao/index.php?g=Mall&m=index&a=goodsDetails";
+		$.ajax({
+			url:url,
+			data:{'id':id},
+			dataType:'json',
+			type:'get',
+		}).done(function(ret)
+		{
+			if(ret)
+			{
+				handHtml(ret);
+				setmeal = ret.setmeal;
+				$("#cart").attr('href','shop-cart/shop-cart-edit.html');
+			}
+//			else
+//			{
+////				location.href = 'error.html?status=1';
+//			}
+		})
+	}
+	//重构html
+	function handHtml(list)
+	{
+		//截取图片
+		var pic = list.info.pic_more;
+		var result = pic.split(",");
+		picMore(result);
+
+		var info = "";
+		info += '<div class="detail part" id="goodInfo">\
+						<div class="detail-share clearfix">\
+						<p  id="goodsName">'+list.info.name+'</p>\
+						<div onclick="fenxiang()"><a class="nav1" href="#">分享</a></div>\
+						</div>\
+						<p class="detail-money" id="goodsPrice">￥'+list.info.price+'</p>\
+						<ul class="detail-share-foot">'
+		if(list.info.freight_count == null)
+		{
+			info += '<li class="text-left">快递：0.00元</li>'
+		}
+		else
+		{
+			info += '<li class="text-left">快递：'+list.info.freight_count+'元</li>'
+		}
+		info += '<li>月销'+list.info.sales+'笔</li>\
+				<li class="text-right" id="goodsArea">'+list.info.area+'</li>\
+						</ul>\
+					</div>';
+				catid = list.info.catid;
+				$("#goodInfo").replaceWith(info);
+				$("#goodsPrice2").html(list.info.price);
+
+		var comNum = '<div class="detail-access-img clearfix" id="comNum">\
+						<img class="img2" src="img/flower.png"/><p>好评('+list.comcount.good+')</p>\
+						<img class="img3" src="img/flower.png"/><p>中评('+list.comcount.middle+')</p>\
+						<img class="img4" src="img/flower.png"/><p>差评('+list.comcount.bad+')</p>\
+					</div>';
+		$("#comNum").html(comNum);
+		$("#countCom").html(list.comcount.countnum);
+		var comCon = "";
+		if(parseInt(list.comcount.countnum)>0)
+		{
+
+		comCon += '<div class="detail-access clearfix">\
+						<div class="detail-access-title clearfix">\
+							<img src="img/test/item2.jpg"/><p>'+list.latestCom.name+'</p>\
+						</div>\
+						<div class="detail-access-content clearfix">\
+							<p>'+list.latestCom.con+'</p>\
+						</div>\
+					<div class="detail-access-foot clearfix">'
+		if(list.latestCom.spec_val)
+		{
+			comCon += '<p>'+list.latestCom.spec+'</p>'
+		}
+		else
+		{
+			comCon += '<p>'+list.latestCom.name+'</p>'
+		}
+		comCon += '<p>'+list.latestCom.date+'</p>\
+					</div>\
+					<div class="detail-access-all">\
+						<a id="allComment" class="detail-access-pad" href="detail-access.html">查看全部评价</a>\
+					</div>\
+				</div>\
+				</div>'
+		}
+
+		$("#comDetail").replaceWith(comCon);
+		//热卖商品
+		var hot="";
+		if(list.hotBaby !="" )
+		{
+			$.each(list.hotBaby,function(k,v)
+			{
+				hot +='<div class="detail-commodity-box1 flexBox">\
+							<a href="detail-page1.html?id='+v.id+'"><img src="'+v.pic+'"/></a>\
+						</div>\
+						<div class="detail-commodity-box1 flexBox">\
+							<p>'+v.name+'</p>\
+							<p class="price">￥'+v.price+'</p>\
+						</div>'
+			})
+			$("#hotProduct").html(hot);
+		}
+		else
+		{
+			$("#hotContent").hide();
+		}
+		/*-----店铺信息-----*/
+		$("#shopName").html(list.shopInfo.company);
+		$("#attentionNum").html(list.shopInfo.shop_collect);
+		$("#allBaby").html(list.shopInfo.babyNum);
+		$("#shop_logo").attr('src',list.shopInfo.logo);
+		//进入店铺要带上当前商品id，用于店铺页面返回该页面
+		var proId = param.id;
+		$(".shop_addr").attr('href','shangye_xiangqi.html?shopId='+list.shopInfo.shopId+'&productId='+proId);
+		/*-----店铺信息-----*/
+		$("#allComment").attr('href','detail-access.html?id='+proId+'&shopId='+list.shopInfo.userid);
+		shopId = list.shopInfo.shopId;
+		if(list.setmeal == "")
+		{
+			$("#chooseSpec").hide();
+			$("#stock").text(list.info.stock);
+			$("#spec").hide();
+		}
+		else
+		{
+			$("#spec").show();
+			spec_val(list.spec,list.spec_val);
+		}
+		if(parseInt(list.info.stock) > 0)
+		{
+			if(userid)
+			{
+				$('.foot-right').on('click','a', function(event) {
+					if( $(".footer-pop-ups").css('display') == 'none' ){
+						$(".footer-pop-ups-blackground").css('display','block');
+						$(".footer-pop-ups").slideDown();
+					}
+				});
+			}
+			else
+			{
+				//调用登录接口,（如何返回到商城，参数传递具体内容看移动端)
+			}
+		}
+		else
+		{
+			$("#preAddCar").addClass('grey-disable');
+			$("#preBuy").addClass('grey-disable');
+		}
+	}
+
+
+
+	//图片展示
+	function picMore(list)
+	{
+
+		var str = "";
+		$.each(list,function(k,v){
+			str += '<div class="swiper-slide"><a href="#"><img src="'+v+'"></a></div>'
+		})
+
+		$(".swiper-wrapper").html(str);
+		var mySwiper = new Swiper('.swiper-container', {
+			autoplay: 2000,
+			speed: 500,
+			autoplayDisableOnInteraction: false,
+//			autoHeight: true,
+			loop: true,
+			updateOnImagesReady: true,
+			pagination : '.swiper-pagination',
+			onImagesReady: function(swiper){
+				wrapper.refresh();
+			}
+		});
+	}
+	function spec_val(spec,spec_val)
+	{
+		var str = "";
+		$.each(spec,function(k,v){
+			str += '<div class="fpp-color detail-access-borderbtm clearfix" genre="property"><p class="clearfix">'+v+'</p>';
+			for(var i=0;i<spec_val[k].length;i++)
+			{
+				str += '<a href="#" onclick="chooseColor(this)">'+spec_val[k][i]+'</a>';
+			}
+			str +='</div>';
+		})
+		$("#spec").replaceWith(str);
+		wrapper.refresh();
+	}
+	/*颜色选择*/
+	var specs = new Array();
+	function chooseColor(obj)
+	{
+		$(obj).addClass('fpp-color-select');
+		$(obj).siblings().removeClass('fpp-color-select');
+		var sign = 't';
+		$('div[genre="property"]').each(function(){
+			if(!$(this).find('a').hasClass('fpp-color-select')){
+				sign = 'f';
+			}
+		});
+		if (sign == 't')
+		{
+			var str = "";
+			//选择完成之后重新循环获取组合套餐
+			$('div[genre="property"]').each(function(){
+				str += $(this).find('a.fpp-color-select').text()+',';
+			});
+			findSetMeal(str.substring(0,str.length-1));
+		}
+	}
+
+	 //循环套餐，在套餐中找到选择的组合套餐，返回价格和库存还有改套餐的id
+	function findSetMeal (str)
+	{
+		$.each(setmeal,function(k,v){
+			if(str == k)
+			{
+				$('#goodsPrice2').html(v[0]);
+				$('#stock').html(v[1]);
+				$('#specInfo').html('已选择：'+str);
+				$("#quantity").val(1);
+				setmealId = v.id;
+				if(v[1] == 0)
+				{
+					$("#addCar").removeClass('font1').addClass('grey-disable');
+					$("#buy").removeClass('font2').addClass('grey-disable');
+				}
+				else
+				{
+					//还原a标签的默认事件
+					$("#addCar").removeClass('grey-disable').addClass('font1');
+					$("#buy").removeClass('grey-disable').addClass('font2');
+				}
+			}
+		})
+	}
+	//加入购物车和立即购买  1=>购物车  2=>立即购买
+	function addCarAndBuy(type)
+	{
+		var url="";
+		url += '/tongrenmiao/index.php?g=Mall&m=Index&a=';
+		if(type == 1)
+		{
+			url += 'addCar';
+		}
+		else
+		{
+			url +='saveSession';
+		}
+		ajaxConfirm(url,type)
+	}
+
+	function ajaxConfirm(url,type)
+	{
+		var result = checkSubmit()
+		if(result)
+		{
+			var data={};
+			if(setmealId != '')
+			{
+				data['setmealId'] = setmealId;
+			}
+			data['pid'] = param.id;
+			data['userid'] = userid;
+			data['shopId'] = shopId;
+			data['quantity'] = $("#quantity").val();
+			data['price'] = Number($("#goodsPrice2").text());
+			$.ajax({
+				url:url,
+				data:data,
+				type:'get',
+				dataType:'json',
+				success:function(res)
+				{
+					if(res.Info == 1)
+					{
+						if(type == 2)
+						{
+							location.href = 'shop-cart/confirm-order.html';
+						}
+					}
+					alertInfo(res.mes);
+				},
+				error:function()
+				{
+					alertInfo('请求失败');
+				}
+			})
+		}
+	}
+
+	//提交前验证
+	function checkSubmit()
+	{
+		var B = false;
+		$('div[genre="property"]').each(function(){
+			if(!$(this).find('a').hasClass('fpp-color-select')){
+				B = true;
+			}
+		});
+		var stock2 = $('#stock').text();
+		if(B)
+		{
+			alert('选择相应的规格');
+			$("#addCar").removeAttr('href');
+			$("#buy").removeAttr('href');
+			return false;
+		}
+		if(parseInt(stock2) <= 0)
+		{
+			alert('库存不足');
+			$("#addCar").removeAttr('href');
+			$("#buy").removeAttr('href');
+			return false;
+		}
+		return true;
+	}
+
+	/*----------------看了又看--------------------*/
+	var page = 2;
+	function seeAgain(loadType)
+	{
+		var url = "/tongrenmiao/index.php?g=Mall&m=index&a=seeAgain";
+		if(loadType == 1)
+		{
+			//第一次加载查询产品的具体信息
+			var data = {'pid':param.id,'catid':catid,'loadType':loadType};
+		}
+		else
+		{
+			//加载相同属性的产品
+			var data = {'pid':param.id,'catid':catid,'page':page,'loadType':loadType};
+		}
+		$.ajax({
+			url:url,
+			data:data,
+			type:'post',
+			dataType:'json',
+		}).done(function(res)
+		{
+			if(loadType == 1)
+			{
+				if(res.detailInfo == "")
+				{
+					$(".pullUpLabel").html('加载失败');
+				}
+				else
+				{
+					var str = "";
+					str += '<div class="detail-access detail-access-borderbtm clearfix">\
+							<div class="detail-access-content clearfix">\
+						<p>同人圈类型：'+res.detailInfo.circletype+'</p><p>偏好：'+res.detailInfo.twotype+'</p><p>原作：'+res.detailInfo.original+'</p><p>作者：'+res.detailInfo.author+'</p><p>圈子名称：'+res.detailInfo.circlename+'</p><p>角色名：'+res.detailInfo.roles+'</p><p>类型：'+res.detailInfo.originaltype+'</p><p>语言：'+res.detailInfo.lang+'</p><p>页数：'+res.detailInfo.papersnum+'P</p><p>尺寸：'+res.detailInfo.size+'</p><p>发售日：'+res.detailInfo.saletime+'</p><p>商品简介：</p></div></div>';
+
+					if(res.detailInfo.picArr)
+					{
+						var str2 = "";
+						$.each(res.detailInfo.picArr,function(k,v)
+						{
+							str2 += '<a href="#"><img src="'+v+'"></a>'
+						})
+					}
+					str += str2;
+					str += '</div>';
+					$("#detailInfo").html(str);
+					$('#tuijian').html(tuijian(res.tuijian));
+					//先加载在跳转到下一屏
+					if( $('#page1').css('display') == 'block' && $('#page2').css('display') == 'none' ){
+						$('#page2').css('display','block');
+						var pageHeight = Math.ceil($('#page2').offset().top - $('#page1').offset().top - $('#moveMask').height());
+
+						wrapper.scrollTo(0,-pageHeight-40,500,false);
+						wrapper.refresh();
+					}
+				}
+			}
+			else
+			{
+				if(res.tuijian)
+				{
+					$('#tuijian').append(tuijian(res.tuijian));
+					page++;
+				}
+				else
+				{
+					$(".pullUpLabel").html('已无更多数据');
+				}
+				wrapper.refresh();
+			}
+		}).fail(function()
+		{
+
+		})
+	}
+
+	function tuijian(list)
+	{
+		var str = "";
+		$.each(list,function(k,v){
+			str += '<li>\
+					<div class="sale-ones-front tie">\
+					<p class="sale-of-img"><img src="'+v.pic+'"></p>\
+					<p class="sale-of-name">'+v.name+'</p>\
+					<p class="sale-of-price">￥'+v.price+'</p>\
+					</div>\
+					</li>';
+		})
+		return str;
+	}
+
+	//提示框
+	function alertInfo(mes)
+	{
+		var phone2 = $('#cpp2').MiaoDialog();
+		phone2.MiaoDialog('open');
+		$('#cpp2').find('p').text(mes);
+		setTimeout(function(){
+			phone2.MiaoDialog('close');
+		},1400);
+	}
+</script>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="format-detection" content="telephone=no"/>
+<title>喵</title>
+<link href="css/global.css" rel="stylesheet" type="text/css">
+<link href="css/public.css" rel="stylesheet" type="text/css">
+<link href="css/detail.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	
+</style>
+
+<script src="js/jquery-2.2.4.min.js"></script>
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex">
+
+	<section class="header">
+		<div class="header-bg internal">
+			<div class="header-l"><a href="#"></a></div>
+			<div class="header-c"><p class="cart"></p></div>
+			<div class="header-r horizontal-center"><a class="cart" href="#"></a><a href="#"></a></div>
+		</div>
+	</section>
+	<!-- 主体 -->
+	<section class="content">
+		<div class="detail love part">
+			<div class="detail-access detail-access-borderbtm clearfix">
+				<div class="detail-access-content clearfix">
+					<p>同人圈类型：corssover</p>
+					<p>偏好：腐向</p>
+					<p>原作：学界战线</p>
+					<p>作者：千早</p>
+					<p>角色名：史蒂芬 克劳斯</p>
+					<p>CP：史蒂芬X克劳斯，史蒂芬X钢铁侠</p>
+					<p>类型：本子 同人本</p>
+					<p>语言：简体中文</p>
+					<p>页数：280P</p>
+					<p>尺寸：A8</p>
+					<p>发售日：2016.04.01</p>
+					<p>作者简介：</p>
+					<p class="font-small">关于“如果我死去”这个话题，花京院是有问过的。他清楚地记得承太郎的眉头皱了皱，这使得他不得不补</p>
+				</div>
+			</div>
+			<a href="#"><img src="img/slide/1.jpg"></a>
+			<a href="#"><img src="img/slide/1.jpg"></a>
+		</div>
+
+		<div class="sale-item part">
+			<div class="shopping horizontal-center">
+				<p class="sp-l"></p>
+				<p class="sp-w">• 看了又看 •</p>
+				<p class="sp-r"></p>
+			</div>
+
+			<ul class="sale-ones tie clearfix">
+				<li>
+					<div class="sale-ones-front tie">
+						<p class="sale-of-img"><img src="img/test/item1.png"></p>
+						<p class="sale-of-name">商品名称</p>
+						<p class="sale-of-price">￥321</p>
+					</div>
+				</li>
+				<li>
+					<div class="sale-ones-front tie">
+						<p class="sale-of-img"><img src="img/test/item2.png"></p>
+						<p class="sale-of-name">商品名称</p>
+						<p class="sale-of-price">￥123</p>
+					</div>
+				</li>
+				<li>
+					<div class="sale-ones-front tie">
+						<p class="sale-of-img"><img src="img/test/item3.png"></p>
+						<p class="sale-of-name">商品名称超级长长长</p>
+						<p class="sale-of-price">￥321333</p>
+					</div>
+				</li>
+				<li>
+					<div class="sale-ones-front tie">
+						<p class="sale-of-img"><img src="img/test/item1.jpg"></p>
+						<p class="sale-of-name">商品名称</p>
+						<p class="sale-of-price">￥321333</p>
+					</div>
+				</li>
+				<li>
+					<div class="sale-ones-front tie">
+						<p class="sale-of-img"><img src="img/test/item2.jpg"></p>
+						<p class="sale-of-name">商品名称超级长长长</p>
+						<p class="sale-of-price">￥321333</p>
+					</div>
+				</li>
+				<li>
+					<div class="sale-ones-front tie">
+						<p class="sale-of-img"><img src="img/test/item3.jpg"></p>
+						<p class="sale-of-name">商品名称</p>
+						<p class="sale-of-price">￥321333</p>
+					</div>
+				</li>
+				<li>
+					<div class="sale-ones-front tie">
+						<p class="sale-of-img"><img src="img/test/item3.png"></p>
+						<p class="sale-of-name">商品名称超级长长长</p>
+						<p class="sale-of-price">￥321333</p>
+					</div>
+				</li>
+				<li>
+					<div class="sale-ones-front tie">
+						<p class="sale-of-img"><img src="img/test/item1.jpg"></p>
+						<p class="sale-of-name">商品名称</p>
+						<p class="sale-of-price">￥321333</p>
+					</div>
+				</li>
+				<li>
+					<div class="sale-ones-front tie">
+						<p class="sale-of-img"><img src="img/test/item2.jpg"></p>
+						<p class="sale-of-name">商品名称超级长长长</p>
+						<p class="sale-of-price">￥321333</p>
+					</div>
+				</li>
+				<li>
+					<div class="sale-ones-front tie">
+						<p class="sale-of-img"><img src="img/test/item3.jpg"></p>
+						<p class="sale-of-name">商品名称</p>
+						<p class="sale-of-price">￥321333</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+	</section>
+
+	<section class="footer">
+		<div class="foot-border"></div>
+		<div class="foot-left">
+			<div><a class="nav1" href="#">客服</a></div>
+			<div><a class="nav2" href="#">店铺</a></div>
+		</div>
+		<div class="foot-right">
+			<div><a class="nav1" href="#">加入购物车</a></div>
+			<div><a class="nav2" href="#">立即购买</a></div>
+		</div>
+	</section>
+</section>
+</body>
+</html>

@@ -1,0 +1,12 @@
+.nav-btn{display:-webkit-box;-webkit-box-pack:center;-webkit-box-align: center;display: flex;flex: 3;background: #FFFFFF;position: relative }
+.nav-btn>a{font-size: 0.7rem;display: block;color:#9b9b9b;padding:0.7rem 0;flex: 1;border-bottom:0.25rem solid #e7e7e7;position: relative }
+.nav-btn .nav-btn-color{border-bottom: 0.25rem solid #ea6673;color: #ea6673 }
+.nav-btn .nav-btn-a:before{height:0;width: 0;border: 0.3rem solid transparent;position: absolute;
+content: "";display: block;border-top-color:#969495}
+.nav-btn .nav-btn-top:before{border-top-color:#e46c76}
+.nav-btn .position-a:before{left:89%;top:49.5%;}
+.nav-btn .position-c:before{left: 70%;top: 49.5%;}
+.nav-btn-ul{position: absolute;left: 0;top:98%;background: #FFFFFF;width: 100%;text-align: left;display: none}
+.nav-btn-ul li{;border-bottom: 1px solid #949293;padding-left: 0.7rem}
+.nav-btn-ul a{font-size: 0.7rem;color:#949293;;width: 100%;padding:0.7rem 0;display: block }
+.content-cover{position: fixed;left: 0;top: 0;width: 100%;z-index:9;height:100%;background: rgba(20, 20, 20, 0.82);display: none;margin-top:2rem}

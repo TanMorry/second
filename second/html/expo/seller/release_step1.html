@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>展会</title>
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<link href="../css/global.css" rel="stylesheet" type="text/css">
+<link href="../css/layout.css" rel="stylesheet" type="text/css">
+<link href="../css/seller.css" rel="stylesheet" type="text/css">
+
+<script src="../js/jquery.min.js"></script>
+<script src="../js/expo.public.js"></script>
+<script type="text/javascript">
+
+
+function oper () {
+	/*要列表的jq对象*/
+	var $this = $('.rs-a-ul');
+	/*修改列表后显示的jq对象*/
+	var $say = $('.rs-s-now i');
+
+	var data = new Array($this.length);
+
+	function next (index, val)
+	{
+		index = parseInt(index, 10) + 1;
+		if(!index || !val || index >= data.length)
+		{
+			return;
+		}
+		var find = {};
+		if(data[index])
+		{
+			for (var key in data[index])
+			{
+				if(key.indexOf(val) == 0)
+				{
+					find[key] = data[index][key];
+				}
+			}
+		}
+		var each = "";
+		for (var key in find)
+		{
+			each += "<li><a href=\"javascript:;\" value=\"" + index + "|" + key + "\">" + find[key] + "</a></li>";
+		}
+
+		$this.each(function(i)
+		{
+			if(i == index) $(this).html(each);
+			else if (i > index) $(this).html('');
+		});
+	}
+
+	function say (arr)
+	{
+		var t = '';
+		for(var i = 0; i < arr.length; i++)
+		{
+			if(arr[i] !== null)
+			{
+				var v = arr[i].split('|');
+				if(v.length == 2)
+				{
+					t += i == 0 ? data[v[0]][v[1]] : ' -> ' + data[v[0]][v[1]];
+				}
+			}
+		}
+		return t;
+	}
+
+	function defaults ()
+	{
+		var d = 0;
+		var each = "";
+		for (var key in data[d])
+		{
+			each += "<li><a href=\"javascript:;\" value=\"" + d + "|" + key + "\">" + data[d][key] + "</a></li>";
+		}
+		$this.eq(d).html(each);
+		$say.text('');
+	}
+
+	function getSelect ()
+	{
+		var val = [];
+		$this.each(function(index, el) {
+			val.push($(this).find('.fixed').attr('value') || null);
+		});
+		return val;
+	}
+
+	/*****
+		get:获取私有data数据
+			-> index: 数组下标 (选填)
+			-> val: 编号 (选填)
+		add:添加data数据
+			-> arr: 添加数据,从一级开始的数组 (必填)
+		addTo:添加数据到data某级
+			-> index: 对第几个添加 (必填)
+			-> obj: 对象,如{'1001':'名称'} (必填)
+		empty:清空data数据
+			-> index: 清空哪个,不填清所有 (选填)
+			-> val: 不填清这个组中所有 (选填)
+		getSelect:获取已经选择的值(数组),没选择的为null
+		fixed:通过点击设置选中
+			-> j: 点击的jquery元素 (必填)
+		fixed:通过点击设置选中
+			-> j: 点击的jquery元素 (必填)
+		setting:传入编号设置选中
+			-> arr: 从一级开始的数组 (必填)
+		default:恢复默认(只有一级且为选中)
+	*****/
+	var that = {
+
+		get: function (index, val)
+		{
+			if(index !== undefined && val !== undefined) return data[index][val] || [];
+			else if (index !== undefined && val === undefined) return data[index] || [];
+			return data;
+		},
+		add: function (arr)
+		{
+			if(Object.prototype.toString.call(arr) == '[object Array]')
+			{
+				for (var i = 0; i < arr.length; i++)
+				{
+					if (typeof(arr[i]) == 'object' && arr[i] !== null)
+					{
+						/*没有定义则初始化*/
+						data[i] = data[i] || {};
+						for (var key in arr[i])
+						{
+							data[i][key] = arr[i][key];
+						}
+					}
+				}
+			}
+			return data;
+		},
+		addTo: function (index, obj)
+		{
+			if (typeof(obj) == 'object' && obj !== null)
+			{
+				/*没有定义则初始化*/
+				data[index] = data[index] || {};
+				for (var key in obj)
+				{
+					data[index][key] = obj[key];
+				}
+			}
+		},
+		empty: function (index, val)
+		{
+			if(index !== undefined && val === undefined)
+			{
+				if(data[index]) data[index] = {};
+			}
+			else if(index !== undefined && val !== undefined)
+			{
+				if(data[index][val]) delete data[index][val];
+			}
+			else
+			{
+				data = [];
+			}
+			return data;
+		},
+		getSelect: function ()
+		{
+			return getSelect();
+		},
+		fixed: function (j)
+		{
+			if(j instanceof jQuery && !j.hasClass('fixed'))
+			{
+				/*添加选中项*/
+				j.parents('.rs-a-ul').find('.fixed').removeClass('fixed');
+				j.addClass('fixed');
+				/*下一步的联动*/
+				var val = j.attr('value').split('|') || [];
+				if(val.length == 2)
+				{
+					next(val[0], val[1]);
+				}
+
+				$say.text(say(getSelect()));
+			}
+			return this;
+		},
+		setting: function (arr)
+		{
+			if(Object.prototype.toString.call(arr) != '[object Array]')
+			{
+				return false;
+			}
+
+			if (arr.length < data.length)
+			{
+				for (var i = data.length - arr.length + 1; i < data.length; i++)
+				{
+					arr[i] = null;
+				}
+			}
+			else if (arr.length > data.length)
+			{
+				arr.splice(data.length, arr.length - data.length);
+			}
+
+			for (var i = 0; i < arr.length; i++)
+			{
+				if(arr[i] !== null)
+				{
+					defaults();
+					next(i, arr[i]);
+				}
+			}
+
+			$this.each(function(index, el) {
+				$(this).find('a[value="' + index + '|' + arr[index] + '"]').addClass('fixed');
+			});
+
+			$say.text(say(getSelect()));
+		},
+		default: function ()
+		{
+			defaults();
+		}
+	}
+
+	return that;
+}
+
+
+$(document).ready(function(){
+	/*初始化*/
+	window.sort = new oper();
+	/*第一种添加方式*/
+	sort.add(
+		[{
+			'1001':'啊',
+			'1002':'哦哦哦'
+		},{
+			'1001001':'啊啊1',
+			'1001002':'啊啊2',
+			'1002001':'哦哦1',
+			'1002002':'哦哦2'
+		},{
+			'1001001001':'啊啊1的啊1',
+			'1001001002':'啊啊1的啊2',
+			'1001002001':'啊啊2的啊1',
+			'1001002002':'啊啊2的啊2'
+		}]
+	);
+	/*第二种添加方式*/
+	sort.addTo(2, {'1002001001':'哦哦1的哦1', '1002001002':'哦哦1的哦2'});
+
+	/*开始一般是为选择状态(默认)*/
+	sort.default();
+	/*点击事件*/
+	$('.rs-a-ul').on('click', 'a', function(event) {
+		if(!$(this).hasClass('fixed'))
+		{
+			/*通过传入jq方式设置选中*/
+			sort.fixed($(this));
+		}
+	});
+	/*下拉框事件*/
+	$('.rs-f-s').change(function(event) {
+		var val = $(this).val().split(',');
+		if (val.length == 3)
+		{
+			/*通过传入value方式设置选中*/
+			sort.setting(val);
+		}	
+	});
+});
+
+</script>
+
+<body>
+	<div class="M_Header M_BTM_25">
+		<div class="hd-bg">
+			<p class="hd-pink"></p>
+		</div>
+		<div class="hd-index M_Center">
+			<div class="hd-main">
+				<ul class="float-center clearfix">
+					<li class="hd-m-btn" ><a href="#">展会</a></li>
+					<li class="hd-m-btn fixed"><a href="#">社团铺</a></li>
+					<li class="hd-m-logo"></li>
+					<li class="hd-m-btn" ><a href="#">我的</a></li>
+					<li class="hd-m-btn" ><a href="#">同人闲情</a></li>
+				</ul>
+			</div>
+			<div class="hd-nav-r">
+				<ul class="hd-nav-not">
+					<li><a href="#">登录</a></li>
+					<li><a href="#">注册</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="M_Center M_Layout M_BTM_175">
+
+		<div class="release-step">
+			<ul class="clearfix">
+				<li class="fixed"><i class="one"></i>选择商品所在分类</li>
+				<li><i class="two"></i>填写商品详细信息</li>
+				<li><i class="three"></i>商品发布成功</li>
+			</ul>
+		</div>
+
+		<div class="release-sort">
+			<div class="rs-bg">
+				<div class="rs-fast M_BTM_20">
+					<p class="float-center">
+						<i class="rs-f-i">商品所在分类:</i>
+						<select class="rs-f-s">
+							<option value="">请选择</option>
+							<option value="1001,1001001,1001001001">啊&minus;&gt;啊啊1&minus;&gt;啊啊1的啊1</option>
+							<option value="1002,1002001,1002001001">哦哦哦&minus;&gt;哦哦1&minus;&gt;哦哦1的哦1</option>
+						</select>
+					</p>
+				</div>
+				<div class="rs-all">
+					<div class="float-center">
+						<ul class="rs-a-ul"></ul>
+						<ul class="rs-a-ul"></ul>
+						<ul class="rs-a-ul"></ul>
+					</div>
+				</div>
+
+				<div class="rs-say">
+					<p class="rs-s-icon"><i></i></p>
+					<p class="rs-s-now">你当前选择的商品类别是: <i></i></p>
+				</div>
+
+				<div class="cb-shou">
+					<p class="cbs-cash"><a href="#">下一步</a></p>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</body>
+</html>

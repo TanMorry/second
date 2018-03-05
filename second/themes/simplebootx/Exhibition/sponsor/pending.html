@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>主办方机构申请</title>
+<tc_include file="Public:head" />
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<link href="__TMPL__Public/css/global.css" rel="stylesheet" type="text/css">
+<link href="__TMPL__Public/css/layout.css" rel="stylesheet" type="text/css">
+<link href="__TMPL__Public/css/expo_style.css" rel="stylesheet" type="text/css">
+<link href="__TMPL__Public/css/idangerous.swiper.css" rel="stylesheet" type="text/css">
+
+<script src="__TMPL__Public/js/jquery.min.js"></script>
+<script src="__TMPL__Public/js/idangerous.swiper.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+	$(".sidebar-list").on('click', 'li', function(event) {
+		$(".sidebar-list").find('li').removeClass('checked');
+		$(this).addClass('checked');
+	});
+
+	$(".column-list").on('click', 'li', function(event) {
+		$(".column-list").find('li').removeClass('checked');
+		$(this).addClass('checked');
+	});
+
+	var mySwiper = new Swiper('.swiper-container',{
+		autoplay: 1000,
+		speed: 800,
+		autoplayDisableOnInteraction:false,
+		slidesPerGroup: 4,
+		slidesPerView: 4,
+		pagination: '.pagination',
+		paginationClickable :true,
+		createPagination :true,
+		paginationAsRange : true
+	});
+});
+
+</script>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+ <table width="511" border="1">
+   <tr>
+     <td width="180"><p>您的申请正在审核中，请耐心等待</p>
+       <p>……</p>
+      <p>在提交申请成功后，预计将在5个工作日内审核完毕</p></td>
+     <td width="315">&nbsp;</td>
+   </tr>
+ </table>
+</form>
+</body>
+</html>

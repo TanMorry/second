@@ -1,0 +1,17 @@
+.content-apply{padding:0 1rem;background: #ffffff;border-top: 0.3rem solid #e5e5e5;position: relative}
+.apply-more{;background:#e5e5e5;-webkit-border-radius: 0.3rem;
+    height:1.9rem;line-height:1.9rem;display: -webkit-box }
+.content-apply-top>div{margin-top:1rem}
+.apply-more a{display: block;font-size:0.8rem;color:#cecaca;width: 5rem;position: relative;float: left }
+.apply-more a:before{height: 0.4rem;width: 0.4rem;content: "";position: absolute;left:0.5rem ;
+    top:0.5rem;background: url("../img/tixing.jpg") 0 0 no-repeat;background-size: cover}
+.apply-more-p{font-size: 0.6rem;color:#c6c0c0;text-align: left }
+.apply-more{font-size:0.8rem;color:#cecaca;position: relative}
+.apply-more-sp{font-size: 0.8rem;color:#777777 }
+.apply-more i{position: absolute;right:0.5rem;top:0.65rem;display: block;height:0.7rem;width:1.2rem;background:url("../img/xia.jpg") 0 0 no-repeat;
+    background-size:1.2rem }
+.apply-more-pz{height:5rem;width: 5rem;overflow:hidden;position: relative;margin-top:1rem}
+.apply-more-pz>input{height: 5rem;width: 5rem;display: block;opacity: 0}
+.apply-more-img{position: absolute;left: 0;top: 0;height: 5rem;width: 5rem;background: url("../img/pingzheng.jpg") 0 0 no-repeat;
+    background-size: 5rem}
+.cancel-reason .apply-color{color:#eb6877 }

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>展会</title>
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<link href="../css/global.css" rel="stylesheet" type="text/css">
+<link href="../css/layout.css" rel="stylesheet" type="text/css">
+<link href="../css/buyer.css" rel="stylesheet" type="text/css">
+<link href="../css/account.css" rel="stylesheet" type="text/css">
+<link href="../css/date_input.css" rel="stylesheet" type="text/css">
+
+<script src="../js/jquery.min.js"></script>
+<script src="../js/jedate.min.js"></script>
+<script src="../js/expo.public.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+	/*日历插件*/
+	jeDate({
+		dateCell:".rmg-input2",
+		format:"YYYY-MM-DD",
+		isClear:true
+	});
+	
+	/*奇数 偶数 边框颜色*/
+	$(".rmg-content:even").css('background-color','#fff');
+	$(".rmg-content:odd").css('background-color','#f8f8f8');
+});
+
+</script>
+
+<body>
+	<div class="M_Header M_BTM_25">
+		<div class="hd-bg">
+			<p class="hd-pink"></p>
+		</div>
+		<div class="hd-index M_Center">
+			<div class="hd-main">
+				<ul class="float-center clearfix">
+					<li class="hd-m-btn" ><a href="#">展会</a></li>
+					<li class="hd-m-btn"><a href="#">社团铺</a></li>
+					<li class="hd-m-logo"></li>
+					<li class="hd-m-btn fixed" ><a href="#">我的</a></li>
+					<li class="hd-m-btn" ><a href="#">同人闲情</a></li>
+				</ul>
+			</div>
+			<div class="hd-nav-r">
+				<ul class="hd-nav-not">
+					<li><a href="#">登录</a></li>
+					<li><a href="#">注册</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="M_Center">
+
+		<div class="M_Left M_Layout M_BTM_175">
+			<div class="left-tree">
+				<div class="user-img">
+					<a href="#"><img src="../images/security_settings.png" alt=""></a>
+				</div>
+				<dl>
+					<dt class="fixed"><a href="#">已买到的商品</a></dt>
+					<dt><a href="#">关注の铺</a></dt>
+					<dt><a href="#">评价管理</a></dt>
+					<dt><a href="#">退货/退款</a></dt>
+					<dt><a href="#">账户设置</a></dt>
+					<dd><a href="#">我の资料</a></dd>
+					<dd><a href="#">收货地址</a></dd>
+					<dd><a href="#">安全设置</a></dd>
+					<dt><a href="#">财布</a></dt>
+					<dd><a href="#">我の财布</a></dd>
+					<dd><a href="#">交易记录</a></dd>
+					<dt><a href="#">站内信</a></dt>
+				</dl>
+			</div>
+		</div>
+
+		<div class="M_Right M_Layout M_BTM_175">
+			<div class="center-step">
+				<div class="mp-title">
+					<a class="mp-base" href="#">我的</a>
+					<a class="mp-last" href="#">退货/退款</a>
+				</div>
+			</div>
+			<div class="clearfix">
+				<p class="rmg-p1">订单编号：</p>
+				<input type="text" class="rmg-input1" value=""/>
+				<p class="rmg-p1">申请退款时间：</p>
+				<select class="rmg-select2">
+					<option value="全部">近三个月</option>
+				</select>
+				<p class="rmg-p2">从：</p>
+				<input type="text" class="rmg-input2" readonly="readonly"/>
+				<p class="rmg-p2">到：</p>
+				<input type="text" class="rmg-input2" readonly="readonly"/>
+			</div>
+			<div class="clearfix">
+				<p class="rmg-p1">退货编号：</p>
+				<input type="text" class="rmg-input1" value=""/>
+				<p class="rmg-p1">退款状态：</p>
+				<select class="rmg-select1">
+					<option value="全部">全部</option>
+				</select>
+			</div>
+			<div class="clearfix">
+				<p class="rmg-p1">喵窝处理状态：</p>
+				<select class="rmg-select1">
+					<option value="全部">全部</option>
+					<option value="喵窝未介入">喵窝未介入</option>
+					<option value="喵窝已介入">喵窝已介入</option>
+				</select>
+				<input type="button" class="rmg-input-button" value="搜索"/>
+			</div>
+			<div class="rmg-p-c clearfix">
+				<a href="#">我收到的退款申请</a>
+				<a href="#" class="fixed">我申请的退款</a>
+			</div>
+			<div class="rmg-title clearfix">
+				<div class="rmg-box2"><h1>退款编号</h1></div>
+				<div class="rmg-box4"><h1>订单编号/货品名称</h1></div>
+				<div class="rmg-box1"><h1>卖家</h1></div>
+				<div class="rmg-box1"><h1>交易金额</h1></div>
+				<div class="rmg-box1"><h1>退款金额</h1></div>
+				<div class="rmg-box2"><h1>审核时间</h1></div>
+				<div class="rmg-box2"><h1>超时时间</h1></div>
+				<div class="rmg-box3"><h1>退款状态</h1></div>
+				<div class="rmg-box1"><h1>操作</h1></div>
+			</div>
+			<div class="rmg-content clearfix">
+				<div class="rmg-box2"><p>TK12317</p></div>
+				<div class="rmg-box4 rmg-two"><p>A234123456789</p><p>神的情书</p></div>
+				<div class="rmg-box1"><p>默默三</p></div>
+				<div class="rmg-box1"><p>75.00</p></div>
+				<div class="rmg-box1"><p>75.00</p></div>
+				<div class="rmg-box2"><p>2015.1.7</p></div>
+				<div class="rmg-box2"><p>2015.1.7</p></div>
+				<div class="rmg-box3"><p>退款关闭</p></div>
+				<div class="rmg-box1 rmg-two"><a href="#">查看退款</a><a href="#">评价</a></div>
+			</div>
+			<div class="rmg-content clearfix">
+				<div class="rmg-box2"><p>TK12317</p></div>
+				<div class="rmg-box4 rmg-two"><p>A233253565525</p><p>神的情书</p></div>
+				<div class="rmg-box1"><p>默默三</p></div>
+				<div class="rmg-box1"><p>75.00</p></div>
+				<div class="rmg-box1"><p>75.00</p></div>
+				<div class="rmg-box2"><p>2015.1.7</p></div>
+				<div class="rmg-box2"><p>2015.1.7</p></div>
+				<div class="rmg-box3"><p>退款成功</p></div>
+				<div class="rmg-box1 rmg-two"><a href="#">修改</a><a href="#">介入申请</a></div>
+			</div>
+			<div class="rmg-content clearfix">
+				<div class="rmg-box2"><p>TK12317</p></div>
+				<div class="rmg-box4 rmg-two"><p>A23655634</p><p>神的情书</p></div>
+				<div class="rmg-box1"><p>默默三</p></div>
+				<div class="rmg-box1"><p>75.00</p></div>
+				<div class="rmg-box1"><p>75.00</p></div>
+				<div class="rmg-box2"><p>2015.1.7</p></div>
+				<div class="rmg-box2"><p>2015.1.7</p></div>
+				<div class="rmg-box3 rmg-two"><p>卖家不同意协议等待买家修改</p></div>
+				<div class="rmg-box1"><a href="#">查看</a></div>
+			</div>
+			<div class="rmg-content clearfix">
+				<div class="rmg-box2"><p>TK12317</p></div>
+				<div class="rmg-box4 rmg-two"><p>A565865363</p><p>神的情书</p></div>
+				<div class="rmg-box1"><p>默默三</p></div>
+				<div class="rmg-box1"><p>75.00</p></div>
+				<div class="rmg-box1"><p>75.00</p></div>
+				<div class="rmg-box2"><p>2015.1.7</p></div>
+				<div class="rmg-box2"><p>2015.1.7</p></div>
+				<div class="rmg-box3 rmg-two"><p>退款申请等待卖家确认中</p></div>
+				<div class="rmg-box1"><a href="#">查看</a></div>
+			</div>
+			<div class="rmg-content clearfix">
+				<div class="rmg-box2"><p>TK12317</p></div>
+				<div class="rmg-box4 rmg-two"><p>A12325365</p><p>神的情书</p></div>
+				<div class="rmg-box1"><p>默默三</p></div>
+				<div class="rmg-box1"><p>75.00</p></div>
+				<div class="rmg-box1"><p>75.00</p></div>
+				<div class="rmg-box2"><p>2015.1.7</p></div>
+				<div class="rmg-box2"><p>2015.1.7</p></div>
+				<div class="rmg-box3 rmg-two"><p>退款申请达成，等待买家发货</p></div>
+				<div class="rmg-box1"><a href="#">发货</a></div>
+			</div>
+			<div class="rmg-content clearfix">
+				<div class="rmg-box2"><p>TK12317</p></div>
+				<div class="rmg-box4 rmg-two"><p>A23565635</p><p>神的情书</p></div>
+				<div class="rmg-box1"><p>默默三</p></div>
+				<div class="rmg-box1"><p>75.00</p></div>
+				<div class="rmg-box1"><p>75.00</p></div>
+				<div class="rmg-box2"><p>2015.1.7</p></div>
+				<div class="rmg-box2"><p>2015.1.7</p></div>
+				<div class="rmg-box3 rmg-two"><p>买家已退货，等待卖家确认收货</p></div>
+				<div class="rmg-box1"><a href="#">查看</a></div>
+			</div>
+			<div class="M_Page">
+				<span>共 <i>9998</i> 页</span>
+				<a class="index" href="#">首页</a>
+				<a href="#">&lt;</a>
+				<a class="fixed" href="#">1</a>
+				<a href="#">2</a>
+				<a href="#">3</a>
+				<a href="#">4</a>
+				<a href="#">5</a>
+				<a href="#">6</a>
+				<a href="#">&gt;</a>
+				<a class="index" href="#">尾页</a>
+			</div>
+			
+		</div>
+		
+	</div>
+
+</body>
+</html>

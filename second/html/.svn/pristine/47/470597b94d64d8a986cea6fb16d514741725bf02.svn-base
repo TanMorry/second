@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="format-detection" >
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+<title>喵</title>
+<link href="../css/global.css" rel="stylesheet" type="text/css">
+<link href="../css/public.css" rel="stylesheet" type="text/css">
+<link href="../css/receipt-dizhi.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../css/LArea.css" type="text/css">
+
+
+<script src="../js/jquery-2.2.4.min.js"></script>
+<script src="../js/LAreaData1.js"></script>
+<script src="../js/LAreaData2.js"></script>
+<script src="../js/LArea.js"></script>
+<script src="../js/miao-Dialog.js"></script>
+<script>
+$().ready(function(){
+    $('.content-btn-mr').click(function(){
+        $(this).toggleClass('btn-color-sc')
+    });
+
+    /*保存和删除*/
+	var phone = $('#cpp').MiaoDialog();
+	var phone2 = $('#cpp2').MiaoDialog();
+	var phone3 = $('#cpp3').MiaoDialog();
+	$('.footer-btn').on('click', function(event) {
+		if( isEmpty( $('.content-top').find('li').eq(0).find('input').val() ) ){
+			phone2.MiaoDialog('open'); 
+			$('#cpp2').find('p').text('未填写 收货人');
+			setTimeout(function(){
+				phone2.MiaoDialog('close'); 
+			},1400);
+		}
+		else if( len(   $('.content-top').find('li').eq(0).find('input').val() ) > 14 ){
+			phone2.MiaoDialog('open'); 
+			$('#cpp2').find('p').text('收货人 超出限定次数');
+			setTimeout(function(){
+				phone2.MiaoDialog('close'); 
+			},1400);
+		}
+		else if( isEmpty( $('.content-top').find('li').eq(1).find('input').val() ) ){
+			phone2.MiaoDialog('open'); 
+			$('#cpp2').find('p').text('未填写 联系方式');
+			setTimeout(function(){
+				phone2.MiaoDialog('close'); 
+			},1400);
+		}
+		else if( len(   $('.content-top').find('li').eq(1).find('input').val() ) > 11 ){
+			phone2.MiaoDialog('open'); 
+			$('#cpp2').find('p').text('联系方式 超出限定次数');
+			setTimeout(function(){
+				phone2.MiaoDialog('close'); 
+			},1400);
+		}
+		else if( isNaN(   $('.content-top').find('li').eq(1).find('input').val() )  ){
+			phone2.MiaoDialog('open'); 
+			$('#cpp2').find('p').text('联系方式 只能填写数字');
+			setTimeout(function(){
+				phone2.MiaoDialog('close'); 
+			},1400);
+		}
+		else if( isEmpty( $('.content-top').find('li').eq(2).find('input').val() ) ){
+			phone2.MiaoDialog('open'); 
+			$('#cpp2').find('p').text('未填写 所在地区');
+			setTimeout(function(){
+				phone2.MiaoDialog('close'); 
+			},1400);
+		}
+		else if( isEmpty( $('.content-top').find('li').eq(3).find('input').val() ) ){
+			phone2.MiaoDialog('open'); 
+			$('#cpp2').find('p').text('未填写 详细地址');
+			setTimeout(function(){
+				phone2.MiaoDialog('close'); 
+			},1400);
+		}
+		else if( len(   $('.content-top').find('li').eq(3).find('input').val() ) > 60 ){
+			phone2.MiaoDialog('open'); 
+			$('#cpp2').find('p').text('详细地址 超出限定次数');
+			setTimeout(function(){
+				phone2.MiaoDialog('close'); 
+			},1400);
+		}
+		else{
+			phone.MiaoDialog('open');
+		}
+	});
+	
+	$('.header').on('click', '.header-r' ,function(event) {
+		phone3.MiaoDialog('open');
+	});
+	
+	$('.miao-shade').on('click',function(event) {
+		phone.MiaoDialog('close');
+		phone2.MiaoDialog('close');
+		phone3.MiaoDialog('close');
+	});
+	
+	$('#cancel').on('click',function(event) {
+		phone3.MiaoDialog('close');
+	});
+	
+	function isEmpty(e){
+		if( e == ""  || e == null  || e == undefined  ){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	
+	function len(s) {
+		var l = 0;
+		var a = s.split("");
+		for (var i = 0 ; i < a.length ; i++) {
+			if (a[i].charCodeAt(0)<299) {
+				l ++;
+			} 
+			else {
+				l += 2;
+			}
+		}
+		return l;
+	}
+})
+</script>
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex">
+    <section class="header">
+        <div class="header-bg normal">
+            <div class="header-l"><a href="#"></a></div>
+            <div class="header-c header-dz ">编 辑 收 货 地 址</div>
+            <div class="header-r"><span class="header-r-btn">删除</span></div>
+        </div>
+    </section>
+    <!-- 主体 -->
+    <section class="content flex content-receipt">
+        <div class="content-top">
+            <ul>
+                <li class="more"><a href="#">收货人:</a> <input type="text" value="黄杰"></li>
+                <li class="more">联系方式:<input type="text" value="18212345678"></li>
+                <li class="more more-before">所在地区:
+                    <input id="demo1" type="text" readonly="" placeholder=""  value=""  />
+                    <input id="value1" type="hidden" value=""/>
+                    <div class="more-b"></div>
+                </li>
+
+                <li class="more">详细地址:<input type="text" value="浦连路XXX弄，XX号XXX室 "></li>
+                <li class="more">邮政编码:<input type="text" value="201100"></li>
+                <li class="content-dz-li clearfix ">
+                    <span>设置为默认</span>
+                    <span class="content-btn-mr"></span>
+                </li>
+            </ul>
+        </div>
+        <script>
+            /*地址*/
+            var area1 = new LArea();
+            area1.init({
+                'trigger': '#demo1', //触发选择控件的文本框，同时选择完毕后name属性输出到该位置
+                'valueTo': '#value1', //选择完毕后id属性输出到该位置
+                'keys': {
+                    id: 'id',
+                    name: 'name'
+                }, //绑定数据源相关字段 id对应valueTo的value属性输出 name对应trigger的value属性输出
+                'type': 1, //数据源类型
+                'data': LAreaData //数据源
+            });
+        </script>
+    </section>
+    <section class="footer">
+        <div class="footer-btn"><a href="#">保 存</a></div>
+    </section>
+    <div class="confirm-pop-ups font4" id="cpp">
+        <p>地址设置成功</p>
+    </div>
+    <div class="confirm-pop-ups font3" id="cpp2">
+        <p>&nbsp;</p>
+    </div>
+    <div class="confirm-pop-ups font1" id="cpp3">
+		<p>确认要删除该地址？</p>
+		<div class="box1">
+			<div class="auto-width"><!-- auto width --></div>
+			<a href="#" id="cancel">取消</a>
+			<div class="auto-width"><!-- auto width --></div>
+			<a href="#" id="determine">确定</a>
+			<div class="auto-width"><!-- auto width --></div>
+		</div>
+	</div>
+</section>
+</body>
+</html>

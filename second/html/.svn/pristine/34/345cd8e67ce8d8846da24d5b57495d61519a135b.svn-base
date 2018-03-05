@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>展会</title>
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<link href="css/global.css" rel="stylesheet" type="text/css">
+<link href="css/rec-layout.css" rel="stylesheet" type="text/css">
+
+<script src="js/jquery.min.js"></script>
+<script src="js/expo.public.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+	/*input提示判定*/
+	$(".rm-input").on('focus blur input propertychange', function(event) {
+		if(event.type == 'focus' || event.type == 'input' || event.type == 'propertychange')
+		{
+			$(this).parent("div").addClass('rm-be');
+		}
+		else if(event.type == 'blur')
+		{
+			!$(this).val().length && $(this).parent("div").removeClass('rm-be');
+		}
+	});
+});
+</script>
+
+<body>
+	<div class="M_Header M_BTM_25">
+		<div class="header-bg">
+			<p class="header-pink"></p>
+			<p class="header-beige"></p>
+		</div>
+		<div class="header-rec">
+			<div class="M_Center clearfix">
+				<ul class="clearfix">
+					<li class="M_LOGO"></li>
+					<li><b href="#">找回密码</b></li>
+				</ul>
+				<div class="header-info">
+					<a href="#" type="login">登录</a>
+					<a href="#" type="register">注册</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="M_Layout M_Center M_BTM_50">
+		<div class="rec-main">
+			<p class="rec-txt">请输入你要找回密码的主办方账号</p>
+
+			<div class="rm-main clearfix">
+				<i>主办方帐号：</i>
+				<div class="rm-normal">
+					<input class="rm-input" type="text" sign="account" />
+					<input class="rm-hint" type="text" value="可填写主办方名称/手机号" />
+				</div>
+			</div>
+
+			<div class="rm-main clearfix M_BTM_100">
+				<i>验证码：</i>
+				<div class="rm-auth">
+					<input class="rm-input" type="text" sign="code" />
+					<input class="rm-hint" type="text" value="" />
+					<p class="rm-msg">输入验证码有误！</p>
+				</div>
+				<a class="rm-a-href" href="#"><img src="images/auth.png"></a>
+				<a class="rm-a-href" href="#">看不清？换一张</a>
+			</div>
+
+			<p class="rm-submit">
+				<a href="#">下一步</a>
+			</p>
+		</div>
+	</div>
+</body>
+</html>

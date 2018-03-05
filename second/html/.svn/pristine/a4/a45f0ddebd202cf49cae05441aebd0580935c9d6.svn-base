@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no"/>
+    <title>喵</title>
+    <link href="../../css/global.css" rel="stylesheet" type="text/css">
+    <link href="../../css/public.css" rel="stylesheet" type="text/css">
+    <link href="../../css/shop-cart-edit.css" rel="stylesheet" type="text/css">
+
+
+    <script src="../../js/jquery-2.2.4.min.js"></script>
+    <script>
+        $().ready(function(){
+            $('.header-r').on('click', '.header-bg-btn', function(event) {
+                if( $(".header-r-tc").css('display') == 'none' ){
+                    $(".header-r-tc").css('display','block')
+                }
+                else{
+                    $(".header-r-tc").css('display','none');
+                }
+            });
+            $('.content').on('click', function(event) {
+                $(".header-r-tc").css('display','none');
+            });
+
+
+            var h1 = $(".apply-more-tc");
+            var h2 =$('.apply-more-tc span');
+            var text = $(".cancel-reason");
+            var btn =$('.cancel-reason-top>a');
+            var none=$(' .cover-more');
+
+            h1.click(function () {
+                text.slideDown();
+            });
+            btn.click(function(){
+                text.hide()
+            });
+           $('.cancel-reason-bottom>a').click(function(){
+              h2.text($(this).text());
+               text.hide();
+           })
+
+        })
+
+
+    </script>
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex">
+    <section class="header">
+        <div class="header-bg normal">
+            <div class="header-l"><a href="#"></a></div>
+            <div class="header-c header-dz ">订 单 详 情</div>
+            <div class="header-r">
+                <a  href="#" class="header-bg-btn"></a>
+                <div class="header-r-tc">
+                    <a href="#" class="header-tc-a"><img src="../../img/xinfeng.png">消息</a>
+                    <a href="#" class="header-tc-b"><img src="../../img/shouy.png">首页</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 主体 -->
+    <section class="content flex content-apply">
+        <div class="content-apply-top">
+            <div class="apply-more">
+                <a href="#">申请服务</a>
+                <span>仅退款</span>
+            </div>
+            <div class="apply-more apply-more-tc">
+                <a href="#">退款原因</a>
+                <span class="apply-more-sp">请选择退款原因</span>
+                <i></i>
+            </div>
+            <div>
+                <div class="apply-more">
+                    <a href="#">退款金额</a>
+                    <span>￥5.5</span>
+               </div>
+                <p class="apply-more-p">（最多5.50元，含发货邮费5.00元）</p>
+            </div>
+            <div class="apply-more">
+                <a href="#">退款说明</a>
+                <span>最多两百字</span>
+            </div>
+        </div>
+        <div class="apply-more-pz">
+            <div class="apply-more-img"></div>
+            <input type="file">
+        </div>
+        <div class="cancel-reason">
+            <div class="cancel-reason-top clearfix">
+                <a href="#">完成</a>
+            </div>
+            <div class="cancel-reason-bottom">
+                <a href="#" class="apply-color">请选择退款原因</a>
+                <a href="#">协商一致退款</a>
+                <a href="#">未按约定时间发货</a>
+                <a href="#">缺货</a>
+                <a href="#">拍错/多拍/不想要</a>
+            </div>
+        </div>
+        <div class="cover-more"></div>
+    </section>
+    <section class="footer">
+    </section>
+</section>
+</body>
+</html>

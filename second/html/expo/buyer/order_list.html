@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>展会</title>
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<link href="../css/global.css" rel="stylesheet" type="text/css">
+<link href="../css/layout.css" rel="stylesheet" type="text/css">
+<link href="../css/buyer.css" rel="stylesheet" type="text/css">
+<link href="../css/date_input.css" rel="stylesheet" type="text/css">
+
+<script src="../js/jquery.min.js"></script>
+<script src="../js/jedate.min.js"></script>
+<script src="../js/expo.public.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+	/*筛选开不开*/
+	$('.of-more').on('click', function(event) {
+		$(this).parents('.of-search').toggleClass('of-opened');
+	});
+	/*日历插件*/
+	jeDate({
+		dateCell:'.of-a-time input',
+		format:"YYYY-MM-DD",
+		isClear:true
+	});
+	/*弹框*/
+	$('.l-tb-7').on('click', 'a', function(event) {
+		if ( $(this).html() == "确认收货")
+		{
+			$(".ol-pop-ups").css("display","block");
+		}
+	});
+	$('.rpp-title').on('click', 'button', function(event) {
+		$(".ol-pop-ups").css("display","none");
+	});
+	$('.rpp-content').on('click', '.rpp-content-btn2', function(event) {
+		$(".ol-pop-ups").css("display","none");
+	});
+});
+
+</script>
+
+<body>
+	<div class="M_Header M_BTM_25">
+		<div class="hd-bg">
+			<p class="hd-pink"></p>
+		</div>
+		<div class="hd-index M_Center">
+			<div class="hd-main">
+				<ul class="float-center clearfix">
+					<li class="hd-m-btn" ><a href="#">展会</a></li>
+					<li class="hd-m-btn fixed"><a href="#">社团铺</a></li>
+					<li class="hd-m-logo"></li>
+					<li class="hd-m-btn" ><a href="#">我的</a></li>
+					<li class="hd-m-btn" ><a href="#">同人闲情</a></li>
+				</ul>
+			</div>
+			<div class="hd-nav-r">
+				<ul class="hd-nav-not">
+					<li><a href="#">登录</a></li>
+					<li><a href="#">注册</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="M_Center">
+
+		<div class="M_Left M_Layout M_BTM_175">
+			<div class="left-tree">
+				<div class="user-img">
+					<a href="#"><img src="../images/miao-mass-info.png" alt=""></a>
+				</div>
+				<dl>
+					<dt class="fixed"><a href="#">已买到的商品</a></dt>
+					<dt><a href="#">关注の铺</a></dt>
+					<dt><a href="#">评价管理</a></dt>
+					<dt><a href="#">退货/退款</a></dt>
+					<dt><a href="#">账户设置</a></dt>
+					<dd><a href="#">我の资料</a></dd>
+					<dd><a href="#">收货地址</a></dd>
+					<dd><a href="#">安全设置</a></dd>
+				</dl>
+			</div>
+		</div>
+
+		<div class="M_Right M_Layout M_BTM_175">
+			<div class="user-step">
+				<p>我的<i>&gt;</i>已买过的商品</p>
+			</div>
+
+			<div class="order-filter">
+				<div class="of-btn">
+					<ul class="float-center clearfix">
+						<li><a href="#">所有订单</a></li>
+						<li><a href="#">待付款</a></li>
+						<li><a href="#">待收货</a></li>
+						<li><a href="#">待评论</a></li>
+					</ul>
+				</div>
+				<div class="of-search">
+					<div class="of-field">
+						<input class="of-input" type="text" placeholder="订单搜索" />
+						<input class="of-submit" type="button" />
+						<a class="of-more" href="#open">精简筛选条件</a>
+					</div>
+					
+					<div class="of-advanced clearfix">
+						<p class="of-a-text">
+							<i>卖家昵称：</i>
+							<input type="text" />
+						</p>
+						<p class="of-a-time">
+							<i>成交时间：</i>
+							<input type="text" readonly="readonly" />
+							<b>&ndash;</b>
+							<input type="text" readonly="readonly" />
+						</p>
+						<p class="of-a-select">
+							<i>交易状态：</i>
+							<select>
+								<option>1</option>
+								<option>2</option>
+							</select>
+						</p>
+						<p class="of-a-select">
+							<i>评价状态：</i>
+							<select>
+								<option>a</option>
+								<option>b</option>
+							</select>
+						</p>
+						<p class="of-a-button">
+							<input type="button" value="搜索" />
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<div>
+				<div class="list-head">
+					<table>
+						<tr>
+							<th class="l-tb-1">商品</th>
+							<th class="l-tb-2">单价（元）</th>
+							<th class="l-tb-3">数量</th>
+							<th class="l-tb-4">商品操作</th>
+							<th class="l-tb-5">实付款</th>
+							<th class="l-tb-6">交易状态</th>
+							<th class="l-tb-7">交易操作</th>
+						</tr>
+					</table>
+				</div>
+				<div class="list-body">
+					<table class="l-tb-b">
+						<tr>
+							<th colspan="7">
+								<i>2016-03-08</i>
+								<i>订单号：163331103720001</i>
+								<a href="#">PAST店</a>
+							</th>
+						</tr>
+						<!-- 第一件商品 -->
+						<tr>
+							<td class="l-tb-1 l-tb-bb">
+								<div class="l-tb-some clearfix">
+									<p class="l-tb-img">
+										<a href="#"><img src="../images/artwork-box-1.jpg" alt="" /></a>
+									</p>
+									<a href="#">迪士尼动画长片(疯狂动物城)同人本</a>
+								</div>
+							</td>
+							<td class="l-tb-2 l-tb-bb">4999.00</td>
+							<td class="l-tb-3 l-tb-bb">1</td>
+							<td class="l-tb-4 l-tb-bb"> <i class="l-tb-nor red">退款处理中</i> </td>
+							<!-- 第一种方法(京东是这种): 使用rowspan -->
+							<td class="l-tb-5 l-tb-bl" rowspan="2">9998.00</td>
+							<td class="l-tb-6 l-tb-bl" rowspan="2"> <i class="l-tb-nor">买家已付款</i> <a class="l-tb-nor" href="#">订单详情</a> </td>
+							<td class="l-tb-7 l-tb-bl" rowspan="2"> <a class="l-tb-btn" href="#">立即付款</a> <a class="l-tb-nor" href="#">取消订单</a> </td>
+						</tr>
+						<!-- 第二件商品 -->
+						<tr>
+							<td class="l-tb-1 l-tb-bb">
+								<div class="l-tb-some clearfix">
+									<p class="l-tb-img">
+										<a href="#"><img src="../images/artwork-box-1.jpg" alt="" /></a>
+									</p>
+									<a href="#">迪士尼动画长片(疯狂动物城的疯狂动物城)同人本</a>
+								</div>
+							</td>
+							<td class="l-tb-2 l-tb-bb">4999.00</td>
+							<td class="l-tb-3 l-tb-bb">1</td>
+							<td class="l-tb-4 l-tb-bb"> <a class="l-tb-nor red" href="#">申请售后</a> </td>
+							<!-- 第二种方法(淘宝是这种): 添加空的td -->
+							<!-- <td class="l-tb-5 l-tb-bl"></td>
+							<td class="l-tb-6 l-tb-bl"></td>
+							<td class="l-tb-7 l-tb-bl"></td> -->
+						</tr>
+						<tr>
+							<td>配送方式：快递</td>
+							<td>10.00（元）</td>
+							<td></td>
+							<td></td>
+							<td class="l-tb-bl"></td>
+							<td class="l-tb-bl"></td>
+							<td class="l-tb-bl"></td>
+						</tr>
+					</table>
+
+					<table class="l-tb-b">
+						<tr>
+							<th colspan="7">
+								<i>2011-11-11</i>
+								<i>订单号：163331103720001</i>
+								<a href="#">SUPER-----PAST店</a>
+							</th>
+						</tr>
+
+						<tr>
+							<td class="l-tb-1 l-tb-bb">
+								<div class="l-tb-some clearfix">
+									<p class="l-tb-img">
+										<a href="#"><img src="../images/artwork-box-1.jpg" alt="" /></a>
+									</p>
+									<a href="#">迪士尼动画长片(疯狂动物城)同人本</a>
+								</div>
+							</td>
+							<td class="l-tb-2 l-tb-bb">4999.00</td>
+							<td class="l-tb-3 l-tb-bb">1</td>
+							<td class="l-tb-4 l-tb-bb"> <i class="l-tb-nor red">退款处理中</i> </td>
+							<td class="l-tb-5 l-tb-bl">4999.00</td>
+							<td class="l-tb-6 l-tb-bl"> <i class="l-tb-nor">买家已付款</i> <a class="l-tb-nor" href="#">订单详情</a> </td>
+							<td class="l-tb-7 l-tb-bl"> <a class="l-tb-put cursor-pointer";">确认收货</a>
+								
+								<i class="l-tb-nor gray">还剩18天16时</i> 
+								
+								<!--弹框-->
+								<div class="ol-pop-ups">
+									<div class="rpp-title">
+										<button>X</button>
+									</div>
+									<div class="rpp-content">
+										<strong>确认收货之后欠款将直接转至卖家财布</strong>
+										<button class="rpp-content-btn1">保存</button>
+										<button class="rpp-content-btn2">关闭</button>
+									</div>
+								</div>
+								
+								
+								
+							</td>
+						</tr>
+						<tr>
+							<td>配送方式：快递</td>
+							<td><i class="l-tb-express">10.00（元）</i></td>
+							<td></td>
+							<td></td>
+							<td class="l-tb-bl"></td>
+							<td class="l-tb-bl"></td>
+							<td class="l-tb-bl"></td>
+						</tr>
+					</table>
+
+					<table class="l-tb-b">
+						<tr>
+							<th colspan="7">
+								<i>2011-11-11</i>
+								<i>订单号：163331103720001</i>
+								<a href="#">SUPER长长长长长长长长PAST店</a>
+							</th>
+						</tr>
+
+						<tr>
+							<td class="l-tb-1 l-tb-bb">
+								<div class="l-tb-some clearfix">
+									<p class="l-tb-img">
+										<a href="#"><img src="../images/artwork-box-1.jpg" alt="" /></a>
+									</p>
+									<a href="#">迪士尼动画长片(疯狂动物城)同人本</a>
+								</div>
+							</td>
+							<td class="l-tb-2 l-tb-bb">4999.00</td>
+							<td class="l-tb-3 l-tb-bb">1</td>
+							<td class="l-tb-4 l-tb-bb"> <a class="l-tb-nor red" href="#">申请售后</a> </td>
+							<td class="l-tb-5 l-tb-bl">4999.00</td>
+							<td class="l-tb-6 l-tb-bl"> <i class="l-tb-nor">买家已付款</i> <a class="l-tb-nor" href="#">订单详情</a> </td>
+							<td class="l-tb-7 l-tb-bl"> <a class="l-tb-say" href="#">评论</a> </td>
+						</tr>
+						<tr>
+							<td>配送方式：快递</td>
+							<td><i class="l-tb-express">10.00（元）</i></td>
+							<td></td>
+							<td></td>
+							<td class="l-tb-bl"></td>
+							<td class="l-tb-bl"></td>
+							<td class="l-tb-bl"></td>
+						</tr>
+					</table>
+
+					<table class="l-tb-b l-tb-close">
+						<tr>
+							<th colspan="7">
+								<i>2011-11-11</i>
+								<i>订单号：163331103720001</i>
+								<a href="#">SUPER长长长长长长长长PAST店</a>
+							</th>
+						</tr>
+
+						<tr>
+							<td class="l-tb-1 l-tb-bb">
+								<div class="l-tb-some clearfix">
+									<p class="l-tb-img">
+										<a href="#"><img src="../images/artwork-box-1.jpg" alt="" /></a>
+									</p>
+									<a href="#">迪士尼动画长片(疯狂动物城)同人本</a>
+								</div>
+							</td>
+							<td class="l-tb-2 l-tb-bb">4999.00</td>
+							<td class="l-tb-3 l-tb-bb">1</td>
+							<td class="l-tb-4 l-tb-bb"> <i class="l-tb-nor red">退款处理中</i> </td>
+							<td class="l-tb-5 l-tb-bl">4999.00</td>
+							<td class="l-tb-6 l-tb-bl"> <i class="l-tb-nor">交易关闭</i> <a class="l-tb-nor" href="#">订单详情</a> </td>
+							<td class="l-tb-7 l-tb-bl"> </td>
+						</tr>
+						<tr>
+							<td>配送方式：快递</td>
+							<td><i class="l-tb-express">10.00（元）</i></td>
+							<td></td>
+							<td></td>
+							<td class="l-tb-bl"></td>
+							<td class="l-tb-bl"></td>
+							<td class="l-tb-bl"></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+
+			<div class="M_Page">
+				<span>共 <i>9998</i> 页</span>
+				<a class="index" href="#">首页</a>
+				<a href="#">&lt;</a>
+				<a class="fixed" href="#">1</a>
+				<a href="#">2</a>
+				<a href="#">3</a>
+				<a href="#">4</a>
+				<a href="#">5</a>
+				<a href="#">6</a>
+				<a href="#">&gt;</a>
+				<a class="index" href="#">尾页</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

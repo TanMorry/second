@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no"/>
+    <title>喵</title>
+    <link type="text/css"  rel="stylesheet" href="../css/baby-fenlei.css">
+    <link type="text/css"  rel="stylesheet" href="../css/global.css">
+    <link type="text/css"  rel="stylesheet" href="../css/public.css">
+    <style type="text/css"></style>
+    <script src="../js/jquery-2.2.4.min.js"></script>
+    <script>
+        $().ready(function () {
+            $('.nav-list-r').on('click', 'a', function(){
+                $(this).toggleClass('btn-color');
+            }
+            )})
+
+    </script>
+
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex">
+    <section class="header">
+        <div class="header-bg normal">
+            <div class="header-l"><a href="shop-xiangqing.html"></a></div>
+            <div class="header-c header-fot">店 铺 介 绍</div>
+            <div class="header-r"><a  href="#" class="header-bg-btn"></a></div>
+        </div>
+    </section>
+    <section class="content">
+        <div class="nav-list">
+            <div class="nav-list-l">
+                <img src="../img/touxiang-icon.png">
+                <div class="list-l-top">
+                    <p>二次元之家</p>
+                    <div>
+                        <p >
+                           <a href="#" class="list-l-color">60</a>
+                            <a href="#">关注人数</a>
+                        </p>
+                        <p>
+                            <a href="#" class="list-l-color">60</a>
+                            <a href="#">全部宝贝</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-list-r">
+                <a href="#">收藏</a>
+            </div>
+        </div>
+        <div class="content-title">
+            <p class="title-top">社团介绍</p>
+            <p class="title-bottom">社团介绍社团介绍社团介绍社团介绍社团介绍社团介绍社团介绍社团介绍社团介绍社团介绍社团介绍社团介绍社团介绍社团介绍社团介绍社团介</p>
+        </div>
+        <div class="status">
+            <p class="status-top">好评率：<span>98.17%</span></p>
+            <p class="status-bottom">创建时间：<span>2016-3-11</span></p>
+            <p>所在地：<span>上海市</span></p>
+        </div>
+        <div class="evaluate">
+            <ul>
+                <li>描述相符：<span>4.8  高于同行20.54%</span></li>
+                <li>服务态度：<span>4.8  高于同行20.54%</span></li>
+                <li>发货速度：<span>4.8  高于同行20.54%</span></li>
+                <li>物流速度：<span>4.8  高于同行20.54%</span></li>
+            </ul>
+        </div>
+    </section>
+</section>
+</body>
+</html>

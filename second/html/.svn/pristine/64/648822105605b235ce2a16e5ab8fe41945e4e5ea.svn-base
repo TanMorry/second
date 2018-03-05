@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="format-detection" content="telephone=no"/>
+<title>喵</title>
+<link type="text/css"  rel="stylesheet" href="../css/baby-fenlei.css">
+<link type="text/css"  rel="stylesheet" href="../css/global.css">
+<link type="text/css"  rel="stylesheet" href="../css/public.css">
+<link type="text/css"  rel="stylesheet" href="../css/shop-cart-edit.css">
+<style type="text/css">
+</style>
+<script src="../js/jquery-2.2.4.min.js"></script>
+<script src="../js/jquerty-touchmove.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+	/*点击全选按钮*/
+	$('.foot-top-l').on('touchend', '.foot-btn', function(event){
+        $(this).toggleClass('true');
+        if( $(this).hasClass('true') ){
+        	$('.commodity').find('.commodity-l-btn').addClass('true');
+            $('.content-choice').find('.commodity-l-btn').addClass('true');
+        }
+        else{
+        	$('.commodity').find('.commodity-l-btn').removeClass('true');
+            $('.content-choice').find('.commodity-l-btn').removeClass('true');
+        }
+    });
+	
+    /*点击社团*/
+    $('.commodity').on('touchend', '.commodity-l-btn', function(event){
+        $(this).toggleClass('true');
+        if( $(this).hasClass('true') )
+            $(this).parents('.content-top').find('.content-choice').find('.commodity-l-btn').addClass('true');
+        else
+            $(this).parents('.content-top').find('.content-choice').find('.commodity-l-btn').removeClass('true');
+        
+        var isCheck = true;
+        $('.commodity').find('.commodity-l-btn').each(function(){
+            if( !$(this).hasClass('true') ){
+                isCheck = false;
+            }
+        });
+        isCheck ? $('.foot-top-l').find('.foot-btn').addClass('true') : $('.foot-top-l').find('.foot-btn').removeClass('true');
+    });
+    
+
+	/*点击子目录*/
+    $('.content-choice').on('touchend', '.commodity-l-btn', function(event){
+        var isCheck = true;
+        $(this).toggleClass('true');
+        $(this).parents('.content-top').find('.content-choice').find('.commodity-l-btn').each(function(){
+            if( !$(this).hasClass('true') ){
+                isCheck = false;
+            }
+        });
+        isCheck ? $(this).parents('.content-top').find('.commodity').find('.commodity-l-btn').addClass('true') : $(this).parents('.content-top').find('.commodity').find('.commodity-l-btn').removeClass('true');
+        
+        var isCheckAll = true;
+        $('.content-choice').find('.commodity-l-btn').each(function(){
+            if( !$(this).hasClass('true') ){
+                isCheckAll = false;
+            }
+        });
+        isCheckAll ? $('.foot-top-l').find('.foot-btn').addClass('true') : $('.foot-top-l').find('.foot-btn').removeClass('true');
+    });
+    
+
+	
+    /*数量加减*/
+	$(".choice-w-three").on('touchend', 'a', function(event) {
+		var $count = $(this).parents(".choice-w-three").find("input");
+		//console.log($count.val());
+		if($(this).hasClass('choice-w-btn1'))
+		{
+			$count.val(parseInt($count.val(), 10) - 1 || 1);
+		}
+		else if($(this).hasClass('choice-w-btn2'))
+		{
+			$count.val(parseInt($count.val(), 10) + 1 || 1);
+		}
+		return false;
+	});
+
+	/*输入数量验证*/
+	$(".choice-w-three input").on('blur input propertychange', function(event) {
+
+		function isEmpty (val)
+		{
+			return val == '' || val === null || val === undefined;
+		}
+
+		var val = $(this).val();
+		/*如果不是空则强转数字*/
+		if (!isEmpty(val))
+		{
+			val = parseInt(val.replace(/[^\d]/ig,''), 10);
+		}
+
+		isNaN(val) ? $(this).val(1) : $(this).val(val);
+		
+		if(event.type == 'blur' || event.type == 'focusout')
+		{
+			if(isEmpty(val))
+			{
+				$(this).val(1);
+			}
+		}
+	});
+	
+	/*滑动删除*/
+	movetouch( $('.content-choice') );
+});
+
+
+</script>
+
+
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex">
+    <section class="header">
+        <div class="header-bg normal">
+            <div class="header-l"></div>
+            <div class="header-c header-c-color">购 物 车</div>
+            <div class="header-r header-r-color">完 成</div>
+        </div>
+    </section>
+    <section class="content clearfix">
+        <div class="content-top content-top-border">
+            <div class="commodity ">
+              <div class="commodity-l">
+                    <div class="commodity-l-btn">
+                        <div class=""></div>
+                    </div>
+                    <p class="commodity-l-p">
+                        <span>社团第三空间</span>
+                        <img src="../img/you-iocn.png">
+                    </p>
+              </div>
+              <div class="commodity-r" >
+                  <span>运费:￥6.00</span>
+              </div>
+            </div>
+
+            <div class="content-choice clearfix border">
+        	    <div class="content-delete">删除</div>
+                <div class="commodity-l-btn content-choice-l " >
+                	<div></div>
+                </div>
+                <div class="content-choice-c">
+                    <p><img src="../img/touxiang.png"></p>
+                </div>
+                <div class="content-choice-w">
+                    <p class="choice-w-one content-choice-p">世界与世界的游戏</p>
+                    <p class="choice-w-two content-choice-p">款式/规格</p>
+                    <p class="choice-w-three">
+                        <a href="#"  class="choice-w-btn1">-</a>
+                        <input type="text" value="1" class="choice-w-in">
+                        <a href="#"  class="choice-w-btn2">+</a>
+                    </p>
+                </div>
+                <div class="commodity-r commodity-r-money">
+                    <span class="">￥6.00</span>
+                </div>
+            </div>
+
+            <div class="content-choice clearfix  ">
+        	    <div class="content-delete">删除</div>
+                <div class="commodity-l-btn content-choice-l ">
+                    <div class=""></div>
+                </div>
+                <div class="content-choice-c">
+                    <p><img src="../img/touxiang.png"></p>
+                </div>
+                <div class="content-choice-w">
+                    <p class="choice-w-one content-choice-p">世界与世界的游戏</p>
+                    <p class="choice-w-two content-choice-p">款式/规格</p>
+                    <p class="choice-w-three">
+                        <a href="#"  class="choice-w-btn1">-</a>
+                        <input type="text" value="1">
+                        <a href="#"  class="choice-w-btn2">+</a>
+                    </p>
+                </div>
+                <div class="commodity-r commodity-r-money">
+                    <span class="">￥6.00</span>
+                </div>
+            </div>
+        </div>
+        <div class="content-top content-top-border">
+            <div class="commodity ">
+              <div class="commodity-l">
+                    <div class="commodity-l-btn">
+                        <div class=""></div>
+                    </div>
+                    <p class="commodity-l-p">
+                        <span>社团第三空间</span>
+                        <img src="../img/you-iocn.png">
+                    </p>
+              </div>
+              <div class="commodity-r" >
+                  <span>运费:￥6.00</span>
+              </div>
+            </div>
+
+            <div class="content-choice clearfix border">
+        	    <div class="content-delete">删除</div>
+                <div class="commodity-l-btn content-choice-l " >
+                	<div></div>
+                </div>
+                <div class="content-choice-c">
+                    <p><img src="../img/touxiang.png"></p>
+                </div>
+                <div class="content-choice-w">
+                    <p class="choice-w-one content-choice-p">世界与世界的游戏</p>
+                    <p class="choice-w-two content-choice-p">款式/规格</p>
+                    <p class="choice-w-three">
+                        <a href="#"  class="choice-w-btn1">-</a>
+                        <input type="text" value="1" class="choice-w-in">
+                        <a href="#"  class="choice-w-btn2">+</a>
+                    </p>
+                </div>
+                <div class="commodity-r commodity-r-money">
+                    <span class="">￥6.00</span>
+                </div>
+            </div>
+
+            <div class="content-choice clearfix  ">
+        	    <div class="content-delete">删除</div>
+                <div class="commodity-l-btn content-choice-l ">
+                    <div class=""></div>
+                </div>
+                <div class="content-choice-c">
+                    <p><img src="../img/touxiang.png"></p>
+                </div>
+                <div class="content-choice-w">
+                    <p class="choice-w-one content-choice-p">世界与世界的游戏</p>
+                    <p class="choice-w-two content-choice-p">款式/规格</p>
+                    <p class="choice-w-three">
+                        <a href="#"  class="choice-w-btn1">-</a>
+                        <input type="text" value="1">
+                        <a href="#"  class="choice-w-btn2">+</a>
+                    </p>
+                </div>
+                <div class="commodity-r commodity-r-money">
+                    <span class="">￥6.00</span>
+                </div>
+            </div>
+        </div>
+        <div class="sale-item part content-top-border">
+            <div class="shopping horizontal-center">
+                <p class="sp-l"></p>
+                <p class="sp-a"></p>
+                <p class="sp-r"></p>
+            </div>
+            <div class="part">
+                <ul class="sale-ones tie clearfix">
+                    <li>
+                        <div class="sale-ones-front tie">
+                            <p class="sale-of-img"><img src="../img/test/item1.png"></p>
+                            <p class="sale-of-name">商品名称</p>
+                            <p class="sale-of-price">￥6.00</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="sale-ones-front tie">
+                            <p class="sale-of-img"><img src="../img/test/item2.png"></p>
+                            <p class="sale-of-name">商品名称</p>
+                            <p class="sale-of-price">￥6.00</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="footer">
+        <div class="foot-top ">
+            <div class="foot-top-l">
+                <div class="foot-btn"></div>
+                <span>全选</span>
+            </div>
+            <div class="foot-top-r">
+              <div class="font--r-r">
+                  <p>商品名称</p>
+                  <p>含运费</p>
+              </div>
+              <p class="font--r-f">
+                  <a href="../shop-cart/confirm-order.html" >结 算（3）</a>
+              </p>
+            </div>
+        </div>
+        <div class="foot">
+            <div class="fixed"><a class="nav1" href="../main.html" >首页</a></div>
+            <div><a class="nav2" href="#">闲情</a></div>
+            <div><a class="nav3" href="">购物车</a></div>
+            <div><a class="nav4" href="#">我的</a></div>
+        </div>
+    </section>
+</section>
+</body>
+</html>

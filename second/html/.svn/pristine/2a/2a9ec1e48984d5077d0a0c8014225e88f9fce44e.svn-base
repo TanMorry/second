@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no"/>
+    <title>喵</title>
+    <link href="../../css/global.css" rel="stylesheet" type="text/css">
+    <link href="../../css/public.css" rel="stylesheet" type="text/css">
+    <link href="../../css/shop-cart-edit.css" rel="stylesheet" type="text/css">
+
+
+    <script src="../../js/jquery-2.2.4.min.js"></script>
+    <script src="../../js/miao-Dialog.js"></script>
+    <script>
+        $().ready(function(){
+            /*倒计时*/
+            function timeKeeping ( countd, sd, sh, sm, ss) {
+                function finish () {
+                    countd.html( '<i>剩余</i>' );
+                }
+                function run () {
+                    countd.find('.second').text(ss);
+                    countd.find('.minute').text(sm);
+                    countd.find('.hour').text(sh);
+                    countd.find('.day').text(sd);
+                    if( ss < 10){
+                        countd.find('.second').text( '0' + ss);
+                    }
+                    if( sm < 10){
+                        countd.find('.minute').text( '0' + sm);
+                    }
+                    if( sh < 10){
+                        countd.find('.hour').text( '0' + sh);
+                    }
+                    if( sd < 10){
+                        countd.find('.day').text( '0' + sd);
+                    }
+                    ss--;
+
+                    if( ss<0 ){
+                        ss += 60;
+                        sm -= 1;
+                    }
+                    if( sm<0 ){
+                        sm += 60;
+                        sh -= 1;
+                    }
+                    if( sh<0 ){
+                        sh += 24;
+                        sd -= 1;
+                    }
+                    if( sd<0 ){
+                        finish();
+                    }
+                    else{
+                        setTimeout(run, 1000);
+                    }
+                }
+
+                run();
+            }
+
+            var timename =  ['second','minute','hour','day'];
+            /*传输当前剩余的天数，小时数，分钟数，秒数*/
+            var arr = ['2','22','0','10'];
+            $('.system-r-p').find('b').each(function(){
+                $(this).addClass( timename.pop() );
+            });
+            timeKeeping( $('.system-r-p'), arr[0], arr[1], arr[2], arr[3] );
+
+            /*删除*/
+            var phone = $('#cpp').MiaoDialog();
+            $('#apply').on('click', function(event) {
+                phone.MiaoDialog('open');
+            });
+            $('.miao-shade').on('click',function(event) {
+                phone.MiaoDialog('close');
+            });
+            $('#cancel').on('click',function(event) {
+                phone.MiaoDialog('close');
+            });
+        });
+
+
+    </script>
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex content-receipt">
+    <section class="header">
+        <div class="header-bg normal">
+            <div class="header-l"><a href="#"></a></div>
+            <div class="header-c header-dz  new-dz">等待卖家处理</div>
+        </div>
+    </section>
+    <!-- 主体 -->
+    <section class="content flex  ">
+        <div class="handle-top">
+            <p class="handle-top-b">2016.04.20  16:44:23</p>
+            <p>买家发起仅退款申请，货物状态：待发货，原因：效果不好/不喜欢，退款金额：9.9元</p>
+        </div>
+        <div class="dai-chuli">
+            <p class=" handle-top-b">
+                <span>2016.04.20  16:44:23</span>
+                <span class="dai-chuli-sp">同人瞄系统</span>
+            </p>
+            <p>你提交的退货申请已通知卖家</p>
+        </div>
+        <div class="dai-chuli">
+            <p class=" handle-top-b">
+                <span>2016.04.20  16:44:23</span>
+                <span class="dai-chuli-sp">同人瞄系统</span>
+            </p>
+            <p >卖家通过审核</p>
+        </div>
+        <div class="handle-system">
+            <div class="handle-system-l clearfix">
+                <p class="system-p1 ">2016.04.20  16:44:23 </p>
+                <p class="system-pr">同人瞄系统</p>
+            </div>
+            <div class="dai-chuli-sj">
+                <p class="system-r-p dai-chuli-p1">卖家审核通过，请在<span><i></i><b></b>天 <b></b>时 <b></b>分 <b></b></span>内将商品根据卖家提供的地址邮寄给卖家，超过该时段，退款申请将关闭。</p>
+                <p class="dai-chuli-p2 clearfix">
+                    <a href="#">快递公司</a>
+                    <input type="text" value="顺风快递" class="dai-in-color">
+                </p>
+                <p class="dai-chuli-p2 clearfix">
+                    <a href="#">快递单号</a>
+                    <input type="text" value="12345678 90123456" class="dai-in-color">
+                </p>
+            </div>
+        </div>
+        <div class="commodity content-top">
+            <div class="commodity-l">
+                <p class="commodity-l-p">
+                    <span>社团：第三空间</span>
+                    <img src="../../img/you-iocn.png">
+                </p>
+            </div>
+            <div class="apply-color" >
+                <span>卖家已通过</span>
+            </div>
+        </div>
+        <div class="content-choice clearfix border">
+            <div class="clearfix ">
+                <div class="content-choice-c">
+                    <p><img src="../../img/touxiang.png"></p>
+                </div>
+                <div class="content-choice-w">
+                    <p class="choice-w-one content-choice-p">世界与世界的游戏</p>
+                    <p class="choice-w-two content-choice-p">款式/规格</p>
+                    <p class="choice-w-three">
+                        <span>￥35.00</span>
+                    </p>
+                </div>
+                <div class="commodity-r commodity-r-money">
+                    <i>X 1</i>
+                </div>
+            </div>
+        </div>
+        <div class="content-xixnxi content-shop handle-system ">交易：￥<span>7.00</span> 退款金额：<span class="apply-color">￥7.00</span></div>
+        <div class="apply-reason  apply-reason-border">
+            <p>退款原因：<span>协商一致退款</span></p>
+            <p>退款原因：<span>协商一致退款</span></p>
+            <p>退款编号：<span>128658263312937</span></p>
+            <ul class="apply-ul apply-ul-box">
+                <li>图片凭证：</li>
+                <li class="apply-img">
+                    <div class="sale-ones-front">
+                        <p class="sale-of-img "><img src="../../img/jiazhai-shibai2.png"></p>
+                    </div>
+                </li>
+                <li class="apply-img">
+                    <div class="sale-ones-front">
+                        <p class="sale-of-img "><img src="../../img/jiazhai-shibai2.png"></p>
+                    </div>
+                </li>
+                <li class="apply-img">
+                    <div class="sale-ones-front">
+                        <p class="sale-of-img "><img src="../../img/jiazhai-shibai2.png"></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section class="footer">
+        <div class="footer-fail ">
+            <div class="footer-g">联系卖家</div>
+        </div>
+
+    </section>
+
+</section>
+</body>
+</html>

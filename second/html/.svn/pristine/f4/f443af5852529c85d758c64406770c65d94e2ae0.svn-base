@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="format-detection" content="telephone=no"/>
+<title>喵</title>
+<link href="css/global.css" rel="stylesheet" type="text/css">
+<link href="css/public.css" rel="stylesheet" type="text/css">
+<link href="css/personal.css" rel="stylesheet" type="text/css">
+<link href="plugin/swiper.css" rel="stylesheet" type="text/css">
+<link href="css/swiper-bar.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+
+</style>
+<script src="js/jquery-2.2.4.min.js"></script>
+<script src="plugin/swiper.jquery.min.js"></script>
+<script src="js/obtainArguments.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+	
+	var mySwiper = new Swiper('.swiper-container', {
+		speed: 500,
+		slidesPerView : 3,
+		slidesPerGroup : 3,
+		autoplayDisableOnInteraction: false,
+		autoHeight: true,
+		loop: false,
+		pagination : '.swiper-pagination'
+	});
+	
+	/*头像文字缩放*/
+	var userWidth = $('.content').find('.pi-home').find('img').width();
+	$('.content').find('.pi-home').find('.pi-login').css('transform','scale( ' + userWidth / 300 + ',' +  userWidth / 300 + ' )');
+	$('.content').find('.pi-home').find('.pi-login').css('margin-left',userWidth / 5 + 'px');
+	$(window).resize(function(){
+		var userWidth = $('.content').find('.pi-home').find('img').width();
+		$('.content').find('.pi-home').find('.pi-login').css('transform','scale( ' + userWidth / 300 + ',' +  userWidth / 300 + ' )');
+		$('.content').find('.pi-home').find('.pi-login').css('margin-left',userWidth / 5 + 'px');
+	});
+	
+	
+	/*滚动侦听事件*/
+	$('.content').scroll(function(){
+		var positionSwiper = $('.pi-home').offset().top * -1;
+		var changeY = ( $('.pi-home').height() - $('.header').height() ) ;
+		if ( changeY && positionSwiper <=  changeY ){
+			var opacityMask ;
+			var opacityHeader ;
+			opacityMask = positionSwiper / changeY ;
+			$('.header-bg').css('background','rgba(235,104,119,' + opacityMask + ')');
+		}
+		else {
+			$('.header-bg').css('background','rgba(235,104,119,1)');
+		}
+	})
+	
+	/*Ajax*/
+	var Request = new Arguments();
+	var urlMember = Request.Request();//获取url参数
+	if( !isEmpty(urlMember.id) ){
+		loadAjax();
+	}
+	else{
+	}
+	
+	function loadAjax(){
+		var url = "/tongrenmiao/index.php?g=Mall&m=index&a=personalInformation";
+		$.ajax({
+			url:url,
+			data:{'userid':urlMember.id},
+			dataType:'json',
+			type:'get',
+			beforeSend:function()
+			{
+//				$("#wrapper").hide();
+//				$("#searchHead").hide();
+//				$("#loading").show();
+//				$('body').addClass('loading');
+			},
+			success:function(ret)
+			{
+				var logo = ret.personal.logo;
+				var name = ret.personal.name;
+				var status1 = 0;
+				var status2 = 0;
+				var status3 = 0;
+				var status4 = 0;
+				var status5 = 0;
+				for( i = 0;i < ret.statusInfo.status.length ; i++ ){
+					if(ret.statusInfo.status[i].status == 1) 
+						status1 = ret.statusInfo.status[i].count;
+					if(ret.statusInfo.status[i].status == 2) 
+						status2 = ret.statusInfo.status[i].count;
+					if(ret.statusInfo.status[i].status == 3) 
+						status3 = ret.statusInfo.status[i].count;
+					if(ret.statusInfo.status[i].status == 4) 
+						status4 = ret.statusInfo.status[i].count;
+				}
+				if(ret.statusInfo.return_status.length > 0)
+					status5 = ret.statusInfo.return_status[0].count;
+				if( !isEmpty(logo) )
+					$("#logo").html('<img src="' + logo + '"/>');
+				$("#name").html(name);
+				if( status1 > 0 && status1 <= 99)
+					$('.pird').find('.nav1').find('i').before('<b>' + status1 + '</b>');
+				if( status1 > 99)
+					$('.pird').find('.nav1').find('i').before('<b>99</b>');
+				if( status2 > 0 && status2 <= 99 )
+					$('.pird').find('.nav2').find('i').before('<b>' + status2 + '</b>');
+				if( status2 > 99)
+					$('.pird').find('.nav2').find('i').before('<b>99</b>');
+				if( status3 > 0 && status3 <= 99 )
+					$('.pird').find('.nav3').find('i').before('<b>' + status3 + '</b>');
+				if( status3 > 99)
+					$('.pird').find('.nav3').find('i').before('<b>99</b>');
+				if( status4 > 0 && status4 <= 99 )
+					$('.pird').find('.nav4').find('i').before('<b>' + status4 + '</b>');
+				if( status4 > 99)
+					$('.pird').find('.nav4').find('i').before('<b>99</b>');
+				if( status5 > 0 && status5 <= 99 )
+					$('.pird').find('.nav5').find('i').before('<b>' + status5 + '</b>');
+				if( status5 > 99)
+					$('.pird').find('.nav5').find('i').before('<b>99</b>');
+			}
+		})
+	};
+	
+	function isEmpty(e){
+		if( e = "" || e == null || e == undefined  ){
+			return true;
+		}
+		else{
+			return false;
+		}
+	};
+	
+});
+</script>
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex">
+	<section class="header" id="searchHead">
+		<div class="header-bg float3">
+			<div class="header-l"><a href="personal-setting.html"></a></div>
+			<div class="header-c header-in"><p>个人资料</p></div>
+			<div class="header-r"><a href="shop-cart/information/information-center.html"></a></div>
+		</div>
+	</section>
+	<!-- 主体 -->
+
+	<section class="content" id="signed">
+		<div class="pi-home part">
+			<img src="img/bg-home.png" />
+			<div class="pi-pic" id="logo">
+				<!--登陆后增加img标签-->
+				<!--<img src="img/test/item2.jpg"/>-->
+			</div>
+			<div class="pi-login nologin" id="name">
+				<!--登陆后注销i标签-->
+				<!--<i></i>-->
+				<!--登录/注册-->
+			</div>
+		</div>
+		<a class="personal-navigation part2" href="my-order.html">
+			<div class="pn-l font1"></div>
+			<div class="pn-c1">我的订单</div>
+			<div class="pn-c2">查看全部订单</div>
+			<div class="pn-r"></div>
+		</a>
+		<div class="receivables-delivery part">
+			<div class="pird">
+				<a class="nav1" href="dai-fukuan/cancel-dingdan.html">
+					<i>待付款</i>
+				</a>
+			</div>
+			<div class="pird">
+				<a class="nav2" href="dai-fahuo/dai-fahuo.html">
+					<i>待发货</i>
+				</a>
+			</div>
+			<div class="pird">
+				<a class="nav3" href="dai-shouhuo/dai-shouhuo.html">
+					<i>待收货</i>
+				</a>
+			</div>
+			<div class="pird">
+				<a class="nav4" href="dai-evaluate/pingjia/dai-pingjia.html">
+					<i>待评价</i>
+				</a>
+			</div>
+			<div class="pird">
+				<a class="nav5" href="aftermarket/aftermarket-return.html">
+					<i>退款/退货</i>
+				</a>
+			</div>
+		</div>
+		<a class="personal-navigation part2" href="shouhuo-dizhi/guanli-shouhuo-dz.html">
+			<div class="pn-l font2"></div>
+			<div class="pn-c1">收货地址</div>
+			<div class="pn-c2" id="address"></div>
+			<div class="pn-r"></div>
+		</a>
+		<a class="personal-navigation part2" href="favorite-stores/fs-tongren.html">
+			<div class="pn-l font3"></div>
+			<div class="pn-c1">收藏店铺</div>
+			<div class="pn-c2"></div>
+			<div class="pn-r"></div>
+		</a>
+		<a class="personal-navigation part" href="history.html">
+			<div class="pn-l font4"></div>
+			<div class="pn-c1">浏览记录</div>
+			<div class="pn-c2"></div>
+			<div class="pn-r"></div>
+		</a>
+		<a class="personal-navigation part2" href="electronic-ticket/electronic-ticket.html">
+			<div class="pn-l font5"></div>
+			<div class="pn-c1">我的电子票</div>
+			<div class="pn-c2"></div>
+			<div class="pn-r"></div>
+		</a>
+		<a class="personal-navigation part2" href="course.html">
+			<div class="pn-l font8"></div>
+			<div class="pn-c1">我要开铺</div>
+			<div class="pn-c2"></div>
+			<div class="pn-r"></div>
+		</a>
+		<a class="personal-navigation part2" href="detail-access.html">
+			<div class="pn-l font9"></div>
+			<div class="pn-c1">全部评价</div>
+			<div class="pn-c2"></div>
+			<div class="pn-r"></div>
+		</a>
+		<a class="personal-navigation part2" href="personal-feedback.html">
+			<div class="pn-l font6"></div>
+			<div class="pn-c1">意见反馈</div>
+			<div class="pn-c2"></div>
+			<div class="pn-r"></div>
+		</a>
+		<a class="personal-navigation part3" href="#">
+			<div class="pn-l font7"></div>
+			<div class="pn-c1">猜您喜欢</div>
+		</a>
+		<div class="swiper-container part2">
+			<ul class="swiper-wrapper pi-mar">
+				<div class="swiper-slide">
+					<div class="sale-ones-front pi-pad">
+						<p class="sale-of-img"><a href="detail-page1.html"><img src="img/test/item1.png"></a> </p>
+						<p class="sale-of-name">商品名称</p>
+						<p class="sale-of-price">￥1.00</p>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="sale-ones-front pi-pad">
+						<p class="sale-of-img"><a href="detail-page1.html"><img src="img/test/item1.png"></a> </p>
+						<p class="sale-of-name">商品名称</p>
+						<p class="sale-of-price">￥2.00</p>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="sale-ones-front pi-pad">
+						<p class="sale-of-img"><a href="detail-page1.html"><img src="img/test/item1.png"></a> </p>
+						<p class="sale-of-name">商品名称</p>
+						<p class="sale-of-price">￥3.00</p>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="sale-ones-front pi-pad">
+						<p class="sale-of-img"><a href="detail-page1.html"><img src="img/test/item1.png"></a> </p>
+						<p class="sale-of-name">商品名称</p>
+						<p class="sale-of-price">￥4.00</p>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="sale-ones-front pi-pad">
+						<p class="sale-of-img"><a href="detail-page1.html"><img src="img/test/item1.png"></a> </p>
+						<p class="sale-of-name">商品名称</p>
+						<p class="sale-of-price">￥5.00</p>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="sale-ones-front pi-pad">
+						<p class="sale-of-img"><a href="detail-page1.html"><img src="img/test/item1.png"></a> </p>
+						<p class="sale-of-name">商品名称</p>
+						<p class="sale-of-price">￥6.00</p>
+					</div>
+				</div>
+				
+				<div class="swiper-slide">
+					<div class="sale-ones-front pi-pad">
+						<p class="sale-of-img"><a href="detail-page1.html"><img src="img/test/item1.png"></a> </p>
+						<p class="sale-of-name">商品名称</p>
+						<p class="sale-of-price">￥6.00</p>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="sale-ones-front pi-pad">
+						<p class="sale-of-img"><a href="detail-page1.html"><img src="img/test/item1.png"></a> </p>
+						<p class="sale-of-name">商品名称</p>
+						<p class="sale-of-price">￥6.00</p>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="sale-ones-front pi-pad">
+						<p class="sale-of-img"><a href="detail-page1.html"><img src="img/test/item1.png"></a> </p>
+						<p class="sale-of-name">商品名称</p>
+						<p class="sale-of-price">￥6.00</p>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="sale-ones-front pi-pad">
+						<p class="sale-of-img"><a href="detail-page1.html"><img src="img/test/item1.png"></a> </p>
+						<p class="sale-of-name">商品名称</p>
+						<p class="sale-of-price">￥6.00</p>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="sale-ones-front pi-pad">
+						<p class="sale-of-img"><a href="detail-page1.html"><img src="img/test/item1.png"></a> </p>
+						<p class="sale-of-name">商品名称</p>
+						<p class="sale-of-price">￥6.00</p>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="sale-ones-front pi-pad">
+						<p class="sale-of-img"><a href="detail-page1.html"><img src="img/test/item1.png"></a> </p>
+						<p class="sale-of-name">商品名称</p>
+						<p class="sale-of-price">￥6.00</p>
+					</div>
+				</div>
+			</ul>
+			<!-- 分页器 -->
+			<div class="swiper-pagination"></div>
+		</div>
+		
+	</section>
+
+	<section class="footer">
+		<div class="foot">
+			<div class="fixed"><a class="nav1" href="#">首页</a></div>
+			<div><a class="nav2" href="#">闲情</a></div>
+			<div><a class="nav3" href="shop-cart/shop-cart-edit.html">购物车</a></div>
+			<div><a class="nav4" href="#">我的</a></div>
+		</div>
+	</section>
+</section>
+</body>
+</html>

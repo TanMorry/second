@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no"/>
+    <title>喵</title>
+    <link type="text/css"  rel="stylesheet" href="../css/global.css">
+    <link type="text/css"  rel="stylesheet" href="../css/public.css">
+    <link type="text/css"  rel="stylesheet" href="../css/shop-fenlei.css">
+    <style type="text/css">
+    </style>
+    <script src="../js/jquery-2.2.4.min.js"></script>
+    <script>
+        $().ready(function () {
+
+            var h1 = $(".header-btn-a>a");
+            var text = $(".header-in-btn");
+            h1.click(function () {
+                text.slideDown();
+                text.focus();
+            });
+            text.on('click', 'a', function () {
+                var t = $(this).text();
+                h1.text(t);
+                text.hide();
+            });
+
+            var h2=$(".nav-btn-color");
+            var last=$(".nav-btn-ul");
+            var none=$(".content-cover");
+            var val=last.find("li a");
+            h2.click(function(event){
+                last.show();
+                none.show();
+                last.focus();
+            });
+
+            last.on('click', 'li a',function(event){
+                var t = $(this).text();
+                h2.text(t);
+                last.hide();
+                none.hide();
+            });
+
+            none.click(function(event) {
+               last.hide();
+                none.hide();
+            });
+
+        })
+
+    </script>
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex">
+    <section class="header">
+        <div class="header-bg normal header-input ">
+            <div class="header-c position-relative">
+                <input type="text" >
+                <div class="header-btn-a"><a href="#" >商 品</a></div>
+                <div class="header-in-btn">
+                    <a href="#">商品</a>
+                    <a href="#">同人铺</a>
+                    <a href="#">商业店</a>
+                    <a href="#">定制厂</a>
+                </div>
+            </div>
+            <div class="header-more"><a href="../main.html">取 消</a></div>
+        </div>
+        <div class="nav-btn ">
+            <a href="#" class="nav-btn-color nav-btn-a position-a nav-btn-top">人气排序</a>
+            <a href="#">销量优先</a>
+            <a href="#" class="nav-btn-a position-c">筛选</a>
+            <ul class="nav-btn-ul">
+                <li><a href="#" >人气排序</a> </li>
+                <li><a href="#">价格从低到高</a></li>
+                <li><a href="#">价格从高到低</a></li>
+            </ul>
+        </div>
+    </section>
+    <section class="content">
+      <div class="content-cover"></div>
+    </section>
+</section>
+</body>
+</html>

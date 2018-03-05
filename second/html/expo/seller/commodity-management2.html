@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>展会</title>
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<link href="../css/global.css" rel="stylesheet" type="text/css">
+<link href="../css/layout.css" rel="stylesheet" type="text/css">
+<link href="../css/seller.css" rel="stylesheet" type="text/css">
+
+<script src="../js/jquery.min.js"></script>
+<script src="../js/expo.public.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+	/*点击输入框清空内容*/
+	$(".cm-search").on('focus blur', 'input', function(event) {
+		if(event.type == 'focus'|| event.type == 'focusin')
+		{
+			if($(this).val() == $(this)[0].defaultValue)
+			{
+				$(this).val('');
+			}
+		}
+		else if(event.type == 'blur' || event.type == 'focusout')
+		{
+			if( $(this).val() == '' || $(this).val() == null || $(this).val() == undefined)
+			{
+				$(this).val( $(this).attr("name")  );
+			}
+		}
+	});
+	
+	 /*全选*/
+	$('.cm-cho-all').on('click', 'input', function(event){
+	    if( $(this).is(':checked') )
+			$('.cm-cho').find('input').prop('checked',true);
+		else
+			$('.cm-cho').find('input').prop('checked',false);
+	});
+	$('.cm-cho-all').on('click', 'button', function(event){
+	    if( $(this).html() == '全选' ){
+	    	$(this).siblings('input').prop('checked',true);
+			$('.cm-cho').find('input').prop('checked',true);
+	    }
+		else if( $(this).html() == '删除' ){
+			$(this).siblings('input').prop('checked',false);
+			$('.cm-cho').find('input').prop('checked',false);
+		}
+	});
+	$('.cbs-info').on('click', 'input', function(event){
+		var temp = true;
+		$(this).parents('.cbs-info').find('.cm-cho').find('input').each(function(index, el) {
+			if(!$(this).is(':checked'))
+			{
+				return temp = false;
+			}
+		});
+		$('.cm-cho-all').find('input').prop('checked', temp);
+
+	})
+	
+	
+});
+
+</script>
+
+<body>
+	<div class="M_Header M_BTM_25">
+		<div class="hd-bg">
+			<p class="hd-pink"></p>
+		</div>
+		<div class="hd-index M_Center">
+			<div class="hd-main">
+				<ul class="float-center clearfix">
+					<li class="hd-m-btn" ><a href="#">展会</a></li>
+					<li class="hd-m-btn fixed"><a href="#">社团铺</a></li>
+					<li class="hd-m-logo"></li>
+					<li class="hd-m-btn" ><a href="#">我的</a></li>
+					<li class="hd-m-btn" ><a href="#">同人闲情</a></li>
+				</ul>
+			</div>
+			<div class="hd-nav-r">
+				<ul class="hd-nav-not">
+					<li><a href="#">登录</a></li>
+					<li><a href="#">注册</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="M_Center">
+
+		<div class="seller-nav clearfix">
+			<a class="sn-l" href="#">我是卖家</a>
+			<span class="sn-r"><a href="#"><i><img src="../images/miao-mass-info.png" alt=""></i>我の铺子</a></span>
+		</div>
+
+		<div class="M_Left M_Layout M_BTM_175">
+			<div class="left-tree">
+				<dl>
+					<dt><a href="#">商品管理</a></dt>
+					<dd><a href="#">商品发布</a></dd>
+					<dd><a href="#">出售中的商品</a></dd>
+					<dd><a class="fixed" href="#">仓库中的商品</a></dd>
+					<dd><a href="#">分类管理</a></dd>
+
+					<dt><a href="#">交易管理</a></dt>
+					<dd><a href="#">已售商品</a></dd>
+					<dd><a href="#">发货地址</a></dd>
+					<dd><a href="#">物流工具</a></dd>
+					<dd><a href="#">我的评论</a></dd>
+
+					<dt><a href="#">店铺设置</a></dt>
+
+					<dt><a href="#">财布</a></dt>
+					<dd><a href="#">我の财布</a></dd>
+					<dd><a href="#">交易记录</a></dd>
+
+					<dt><a href="#">我の买买买</a></dt>
+				</dl>
+			</div>
+		</div>
+
+		<div class="M_Right M_Layout M_BTM_175">
+			<div class="seller-site">
+				<a class="ss-base" href="#">卖家中心</a>
+				<a class="ss-last" href="#">仓库中的商品</a>
+			</div>
+
+			<div class="cbs-info">
+				<p class="cbs-i-p clearfix">
+					<i class="cbs-p-c float-center">
+						<a href="#" class="fixed">仓库中的商品</a>
+						<a href="#">违规的商品</a>
+					</i>
+				</p>
+				<div class="cm-hidden clearfix">
+					<div class="float-center cm-search">
+						<input name="请输入商品关键字或商家编码" type="text" value="请输入商品关键字或商家编码"/>
+						<button></button>
+					</div>
+				</div>
+				<div class="cm-title clearfix">
+					<div class="cm-number">
+						<h1>&nbsp;</h1>
+					</div>
+					<div class="cm-name">
+						<h1>商品名称</h1>
+					</div>
+					<div class="cm-remark">
+						<h1>上架</h1>
+					</div>
+					<div class="cm-price">
+						<h1>价格</h1>
+					</div>
+					<div class="cm-count">
+						<h1>库存</h1>
+					</div>
+					<div class="cm-action">
+						<h1>操作</h1>
+					</div>
+				</div>
+				
+				<div class="cm-content clearfix">
+					<div class="cm-content-pad">
+						<div class="cm-cho clearfix">
+							<input type="checkbox" />
+							<p>商品货号</p>
+						</div>
+						<div class="cm-number">
+							<img src="../images/s1.jpg"/>
+						</div>
+						<div class="cm-name">
+							<p>迪士尼动画长片疯狂动物城&nbsp;同人本</p>
+						</div>
+						<div class="cm-remark">
+							<button>上架</button>
+						</div>
+						<div class="cm-price">
+							<p>4999.00</p>
+						</div>
+						<div class="cm-count">
+							<p>22</p>
+						</div>
+						<div class="cm-action">
+							<a href="#">编辑</a>
+							<a href="#">删除</a>
+						</div>
+					</div>
+				</div>
+				<div class="M_Page">
+					<div class="cm-cho-all">
+						<input type="checkbox" />
+						<button>全选</button>
+						<button>删除</button>
+					</div>
+				</div>
+				<div class="M_BLANK_450">
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

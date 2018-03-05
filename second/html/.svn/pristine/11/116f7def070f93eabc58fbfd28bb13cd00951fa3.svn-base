@@ -1,0 +1,105 @@
+/*movetouch*/
+function movetouch( a ){
+	var mouseStartX;
+	var mouseMoveX;
+	var mouseEndX = 0;
+	var canMove = false;
+	var isChoose;
+	var delHeight = $(a).height() + parseInt($(a).css('padding-top')) + parseInt($(a).css('padding-bottom')) + parseInt($(a).css('margin-top')) + parseInt($(a).css('margin-bottom'));
+	var $c;
+	var $choose;
+	var changeX;
+	$(a).parent().css('overflow','hidden');
+	$(a).css('position','relative');
+	$(a).each(function(){
+		$(this).prepend('<div class="mtDelete" style="position: absolute;width: 60px;top: 0;right: -60px;background: #959595;font-size: 0.9rem;color: #FFFFFF;text-align: center;">删除</div>');
+	});
+	$(a).css('-webkit-transition','-webkit-transform 0.2s');
+	$('.mtDelete').css('height',delHeight + 'px');
+	$('.mtDelete').css('line-height',delHeight + 'px');
+	window.addEventListener('touchstart',function(event){
+		mouseStartX = event.targetTouches[0].pageX;
+		isChoose = false;
+		if( $(event.target).children().parents(a).length == 1 ){
+			isChoose = true;
+			$c = $(event.target);
+		}
+		if( $(event.target).parents(a).length == 1 ){
+			isChoose = true;
+			$c = $(event.target).parents(a);
+		}
+		else{
+			$c = null;
+		}
+		if( $(a).not($c).hasClass('isTurnOn') ){
+			canMove = false;
+		}
+		else{
+			canMove = true;
+		}
+		$(a).not($c).css('transform','translateX(0px)');
+		$(a).not($c).removeClass('isTurnOn');
+		changeX = 0;
+	});
+	window.addEventListener('touchmove',function(event){
+		if(canMove){
+			mouseMoveX = event.targetTouches[0].pageX;
+			changeX = mouseMoveX - mouseStartX;
+			if( isChoose ){
+				if( !$c.hasClass('isTurnOn') ){
+					if( changeX > -60 && changeX < 0 ){
+//						$c.find('.mtDelete').css('transform','translateX(' + changeX + 'px)');
+						$c.css('transform','translateX(' + changeX + 'px)');
+					}	
+				}
+				else{
+					if( changeX > 0 && changeX < 60 ){
+						var changeXOn = changeX - 60;
+//						$c.find('.mtDelete').css('transform','translateX(' + changeXOn + 'px)');
+						$c.css('transform','translateX(' + changeXOn + 'px)');
+					}
+				}
+			}
+		}
+		
+	});
+	window.addEventListener('touchend',function(event){
+		if( isChoose ){
+			if( !$c.hasClass('isTurnOn') ){
+				if( changeX < -30 ){
+					$c.addClass('isTurnOn');
+//					$c.find('.mtDelete').css('transform','translateX(-60px)');
+					$c.css('transform','translateX(-60px)');
+				}
+				else{
+					$c.removeClass('isTurnOn');
+//					$c.find('.mtDelete').css('transform','translateX(0px)');
+					$c.css('transform','translateX(0px)');
+				}
+			}
+			else{
+				if( changeX < 30 ){
+					$c.addClass('isTurnOn');
+//					$c.find('.mtDelete').css('transform','translateX(-60px)');
+					$c.css('transform','translateX(-60px)');
+				}
+				else{
+					$c.removeClass('isTurnOn');
+//					$c.find('.mtDelete').css('transform','translateX(0px)');
+					$c.css('transform','translateX(0px)');
+				}
+			}
+		}
+	});
+//	$(a).on('touchmove',function(e){
+//		if( changeX > -60 - mouseEndX && changeX < 0 - mouseEndX ){
+//			$(this).find('.mtDelete').css('transform','translateX(' + changeX + 'px)');
+//		}
+//		
+//		console.log( changeX );
+//	});
+//	$(a).on('touchend',function(e){
+//	});
+	
+	
+}

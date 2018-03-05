@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>展会</title>
+<tc_include file="Public:head" />
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<link href="__TMPL__Public/css/global.css" rel="stylesheet" type="text/css">
+<link href="__TMPL__Public/css/layout.css" rel="stylesheet" type="text/css">
+<link href="__TMPL__Public/css/expo_style.css" rel="stylesheet" type="text/css">
+<link href="__TMPL__Public/css/idangerous.swiper.css" rel="stylesheet" type="text/css">
+
+<script src="__TMPL__Public/js/jquery.min.js"></script>
+<script src="__TMPL__Public/js/idangerous.swiper.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+	$(".sidebar-list").on('click', 'li', function(event) {
+		$(".sidebar-list").find('li').removeClass('checked');
+		$(this).addClass('checked');
+	});
+
+	$(".column-list").on('click', 'li', function(event) {
+		$(".column-list").find('li').removeClass('checked');
+		$(this).addClass('checked');
+	});
+
+	var mySwiper = new Swiper('.swiper-container',{
+		autoplay: 1000,
+		speed: 800,
+		autoplayDisableOnInteraction:false,
+		slidesPerGroup: 4,
+		slidesPerView: 4,
+		pagination: '.pagination',
+		paginationClickable :true,
+		createPagination :true,
+		paginationAsRange : true
+	});
+});
+
+</script>
+
+<body>
+<tc_include file="Public:nav" />
+
+	<div class="containe-center">
+		<div class="sidebar">
+			<div class="show-popup-login">主办方登录</div>
+			<ul class="sidebar-list">
+				<li class="sidebar-1 checked">展会列表</li>
+				<li class="sidebar-2">参展作品</li>
+				<li class="sidebar-3">比赛活动</li>
+				<li class="sidebar-4">我的展会</li>
+			</ul>
+		</div>
+
+		<div class="content r-public">
+		<p>&nbsp;</p>
+		<p>主办方注册</p>
+		<form method="post" action="{:U('show/index/reg')}">
+			用户名：<input type="text" name="username"/><br/>
+			昵称：<input type="text" name="nickname"/><br/>
+			密码：<input type="text" name="userpwd"/><br/>
+			确认密码：<input type="text" name="repwd"/><br/>			
+			<input type="submit" value="注册"/>
+		</form>	
+			
+			
+		</div>
+
+		
+
+	</div>
+</body>
+</html>

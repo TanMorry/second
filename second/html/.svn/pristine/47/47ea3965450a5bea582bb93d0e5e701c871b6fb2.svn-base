@@ -1,0 +1,125 @@
+.shop-type{padding:0.9rem 0; }
+.content-shaixuan{background: #ffffff}
+.shop-type .icon-sp{display: block;float: left;height:1rem;width: 0.3rem;background:#eb6877;margin-right: 0.3rem;margin-top: 0.5rem }
+.content .type-span{color:#6c6868;font-size: 0.9rem }
+.shop-type p{padding-left:0.3rem;text-align: left; }
+.more>a{display: block;border: 1px solid #979595;color: #979595;margin-right: 0.5rem;text-align: center;height:1.5rem;
+line-height: 1.5rem;border-radius: 0.3rem;margin-top: 0.8rem;float: left}
+.type-a a{padding:0 1.5rem;font-size: 0.7rem;}
+.fan a{padding: 0 0.5rem;font-size: 0.7rem}
+.input-box{padding: 0 0.3rem;display:-webkit-box; -webkit-box-pack: justify}
+.input-box input{display:block;height:1.5rem;width:85%;background:#e5e5e5;font-size: 0.7rem;color: #979595;border-radius: 0.3rem;
+    padding-left:0.7rem ;margin-top:0.7rem ;}
+.input-box a{display: block;height: 1.5rem;width: 1.5rem;background: url("../img/icon_fangda.png")no-repeat center center;
+  background-size: cover;margin-top:0.7rem }
+.search-p{margin: 0.5rem 0.3rem}
+.search input{width:28%;height: 1.5rem;background:#e5e5e5;font-size: 0.7rem;color: #979595;padding-left: 0.7rem;
+    float: left;border-radius: 0.3rem}
+.ss-search i{display:block;height: 1rem;width: 1rem;float: left;margin-left: 0.3rem;
+margin-top: 0.25rem;}
+.ss-search .true{background: url("../img/duicuo.png")0 0 no-repeat;background-size: 1rem;margin-right:1rem  }
+.ss-search .false{background: url("../img/duicuo.png")0 -1rem no-repeat;background-size: 1rem;margin-right:1rem  }
+.ss-search .nothing{background-color:#fff ;height: 1rem ;width: 1rem; margin-right:1rem}
+.menu-btn{padding:0 0.3rem;;}
+.menu-btn li{width: 25%;float: left;margin-top:0.6rem;}
+.menu-btn a{display: block;line-height: 1.5rem;font-size: 0.5rem;color:#979595;width: 3.5rem;height: 1.5rem;overflow: hidden;
+  border-radius: 0.3rem;border: 1px solid #979595;text-align: center;margin: 0 auto}
+.menu-btn2{margin: 0.5rem;background:#eeeeee;padding: 0.5rem 0; }
+.menu-btn2 li{width: 25%;float: left}
+.menu-btn2 li a{display: block;height: 1.3rem;font-size: 0.5rem;border-radius: 0.7rem;margin: 0.4rem auto;
+    width:3.4rem;overflow: hidden;
+color: #979595;border: 1px solid #979595;line-height: 1.3rem}
+.shop-bottom{border-top:1px solid #bcb5b5}
+.content .list{border-top: 1px solid #bcb5b5;box-sizing: border-box;}
+.shop-bottom{text-align: center;padding-top:0.9rem}
+.shop-bottom img{height: 3rem;width:3rem}
+.shop-bottom p{font-size: 0.9rem;text-align: center;display: block;border:1px solid #eb6877;color: #eb6877;
+    width:5rem;margin: 0 auto;-webkit-border-radius: 0.3rem;padding: 0.2rem 0 }
+.footer  a{display: block;background:#eb6877;height: 2.5rem;line-height: 2.5rem;text-align: center;color: #FFFFFF;font-size: 0.9rem}
+.content .color{color:#00baff;border-color: #00baff}
+.more-bottom{padding-bottom: 0.8rem;padding-left: 0.3rem}
+
+
+.Menu {
+    position:absolute;
+    height: 1.5rem;
+    width:28%;
+    z-index:1;
+    font-size: 0.7rem;
+    line-height: 1.5rem;
+    display: none;
+}
+.Menu p{ background: rgba(0, 0, 0, 0.72);color: #FFFFFF}
+
+#List1{left:0.1rem;top:1.5rem;}
+
+.ss-pop-ups{
+	display: none;
+}
+
+
+
+.content{background: #ffffff;}
+.header-fot{color: #ffffff;font-size: 0.6rem}
+.header-bg.normal .header-r .header-bg-btn {
+    background: url(../img/header2.png) 0 -1rem no-repeat;
+    background-size: 0.875rem auto;}
+.header-bg.normal .header-r .header-bg-btn {display: block;width: 0.875rem;height: 1rem;}
+.nav-top{text-align: left;background: #FFFFFF}
+.nav-top a{display:block;font-size: 0.9rem;color:#777777;border-top:1px solid #bcb5b5;
+    border-bottom:1px solid #bcb5b5;padding: 0.9rem  0.3rem;position: relative}
+.nav-hover:after{position: absolute;width: 0.75rem;height: 1rem;
+    background:url("../img/you-iocn.png")100% 100% no-repeat;margin-top:-0.5rem;
+    right:0.3rem;top:50%;
+    content: ""; background-size:0.5rem}
+.nav-bottom{border-top: 0.3rem solid #e5e5e5;}
+.nav-bottom ul li{text-align: left;border-bottom:1px solid #bcb5b5}
+.nav-bottom li a{display:block;font-size: 0.9rem;color:#777777;padding: 0.9rem 0.3rem;position: relative}
+
+
+.header-input{padding: 0.1rem 0.3rem;position: relative;}
+.header-btn-a{position: absolute;left: 0;top:19%;}
+.header-btn-a>a{display: block;width: 2.5rem;font-size: 0.7rem;color:#979595;height: 1.075rem;line-height: 1.075rem}
+.header-btn-a>a:before{height: 0;width: 0;border:0.2rem solid transparent;border-top-color:#979595;content: "";position: absolute;right:-0.3rem;top:46%;}
+.header-in-btn{display: none ; z-index: 20;}
+.header-more{line-height: 1.5rem;}
+.header-more a{font-size: 0.8rem;color: #FFFFFF; padding-left:0.3rem;}
+.header-in-btn{position: absolute;background: rgba(76, 76, 76, 0.91);left:0rem;top:101%;width:5rem;text-align: left;display: none}
+.header-in-btn>a{color: #ffffff;;display: block;padding:0.3rem 0.9rem;font-size: 0.6rem;border-bottom:1px dashed #817f7f}
+.guild{padding:0 0.3rem;text-align: left}
+.guild>p{margin-top: 0.7rem;}
+.guild-l span{font-size: 0.8rem;float: left}
+.guild-l a{display: block;height:1.18rem;width: 1rem;background: url("../img/shanchu.png")0 0 no-repeat;
+    background-size: cover;float: right}
+.guild-r a{color:#959595;border: 1px solid #959595;border-radius: 0.3rem;font-size: 0.7rem;padding: 0.2rem 0.8rem;
+    display: block;float: left;margin-right: 0.7rem}
+.guild-color1{color:#00baff}
+.guild-color2{color:#eb6877}
+
+.type-input{
+	display: none;
+	position: relative;
+	padding: 0.1rem 0;
+	background-color: #E5E5E5;
+	-webkit-border-radius: 0.3rem;
+}
+.type-input p{
+	float: left;
+	color:#EB6877;
+	line-height: 1rem;
+	height: 1rem;
+	margin-right: 1.5rem;
+	font-size: 0.7rem;
+}
+.type-input i{
+	position: absolute;
+	right: 0;
+	height: 1rem;
+	line-height: 1rem;
+	width: 1rem;
+	font-size: 0.8rem;
+	color: #fff;
+	margin-right: 0.3rem;
+	background-color: #777777;
+	-webkit-border-radius: 50%;
+}

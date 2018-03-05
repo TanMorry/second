@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>展会</title>
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link href="../css/global.css" rel="stylesheet" type="text/css">
+    <link href="../css/layout.css" rel="stylesheet" type="text/css">
+    <link href="../css/buyer.css" rel="stylesheet" type="text/css">
+    <link href="../css/jy-fh-xinxi.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+    </style>
+
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery.dropkick-min.js"></script>
+    <script src="../js/expo.public.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+            /*倒计时*/
+            function timeKeeping ( countd, sd, sh, sm, ss) {
+                function finish () {
+                    countd.html( '<i><strong>请处理退货申请</strong></i>倒计时结束 ' );
+                }
+                function run () {
+                    countd.find('.second').text(ss);
+                    countd.find('.minute').text(sm);
+                    countd.find('.hour').text(sh);
+                    countd.find('.day').text(sd);
+                    if( ss < 10){
+                        countd.find('.second').text( '0' + ss);
+                    }
+                    if( sm < 10){
+                        countd.find('.minute').text( '0' + sm);
+                    }
+                    if( sh < 10){
+                        countd.find('.hour').text( '0' + sh);
+                    }
+                    if( sd < 10){
+                        countd.find('.day').text( '0' + sd);
+                    }
+                    ss--;
+
+                    if( ss<0 ){
+                        ss += 60;
+                        sm -= 1;
+                    }
+                    if( sm<0 ){
+                        sm += 60;
+                        sh -= 1;
+                    }
+                    if( sh<0 ){
+                        sh += 24;
+                        sd -= 1;
+                    }
+                    if( sd<0 ){
+                        finish();
+                    }
+                    else{
+                        setTimeout(run, 1000);
+                    }
+                }
+
+                run();
+            }
+
+            var timename =  ['second','minute','hour','day'];
+            /*传输当前剩余的天数，小时数，分钟数，秒数*/
+            var arr = ['1','0','0','10'];
+            $('.countdown').find('b').each(function(){
+                $(this).addClass( timename.pop() );
+            });
+            timeKeeping( $('.countdown'), arr[0], arr[1], arr[2], arr[3] );
+        });
+
+    </script>
+
+<body>
+<div class="M_Header">
+    <div class="hd-bg">
+        <p class="hd-pink"></p>
+    </div>
+    <div class="hd-index M_Center">
+        <div class="hd-main">
+            <ul class="float-center clearfix">
+                <li class="hd-m-btn" ><a href="#">展会</a></li>
+                <li class="hd-m-btn"><a href="#">社团铺</a></li>
+                <li class="hd-m-logo"></li>
+                <li class="hd-m-btn fixed" ><a href="#">我的</a></li>
+                <li class="hd-m-btn" ><a href="#">同人闲情</a></li>
+            </ul>
+        </div>
+        <div class="hd-nav-r">
+            <ul class="hd-nav-not">
+                <li><a href="#">登录</a></li>
+                <li><a href="#">注册</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="M_Center M_Layout M_BTM_175">
+    <div class="refund-bg clearfix">
+        <div class="refund-step">
+            <ul class="clearfix">
+                <li class="true"><i class="true"></i>买家申请退货退款</li>
+                <li class="true"><i class="true"></i>卖家处理退款申请</li>
+                <li class="three fixed"><i class="three"></i>买家退货给卖家</li>
+                <li><i class="four"></i>卖家确认退款，退款成功</li>
+            </ul>
+        </div>
+
+        <div class="refund-left">
+            <div class="refund-fill">
+                <p class="rf-p4 countdown"><i><strong>请退货填写物流信息</strong></i><img src="../images/time.png"/>倒计时 : <b></b>天 <b></b>时 <b></b>分 <b></b>秒 </p>
+                <p class="rf-p5"><i>•</i>退货地址：上海 上海市 金山区 学府路1300号华东理工大学金山小区（叶俊 收）</p>
+                <p class="rf-p5"><i>•</i>退货说明：请在退货包裹内留下纸条，协商退款编号、您的ID以及联系方式，以便及时确认完成退款。</p>
+                <p class="rf-p5"><i>•</i>同人瞄温馨提示：未经卖家同意，请不要使用支付或平邮。</p>
+                <p class="rf-p5 " style="color:#9f9f9f"><i>•</i>交易的钱款还在同人瞄中间账户，确保您的资金安全。</p>
+                <p class="rf-p5 " style="color:#9f9f9f"><i>•</i>请填写真是退货物流信息，逾期未填写，退货申请将关闭。</p>
+            </div>
+            <div class="content-more">
+                <p><i>*</i>为必填项</p>
+                 <ul>
+                     <li>
+                         <span>物理公司：</span>
+                         <i>*</i>
+                         <select class="content-more-s">
+                             <option></option>
+                             <option>顺风</option>
+                             <option>德邦</option>
+                             <option>京东</option>
+                         </select>
+                     </li>
+                     <li class="content-li-one" >
+                         <span>物理公司名称：</span>
+                         <i>*</i>
+                         <input type="text">
+                         <div class="content-one-di clearfix" >
+                             <a href="#"></a>
+                             <i>不可为空</i>
+                         </div>
+                      </li>
+                     <li class="content-li-two">
+                         <span>物理公司：</span>
+                         <i class="content-two-i">*</i>
+                         <input type="radio" name="order" checked="checked" /><i>快递</i>
+                             &nbsp; &nbsp;<input type="radio" name="order"/><i>平邮</i>
+                     </li>
+                     <li class="content-li-one con-li-five" >
+                         <span>物流单号：</span>
+                         <i>*</i>
+                         <input type="text">
+                         <div class="content-one-di clearfix" >
+                             <a href="#"></a>
+                             <i>物流单号不可为空</i>
+                         </div>
+                     </li>
+                     <li class="content-li-three">
+                       <div>
+                           <span>退货说明：</span><br>
+                           <span>（0/200字）</span>
+                       </div>
+                           <input type="text">
+                     </li>
+                     <li class="content-li-four clearfix">
+                         <div class="content-four-b">
+                             <span>物流单号：</span>
+                             <label>
+                                 <input type="file">
+                             </label>
+                         </div>
+                         <div class="content-four-a">
+                              <a href="#" class="content-a-one"></a>
+                             <a href="#" class="content-a-two" >上传帮助</a>
+                         </div>
+                     </li>
+                     <li class="content-li-five clearfix">
+                         <div class="content-five-a">
+                             <a href="#">提交退货信息</a>
+                         </div>
+                     </li>
+                 </ul>
+            </div>
+            <div class="content-more-ft">
+                <p>您还可以：<a href="#" class="content-ft-a"> 撤销退货申请</a><a href="#">申请介入</a></p>
+            </div>
+        </div>
+        <div class="refund-right">
+            <div class="refund-order">
+                <p class="ro-p1">退款/退货申请</p>
+                <p class="ro-item clearfix">
+                    <a class="ro-i-img" href="#"><img src="../images/artwork-box-1.jpg"/></a>
+                    <a class="ri-i-txt" href="#">迪士尼动画长片(疯狂动物城)同人本</a>
+                </p>
+                <p class="ro-p2"><i>买家要求:</i><b>退货退款</b></p>
+                <p class="ro-p2"><i>退款金额:</i><b>1.00元</b></p>
+                <p class="ro-p2"><i>原 因:</i>123123</p>
+                <p class="ro-p2"><i>货物状态:</i>已收到货</p>
+                <p class="ro-p2"><i>退款编号:</i>R1459625463</p>
+                <p class="ro-p2"><i>申请时间:</i>2016-03-30 16:11:03</p>
+            </div>
+            <div class="refund-shop">
+                <p class="ro-p2"><i>卖 家:</i>TEST</p>
+                <a class="ro-call" href="#"><b>联系客服</b></a>
+                <p class="ro-p2"><i>订单编号:</i><b>150330031545001</b></p>
+                <p class="ro-p2"><i>单 价:</i>1.00元 * 1（数量）</p>
+                <p class="ro-p2"><i>宝贝实付:</i>1.00元</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="M_Footer">
+    <div class="M_Center clearfix">
+        <dl class="ft-dl">
+            <dt>同人喵APP</dt>
+            <dd class="ft-dd-i"><img src="../images/qr.png" /></dd>
+            <dd class="ft-dd-o">
+                <a href="#">安卓客户端</a>
+                <a href="#">安卓客户端</a>
+            </dd>
+        </dl>
+        <dl class="ft-dl">
+            <dt>关于我们</dt>
+            <dd class="ft-dd-o">
+                <a href="#">法律申明</a>
+                <a href="#">商务合作</a>
+            </dd>
+            <dd class="ft-dd-t">
+                <a href="#">使用手册</a>
+                <a href="#">服务条款</a>
+                <a href="#">意见反馈</a>
+            </dd>
+        </dl>
+        <dl class="ft-dl">
+            <dt>友情链接</dt>
+            <dd class="ft-dd-c">
+                <a href="http://www.wft-wft-wft.cn">www.wft-wft-wft.cn</a>
+                <b>上海wtf-666有限公司</b>
+                <i>上海市奉贤区wft-wft-wft路666号666室旁边的菜市场</i>
+            </dd>
+        </dl>
+        <dl class="ft-dl">
+            <dt>联系方式</dt>
+            <dd class="ft-dd-l">
+                <i>电话：400(800)-020-0000000</i>
+                <i>邮箱：wtf@wft-wft-wft.cn</i>
+                <p>
+                    <a class="ft-share-s" href="#"></a>
+                    <a class="ft-share-w" href="#"></a>
+                    <a class="ft-share-q" href="#"></a>
+                </p>
+            </dd>
+        </dl>
+
+    </div>
+</div>
+</body>
+</html>

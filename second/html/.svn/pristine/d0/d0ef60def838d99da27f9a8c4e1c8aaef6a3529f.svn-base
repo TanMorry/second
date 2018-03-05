@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="format-detection" content="telephone=no"/>
+<title>喵</title>
+<link type="text/css"  rel="stylesheet" href="css/global.css">
+<link type="text/css"  rel="stylesheet" href="css/public.css">
+<link type="text/css"  rel="stylesheet" href="css/shop-fenlei.css">
+<style type="text/css">
+</style>
+<script src="js/jquery-2.2.4.min.js"></script>
+<script src="js/obtainArguments.js"></script>
+<script>
+$().ready(function () {
+    var h1 = $(".header-btn-a>a");
+    var text = $(".header-in-btn");
+    h1.click(function () {
+        text.slideDown();
+        text.focus();
+    });
+    text.on('click', 'a', function () {
+        var t = $(this).text();
+        h1.text(t);
+        $("#searchType").val($(this).attr('data-val'));
+        text.hide();
+    });
+
+
+
+
+    var h2=$(".nav-btn-color");
+    var last=$(".nav-btn-ul");
+    var none=$(".content-cover");
+    var val=last.find("li a");
+    h2.click(function(event){
+        last.show();
+        none.show();
+        last.focus();
+    });
+
+    last.on('click', 'li a',function(event){
+        var t = $(this).text();
+        h2.text(t);
+        last.hide();
+        none.hide();
+    });
+
+    none.click(function(event) {
+       last.hide();
+        none.hide();
+    });
+
+
+
+
+    $("#filter").hide();//隐藏商品筛选导航
+    
+    $('#info').on('keydown',function(e){
+    	if( e.keyCode == 13 ){
+    		alert(1);
+    	}
+    });
+})
+</script>
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex">
+    <section class="header">
+        <div class="header-bg normal header-input ">
+            <div class="header-c position-relative">
+                <input type="text" id="info">
+                <div class="header-btn-a"><a href="#" id="filInfo">商 品</a></div>
+                <div class="header-in-btn">
+                    <a href="#" data-val="1">商品</a>
+                    <a href="#" data-val="2">同人铺</a>
+                    <a href="#" data-val="3">商业店</a>
+                    <!--<a href="#" data-val="4">定制厂</a>-->
+                    <input type="hidden" value="1" id="searchType">
+                </div>
+            </div>
+            <div class="header-more"><a href="javascript:history.go(-1)">取 消</a></div>
+        </div>
+        <div class="nav-btn " id="filter">
+            <a href="#" class="nav-btn-color nav-btn-a position-a nav-btn-top">人气排序</a>
+            <a href="#">销量优先</a>
+            <a href="#" class="nav-btn-a position-c">筛选</a>
+            <ul class="nav-btn-ul">
+                <li><a href="#" >人气排序</a> </li>
+                <li><a href="#">价格从低到高</a></li>
+                <li><a href="#">价格从高到低</a></li>
+            </ul>
+        </div>
+    </section>
+    <section class="content" id="content">
+      <div class="content-cover"></div>
+    </section>
+</section>
+</body>
+</html>
+<script>
+</script>
+<script>
+    var param = new Arguments();
+    var urlParam = param.Request();
+    $(function()
+    {
+        //切换筛选种类
+        changeType();
+        IndexList();
+    })
+    function changeType()
+    {
+        if(urlParam.filterType == 1)
+        {
+            $("#filInfo").html('商品');
+        }
+        else if(urlParam.filterType == 2)
+        {
+            $("#filInfo").html('同人铺');
+        }
+        else
+        {
+            $("#filInfo").html('商业店');
+        }
+        $("#searchType").val(urlParam.filterType);
+    }
+    function IndexList()
+    {
+        var url = '/tongrenmiao/index.php?g=Mall&m=Index&a=search'
+//        var data = {'search_type':$("#searchType").val(),'name':$('#info').val()};
+        var data = {'search_type':3,'name':'百弧度'};
+        $.ajax({
+            url:url,
+            data:data,
+            type:'get',
+            dataType:'json',
+            beforeSend:function()
+            {
+
+            },
+            success:function(res)
+            {
+                handleHtml(res);
+            },
+            error:function()
+            {
+
+            }
+        })
+    }
+
+    function handleHtml(list)
+    {
+        var str = '';
+        $.each(list.Info,function(k,va)
+        {
+            if(list.type == 1)
+            {
+                //循环商品显示
+                str += '<li><div class="sale-ones-front tie"><p class="sale-of-img"><img src="'+va.pic+'"></p>\
+                    <p class="sale-of-name">'+va.name+'</p><p class="sale-of-text"><span>原作:伪装者</span>\
+                    <span>CP圈:楼成</span></p><p class="sale-of-price">￥'+va.price+'</p></div></li>'
+                $("#filter").show();
+            }
+            else
+            {
+                //同人铺只显示商铺信息
+                str += '<div class="store-search part clearfix">\
+                        <div class="store-box clearfix">\
+                            <div class="store-img">\
+                                <a href="shangye_xiangqi.html?shopId='+va.userid+'"><img src="'+va.logo+'" alt=""></a>\
+                            </div>\
+                            <div class="store-info">\
+                                <p class="store-i-name">'+va.company+'</p>\
+                                <p class="store-i-text">关注人数 '+va.shop_collect+'</p>\
+                                <p class="store-i-text">全部宝贝 '+va.allbaby+'</p>\
+                            </div>\
+                            <div class="store-up"><a href="#">收 藏</a></div>\
+                        </div>\
+                        <div class="store-box clearfix">\
+                            <ul class="sale-ones clearfix">'
+                if(list.type == 3)
+                {
+                    //商业店加每家店的三件最新商品显示
+                    $.each(va.product,function(k,v)
+                    {
+                        str += '<li><div class="sale-ones-front"><p class="sale-of-img"><a href="detail-page1.html?id='+v.id+'"><img src="'+v.pic+'"></a></p></div></li>';
+                    })
+                }
+                str +='	</ul></div>	</div>';
+            }
+        })
+        $("#content").html(str);
+    }
+</script>

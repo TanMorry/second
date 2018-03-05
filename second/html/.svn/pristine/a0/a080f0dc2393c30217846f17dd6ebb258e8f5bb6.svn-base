@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no"/>
+    <title>喵</title>
+    <link href="../css/global.css" rel="stylesheet" type="text/css">
+    <link href="../css/public.css" rel="stylesheet" type="text/css">
+    <link href="../css/detail.css" rel="stylesheet" type="text/css">
+    <link type="text/css"  rel="stylesheet" href="../css/shop-cart-edit.css">
+
+
+    <script src="../js/jquery-2.2.4.min.js"></script>
+    <script>
+        $().ready(function(){
+            $('.header-r').on('click', '.header-bg-btn', function(event) {
+                if( $(".header-r-tc").css('display') == 'none' ){
+                    $(".header-r-tc").css('display','block')
+                }
+                else{
+                    $(".header-r-tc").css('display','none');
+                }
+            });
+            $('.content').on('click', function(event) {
+                $(".header-r-tc").css('display','none');
+            });
+            /*倒计时*/
+            function timeKeeping ( countd, sd, sh, sm, ss) {
+                function finish () {
+                    countd.html( '<i>剩余</i>' );
+                }
+                function run () {
+                    countd.find('.second').text(ss);
+                    countd.find('.minute').text(sm);
+                    countd.find('.hour').text(sh);
+                    countd.find('.day').text(sd);
+                    if( ss < 10){
+                        countd.find('.second').text( '0' + ss);
+                    }
+                    if( sm < 10){
+                        countd.find('.minute').text( '0' + sm);
+                    }
+                    if( sh < 10){
+                        countd.find('.hour').text( '0' + sh);
+                    }
+                    if( sd < 10){
+                        countd.find('.day').text( '0' + sd);
+                    }
+                    ss--;
+
+                    if( ss<0 ){
+                        ss += 60;
+                        sm -= 1;
+                    }
+                    if( sm<0 ){
+                        sm += 60;
+                        sh -= 1;
+                    }
+                    if( sh<0 ){
+                        sh += 24;
+                        sd -= 1;
+                    }
+                    if( sd<0 ){
+                        finish();
+                    }
+                    else{
+                        setTimeout(run, 1000);
+                    }
+                }
+                run();
+            }
+            var timename =  ['second','minute','hour','day'];
+            /*传输当前剩余的天数，小时数，分钟数，秒数*/
+            var arr = ['2','22','0','10'];
+            $('.countdown').find('b').each(function(){
+                $(this).addClass( timename.pop() );
+            });
+            timeKeeping( $('.countdown'), arr[0], arr[1], arr[2], arr[3] );
+        })
+
+
+    </script>
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex">
+    <section class="header">
+        <div class="header-bg normal">
+            <div class="header-l"><a href="#"></a></div>
+            <div class="header-c header-dz ">订 单 详 情</div>
+            <div class="header-r">
+                <a  href="#" class="header-bg-btn"></a>
+                <div class="header-r-tc">
+                    <a href="#" class="header-tc-a"><img src="../img/xinfeng.png">消息</a>
+                    <a href="#" class="header-tc-b"><img src="../img/shouy.png">首页</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 主体 -->
+    <section class="content flex content-cancel">
+        <div class="detail part">
+            <a class="detail-address clearfix" href="#">
+                <div class="detail-address1">
+                    <i></i>
+                </div>
+                <div class="detail-address-content">
+                    <p class="title-l">收货人：小明</p>
+                    <p class="title-r">156123476781</p><br>
+                    <p class="title-l">上海 上海市 闵行区 浦江镇 浦连路XXX弄，XXX号，XXX室</p>
+                </div>
+                <div class="detail-address2">
+                    <i></i>
+                </div>
+            </a>
+        </div>
+        <div class="content-list">
+            <div class="commodity content-top list-border ">
+                <div class="commodity-l">
+                    <p class="commodity-l-p">
+                        <span>社团第三空间</span>
+                        <img src="../img/you-iocn.png">
+                    </p>
+                </div>
+                <div class="commodity-t" >
+                    <span>待付款</span>
+                </div>
+            </div>
+            <div class="content-choice border">
+                <div class="clearfix">
+                    <div class="content-choice-c">
+                        <p><img src="../img/touxiang.png"></p>
+                    </div>
+                    <div class="content-choice-w">
+                        <p class="choice-w-one content-choice-p">世界与世界的游戏</p>
+                        <p class="choice-w-two content-choice-p">原著：伪装者</p>
+                        <p class="choice-w-three">
+                            <span>￥6.00</span>
+                        </p>
+                    </div>
+                    <div class="commodity-r commodity-r-money">
+                        <i >X 1</i>
+                    </div>
+                </div>
+            </div>
+            <div class="content-choice border">
+                <div class="clearfix">
+                    <div class="content-choice-c">
+                        <p><img src="../img/touxiang.png"></p>
+                    </div>
+                    <div class="content-choice-w">
+                        <p class="choice-w-one content-choice-p">世界与世界的游戏</p>
+                        <p class="choice-w-two content-choice-p">原著：伪装者</p>
+                        <p class="choice-w-three">
+                            <span>￥6.00</span>
+                        </p>
+                    </div>
+                    <div class="commodity-r commodity-r-money">
+                        <i >X 1</i>
+                    </div>
+                </div>
+                <div class="clear-top clearfix">
+                    <div class="countdown"><i>剩余</i><b></b>天 <b></b>时 <b></b>分 <b></b>秒关闭 </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-xixnxi content-shop ">共<span>1</span>件商品 合计￥<span>70.00</span> （含运费￥6.00）</div>
+        <div class="details">
+            <p>订单编号：0329870398</p>
+            <p>支付宝交易号：0329870398435464654565546</p>
+            <p class="detail-p">创建时间：2016-03-11 14:20:34</p>
+            <div class="content-xixnxi clearfix  ">
+                <p>
+                    <a href="#">联系卖家</a>
+                    <a href="#">取消订单</a>
+                    <a href="#" class="more-color">付款</a>
+                </p>
+            </div>
+        </div>
+        <div class="sale-item part content-top-border">
+            <div class="shopping horizontal-center">
+                <p class="sp-l"></p>
+                <p class="sp-t"></p>
+                <p class="sp-r"></p>
+            </div>
+            <div class="part">
+                <ul class="sale-ones tie clearfix">
+                    <li>
+                        <div class="sale-ones-front tie">
+                            <p class="sale-of-img"><img src="../img/jiazhai-shibai2.png"></p>
+                            <p class="sale-of-name">商品名称</p>
+                            <p class="sale-of-price">￥6.00</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="sale-ones-front tie">
+                            <p class="sale-of-img"><img src="../img/huibai-bg.png"></p>
+                            <p class="sale-of-name">商品名称</p>
+                            <p class="sale-of-price">￥6.00</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="sale-ones-front tie">
+                            <p class="sale-of-img"><img src="../img/huibai-bg.png"></p>
+                            <p class="sale-of-name">商品名称</p>
+                            <p class="sale-of-price">￥6.00</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="sale-ones-front tie">
+                            <p class="sale-of-img"><img src="../img/huibai-bg.png"></p>
+                            <p class="sale-of-name">商品名称</p>
+                            <p class="sale-of-price">￥6.00</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="sale-item part content-top-border">
+            <div class="shopping horizontal-center">
+                <p class="sp-l"></p>
+                <p class="sp-a"></p>
+                <p class="sp-r"></p>
+            </div>
+            <div class="part">
+                <ul class="sale-ones tie clearfix">
+                    <li>
+                        <div class="sale-ones-front tie">
+                            <p class="sale-of-img"><img src="../img/huibai-bg.png"></p>
+                            <p class="sale-of-name">商品名称</p>
+                            <p class="sale-of-price">￥6.00</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="sale-ones-front tie">
+                            <p class="sale-of-img"><img src="../img/huibai-bg.png"></p>
+                            <p class="sale-of-name">商品名称</p>
+                            <p class="sale-of-price">￥6.00</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="footer">
+    </section>
+</section>
+</body>
+</html>

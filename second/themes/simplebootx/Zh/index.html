@@ -1,0 +1,272 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>同人展会 - 同人瞄</title>
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="__TMPL__Public/css/global.css" rel="stylesheet" type="text/css">
+    <link href="__TMPL__Public/css/layout.css" rel="stylesheet" type="text/css">
+    <script src="__TMPL__Public/js/jquery.min.js"></script>
+    <script src="__TMPL__Public/js/expo.public.js"></script>
+
+    <script type="text/javascript">
+        $().ready(function() {
+            $('.hd-nav-cut').mouseenter(function(event) {
+                $(this).addClass('fixed');
+            });
+            $('.hd-nav-cut').mouseleave(function(event) {
+                $(this).removeClass('fixed');
+            });
+        });
+
+
+
+    </script>
+
+<body style="min-width: 989px;">
+<!-- 页头 -->
+<div class="M_Header">
+    <div class="hd-bg">
+        <p class="hd-pink"></p>
+    </div>
+    <div class="hd-index M_Center">
+        <div class="hd-main">
+            <ul class="float-center clearfix">
+                <li class="hd-m-btn fixed" ><a href="{:U('index/index')}">展会</a></li>
+                <li class="hd-m-btn "><a href="#">社团铺</a></li>
+                <li class="hd-m-logo"></li>
+                <li class="hd-m-btn" ><a href="#">我的</a></li>
+                <li class="hd-m-btn" ><a href="{:U('Xq/index/index')}">同人闲情</a></li>
+            </ul>
+        </div>
+
+        <!--&lt;!&ndash;**************************************************-->
+            <!--**************************************************-->
+            <!--**************************************************-->
+                <!--取消未登录的注释后已登录UI会叠在未登录之上-->
+            <!--**************************************************-->
+            <!--**************************************************-->
+            <!--**************************************************&ndash;&gt;-->
+
+        <!--&lt;!&ndash; 未登录start &ndash;&gt;-->
+
+        <!-- <div class="hd-nav-r">
+            <ul class="hd-nav-not">
+                <li><a href="#">登录</a></li>
+                <li><a href="#">注册</a></li>
+            </ul>
+        </div> -->
+
+        <!-- 未登录end -->
+
+        <!-- 已登录start -->
+        <!--<div class="hd-nav-l">-->
+            <!--<ul class="hd-nav-exit">-->
+                <!--<li><img src="__TMPL__Public/images/miao-mass-3.png"></li>-->
+                <!--<li><a href="#">user名称</a></li>-->
+                <!--<li><a href="#">退出</a></li>-->
+            <!--</ul>-->
+        <!--</div>-->
+        <!--<div class="hd-nav-r">-->
+            <!--<ul class="hd-nav-info">-->
+                <!--<li class="hd-nav-msg"><a href="#">站内信<b>99</b></a></li>-->
+                <!--<li class="hd-nav-cut">-->
+                    <!--<a href="#"><i></i>剁手12件</a>-->
+                    <!--&lt;!&ndash; 购物车 &ndash;&gt;-->
+                    <!--<div class="hd-cart">-->
+                        <!--<ul>-->
+                            <!--<li class="clearfix">-->
+                                <!--<div class="hd-item-l">-->
+                                    <!--<p class="hd-item-name"><a href="#">动感单车家用超静音</a></p>-->
+                                    <!--<p class="hd-item-money">￥51811.00</p>-->
+                                <!--</div>-->
+                                <!--<div class="hd-item-r">-->
+                                    <!--<img src="__TMPL__Public/images/artwork-box-1.jpg" alt="" />-->
+                                <!--</div>-->
+                            <!--</li>-->
+                            <!--<li class="clearfix">-->
+                                <!--<div class="hd-item-l">-->
+                                    <!--<p class="hd-item-name"><a href="#">标题不能太长会显示不出来哒</a></p>-->
+                                    <!--<p class="hd-item-money">￥5800.00</p>-->
+                                <!--</div>-->
+                                <!--<div class="hd-item-r">-->
+                                    <!--<img src="__TMPL__Public/images/artwork-box-2.jpg" alt="" />-->
+                                <!--</div>-->
+                            <!--</li>-->
+                            <!--<li class="clearfix">-->
+                                <!--<div class="hd-item-l">-->
+                                    <!--<p class="hd-item-name"><a href="#">野生奥特曼</a></p>-->
+                                    <!--<p class="hd-item-money">￥158.00</p>-->
+                                <!--</div>-->
+                                <!--<div class="hd-item-r">-->
+                                    <!--<img src="__TMPL__Public/images/artwork-box-3.jpg" alt="" />-->
+                                <!--</div>-->
+                            <!--</li>-->
+                            <!--<li class="clearfix">-->
+                                <!--<div class="hd-item-l">-->
+                                    <!--<p class="hd-item-name"><a href="#">动感光波发射器</a></p>-->
+                                    <!--<p class="hd-item-money">￥9958.00</p>-->
+                                <!--</div>-->
+                                <!--<div class="hd-item-r">-->
+                                    <!--<a href="#"><img src="__TMPL__Public/images/artwork-box-1.jpg" alt="" /></a>-->
+                                <!--</div>-->
+                            <!--</li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</div>-->
+        <!-- 已登录end -->
+    </div>
+</div>
+    <div class="zhbg">
+        <div class="zhbg-1"></div>
+    </div>
+    <div class="zhtitle">魔都第一集，<span>报名开始！</span>
+    </div>
+  <div class=" container">
+      <div class="content">
+           <p class="content-ft"><span>地点</span>：上海市静安区高平路<span style="color:#eb6877 ">88</span>号 雅悦新天地婚宴展会中心</p>
+          <ul class="content-hot">
+              <li>
+                  <a target="_blank" href="http://pan.baidu.com/s/1sl3nl2d" class="content-img1"></a>
+              </li>
+              <li >
+                  <a target="_blank" href="http://yun.baidu.com/share/link?shareid=1535961843&uk=4220545055"  class="content-img2"></a>
+              </li>
+              <li >
+                  <a target="_blank" href="http://yun.baidu.com/share/link?shareid=1979926883&uk=4220545055"  class="content-img3"></a>
+              </li>
+          </ul>
+          <div class="news">
+            <ul>
+              <li>
+                  <img src="__TMPL__Public/images/tge.gif">
+                  <span> 同人祭申摊：先报名先审核先回复哦~ 三个主题相关的衍生与周边，都可以拿来申请！先到先得。</span>
+              </li>
+              <li>
+                  <img src="__TMPL__Public/images/tge.gif">
+                  <span>同人祭申明：主题无关，NO！饰品小物、小商品批发等伪同人商品，NO！我们只追求最纯粹的同人展！可以CP不同</span>
+                  <p class="news-p">禁止主题不融！另一个报名地址为：<a target="_blank" style="color: #515151;" href="http://twzc.comicon.cc">http://twzc.comicon.cc</a></p>
+              </li>
+                <li>
+                    <img src="__TMPL__Public/images/tge.gif">
+                    <span>扣 扣 群：<i class="news-i">537842063</i></span>
+                </li>
+                <li>
+                    <img src="__TMPL__Public/images/tge.gif">
+                    <span>微 博：<i class="news-i">@同人瞄</i></span>
+                </li>
+            </ul>
+          </div>
+          <div class="news-bg">
+              <img src="__TMPL__Public/images/beij-t.gif">
+          </div>
+          <div class="column-bg">
+             <a href="#"> <img src="__TMPL__Public/images/bg-1.gif"></a>
+             <a href="#"> <img src="__TMPL__Public/images/bg-2.gif" class="column-img"></a>
+             <a href="#"> <img src="__TMPL__Public/images/bg-3.gif"></a>
+          </div>
+          <div class="column-ft">
+              <p>同人瞄影视同人祭，涵盖了所有你喜欢的影视作品，分为国产影视IP、欧美SLash，还有日韩影视剧三个区域，</p>
+              <p>CP大乱炖，周边、衍生，只要是影视相关，这里一定有你的同好！</p>
+          </div>
+          <div class="dong-bg"></div>
+          <img src="__TMPL__Public/images/banner-bg.gif" class="banner">
+          <div class="news">
+              <ul>
+                  <li>
+                      <img src="__TMPL__Public/images/tge.gif">
+                      <span> 同人祭场地：雅悦新天地婚宴展会中心，高大上的环境，可容纳最多200个摊位！交通便捷，再也不怕迷路啦~  </span>
+                  </li>
+                  <li>
+                      <img src="__TMPL__Public/images/tge.gif">
+                      <span>周 边 地 铁：雅地铁7号线 - 行知路站、大华三站路。</span>
+                  </li>
+                  <li>
+                      <img src="__TMPL__Public/images/tge.gif">
+                      <span>周 边 公 交：840路、68路、720路、185路、909路、206路、951路。  </span>
+                  </li>
+              </ul>
+              <div class="dtu-bg">
+                  <img  src="__TMPL__Public/images/ditu-bg.gif">
+                  <img src="__TMPL__Public/images/mao-bg.gif">
+              </div>
+          </div>
+          <div class="msg">
+              <p>小伙伴们快加入扣扣群:<span>537842063</span>；来玩耍询问吧~摊主参展、NPC报名、同人祭购票等各类咨询  </p>
+              <p>萌萌哒管理妹纸等着你喵~  </p>
+              <p><span>（管理妹纸做不到24小时盯着群，可能有时候通过速度比较慢请大家谅解）</span></p>
+          </div>
+          <div class="service">
+              <p>投稿邮箱：www.tongrenmiao@foxmail.com</p>
+          </div>
+      </div>
+  </div>
+
+<!-- 页脚 -->
+<div class="M_Footer">
+    <div class="M_Center clearfix">
+        <dl class="ft-dl">
+            <dt>同人瞄APP</dt>
+            <dd class="ft-dd-o">
+                <a href="#">安卓客户端</a>
+                <a href="#">ios客户端</a>
+
+            <dd class="ft-dd-o ft-dd-a">
+                <a href="#">施工中</a>
+                <a href="#">施工中</a>
+            </dd>
+        </dl>
+        <dl class="ft-dl">
+            <dt>关于我们</dt>
+            <dd class="ft-dd-o">
+                <a href="#">法律申明</a>
+                <a href="#">商务合作</a>
+            </dd>
+            <dd class="ft-dd-t">
+                <a href="#">服务条款</a>
+                <a href="#">意见反馈</a>
+            </dd>
+        </dl>
+        <dl class="ft-dl ft-dl-a">
+            <dt>友情链接</dt>
+        	<!--<dd class="ft-dd-c">
+                <a target="_blank" href="http://www.gcslash.com/forum.php"><img src="__TMPL__Public/images/logo1.gif"> </a>
+            </dd>-->
+            <!--<dd class="ft-dd-c dt-dd-b">-->
+                <!--<a target="_blank" href="http://bcy.net/start/"><img src="__TMPL__Public/images/logo2.gif"> </a>-->
+            <!--</dd>-->
+            <dd class="ft-dd-c dt-dd-b">
+                <a target="_blank" href="http://bcy.net/start"><img src="__TMPL__Public/images/half.jpg" > </a>
+            </dd>
+            <dd class="ft-dd-c dt-dd-b">
+                <a target="_blank" href="http://twzc.comicon.cc"><img src="__TMPL__Public/images/logod.jpg" > </a>
+
+            </dd>
+            <dd class="ft-dd-c dt-dd-b">
+                <a target="_blank" href="http://space.bilibili.com/28822227/#!/index"><img src="__TMPL__Public/images/cx.jpg" > </a>
+            </dd>
+
+        </dl>
+        <dl class="ft-dl ft-dl-d ft-dl-a">
+            <dt>联系方式</dt>
+            <dd class="ft-dd-l">
+                <i>官方QQ：2039917254</i>
+                <i>官方邮箱：tongrenmiao@foxmail.com </i>
+                <p>
+                    <a class="ft-share-s" target="_blank" href="http://weibo.com/p/1005055894274161"></a>
+                    <a class="ft-share-w" href="javascrtpt::"></a>
+                    <a class="ft-share-q" href="javascrtpt::"></a>
+                    <a class="ft-share-a" href="javascrtpt::"></a>
+                </p>
+            </dd>
+        </dl>
+        <p style="color: #fff;font-size: 12px; padding-bottom: 5px;">沪ICP备16017797号</p>
+    </div>
+</div>
+</body>
+</html>

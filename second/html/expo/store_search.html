@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>展会</title>
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<link href="css/global.css" rel="stylesheet" type="text/css">
+<link href="css/layout.css" rel="stylesheet" type="text/css">
+<link href="css/dropkick.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+/*下拉选择框高度*/
+.dk_toggle,
+.dk_container{
+	height: 30px;
+	line-height: 30px;
+}
+</style>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/expo.public.js"></script>
+<script src="js/jquery.dropkick-min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+	/*下拉选择框*/
+	$('.dropkick').dropkick({autoWidth:false});
+	/*更多点击*/
+	$(".ss-more").on('click', function(event) {
+		$(this).parent().toggleClass('ss-opened');
+	});
+	/*排序的小箭头切换*/
+	$(".store-sort").on('click', 'a', function(event) {
+		/*共有三种class*/
+		var test = ['ss-curr-all','ss-curr-up','ss-curr-down'];
+		var $class = $(this).attr('class');
+		for (var i = 0; i < test.length; i++)
+		{
+			if($(this).hasClass(test[i]))
+			{
+				$(this).removeClass().addClass( i + 1 == test.length ? test[0] : test[i + 1]);
+				break;
+			}
+		}
+		return false;
+	});
+	/*鼠标移入移出事件*/
+	$(".ss-nav2").children('li').mouseenter(function(event){
+		$(this).addClass('fixed');
+	})
+	$(".ss-nav2").children('li').mouseleave(function(event){
+		$(this).removeClass('fixed');
+	})
+});
+
+</script>
+
+<body>
+	<div class="M_Header">
+		<div class="hd-bg">
+			<p class="hd-pink"></p>
+		</div>
+		<div class="hd-index M_Center">
+			<div class="hd-main">
+				<ul class="float-center clearfix">
+					<li class="hd-m-btn" ><a href="#">展会</a></li>
+					<li class="hd-m-btn fixed"><a href="#">社团铺</a></li>
+					<li class="hd-m-logo"></li>
+					<li class="hd-m-btn" ><a href="#">我的</a></li>
+					<li class="hd-m-btn" ><a href="#">同人闲情</a></li>
+				</ul>
+			</div>
+			<div class="hd-nav-r">
+				<ul class="hd-nav-not">
+					<li><a href="#">登录</a></li>
+					<li><a href="#">注册</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="M_Center">
+		<div class="store-search">
+			<ul class="ss-bar">
+				<li>
+					<select name="country-nofake" class="dropkick">
+						<option value="">货品</option>
+						<option value="AU">同人圈</option>
+						<option value="CA">巴拉拉小魔仙</option>
+					</select>
+				</li>
+				<li><input type="text"></li>
+				<li><a href="#"></a></li>
+			</ul>
+			<div class="clear"></div>
+		</div>
+		<div class="M_Layout M_BTM_175">
+			<div class="store-screen">
+				<div class="ss-result clearfix">
+					<ul>
+						<li>搜索结果&gt;</li>
+						<li>
+							<ul class="ss-item">
+								<li><a href="#">偏好:大众向</a></li>
+								<li><a href="#">原作:天啊</a></li>
+							</ul>
+						</li>
+						<li>&gt;&quot;<i>玉虚</i>&quot;</li>
+					</ul>
+					<span class="ss-count">共<i>9999</i>件商品</span>
+					<div class="clear"></div>
+				</div>
+
+				<div>
+					<ul class="ss-nav clearfix">
+						<li><a href="#">同人本</a></li>
+						<li class="fixed"><a href="#">原创本</a></li>
+						<li><a href="#">同人周边</a></li>
+						<li><a href="#">原创手作</a></li>
+						<li><a href="#">虚拟货品</a></li>
+					</ul>
+					<ul class="ss-nav2 clearfix">
+						<li>
+							<a href="#">本子<i></i></a>
+							<ul class="ss-drop clearfix">
+								<li><a href="#">文本1文本1</a></li>
+								<li><a href="#">文本</a></li>
+								<li><a href="#">文本3</a></li>
+								<li><a href="#">文本4</a></li>
+								<li><a href="#">文本</a></li>
+								<li><a href="#">文本</a></li>
+								<li><a href="#">文本7</a></li>
+								<li><a href="#">文本8</a></li>
+								<li><a href="#">文本</a></li>
+								<li><a href="#">文本</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#">生活小物<i></i></a>
+							<ul class="ss-drop clearfix">
+								<li><a href="#">文本1文本1</a></li>
+								<li><a href="#">文本</a></li>
+								<li><a href="#">文本3</a></li>
+								<li><a href="#">文本4</a></li>
+								<li><a href="#">文本</a></li>
+								<li><a href="#">文本</a></li>
+								<li><a href="#">文本7</a></li>
+								<li><a href="#">文本8</a></li>
+								<li><a href="#">文本</a></li>
+								<li><a href="#">文本</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#">毛绒</a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="ss-dl ss-dl-twain">
+					<div>
+						<div class="ss-dt">类型</div>
+						<div class="ss-dd">
+							<ul>
+								<li><a href="#">文本</a></li>
+								<li><a href="#">漫本</a></li>
+								<li><a href="#">图文本</a></li>
+								<li><a href="#">插画集</a></li>
+								<li><a href="#">写真</a></li>
+							</ul>
+						</div>
+					</div>
+					<div>
+						<div class="ss-dt">个人/合刊</div>
+						<div class="ss-dd">
+							<ul>
+								<li><a href="#">个人志</a></li>
+								<li><a href="#">合刊</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="ss-dl ss-dl-twain">
+					<div>
+						<div class="ss-dt">同人圈类型</div>
+						<div class="ss-dd">
+							<ul>
+								<li><a href="#">crossover</a></li>
+								<li><a href="#">非crossover</a></li>
+							</ul>
+						</div>
+					</div>
+					<div>
+						<div class="ss-dt">偏好</div>
+						<div class="ss-dd">
+							<ul>
+								<li><a href="#">宅向</a></li>
+								<li><a href="#">腐向</a></li>
+								<li><a href="#">大众向</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="ss-dl ss-dl-twain">
+					<div>
+						<div class="ss-dt">原作类型</div>
+						<div class="ss-dd">
+							<ul>
+								<li><a href="#">ACG</a></li>
+								<li><a href="#">三次元影视</a></li>
+								<li><a href="#">小说</a></li>
+								<li><a href="#">其他</a></li>
+							</ul>
+						</div>
+					</div>
+					<div>
+						<div class="ss-dt">地区</div>
+						<div class="ss-dd">
+							<ul>
+								<li><a href="#">中国</a></li>
+								<li><a href="#">日本</a></li>
+								<li><a href="#">欧美</a></li>
+								<li><a href="#">其他</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="ss-dl ss-dl-single">
+					<div>
+						<div class="ss-dt">原作</div>
+						<div class="ss-dd">
+							<ul>
+								<li><a href="#">大圣归来</a></li>
+								<li><a href="#" class="checked">名侦探柯南</a></li>
+								<li><a href="#">古剑奇谭</a></li>
+								<li><a href="#">天涯明月刀</a></li>
+								<li><a href="#">天谕</a></li>
+								<li><a href="#">天谕</a></li>
+								<li><a href="#">传奇</a></li>
+								<li><a href="#">洛奇英雄传</a></li>
+								<li><a href="#">海贼王</a></li>
+								<li><a href="#">金庸群侠传</a></li>
+								<li><a href="#">金庸群侠传</a></li>
+								<li><a href="#">金庸群侠传</a></li>
+								<li><a href="#">金庸群侠传</a></li>
+								<li><a href="#">金庸群侠传</a></li>
+								<li><a href="#">金庸群侠传</a></li>
+								<li><a href="#">金庸群侠传</a></li>
+								<li><a href="#">金庸群侠传</a></li>
+								<li><a href="#">金庸群侠传</a></li>
+								<li><a href="#">金庸群侠传</a></li>
+								<li><a href="#" class="checked">大圣归来</a></li>
+								<li><a href="#" class="checked">大圣归来</a></li>
+								<li><a href="#" class="checked">大圣归来</a></li>
+								<li><a href="#" class="checked">大圣归来</a></li>
+								<li><a href="#" class="checked">大圣归来</a></li>
+								<li><a href="#" class="checked">大圣归来</a></li>
+								<li><a href="#" class="checked">大圣归来</a></li>
+								<li><a href="#">金庸群侠传</a></li>
+								<li><a href="#">金庸群侠传</a></li>
+								<li><a href="#">金庸群侠传</a></li>
+								<li><a href="#">金庸群侠传</a></li>
+								<li><a href="#">大圣归来</a></li>
+								<li><a href="#" class="checked">名侦探柯南</a></li>
+								<li><a href="#">古剑奇谭</a></li>
+								<li><a href="#">天涯明月刀</a></li>
+								<li><a href="#">天谕</a></li>
+								<li><a href="#">传奇</a></li>
+								<li><a href="#">洛奇英雄传</a></li>
+								<li><a href="#">海贼王</a></li>
+								<li><a href="#">金庸群侠传</a></li>
+								<li><a href="#">金庸群侠传</a></li>
+								<li><a href="#">金庸群侠传</a></li>
+								<li><a href="#">金庸群侠传</a></li>
+								<li><a href="#">金庸群侠传</a></li>
+								<li><a href="#">金庸群侠传</a></li>
+								<li><a href="#">金庸群侠传</a></li>
+								<li><a href="#">金庸群侠传</a></li>
+								<li><a href="#">金庸群侠传</a></li>
+								<li><a href="#">金庸群侠传</a></li>
+								<li><a href="#" class="checked">大圣归来</a></li>
+								<li><a href="#" class="checked">大圣归来</a></li>
+								<li><a href="#" class="checked">大圣归来</a></li>
+								<li><a href="#" class="checked">大圣归来</a></li>
+								<li><a href="#" class="checked">大圣归来</a></li>
+								<li><a href="#" class="checked">大圣归来</a></li>
+								<li><a href="#" class="checked">大圣归来</a></li>
+								<li><a href="#">金庸群侠传</a></li>
+								<li><a href="#">金庸群侠传</a></li>
+								<li><a href="#">金庸群侠传</a></li>
+								<li><a href="#">金庸群侠传</a></li>
+								<li><a href="#">大圣归来</a></li>
+								<li><a href="#" class="checked">名侦探柯南</a></li>
+								<li><a href="#">古剑奇谭</a></li>
+								<li><a href="#">天涯明月刀</a></li>
+								<li><a href="#">天谕</a></li>
+								<li><a href="#">传奇</a></li>
+								<li><a href="#">洛奇英雄传</a></li>
+								<li><a href="#">海贼王</a></li>
+								<li><a href="#">金庸群侠传</a></li>
+								<li><a href="#">金庸群侠传</a></li>
+								<li><a href="#">金庸群侠传</a></li>
+								<li><a href="#">金庸群侠传</a></li>
+								<li><a href="#">金庸群侠传</a></li>
+								<li><a href="#">金庸群侠传</a></li>
+								<li><a href="#">金庸群侠传</a></li>
+								<li><a href="#">金庸群侠传</a></li>
+								<li><a href="#">金庸群侠传</a></li>
+								<li><a href="#">金庸群侠传</a></li>
+								<li><a href="#" class="checked">大圣归来</a></li>
+								<li><a href="#" class="checked">大圣归来</a></li>
+								<li><a href="#" class="checked">大圣归来</a></li>
+								<li><a href="#" class="checked">大圣归来</a></li>
+								<li><a href="#" class="checked">大圣归来</a></li>
+								<li><a href="#" class="checked">大圣归来</a></li>
+								<li><a href="#" class="checked">大圣归来</a></li>
+								<li><a href="#">金庸群侠传</a></li>
+								<li><a href="#">金庸群侠传</a></li>
+								<li><a href="#">金庸群侠传</a></li>
+								<li><a href="#">金庸群侠传</a></li>
+							</ul>
+						</div>
+						<div class="ss-more"><a href="javascript:;"></a></div>
+					</div>
+				</div>
+
+				<div class="ss-dl ss-dl-single">
+					<div>
+						<div class="ss-dt">同人圈</div>
+						<div class="ss-dd">
+							<ul>
+								<li><a href="#">大圣归来</a></li>
+								<li><a href="#" class="checked">名侦探柯南</a></li>
+								<li><a href="#">古剑奇谭</a></li>
+								<li><a href="#">天涯明月刀</a></li>
+								<li><a href="#">天谕</a></li>
+								<li><a href="#">传奇</a></li>
+								<li><a href="#">洛奇英雄传</a></li>
+								<li><a href="#">金庸群侠传</a></li>
+								<li><a href="#">海贼王</a></li>
+								<li><a href="#">海贼王</a></li>
+								<li><a href="#">金庸群侠传</a></li>
+								<li><a href="#">洛奇英雄传</a></li>
+								<li><a href="#">传奇</a></li>
+							</ul>
+						</div>
+						<div class="ss-more"><a href="javascript:;"></a></div>
+					</div>
+				</div>
+
+				<div class="ss-dl ss-dl-single">
+					<div>
+						<div class="ss-dt">周边</div>
+						<div class="ss-dd ss-select">
+							<ul>
+								<li class="fixed"><a href="#">大圣归来<i></i></a></li>
+								<li><a href="#">名侦探柯南<i></i></a></li>
+								<li><a href="#">古剑奇谭<i></i></a></li>
+								<li><a href="#">天涯明月刀<i></i></a></li>
+								<li><a href="#">天谕<i></i></a></li>
+								<li><a href="#">传奇<i></i></a></li>
+								<li><a href="#">洛奇英雄传<i></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="store-sort clearfix">
+				<ul class="ss-left">
+					<li><a href="#" class="ss-curr-all">综合<i></i></a></li>
+					<li><a href="#" class="ss-curr-all">人气<i></i></a></li>
+					<li><a href="#" class="ss-curr-all">新品<i></i></a></li>
+					<li><a href="#" class="ss-curr-all">销量<i></i></a></li>
+					<li><a href="#" class="ss-curr-all">价格<i></i></a></li>
+				</ul>
+			</div>
+
+			<div class="M_ItemFive clearfix">
+				<a class="M_Item" href="#">
+					<ul>
+						<li class="M_Item_1"><img src="images/s1.jpg"></li>
+						<li class="M_Item_2">￥58</li>
+						<li class="M_Item_3">神的情书的情书情书书</li>
+						<li class="M_Item_4">原作:琅琊榜</li>
+						<li class="M_Item_4">CP圈:楼诚</li>
+					</ul>
+				</a>
+				<a class="M_Item" href="#">
+					<ul>
+						<li class="M_Item_1"><img src="images/s2.jpg"></li>
+						<li class="M_Item_2">￥58</li>
+						<li class="M_Item_3">神的情书的情书情书书</li>
+						<li class="M_Item_4">原作:琅琊榜</li>
+						<li class="M_Item_4">CP圈:楼诚</li>
+					</ul>
+				</a>
+				<a class="M_Item" href="#">
+					<ul>
+						<li class="M_Item_1"><img src="images/s3.jpg"></li>
+						<li class="M_Item_2">￥58</li>
+						<li class="M_Item_3">神的情书的情书情书书</li>
+						<li class="M_Item_4">原作:琅琊榜</li>
+						<li class="M_Item_4">CP圈:楼诚</li>
+					</ul>
+				</a>
+				<a class="M_Item" href="#">
+					<ul>
+						<li class="M_Item_1"><img src="images/s4.jpg"></li>
+						<li class="M_Item_2">￥58</li>
+						<li class="M_Item_3">神的情书的情书情书书</li>
+						<li class="M_Item_4">原作:琅琊榜</li>
+						<li class="M_Item_4">CP圈:楼诚</li>
+					</ul>
+				</a>
+				<a class="M_Item" href="#">
+					<ul>
+						<li class="M_Item_1"><img src="images/s5.jpg"></li>
+						<li class="M_Item_2">￥58</li>
+						<li class="M_Item_3">神的情书的情书情书书</li>
+						<li class="M_Item_4">原作:琅琊榜</li>
+						<li class="M_Item_4">CP圈:楼诚</li>
+					</ul>
+				</a>
+				<a class="M_Item" href="#">
+					<ul>
+						<li class="M_Item_1"><img src="images/s1.jpg"></li>
+						<li class="M_Item_2">￥58</li>
+						<li class="M_Item_3">神的情书的情书情书书</li>
+						<li class="M_Item_4">原作:琅琊榜</li>
+						<li class="M_Item_4">CP圈:楼诚</li>
+					</ul>
+				</a>
+			</div>
+
+			<div class="M_Page">
+				<span>共 <i>9998</i> 页</span>
+				<a class="index" href="#">首页</a>
+				<a href="#">&lt;</a>
+				<a class="fixed" href="#">1</a>
+				<a href="#">2</a>
+				<a href="#">3</a>
+				<a href="#">4</a>
+				<a href="#">5</a>
+				<a href="#">6</a>
+				<a href="#">&gt;</a>
+				<a class="index" href="#">尾页</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

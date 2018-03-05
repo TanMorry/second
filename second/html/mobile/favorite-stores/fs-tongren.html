@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="format-detection" content="telephone=no"/>
+<title>喵</title>
+<link href="../css/global.css" rel="stylesheet" type="text/css">
+<link href="../css/public.css" rel="stylesheet" type="text/css">
+<link type="text/css"  rel="stylesheet" href="../css/shop-cart-edit.css">
+<style type="text/css">
+	
+</style>
+<script src="../js/jquerty-moveDelete.js"></script>
+<script src="../js/jquery-2.2.4.min.js"></script>
+<script src="../js/miao-Dialog.js"></script>
+<script src="../js/obtainArguments.js"></script>
+
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex">
+	<section class="header">
+		<div class="header-bg normal">
+			<div class="header-l"><a href="javascript:history.go(-1)"></a></div>
+			<div class="header-c header-dz">收藏店铺</div>
+			<div class="header-r"><a href="#"></a></div>
+		</div>
+		<div class="header-nav" id="shop_type">
+            <div class="content-nav-btn" data-status="1">同人铺</div>
+            <div data-status="2">官方店</div>
+            <div data-status="3">定制厂商</div>
+        </div>
+	</section>
+	<!-- 主体 -->
+	<div id="loading" style="display:none">
+		<img src="../img/loading.jpg">
+	</div>
+	<section class="content">
+		<div id="tongrenpu" style="display:none;">
+			<div class="store-search part clearfix">
+				<div class="store-box clearfix">
+					<div class="store-img">
+						<img src="../img/test/item2.jpg" alt="">
+					</div>
+					<div class="store-info">
+						<p class="store-i-name">二次元之家二次元之家</p>
+						<div class="store-info-box">
+							<p class="font1">60</p>
+							<p class="font2">关注人数</p>
+						</div>
+						<div class="store-info-box">
+							<p class="font1">60</p>
+							<p class="font2">全部宝贝</p>
+						</div>
+
+					</div>
+					<div class="fs-dustbin-os"></div>
+				</div>
+			</div>
+			<!--<div class="store-search part clearfix">-->
+				<!--<div class="store-box clearfix">-->
+					<!--<div class="store-img">-->
+						<!--<img src="../img/test/item2.jpg" alt="">-->
+					<!--</div>-->
+					<!--<div class="store-info">-->
+						<!--<p class="store-i-name">二次元之家二次元之家</p>-->
+						<!--<div class="store-info-box">-->
+							<!--<p class="font1">60</p>-->
+							<!--<p class="font2">关注人数</p>-->
+						<!--</div>-->
+						<!--<div class="store-info-box">-->
+							<!--<p class="font1">60</p>-->
+							<!--<p class="font2">全部宝贝</p>-->
+						<!--</div>-->
+
+					<!--</div>-->
+					<!--<div class="fs-dustbin-os"></div>-->
+				<!--</div>-->
+			<!--</div>-->
+		</div>
+		<!--官方店-->
+		<div id="guanfang" style="display: none;">
+			<div class=" part clearfix" >
+				<div class="store-box clearfix store-box-touch">
+					<div class="store-img">
+						<img src="../img/test/item2.jpg" alt="">
+					</div>
+					<div class="store-info">
+						<p class="store-i-name">二次元之家二次元之家</p>
+						<p class="store-i-text">关注人数 60</p>
+						<p class="store-i-text">全部宝贝 60</p>
+					</div>
+					<div class="fs-dustbin-os"></div>
+				</div>
+				<div class="store-box clearfix">
+					<ul class="sale-ones clearfix">
+						<li>
+							<div class="sale-ones-front">
+								<p class="sale-of-img"><img src="../img/test/item1.jpg"></p>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--官方店 end-->
+
+		<div class="sale-item part" id="like" style="display:none;">
+            <div class="shopping horizontal-center">
+                <p class="sp-l"></p>
+                <p class="sp-a"></p>
+                <p class="sp-r"></p>
+            </div>
+            <div class="part">
+                <ul class="sale-ones tie clearfix">
+                    <!--<li>-->
+                        <!--<div class="sale-ones-front tie">-->
+                            <!--<p class="sale-of-img"><img src="../img/test/item4.jpg"></p>-->
+                            <!--<p class="sale-of-name">商品名称</p>-->
+                            <!--<p class="sale-of-price">￥6.00</p>-->
+                        <!--</div>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<div class="sale-ones-front tie">-->
+                            <!--<p class="sale-of-img"><img src="../img/test/item5.jpg"></p>-->
+                            <!--<p class="sale-of-name">商品名称</p>-->
+                            <!--<p class="sale-of-price">￥6.00</p>-->
+                        <!--</div>-->
+                    <!--</li>-->
+                </ul>
+            </div>
+        </div>
+
+		<!--定制厂-->
+		<div id="dinzhi">
+			<!--<div class="custom-search part middle-bottom" >-->
+				<!--<a href="../shangye-yinshua.html"><img src="../img/test/custom1.jpg" alt="图像加载失败">-->
+					<!--<div class="custom-bg"></div>-->
+					<!--<div class="custom-info vertical-center">-->
+						<!--<p class="custom-i-name">全 职 高 手</p>-->
+						<!--<p class="custom-i-text">介绍简介等等介绍简介等等介绍简介等等介绍简介等等介绍简介等等介绍简介等等介绍简介等等介绍简介等等介绍简介等等介绍简介等等介绍简介等等介绍简介等等</p>-->
+					<!--</div>-->
+				<!--</a>-->
+				<!--<div class="fs-dustbin-cf"></div>-->
+			<!--</div>-->
+		</div>
+		<!--定制厂 end-->
+	</section>
+	<section class="footer">
+	</section>
+	<div class="confirm-pop-ups font1" id="cpp">
+		<p>确认要删除该收藏？</p>
+		<div class="box1">
+			<div class="auto-width"><!-- auto width --></div>
+			<a href="#" id="cancel">取消</a>
+			<div class="auto-width"><!-- auto width --></div>
+			<a href="#" id="determine">确定</a>
+			<div class="auto-width"><!-- auto width --></div>
+		</div>
+	</div>
+</section>
+</body>
+</html>
+<script>
+	var userid = 22;
+
+	$(function()
+	{
+		/*滑动删除*/
+		loadAjax(1)
+		shop_type();
+	})
+	function loadAjax(type){
+		$("#shop_type >div[data-status="+type+"]").addClass('content-nav-btn').siblings().removeClass('content-nav-btn');
+		var url = "/tongrenmiao/index.php?g=Mall&m=index&a=collectTR";
+		$.ajax({
+			url:url,
+			data:{'userid':userid,'shop_type':type},
+			dataType:'json',
+			type:'get',
+			beforeSend:function()
+			{
+				$("#loading").show();
+				$('.content').hide();
+			},
+			success:function(res)
+			{
+				$("#loading").hide();
+				if(res.Info)
+				{
+					var $del_obj = handleHtml(res,type);
+				}
+				else
+				{
+					//图片
+				}
+				$('.content').show();
+				movetouch( $del_obj );
+
+			}
+		})
+	};
+
+	function handleHtml(list,type)
+	{
+		var del_obj;
+		var like = "";
+		var str = "";
+		//猜你喜欢
+		if(list.like)
+		{
+			$.each(list.like,function(ke,va)
+			{
+				like += '<li>\
+					<div class="sale-ones-front tie">\
+						<p class="sale-of-img"><a href="../detail-page1.html?id='+va.id+'"><img src="'+va.pic+'"></a></p>\
+						<p class="sale-of-name">'+va.name+'</p>\
+						<p class="sale-of-price">￥'+va.price+'</p>\
+					</div>\
+					</li>';
+			})
+			$("#like").show();
+			$("#like >div.part >ul").html(like);
+		}
+		if(type == 2)
+		{
+			//官方店
+			$.each(list.Info,function(ke,va)
+			{
+				str += '<div class=" part clearfix" data-id="'+va.member_id+'" >\
+							<div class="store-box clearfix store-box-touch " >\
+								<div class="store-img">\
+								<a href="../shangye_xiangqi.html?shopId='+va.member_id+'"><img src="'+va.logo+'" alt=""></a>\
+								</div>\
+								<div class="store-info">\
+									<p class="store-i-name">'+va.company+'</p>\
+									<p class="store-i-text">关注人数 '+va.shop_collect+'</p>\
+									<p class="store-i-text">全部宝贝 '+va.allbaby+'</p>\
+								</div>\
+								<div class="fs-dustbin-os"></div>\
+							</div>'
+					if(va.product)
+					{
+					str += '<div class="store-box clearfix">\
+								<ul class="sale-ones clearfix">'
+						$.each(va.product,function(k,v)
+						{
+							str += '<li>\
+										<div class="sale-ones-front">\
+											<a href="../detail-page1.html?id='+v.id+'"><p class="sale-of-img"><img src="'+v.pic+'"></p></a>\
+										</div>\
+									</li>'
+						})
+						str += '</ul>\
+							</div>'
+					}
+
+				str += '</div>'
+
+			})
+			$("#guanfang").html(str).show().siblings().hide();
+			del_obj = '#guanfang >.part';
+		}
+		else if(type == 3)
+		{
+			//定制厂
+			$.each(list.Info,function(ke,va)
+			{
+				str += '<div class="custom-search part middle-bottom" data-id="'+va.member_id+'">\
+							<a href="../shangye-yinshua.html"><img src="../img/test/custom1.jpg" alt="图像加载失败">\
+								<div class="custom-bg"></div>\
+								<div class="custom-info vertical-center">\
+									<p class="custom-i-name">'+va.company+'</p>\
+									<p class="custom-i-text">'+va.main_pro+'</p>\
+								</div>\
+							</a>\
+							<div class="fs-dustbin-cf"></div>\
+						</div>';
+			})
+			$("#dinzhi").html(str).show().siblings().hide();
+			$("#like").hide();
+			del_obj = '#dinzhi >.custom-search'
+		}
+		else
+		{
+			//同人铺
+			$.each(list.Info,function(ke,va)
+			{
+				str += '<div class="store-search part clearfix" data-id="'+va.member_id+'">\
+							<div class="store-box clearfix">\
+								<div class="store-img">\
+								<img src="'+va.logo+'">\
+								</div>\
+								<div class="store-info">\
+									<p class="store-i-name">'+va.company+'</p>\
+									<div class="store-info-box">\
+										<p class="font1">'+va.shop_collect+'</p>\
+										<p class="font2">关注人数</p>\
+									</div>\
+									<div class="store-info-box">\
+										<p class="font1">'+va.allbaby+'</p>\
+										<p class="font2">全部宝贝</p>\
+									</div>\
+								</div>\
+								<div class="fs-dustbin-os"></div>\
+							</div>\
+						</div>';
+			})
+			$("#tongrenpu").html(str).show().siblings().hide();
+			del_obj = '#tongrenpu >.store-search';
+		}
+		return del_obj;
+	}
+
+	function deleteAjax(){
+		var url = "/tongrenmiao/index.php?g=Mall&m=index&a=deteleAjax";
+		$.ajax({
+			url:url,
+			data:{'userid':urlMember.id , 'shopid':$this.attr('name')},
+			dataType:'json',
+			type:'get',
+			beforeSend:function()
+			{
+
+			},
+			success:function(list)
+			{
+				if(list == 1){
+					$this.fadeOut(1400);
+					setTimeout(function(){
+						phone.MiaoDialog('close');
+					},1400);
+				}
+
+			}
+		})
+	};
+
+	function shop_type()
+	{
+		$("#shop_type >div").click(function(){
+			loadAjax($(this).attr('data-status'))
+		})
+	}
+
+	function del()
+	{
+		/*删除*/
+		$('.fs-dustbin-os').on('click',  function(event) {
+			phone.MiaoDialog('open');
+			$this = $(this).parents('.store-search');
+		});
+		$('.miao-shade').on('click',function(event) {
+			phone.MiaoDialog('close');
+		});
+		$('#cancel').on('click',function(event) {
+			phone.MiaoDialog('close');
+		});
+		$('#determine').on('click',function(event) {
+			deleteAjax();
+		});
+	}
+
+	function isEmpty(e){
+		if( e = "" || e == null || e == undefined  ){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+</script>

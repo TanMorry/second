@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>展会</title>
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<link href="css/global.css" rel="stylesheet" type="text/css">
+<link href="css/rec-layout.css" rel="stylesheet" type="text/css">
+
+<script src="js/jquery.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+	/*并没有说验证方式,就先定义这几种*/
+	function inputCheck (value, rule)
+	{
+		if(typeof value === 'undefined' || typeof rule === 'undefined' || typeof rule !== 'object')
+		{
+			return console.log('未知的验证格式');
+		}
+		/**
+		 * [defaluts 说明]
+		 * @notNull 允许为空
+		 * @minLength 最小几位字符
+		 * @maxLength 最大几位字符
+		 * @alike 验证是否等于该字符串,为null不验证
+		**/
+		var defaluts = {
+			notNull: true,
+			minLength: 0,
+			maxLength: 9999,
+			alike: null,
+			isPhone: false
+		}
+		var opts = {};
+		var result = {};
+		/*验证函数,规则添加在此*/
+		var validateList = {
+			notNull: function (value, status){
+				return status === false ? true : value !== '';
+			},
+			minLength: function(value, len){
+				return value.length >= len;
+			},
+			maxLength: function(value, len){
+				return value.length <= len;
+			},
+			alike: function(value, str){
+				return str !== null ? (value == str) : true;
+			},
+			isPhone: function(value, status){
+				return status === false ? true : !!value.match(/^1[3|4|5|7|8][0-9]\d{8}$/);
+			}
+		}
+		/*防止没设置默认参数导致报错*/
+		for (var key in defaluts)
+		{
+			opts[key] = defaluts[key];
+		}
+		for (var key in rule)
+		{
+			opts[key] = rule[key];
+		}
+		/*字段验证*/
+		for (var key in validateList)
+		{
+			result[key] = validateList[key](value, opts[key]);
+		}
+		return result;
+	}
+
+	function changeInput (w, tf)
+	{
+		if(!w instanceof jQuery) return ;
+
+		for (var key in tf)
+		{
+			if(tf[key] === false)
+			{
+				return w.addClass('rm-error');
+			}
+		}
+		return w.removeClass('rm-error');
+	}
+
+	/*input提示判定*/
+	$(".rm-input").on('focus blur input propertychange', function(event) {
+		if(event.type == 'focus' || event.type == 'input' || event.type == 'propertychange')
+		{
+			$(this).parent("div").addClass('rm-be');
+			/*每次改变对所有input重新进行验证*/
+			$(".rm-input").each(function(index, el) {
+				var result;
+				switch ($(this).attr('sign'))
+				{
+					case 'account': //用户名
+						result = inputCheck($(this).val(), {minLength: 5,maxLength: 20});
+						break;
+					case 'phone': //手机号
+						result = inputCheck($(this).val(), {minLength: 11,maxLength: 11, isPhone: true});
+						break;
+					case 'code': //验证码
+						result = inputCheck($(this).val(), {notNull: true});
+						break;
+					case 'password': //密码
+						result = inputCheck($(this).val(), {minLength: 6,maxLength: 16});
+						break;
+					case 'again':    //重复密码
+						result = inputCheck($(this).val(), {minLength: 6,maxLength: 16, alike: $(".rm-main input[sign='password']").val()}); //验证和password密码是否相同
+						break;
+					default:
+						break;
+				}
+				result !== undefined ? changeInput($(this), result) : false;
+			});
+		}
+		else if(event.type == 'blur')
+		{
+			!$(this).val().length && $(this).parent("div").removeClass('rm-be');
+		}
+	});
+
+	function timeKeeping (jq, time) {
+		var t = time;
+		var $jq = jq;
+
+		function finish () {
+			$jq.text('重新发送').removeClass('disable');
+		}
+
+		function run () {
+			$jq.text((t--) + '秒');
+			t >= 0 ? setTimeout(run, 1000) : finish();
+		}
+
+		run();
+	}
+	/*验证码冷却倒计时*/
+	$(".rm-c-get").on('click', function(event) {
+		if(!$(this).hasClass('disable'))
+		{
+			timeKeeping($(this).addClass('disable'), 60);
+		}
+	});
+});
+</script>
+
+<body>
+	<div class="M_Header M_BTM_25">
+		<div class="header-bg">
+			<p class="header-pink"></p>
+			<p class="header-beige"></p>
+		</div>
+		<div class="header-rec">
+			<div class="M_Center clearfix">
+				<ul class="clearfix">
+					<li class="M_LOGO"></li>
+					<li><b href="#">申请主办方</b></li>
+				</ul>
+				<div class="header-info">
+					<a href="#" type="login">登录</a>
+					<a href="#" type="register">注册</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="M_Layout M_Center M_BTM_50">
+		<div class="run-step clearfix">
+			<ul class="rs-ul float-center">
+				<li class="fixed"><b>01</b>注册帐号<i></i></li>
+				<li><b>02</b>填写信息<i></i></li>
+				<li><b>03</b>审核中<i></i></li>
+				<li><b>04</b>完成</li>
+			</ul>
+		</div>
+		<div class="reg-main">
+			<div class="rm-main clearfix">
+				<i>主办方帐号名称：</i>
+				<div class="rm-normal">
+					<input class="rm-input" type="text" sign="account" />
+					<input class="rm-hint" type="text" value="使用汉字英文字母或数字符号" />
+					<p class="rm-msg">此处是错误提示~~</p>
+				</div>
+			</div>
+
+			<div class="rm-main clearfix">
+				<i>手机号：</i>
+				<div class="rm-normal">
+					<input class="rm-input" type="text" sign="phone" />
+					<input class="rm-hint" type="text" value="请输入11位数字的手机号" />
+					<p class="rm-msg">此处是错误提示~~</p>
+				</div>
+			</div>
+
+			<div class="rm-main clearfix">
+				<i>请输入验证码：</i>
+				<div class="rm-code">
+					<input class="rm-input" type="text" sign="code" />
+					<input class="rm-hint" type="text" value="" />
+					<span class="rm-c-get" href="#">获取验证码</span>
+					<p class="rm-msg">此处是错误提示~~</p>
+				</div>
+			</div>
+
+			<div class="rm-main clearfix">
+				<i>登录密码：</i>
+				<div class="rm-normal">
+					<input class="rm-input" type="password" sign="password" />
+					<input class="rm-hint" type="text" value="请6至12位字母数字组合密码" />
+					<p class="rm-msg">此处是错误提示~~</p>
+				</div>
+			</div>
+
+			<div class="rm-main clearfix M_BTM_25">
+				<i>确认密码：</i>
+				<div class="rm-normal">
+					<input class="rm-input" type="password" sign="again" />
+					<input class="rm-hint" type="text" value="请再次输入密码" />
+					<p class="rm-msg">此处是错误提示~~</p>
+				</div>
+			</div>
+
+			<p class="rm-terms">
+				<input type="checkbox" />
+				<i>我已阅读</i>
+				<a href="#">申请主办方须知</a>
+			</p>
+
+			<p class="rm-submit">
+				<a href="#">完成</a>
+			</p>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>展会</title>
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<tc_include file="Public:nav" />
+<tc_include file="Public:scripts" />
+<script type="text/javascript">
+$(document).ready(function(){
+	/*input提示判定*/
+	$(".lm-input").on('focus blur input propertychange', function(event) {
+		if(event.type == 'focus' || event.type == 'input' || event.type == 'propertychange')
+		{
+			$(this).parent("div").addClass('lm-be');
+		}
+		else if(event.type == 'blur')
+		{
+			/*离开时没有输入则继续隐藏*/
+			if(!$(this).val().length)
+			{
+				$(this).parent("div").removeClass('lm-be');
+			}
+		}
+	});
+});
+</script>
+
+<body>
+	<form class="form-horizontal js-ajax-forms" action="{:U('user/login/dologin')}" method="post">
+
+	<div class="M_Login">
+		<div class="login-bg">
+			<img src="__TMPL__Public/images/login-bg.jpg">
+			<div class="M_Center">
+				<div class="login-qr">
+					<p class="lq-logo"></p>
+					<img class="lq-code" src="__TMPL__Public/images/qr.png">
+					<ul class="lq-txt">
+						<li class="lq-txt1"><a href="#">手机安装同人喵</a></li>
+						<li class="lq-txt2"><a href="#">安卓客户端</a></li>
+						<li class="lq-txt3"><a href="#">IOS客户端</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="login-main">
+			<!-- 登录开始 -->
+			<div class="login-menu">
+				<div class="lm-main">
+					<div class="lm-txt">用户登录</div>
+					<div class="lm-index clearfix">
+					<input type="hidden"  name="callback" value="{$callback}">
+						<div class="M_BTM_20">
+							<input class="lm-input" type="text" id="input_username" name="username"/>
+							<input class="lm-hint" type="text" value="邮箱/手机号" />
+						</div>
+						<div class="M_BTM_15">
+							<input class="lm-input" type="password" id="input_password" name="password" />
+							<input class="lm-hint" type="text" value="6-16位密码,区分大小写" />
+						</div>
+						<div class="M_BTM_15">
+							<input type="text" id="input_verify" name="verify"  placeholder="验证码" style="width:252px;">
+							
+						</div>
+						<div class="M_BTM_15">
+							{:sp_verifycode_img('length=4&font_size=14&width=100&height=34&charset=2345678&use_noise=1&use_curve=0')}
+						</div>	
+						<a class="lm-forget" href="{:U('user/login/forgot_password')}">忘记密码?</a>
+						<a class="lm-reg" href="{:leuu('user/register/index')}">注册</a>
+					</div>
+					<button class="lm-submit" type="submit" >确定</button>
+					<div class="lm-third">
+						<span>其他方式:</span>
+						<a class="lm-sina" href="#"></a>
+						<a class="lm-qq" href="#"></a>
+						<a class="lm-wx" href="#"></a>
+					</div>
+				</div>
+				<div class="lm-to-shop">
+					<b></b>
+					<i></i>
+					<a href="#">主办方登录</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	</form>
+	<tc_include file="Public:footer" />
+</body>
+</html>

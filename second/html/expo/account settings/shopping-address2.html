@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>收货地址</title>
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<link href="../css/global.css" rel="stylesheet" type="text/css">
+<link href="../css/layout.css" rel="stylesheet" type="text/css">
+<link href="../css/buyer.css" rel="stylesheet" type="text/css">
+<link href="../css/access.css" rel="stylesheet" type="text/css">
+<link href="../css/account.css" rel="stylesheet" type="text/css">
+<link href="../css/dropkick.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.dk_toggle,
+.dk_container{
+	height: 28px;
+	line-height: 28px;
+}
+.dk_container{
+	border: #ff7c8b solid 1px;
+}
+.rf-select{
+	margin-left: 15px;
+	margin: 8px;
+}
+</style>
+
+
+
+<script src="../js/jquery.min.js"></script>
+<script src="../js/jquery.date_input.pack.js"></script>
+<script src="../js/expo.public.js"></script>
+<script src="../js/jquery.dropkick-min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+	//
+	$('.settings-input-r-che').on('click', '.access-squ', function(event){
+//		if( $(this).hasClass('true') == false )
+//			$(this).addClass('true');
+//		else if( $(this).hasClass('true') == true )
+//			$(this).removeClass('true');
+		
+		$(this).toggleClass('true');
+		console.log($(this).hasClass('true'));
+	});
+});
+
+$(document).ready(function(){
+	/*下拉选择框*/
+	$('.rf-select').dropkick({autoWidth:true});
+});
+
+</script>
+
+<body>
+	<div class="M_Header M_BTM_25">
+		<div class="hd-bg">
+			<p class="hd-pink"></p>
+		</div>
+		<div class="hd-index M_Center">
+			<div class="hd-main">
+				<ul class="float-center clearfix">
+					<li class="hd-m-btn" ><a href="#">展会</a></li>
+					<li class="hd-m-btn"><a href="#">社团铺</a></li>
+					<li class="hd-m-logo"></li>
+					<li class="hd-m-btn fixed" ><a href="#">我的</a></li>
+					<li class="hd-m-btn" ><a href="#">同人闲情</a></li>
+				</ul>
+			</div>
+			<div class="hd-nav-r">
+				<ul class="hd-nav-not">
+					<li><a href="#">登录</a></li>
+					<li><a href="#">注册</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="M_Center">
+
+		<div class="M_Left M_Layout M_BTM_175">
+			<div class="left-tree">
+				<div class="user-img">
+					<a href="#"><img src="../images/security_settings.png" alt=""></a>
+				</div>
+				<dl>
+					<dt class="fixed"><a href="#">已买到的商品</a></dt>
+					<dt><a href="#">关注の铺</a></dt>
+					<dt><a href="#">评价管理</a></dt>
+					<dt><a href="#">退货/退款</a></dt>
+					<dt><a href="#">账户设置</a></dt>
+					<dd><a href="#">我の资料</a></dd>
+					<dd><a href="#">收货地址</a></dd>
+					<dd><a href="#">安全设置</a></dd>
+					<dt><a href="#">财布</a></dt>
+					<dd><a href="#">我の财布</a></dd>
+					<dd><a href="#">交易记录</a></dd>
+					<dt><a href="#">站内信</a></dt>
+				</dl>
+			</div>
+		</div>
+
+		<div class="M_Right M_Layout M_BTM_175">
+			<div class="user-step header-settings">
+				<p>我の资料</p>
+				<a href="#">收货地址</a>
+				<p>安全设置</p>
+			</div>
+			<div class="address-change borderr">
+				<p >收货地址列表</p>
+				<ins><a href="#">新增收货地址</a></ins>
+			</div>
+			<div class="M_BTM_20"></div>
+			<div class="settings-inputh clearfix">
+				<div class="settings-input-l-l">
+					<p>收货人&nbsp;:</p>
+					<strong>*</strong>
+				</div>
+				<div class="settings-input-r">
+					<input type="text" name="receiver"/>
+				</div>
+			</div>
+			<div class="settings-inputh clearfix">
+				<div class="settings-input-l-l">
+					<p>所在区域&nbsp;:</p>
+					<strong>*</strong>
+				</div>
+				<!--<div class="settings-input-r">
+					<select name="location">
+						<option value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请选择</option>
+					</select>
+					<select name="location">
+						<option value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请选择</option>
+					</select>
+					<select name="location">
+						<option value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请选择</option>
+					</select>
+				</div>-->
+				<div class="settings-input-r">
+					<select class="rf-select">
+						<option value="请选择">请选择</option>
+					</select>
+					<select class="rf-select">
+						<option value="请选择">请选择</option>
+					</select>
+					<select class="rf-select">
+						<option value="请选择">请选择</option>
+					</select>
+				</div>
+			</div>
+			<div class="settings-inputh clearfix">
+				<div class="settings-input-l-l">
+					<p>详细地址&nbsp;:</p>
+					<strong>*</strong>
+				</div>
+				<div class="settings-input-r-r">
+					<input type="text" name="address"/>
+				</div>
+			</div>
+			<div class="settings-inputh clearfix">
+				<div class="settings-input-l-l">
+					<p>邮政编码&nbsp;:</p>
+				</div>
+				<div class="settings-input-r">
+					<input type="text" name="zip_code"/>
+				</div>
+			</div>
+			<div class="settings-inputh clearfix">
+				<div class="settings-input-l-l">
+					<p>手机号码&nbsp;:</p>
+					<strong>*</strong>
+				</div>
+				<div class="settings-input-r">
+					<input type="text" name="cellphone_number"/>
+				</div>
+			</div>
+			<div class="settings-inputh clearfix">
+				<div class="settings-input-l-l">
+					<p>电话号码&nbsp;:</p>
+				</div>
+				<div class="settings-input-r">
+					<input type="text" name="phone_number"/>
+				</div>
+			</div>
+			<div class="settings-inputh clearfix">
+				<div class="settings-input-l-l">
+					<p>默认地址&nbsp;:</p>
+				</div>
+				<div class="settings-input-r-che">
+					<input type="checkbox" />
+				</div>
+			</div>
+			<div class="M_BLANK_30"></div>
+			<div class="settings-deter">
+				<input type="submit" name="codes" value="保存"/>
+			</div>
+			<div class="M_BLANK_30"></div>
+		</div>
+	</div>
+</body>
+</html>

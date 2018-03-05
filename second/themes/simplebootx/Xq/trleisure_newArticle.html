@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>发表新文 - <if condition="$attr eq 1">大众<elseif condition="$attr eq 3"/>百合<else/>腐</if> - 同人闲情 - 同人瞄</title>
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<tc_include file="Public:nav" />
+<link href="__TMPL__Public/css/advance.css" rel="stylesheet" type="text/css" />
+<link href="__TMPL__Public/css/trxq_wdr.css" rel="stylesheet" type="text/css" />
+<link href="__TMPL__Public/css/dropkick.css" rel="stylesheet" type="text/css" />
+<link href="__TMPL__Public/css/add_article.css" rel="stylesheet" type="text/css" />
+
+<script src="__TMPL__Public/js/systemHead.js"></script>
+<script src="__TMPL__Public/js/miao-GoTop.js"></script>
+<script src="__TMPL__Public/js/miao-Dialog.js"></script>
+<script src="__TMPL__Public/js/jquery.Rotate.2.2.js"></script>
+<script src="__TMPL__Public/js/jquery.dropkick-min.js"></script>
+<script src="__TMPL__Public/js/common.js"></script>
+<script src="__TMPL__Public/js/filterSubtleWord.js"></script>
+
+<script type="text/javascript" src="__PUBLIC__/js/content_addtop.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/ueditor/ueditor.all.min.js"></script>
+<script type="text/javascript" src="__TMPL__Public/js/add_fu.js"></script>
+</head>
+<body>
+	
+	<!--上面是页头-->
+
+
+	<!--下面是海报三大块-->
+	<div class="wdr_Center">
+		<div class="top_impression"></div>
+
+		<div class="wdr_Layout trxq-info clearfix">
+
+			<div class="search_List clearfix">
+				<div class="search_head"><a href="{:U('index/index',array(attr=>$attr))}">同人闲情</a><a href="{:U('index/index',array(attr=>$attr))}"><if condition="$attr eq 1">&gt;大众<elseif condition="$attr eq 2"/>&gt;腐向<elseif condition="$attr eq 3"/>&gt;百合</if></a><a href="{:U('index/trleisure_library',array(attr=>$attr))}">&gt;文库</a>&gt;发表文章</div>
+				<div class="fabu_fu clearfix">
+					<div class="release" style="margin-left: 70px">
+						<form action="{:U('index/createArticle')}" method="post" id="myForm">
+						<table>
+							<tr class="release_z">
+								<td class="release_text">发帖人：</td>
+								<td class="release_middle" colspan="2">
+									<if condition="$edit[0]['nickname'] eq ''">
+										<input id="nickname" type="text" name="nickname" class="poster_input" style="float: left;" value="{$edit[0]['nickname']}" onblur="filterInput(this)">
+										<else/>
+										<span style="color:#333">{$edit[0]['nickname']}</span>
+										<input id="nickname" type="hidden" name="nickname" value="{$edit[0]['nickname']}" onblur="filterInput(this)">
+									</if>
+									<if condition="$login eq '1'">
+										<div class="select_qx checked" id="nimingdiv" style="float: left;" onclick="changName(this)"><label class="select_checkbox" style="margin-top: 5px;"></label>匿名聊天</div>
+									</if>
+								</td>
+							</tr>
+							<if condition="$edit[0][id] eq ''">
+								<tr class="release_z">
+									<td class="release_text" style="vertical-align: middle;">选择头像：</td>
+									<td class="imgTd">
+										<ul id="systemHead">
+											<li onclick="choose(this);" class="selected"><img src="__TMPL__Public/images/systemHead/default-1.png" /></li>
+											<li onclick="choose(this);"><img src="__TMPL__Public/images/systemHead/default-2.png" /></li>
+											<li onclick="choose(this);"><img src="__TMPL__Public/images/systemHead/default-3.png" /></li>
+											<li onclick="choose(this);"><img src="__TMPL__Public/images/systemHead/default-4.png" /></li>
+											<li onclick="choose(this);"><img src="__TMPL__Public/images/systemHead/default-5.png" /></li>
+											<li onclick="choose(this);"><img src="__TMPL__Public/images/systemHead/default-6.png" /></li>
+											<li onclick="choose(this);"><img src="__TMPL__Public/images/systemHead/default-7.png" /></li>
+										</ul>
+									</td>
+									<input name="systemHead" type="hidden">
+								</tr>
+							</if>
+							<if condition="$edit[0][id] neq ''">
+								<tr>
+									<td class="release_text">属性：</td>
+									<td class="release_middle">
+										<div class="xiala">
+											<select name="attr" class="dropkick" tabindex="2" onchange="changeAttr()">
+												<option value="1" <if condition="$edit[0][attr] eq 1">selected</if>>大众</option>
+												<option value="2" <if condition="$edit[0][attr] eq 2">selected</if>>腐向</option>
+												<option value="3" <if condition="$edit[0][attr] eq 3">selected</if>>百合</option>
+											</select>
+										</div>
+									</td>
+									<td></td>
+									<td></td>
+								</tr>
+							</if>
+							<tr>
+								<td class="release_text">状态：</td>
+								<td class="release_middle">
+									<div class="xiala">
+										<select name="type" class="dropkick" tabindex="2">
+											<option value="1" <if condition="$edit[0][type] eq 1">selected</if>>连载</option>
+											<option value="2" <if condition="$edit[0][type] eq 2">selected</if>>完结</option>
+										</select>
+									</div>
+								</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="release_text">所属原作：</td>
+								<td class="release_middle">
+									<div class="xiala">
+										<select name="authortype" class="dropkick" tabindex="2" onchange="changeCrossover(this.value)">
+											<option value="2" <if condition="$edit[0][authortype] eq 2">selected</if>>单一原作</option>
+											<option value="1" <if condition="$edit[0][authortype] eq 1">selected</if>>Crossover</option>
+
+										</select>
+									</div>
+
+									<if condition="$edit[0][authortype] eq 2 || $edit[0][authortype] eq ''">
+									<div class="fei_crossover" id="fei_crossoverDIV"><input type="text" name="authorName[]" class="release_input" placeholder="原作名称" value="{$edit[0][authorname]}" onblur="filterInput(this)"></div>
+										<else/>
+										<div class="fei_crossover" id="fei_crossoverDIV"><input type="text" name="authorName[]" class="release_input" placeholder="原作名称" onblur="filterInput(this)"></div>
+									</if>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr id="crossoverDIV" <if condition="$edit[0][authortype] eq 2 || $edit[0][authortype] eq ''">style="display: none;"</if>>
+								<td></td>
+								<td class="release_middle_1" colspan="3">
+									<div class="fabu_fu_gengduo_yuanzuo">
+										<div id="yuanzuoDIV">
+											<div class="detail1">
+												<input type="text" name="authorName[]" class="gong_input" value="{$authorNum[0]}" onblur="filterInput(this)">
+												<div class="title">原作1：</div>
+											</div>
+											<div class="detail">
+												<div class="spanDiv">&</div>
+												<input type="text" name="authorName[]" class="gong_input" value="{$authorNum[1]}" onblur="filterInput(this)">
+												<div class="title">原作2：</div>
+											</div>
+										</div>
+										<div class="detail">
+											<a href="javascript:;" onclick="addYuanzuo()"><img class="img" src="__TMPL__Public/images/trxq/tianjia_bj.png"></a>
+											<a style="vertical-align: bottom; font-size: 13px;color: #8c8c8c;" href="javascript:;" onclick="addYuanzuo()">添加更多原作</a>
+										</div>
+									</div>
+								</td>
+							</tr>
+							<if condition="$attr eq '2'">
+								<tr>
+									<td class="release_text">角色：</td>
+									<td  class="release_middle" colspan="2">
+										<div class="ss-dd" style="margin-left: -15px;">
+											<ul id="chooseRole">
+											<li><label onclick="cp(this,1)"><input class="select_checkbox" type="radio" <if condition="$edit[0]['cptype'] neq 2">checked="checked"</if> value="1" name="radio"/>单一CP</label></li>
+											<li><label onclick="cp(this,1)"><input class="select_checkbox" type="radio" <if condition="$edit[0]['cptype'] eq 2">checked="checked"</if> value="2" name="radio"/>NP</label></li>
+											</ul>
+										</div>
+
+									</td>
+									<td></td>
+								</tr>
+								<tr id="CPDetailDIV0">
+									<td></td>
+									<td class="release_middle" colspan="3">
+										<div class="fabu_fu_gengduo">
+											<div id="gengduoCpDIV">
+												<p><span>攻：<input name="gong[]" type="text" class="gong_input" value="{$editGongShou1[0]}" onblur="filterInput(this)"/></span> <span>受：<input name='shou[]' type="text" class="gong_input" value="{$editGongShou1[1]}" onblur="filterInput(this)"/></span></p>
+											</div>
+											<p><a href="javascript:;" onclick="addCp(this)">添加更多CP</a></p>
+										</div>
+									</td>
+									<!--<td class="release_right"><div class="release_puton">普通CP</div></td>-->
+								</tr>
+								<tr id="CPDetailDIV1" style="display: none;">
+									<td></td>
+									<td class="release_middle" colspan="2">
+										<div class="fabu_fu_gengduo" id="gsNum">
+											<div class="fabu_fu_gengduo_np">
+												<div id="gengduoNpGongDIV">
+													<p><span>攻：<input type="text" name="gong[]" class="gong_input" value="{$editGong}" onblur="filterInput(this)"/></span></p>
+												</div>
+												<p><a href="javascript:;" onclick="addNPGong()">添加更多攻</a></p>
+											</div>
+											<div class="fabu_fu_gengduo_np">
+												<div id="gengduoNpShouDIV">
+													<p><span>受：<input type="text" name="shou[]" class="gong_input" value="{$editShou}" onblur="filterInput(this)"/></span></p>
+												</div>
+												<p><a href="javascript:;" onclick="addNPShou()">添加更多受</a></p>
+											</div>
+										</div>
+									</td>
+									<!--<td class="release_right"><div class="release_puton">NP情况</div></td>-->
+								</tr>
+								<else/>
+								<tr>
+									<td class="release_text">角色：</td>
+									<td  class="release_middle" colspan="2">
+										<div class="ss-dd" style="margin-left: -15px;">
+											<ul>
+												<li><label onclick="cp(this,1)"><input class="select_checkbox" type="radio" <if condition="$edit[0]['cptype'] neq 3">checked="checked"</if> value="1" name="radio"/>有CP</label></li>
+												<li><label onclick="cp(this,1)"><input class="select_checkbox" type="radio" <if condition="$edit[0]['cptype'] eq 3">checked="checked"</if> value="2" name="radio">无CP</label></li>
+											</ul>
+										</div>
+
+									</td>
+									<td></td>
+								</tr>
+								<tr id="CPDetailDIV0" >
+									<td></td>
+									<td class="release_middle" colspan="3">
+										<div class="fabu_zhai_gengduo">
+											<div id="gengduoCpDIV">
+												<p><span>角色名：<input type="text" name="gong[]" class="gong_input" value="{$editGongShou1[0]}" onblur="filterInput(this)"/>
+												</span> <span>角色名：<input type="text" class="gong_input" name="shou[]" value="{$editGongShou1[1]}" onblur="filterInput(this)"/></span></p>
+											</div>
+											<p><a href="javascript:;" onclick="addRole(this)">添加更多CP</a></p>
+										</div>
+									</td>
+									<!--<td class="release_right"><div class="release_puton">CP</div></td>-->
+								</tr>
+								<tr id="CPDetailDIV1" style="display: none;">
+									<td></td>
+									<td class="release_middle" colspan="2">
+										<div class="fabu_zhai_gengduo">
+											<div class="fabu_zhai_gengduo_np">
+												<div id="gengduoNpShouDIV">
+													<div class="detail"><span>角色名：<input id="noCpVal" type="text" class="gong_input" name="gong[]" value="{$editNocp[0]}" onblur="filterInput(this)"/></span></div>
+												</div>
+												<div class="detail"><a href="javascript:;" onclick="addMoreRole()">添加更多角色</a></div>
+											</div>
+										</div>
+									</td>
+									<!--<td class="release_right"><div class="release_puton">无CP</div></td>-->
+								</tr>
+							</if>
+							<tr>
+								<td class="release_text" style="line-height: 35px;">TAG：</td>
+								<td  class="release_middle_1" colspan="3">
+									<div class="ss-dd">
+										<ul id="TAGDetailDIV">
+											<volist name="title_tag" id="item">
+												<in name="item.id" value="$tagId">
+													<li class="select_qx1 checked" onclick="isChecked(this)"><label class="select_checkbox " ></label>{$item['name']}</li>
+														<else/>
+													<li class="select_qx1" onclick="isChecked(this)"><label class="select_checkbox " ></label>{$item['name']}</li>
+												</in>
+											</volist>
+										</ul>
+									</div>
+
+									<div class="ss-dd-add">
+										<input type="text" id="addTAGInput" onblur="filterInput(this)"/><button type="button" id="addTAG">添加</button>
+									</div>
+								</td>
+							</tr>
+
+							<tr class="release_z">
+								<td class="release_text">文章：</td>
+								<td class="release_middle" colspan="2"> <input id="title" type="text" class="poster_input" style="width: 750px;" name="title" value="{$edit[0]['title']}"></td>
+								<td class="release_right"></td>
+							</tr>
+							<tr class="release_z">
+								<if condition="$edit[0][id] neq ''">
+									<td class="release_text">前台显示区：</td>
+									<else/>
+									<td class="release_text">内容：</td>
+								</if>
+								<td class="release_middle" colspan="2"> <script type="text/plain" id="editor" name="post[post_content]" style="width:500px;height:500px;">{$edit[0]['content']}</script></td>
+
+							</tr>
+							<if condition="$edit[0][id] neq ''">
+								<tr class="release_z">
+									<td class="release_text">隐藏留底区：</td>
+									<td class="release_middle" colspan="2"> <script type="text/plain" id="editor2" name="post[edit_content]" style="width:500px;height:500px;">{$edit[0]['hiddentext']}</script></td>
+								</tr>
+							</if>
+
+							<tr>
+								<td></td>
+								<td><button type="button" class='className_fb' onclick="return doSubmit()">发布</button></td>
+								<td></td>
+								<td></td>
+							</tr>
+						</table>
+							<input type="hidden" id="changeCp" value="1" name="cptype">
+							<if condition="$IP neq ''">
+								<input type="hidden" name="createIp" value="{$Ip}"/>
+								<else/>
+								<input type="hidden" name="createIp" value="{$edit[0][createip]}"/>
+							</if>
+							<input type="hidden" name="tag" >
+							<if condition="$edit[0][id] eq ''">
+								<input type="hidden" name="attr" value="{$attr}" >
+							</if>
+							<input type="hidden" name="isCryptonym" value="1">
+							<input type="hidden" name="topicId" value="{$edit[0][id]}"/>
+							<input type="hidden" name="first" value="{$edit[0][first]}">
+						</form>
+						</div>
+					</div>
+				</div>
+
+			<!--表格-->
+
+			</div>
+		<p style="color: #000;font-size: 12px;position: absolute; left: 0; bottom: 5px; right: 0;">沪ICP备16017797号</p>
+
+		</div>
+
+	</div>
+	<!--<a class="M_GoTop" href="javascript:;"></a>-->
+<input type="hidden" id="tagNum" value={$json_tag}>
+<!--编辑-->
+<!--<input type="hidden" id="authorNum" value={$edit}>-->
+<input type="hidden" id="roleType" value={$edit[0]['cptype']}><!--判断角色类型-->
+<input type="hidden" id="authorNum" value='{$jsonAuthor}'><!--原作-->
+<input type="hidden" id="cpNum" value='{$jsonEditCpType}'>
+
+	<!--编辑 END-->
+</body>
+</html>
+<script>
+	var ue = UE.getEditor('editor');
+	if($("input[name=topicId]").val() != "")
+	{
+		var ue = UE.getEditor('editor2');
+	}
+	var tag_arr =new Array();//判断添加的标签是否重复
+	var newTagArr = new Array();//勾选添加当前元素，取消勾选删除当前元素(用于最后的提交)
+	var poster = true;
+	$(function()
+	{
+		var checkedRadio = $("input[name=radio]:checked").parent();
+		var roleType = $("#roleType").val();
+		var tagStr = $("#tagNum").val();
+		var author = $("#authorNum").val();
+		var cpStr = $("#cpNum").val();
+		var tagDetailDIV = $("#TAGDetailDIV").find('.checked');//获取选中的标签对象
+		var cossVal = $("select[name=authortype] option:selected").val();
+		if(tagStr != "")
+		{
+			var tagObj= eval("("+tagStr+")");
+			for(var i =0;i<tagObj.length;i++)
+			{
+				tag_arr[i] = tagObj[i];
+			}
+		}
+		if(author)
+		{
+			var authorNum = eval("("+author+")");//原作(转换为json对象)
+			repeatAuthor(authorNum);
+		}
+		if(cpStr)
+		{
+			var cpNum = eval("("+cpStr+")");//角色(转换为json对象)
+		}
+		$("input[name=systemHead]").val($("#systemHead").find('.selected').find('img').attr('src'));
+		changeCrossover(cossVal);
+		repeatCp(roleType,cpNum);
+		cp(checkedRadio);
+		repeatTag(tagDetailDIV);
+	});
+
+	//ajax发帖人信息
+	$('#nickname').blur(function(){
+		var info = $(this).val();
+		if(info)
+		{
+			$.get('/tongrenmiao/index.php?g=Xq&m=Index&a=ajax_poster',{'name':info},function(res){
+				if(res)
+				{
+					alert('发帖人名称已存在，请更换名称');
+					poster = false;
+				}
+				else
+				{
+					poster = true;
+				}
+			})
+		}
+	})
+
+	//更改发帖人名称
+	function changName(obj)
+	{
+		var newName = '{$nickname}';
+		if($(obj).hasClass('checked'))
+		{
+			$("#nickname").val(newName);
+			$("#nickname").attr('readonly','readonly');
+			$('input[name=isCryptonym]').val(2);
+		}
+		else
+		{
+			$("#nickname").removeAttr('readonly','readonly');
+			$("#nickname").val('');
+			$('input[name=isCryptonym]').val(1);
+		}
+	}
+
+	//cp&无Cp
+	function cp(obj,val)
+	{
+		var attr = $("select[name=attr] option:selected").val()?$("select[name=attr] option:selected").val():{$attr};
+		var Cp = '<p><span>攻：<input name="gong[]" type="text" class="gong_input" onblur="filterInput(this)"/></span> <span>受：<input name="shou[]" type="text" class="gong_input" onblur="filterInput(this)"/></span></p>';
+		var np = '<div class="fabu_fu_gengduo_np"><div id="gengduoNpGongDIV"><p><span>攻：<input type="text" name="gong[]" class="gong_input" onblur="filterInput(this)"/></span></p></div><p><a href="javascript:;" onclick="addNPGong()">添加更多攻</a></p></div><div class="fabu_fu_gengduo_np"><div id="gengduoNpShouDIV"><p><span>受：<input type="text" name="shou[]" class="gong_input" onblur="filterInput(this)"/></span></p></div><p><a href="javascript:;" onclick="addNPShou()">添加更多受</a></p></div>';
+		var noCPCp = '<p><span>角色名：<input type="text" name="gong[]" class="gong_input" onblur="filterInput(this)"/></span> <span>角色名：<input type="text" class="gong_input" name="shou[]" onblur="filterInput(this)"/></span></p>';
+		var noCp='<div class="detail"><span>角色名：<input id="noCpVal" type="text" class="gong_input" name="gong[]" onblur="filterInput(this)"/></span></div>';
+		if($(obj).text() == '单一CP')
+		{
+			$("#CPDetailDIV1").css('display','none');
+			$("#CPDetailDIV0").removeAttr('style');
+			if(val)
+			{
+				if(attr == 2)
+				{
+					$("#gengduoCpDIV").html(Cp);
+				}
+				else
+				{
+					$("#gengduoCpDIV").html(noCPCp);
+				}
+			}
+			$("#changeCp").val(1);
+		}
+		else
+		{
+			$("#CPDetailDIV1").removeAttr('style');
+			$("#CPDetailDIV0").css('display','none');
+			if($(obj).text() == 'NP')
+			{
+				$("#changeCp").val(2);
+				if(val)
+				{
+					$("#gsNum").html(np);
+				}
+			}
+			else
+			{
+				$("#changeCp").val(3);
+				if(val)
+				{
+					$("#gengduoNpShouDIV").html(noCp);
+				}
+			}
+		}
+
+	}
+
+	//验证标签名
+	$("#addTAG").on('click', function()
+	{
+		//先验证勾选标签的个数
+		if(chooseLimit() == 2)
+		{
+			alert('最多只能勾选12个标签');
+			return false;
+		}
+		var addTAGInput = $.trim($("#addTAGInput").val());
+		if(addTAGInput == "")
+		{
+			alert('请输入标签名');
+			return false;
+		}
+		else
+		{
+			if(addTAGInput.length>5)
+			{
+				alert("标签长度不能超过5个汉字");
+				return false;
+			}
+			if($.inArray(addTAGInput,tag_arr) != -1)
+			{
+				alert('已经有该标签');
+				return false;
+			}
+			else
+			{
+				tag_arr.push(addTAGInput);
+				newTagArr.push(addTAGInput);
+			}
+		}
+
+		var str = '<li class="select_qx1 checked" onclick="isChecked(this)"><label class="select_checkbox"></label>'+addTAGInput+'</li>'
+		$("#TAGDetailDIV").append(str);
+	});
+
+	//标签是否选中（新数组用于提交）
+	function isChecked(obj)
+	{
+		//先验证勾选标签的个数
+		if(chooseLimit() == 2)
+		{
+			alert('最多只能勾选20个标签');
+			$(obj).removeAttr('checked')
+			return false;
+		}
+
+		var tagText = $.trim($(obj).text());
+		if($(obj).hasClass('checked'))
+		{
+			//取消勾选
+			$(obj).removeClass('checked');
+			newTagArr.splice($.inArray(tagText,tagText),1);//删除数组中该项
+		}
+		else
+		{
+			//勾选
+			$(obj).addClass('checked');
+			newTagArr.push(tagText);
+		}
+
+	}
+
+	//验证发布
+	function doSubmit()
+	{
+		var cossVal = $.trim($("select[name=authortype] option:selected").val());
+		var title = $.trim($("input[name=title]").val());
+		var content = $.trim(UE.getEditor('editor').getContent());
+		debugger;
+		if($.trim($('#nickname').val()) == '')
+		{
+			alert('请输入发帖人名称');
+			return false;
+		}
+		else
+		{
+			if($.trim($('#nickname').val()).length>20)
+			{
+				alert('发帖人字数不得超过20个字');
+				return false;
+			}
+			else
+			{
+				if(!poster)
+				{
+					alert('发帖人名称已存在，请更改名称');
+					return false;
+				}
+			}
+		}
+
+		if(cossVal == 2)
+		{
+			if($.trim($("#fei_crossoverDIV input").val()) == "")
+			{
+				alert("请填写原作名称");
+				return false;
+			}
+		}
+		else
+		{
+			if($.trim($("#yuanzuoDIV").find('input').eq(0).val()) == "" && $.trim($("#yuanzuoDIV").find('input').eq(1).val()) == "")
+			{
+				alert("至少填写两个原作");
+				return false;
+			}
+		}
+		//cp
+		if($("#changeCp").val() == 1)
+		{
+			var i = 0;
+			$("#gengduoCpDIV").find('p').each(function (){
+				var left = $(this).find('input').eq(0).val();
+				var right = $(this).find('input').eq(1).val();
+				if(jQuery.trim(left) == "" || jQuery.trim(right) == ""){
+					i+=1;
+				}
+				else
+				{
+					i = 0;
+				}
+			})
+
+			if(i>0)
+			{
+				alert('请填写成对的角色名');
+				return false;
+			}
+		}
+		//np
+		if($("#changeCp").val() == 2) {
+			var i = 0;
+			$('#gsNum').find('input').each(function ()
+			{
+				if($.trim($(this).val()) != "")
+				{
+					i+=1;
+				}
+			})
+			if(i<3)
+			{
+				alert("请填写至少填写三个角色名");
+				return false;
+			}
+		}
+		//无cp
+		if($("#changeCp").val() == 3) {
+			if ($.trim($("#noCpVal").val()) == "") {
+				alert("填写角色名");
+				return false;
+			}
+		}
+
+		if(title == "")
+		{
+			alert("请输入文章名称");
+			return false;
+		}else if(title.length > 90)
+		{
+			alert("标题过长，字数不能超过90个字");
+			return false;
+		}else if(content == "")
+		{
+			alert('请填写内容');
+			return false;
+		}
+//		if($("input[name=topicId]").val() != "")
+//		{
+//			if(UE.getEditor('editor2').getContent() == "")
+//			{
+//				alert('请填写留底内容');
+//				return false;
+//			}
+//		}
+		$("input[name=tag]").val(newTagArr);
+		$.ajax({
+			url:"{:U('index/ajaxInterval')}",
+			type:"GET",
+			data:{'type':1,'lib':2},
+			success:function(res)
+			{
+				if(res['info'] == 1)
+				{
+					alert("连续发帖时间不能少于"+res['time']+"秒");
+				}
+				else if(res['info'] == 2)
+				{
+					alert('您已被禁言');
+				}
+				else
+				{
+					//标题和文章替换，其他的提示
+					UE.getEditor('editor').setContent(filter(content));
+					$("#title").val(filter(title));
+					$("#myForm").submit();
+					$(".className_fb").attr('disabled','true');
+					$(".className_fb").text("正在提交");
+				}
+			},
+			error:function()
+			{
+				alert('请求失败');
+			}
+		})
+	}
+
+	//勾选限制
+	function chooseLimit()
+	{
+		if($("#TAGDetailDIV .checked").length>=20)
+		{
+			return 2;
+		}
+		else
+		{
+			return 1;
+		}
+	}
+
+	/*------------编辑------------*/
+	//循环文章小标签
+	function repeatTag(obj)
+	{
+
+		$(obj).each(function()
+		{
+			newTagArr.push($.trim($(this).text()));
+		})
+	}
+
+	//所属原作
+	function repeatAuthor(authorNum)
+	{
+		if(authorNum)
+		{
+			var authorLength = authorNum.length;
+			if(authorLength <3)
+			{
+				return false;
+			}
+			else
+			{
+				$("#yuanzuoDIV").find('input').eq(0).val(authorNum[0]);
+				$("#yuanzuoDIV").find('input').eq(1).val(authorNum[1]);
+				for(var i=0;i<authorLength-2;i++)//减去原本默认的最少的2个
+				{
+					addYuanzuo(authorNum[i+2])
+				}
+			}
+		}
+	}
+
+	//角色类型
+	function repeatCp(type,cpNum)
+	{
+		if(type == 1)
+		{
+			var cp = cpNum.length;
+			for(var i=0;i<cp-1;i++)
+			{
+				addCp(cpNum[i+1]);
+			}
+		}
+		else if(type == 2)
+		{
+			var gong = cpNum[0].length;
+			var shou = cpNum[1].length;
+			for(var i=0;i<gong-1;i++)
+			{
+				addNPGong(cpNum[0][i+1])
+			}
+			for(var i=0;i<shou-1;i++)
+			{
+				addNPShou(cpNum[1][i+1])
+			}
+		}
+		else if(type == 3)
+		{
+			var noCp = cpNum.length;
+			for(var i=1;i<noCp;i++)
+			{
+				addMoreRole(cpNum[i]);
+			}
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	//根据属性的切换来改变角色类型显示是区域
+	function changeAttr()
+	{
+		//百合大众
+		var noFuXiang = "";
+			noFuXiang += "<tr id='CPDetailDIV0' >";
+			noFuXiang += "<td></td>";
+			noFuXiang += "<td class='release_middle' colspan='3'>";
+			noFuXiang += "<div class='fabu_zhai_gengduo'>";
+			noFuXiang += "<div id='gengduoCpDIV'>";
+			noFuXiang += "<p><span>角色名：<input type='text' name='gong[]' class='gong_input' onblur='filterInput(this)'/>";
+			noFuXiang += "</span> <span>角色名：<input type='text' class='gong_input' name='shou[]' onblur='filterInput(this)'/></span></p></div>";
+			noFuXiang += "<p><a href='javascript:;' onclick='addRole(this)'>添加更多CP</a></p></div></td>";
+//			noFuXiang += "<td class='release_right'><div class='release_puton'>CP</div></td></tr>";
+
+		var noFuXiang1 = "";
+			noFuXiang1 += "<tr id='CPDetailDIV1' style='display: none;'>";
+			noFuXiang1 += "<td></td>";
+			noFuXiang1 += "<td class='release_middle' colspan='2'>";
+			noFuXiang1 += "<div class='fabu_zhai_gengduo'>";
+			noFuXiang1 += "<div class='fabu_zhai_gengduo_np'>";
+			noFuXiang1 += "<div id='gengduoNpShouDIV'>";
+			noFuXiang1 += "<div class='detail'><span>角色名：<input id='noCpVal' type='text' class='gong_input' name='gong[]' onblur='filterInput(this)'/></span></div></div>";
+			noFuXiang1 += "<div class='detail'><a href='javascript:;' onclick='addMoreRole()'>添加更多角色</a></div></div></div></td>";
+//			noFuXiang1 += "<td class='release_right'><div class='release_puton'>无CP</div></td></tr>";
+
+		var noFuXiang2 = "";
+			noFuXiang2 += "<tr><td class='release_text'>角色：</td>";
+			noFuXiang2 += "<td  class='release_middle' colspan='2'>";
+			noFuXiang2 += "<div class='ss-dd' style='margin-left: -15px;'>";
+			noFuXiang2 += "<ul><li><label onclick='cp(this)'><input class='select_checkbox' type='radio' value='1' checked name='radio'/>CP</label></li>";
+			noFuXiang2 += "<li><label onclick='cp(this)'><input class='select_checkbox' type='radio' value='2' name='radio'>无CP</label></li></ul></div></td>";
+			noFuXiang2 += "<td></td></tr>";
+
+		//腐向
+		var FuXiang ="";
+			FuXiang += "<tr id='CPDetailDIV0'>";
+			FuXiang += "<td></td>"
+			FuXiang += "<td class='release_middle' colspan='3'><div class='fabu_fu_gengduo'>";
+			FuXiang += "<div id='gengduoCpDIV'>"
+			FuXiang += "<p><span>攻：<input name='gong[]' type='text' class='gong_input' onblur='filterInput(this)'/></span> <span>受：<input name='shou[]' type='text' class='gong_input' onblur='filterInput(this)'/></span></p></div>"
+			FuXiang += "<p><a href='javascript:;' onclick='addCp(this)'>添加更多CP</a></p></div></td>"
+//			FuXiang += "<td class='release_right'><div class='release_puton'>普通CP</div></td></tr>"
+
+		var FuXiang1 ="";
+			FuXiang1 += "<tr id='CPDetailDIV1' style='display: none;'>"
+			FuXiang1 += "<td></td>"
+			FuXiang1 += "<td class='release_middle' colspan='2'>"
+			FuXiang1 += "<div class='fabu_fu_gengduo' id='gsNum'>"
+			FuXiang1 += "<div class='fabu_fu_gengduo_np'>"
+			FuXiang1 += "<div id='gengduoNpGongDIV'>"
+			FuXiang1 += "<p><span>攻：<input type='text' name='gong[]' class='gong_input' onblur='filterInput(this)'/></span></p></div>"
+			FuXiang1 += "<p><a href='javascript:;' onclick='addNPGong()'>添加更多攻</a></p></div>"
+			FuXiang1 += "<div class='fabu_fu_gengduo_np'>"
+			FuXiang1 += "<div id='gengduoNpShouDIV'>"
+			FuXiang1 += "<p><span>受：<input type='text' name='shou[]' class='gong_input' onblur='filterInput(this)'/></span></p></div>"
+			FuXiang1 += "<p><a href='javascript:;' onclick='addNPShou()'>添加更多受</a></p></div></div></td>"
+//			FuXiang1 += "<td class='release_right'><div class='release_puton'>NP情况</div></td></tr>"
+
+		var FuXiang2 = "";
+			FuXiang2 += "<tr><td class='release_text'>角色：</td>";
+			FuXiang2 += "<td  class='release_middle' colspan='2'>";
+			FuXiang2 += "<div class='ss-dd' style='margin-left: -15px;'>";
+			FuXiang2 += "<ul id='chooseRole'><li><label onclick='cp(this)'><input class='select_checkbox' type='radio' value='1' name='radio' checked/>CP</label></li>";
+			FuXiang2 += "<li><label onclick='cp(this)'><input class='select_checkbox' type='radio' value='2' name='radio'/>NP</label></li></ul></div></td>";
+			FuXiang2 += "<td></td></tr>";
+		var attrVal = $("select[name=attr] option:selected").val();
+		if(attrVal == 1 || attrVal == 3)
+		{
+			//大众和百合
+			$("#CPDetailDIV0").prev().replaceWith(noFuXiang2);
+			$("#CPDetailDIV1").replaceWith(noFuXiang1)
+			$("#CPDetailDIV0").replaceWith(noFuXiang)
+			editTag(attrVal);
+		}
+		else
+		{
+			//腐向
+			$("#CPDetailDIV0").prev().replaceWith(FuXiang2);
+			$("#CPDetailDIV1").replaceWith(FuXiang1);
+			$("#CPDetailDIV0").replaceWith(FuXiang)
+			editTag(attrVal);
+		}
+	}
+
+	//切换属性,修改tag标签（自定义的不要了，，只要系统默认的）
+	function editTag(attrVal)
+	{
+		var url = "{:U('index/ajaxTag')}";
+		$.ajax({
+			url:url,
+			data:{'type':attrVal},
+			type:'GET',
+			success:function(res)
+			{
+				var label = '';
+				if(res)
+				{
+					obj = eval("("+res+")");
+					$.each(obj,function(i)
+					{
+						label += "<li class='select_qx1' onclick='isChecked(this)'><label class='select_checkbox'></label>"+obj[i].name+"</li>";
+					})
+					$("#TAGDetailDIV").html(label);
+				}
+				else
+				{
+					alert('标签请求失败');
+				}
+			},
+			error:function()
+			{
+				alert('请求错误');
+			}
+		})
+	}
+	/*------------编辑------------*/
+
+	//除去文章内容其他做成失去焦点出发过滤
+	function filterInput(obj)
+	{
+		var search = 'OO';
+		var result = filter($(obj).val());
+
+		if(result.indexOf(search) != -1)
+		{
+			alert("该处有敏感词，请修改内容");
+			return false;
+		}
+	}
+</script>

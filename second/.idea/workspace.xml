@@ -1,0 +1,1479 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/../mallbuilder/templates/wap_app/space_product_detail.htm" line="236" />
+    <bookmark url="file://$PROJECT_DIR$/html/mobile/personal-access.html" line="143" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" readonly="true" id="0ca538ae-5c2c-4918-b9af-430695507582" name="Default" comment="" />
+    <ignored path="tongshi.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DatabaseView">
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="tongshi" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="166">
+      <file leaf-file-name="IndexController.class.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/Mall/Controller/IndexController.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-209">
+              <caret line="2485" column="38" selection-start-line="2485" selection-start-column="38" selection-end-line="2485" selection-end-column="38" />
+              <folding>
+                <marker date="1472719883387" expanded="true" signature="17179:17419" placeholder="select count... mallbuilder_product_comment" />
+                <marker date="1472719883387" expanded="true" signature="30972:31059" placeholder="..." />
+                <marker date="1472719883387" expanded="true" signature="32343:32554" placeholder="select a.use... mallbuilder_shop" />
+                <marker date="1472719883387" expanded="true" signature="32760:32961" placeholder="select a.id,... mallbuilder_product" />
+                <marker date="1472719883387" expanded="true" signature="32760:32991" placeholder="select a.id,... mallbuilder_product" />
+                <marker date="1472719883387" expanded="true" signature="32852:32940" placeholder="select count... mallbuilder_product" />
+                <marker date="1472719883387" expanded="true" signature="40953:41024" placeholder="..." />
+                <marker date="1472719883387" expanded="true" signature="41436:41867" placeholder="INSERT INTO mallbuilder_product_order... " />
+                <marker date="1472719883387" expanded="true" signature="41890:42139" placeholder="INSERT INTO mallbuilder_product_order_pro... " />
+                <marker date="1472719883387" expanded="true" signature="42165:42208" placeholder="UPDATE mallb... " />
+                <marker date="1472719883387" expanded="true" signature="42239:42290" placeholder="UPDATE mallb... " />
+                <marker date="1472719883387" expanded="true" signature="57308:57544" placeholder="select a.id,... mallbuilder_product" />
+                <marker date="1472719883387" expanded="true" signature="57416:57488" placeholder="select count... mallbuilder_product" />
+                <marker date="1472719883387" expanded="true" signature="60569:60693" placeholder="select * fro... mallbuilder_logistics_temp_con" />
+                <marker date="1472719883387" expanded="true" signature="60963:61082" placeholder="select * fro... mallbuilder_logistics_temp_con" />
+                <marker date="1472719883387" expanded="true" signature="61572:61699" placeholder="select * fro... mallbuilder_logistics_temp_con" />
+                <marker date="1472719883387" expanded="true" signature="61820:61942" placeholder="select * fro... mallbuilder_logistics_temp_con" />
+                <marker date="1472719883387" expanded="true" signature="62433:62556" placeholder="select * fro... mallbuilder_logistics_temp_con" />
+                <marker date="1472719883387" expanded="true" signature="62677:62795" placeholder="select * fro... mallbuilder_logistics_temp_con" />
+                <marker date="1472719883387" expanded="true" signature="67581:67705" placeholder="select count... " />
+                <marker date="1472719883387" expanded="true" signature="67719:67871" placeholder="select count... " />
+                <marker date="1472719883387" expanded="true" signature="67890:68568" placeholder="select sum(c... mallbuilder_product_order" />
+                <marker date="1472719883387" expanded="true" signature="76500:76700" placeholder="select * fro... mallbuilder_product" />
+                <marker date="1472719883387" expanded="true" signature="76500:76706" placeholder="select * fro... mallbuilder_product_order" />
+                <marker date="1472719883387" expanded="true" signature="76500:76712" placeholder="select sum(c... " />
+                <marker date="1472719883387" expanded="true" signature="76500:76722" placeholder="select sum(c... " />
+                <marker date="1472719883387" expanded="true" signature="76500:76731" placeholder="select sum(c... mallbuilder_product_order" />
+                <marker date="1472719883387" expanded="true" signature="76754:76912" placeholder="select * fro... mallbuilder_product_order" />
+                <marker date="1472719883387" expanded="true" signature="76754:76930" placeholder="select * fro... mallbuilder_product_order" />
+                <marker date="1472719883387" expanded="true" signature="76754:76938" placeholder="select * fro... mallbuilder_product_order" />
+                <marker date="1472719883387" expanded="true" signature="76754:76948" placeholder="select * fro... mallbuilder_product_order" />
+                <marker date="1472719883387" expanded="true" signature="76754:76953" placeholder="select * fro... mallbuilder_product_comment" />
+                <marker date="1472719883387" expanded="true" signature="76754:76995" placeholder="select * fro... mallbuilder_product_comment" />
+                <marker date="1472719883387" expanded="true" signature="76754:76997" placeholder="select c.id mallbuilder_product_comment" />
+                <marker date="1472719883387" expanded="true" signature="84811:85047" placeholder="select count... mallbuilder_product_comment" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sousuo-index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/mobile/sousuo-index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="228" column="9" selection-start-line="228" selection-start-column="9" selection-end-line="228" selection-end-column="9" />
+              <folding>
+                <element signature="n#style#0;n#div#1;n#section#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#section#2;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#section#3;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1472694856925" expanded="true" signature="9032:9100" placeholder="..." />
+                <marker date="1472694856925" expanded="true" signature="9032:9537" placeholder="..." />
+                <marker date="1472694856925" expanded="true" signature="9110:9505" placeholder="..." />
+                <marker date="1472694856925" expanded="true" signature="9270:9333" placeholder="..." />
+                <marker date="1472694856925" expanded="true" signature="9270:9471" placeholder="..." />
+                <marker date="1472694856925" expanded="true" signature="9879:11147" placeholder="..." />
+                <marker date="1472694856925" expanded="true" signature="9941:10515" placeholder="..." />
+                <marker date="1472694856925" expanded="true" signature="9941:10987" placeholder="..." />
+                <marker date="1472694856925" expanded="true" signature="9941:11020" placeholder="..." />
+                <marker date="1472694856925" expanded="true" signature="9998:10162" placeholder="..." />
+                <marker date="1472694856925" expanded="true" signature="10220:10515" placeholder="..." />
+                <marker date="1472694856925" expanded="true" signature="11082:11147" placeholder="..." />
+                <marker date="1472694856925" expanded="true" signature="11797:12103" placeholder="..." />
+                <marker date="1472694856925" expanded="true" signature="11856:12103" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="shangye_xiangqi.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/mobile/shangye_xiangqi.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="872">
+              <caret line="257" column="17" selection-start-line="257" selection-start-column="17" selection-end-line="260" selection-end-column="21" />
+              <folding>
+                <marker date="1472696023244" expanded="true" signature="12229:12554" placeholder="..." />
+                <marker date="1472696023244" expanded="true" signature="12262:12549" placeholder="..." />
+                <marker date="1472696023244" expanded="true" signature="12438:12502" placeholder="..." />
+                <marker date="1472696023244" expanded="true" signature="14977:15023" placeholder="..." />
+                <marker date="1472696023244" expanded="true" signature="15136:15620" placeholder="..." />
+                <marker date="1472696023244" expanded="true" signature="15343:15499" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="shangyedian.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/mobile/search/shangyedian.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="25">
+              <caret line="224" column="71" selection-start-line="224" selection-start-column="63" selection-end-line="224" selection-end-column="71" />
+              <folding>
+                <marker date="1472697945810" expanded="true" signature="7822:8227" placeholder="..." />
+                <marker date="1472697945810" expanded="true" signature="7862:8227" placeholder="..." />
+                <marker date="1472697945810" expanded="true" signature="7894:8008" placeholder="..." />
+                <marker date="1472697945810" expanded="true" signature="8041:8227" placeholder="..." />
+                <marker date="1472697945810" expanded="true" signature="8540:8580" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dingzhichang.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/mobile/search/dingzhichang.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3450">
+              <caret line="138" column="13" selection-start-line="138" selection-start-column="13" selection-end-line="138" selection-end-column="13" />
+              <folding>
+                <marker date="1472693531689" expanded="true" signature="4287:4599" placeholder="..." />
+                <marker date="1472693531689" expanded="true" signature="4346:4586" placeholder="..." />
+                <marker date="1472693531689" expanded="true" signature="4456:4574" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="shangye-yinshua.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/mobile/shangye-yinshua.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1175">
+              <caret line="47" column="19" selection-start-line="47" selection-start-column="19" selection-end-line="47" selection-end-column="19" />
+              <folding>
+                <marker date="1472698901255" expanded="true" signature="1419:2114" placeholder="{...}" />
+                <marker date="1472698901255" expanded="true" signature="1505:1792" placeholder="{...}" />
+                <marker date="1472698901255" expanded="true" signature="1655:1733" placeholder="{...}" />
+                <marker date="1472698901255" expanded="true" signature="1812:2098" placeholder="{...}" />
+                <marker date="1472698901255" expanded="true" signature="1962:2040" placeholder="{...}" />
+                <marker date="1472698901255" expanded="true" signature="9126:9554" placeholder="..." />
+                <marker date="1472698901255" expanded="true" signature="9202:9523" placeholder="..." />
+                <marker date="1472698901255" expanded="true" signature="9240:9488" placeholder="..." />
+                <marker date="1472698901255" expanded="true" signature="9307:9449" placeholder="..." />
+                <marker date="1472698901255" expanded="true" signature="10321:10509" placeholder="..." />
+                <marker date="1472698901255" expanded="true" signature="10376:10482" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="public.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/mobile/css/public.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="48800">
+              <caret line="1952" column="5" selection-start-line="1952" selection-start-column="5" selection-end-line="1952" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="detail.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/mobile/css/detail.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="257">
+              <caret line="269" column="0" selection-start-line="269" selection-start-column="0" selection-end-line="269" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="loveOrKind.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/html/mobile/loveOrKind.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="788" column="43" selection-start-line="788" selection-start-column="43" selection-end-line="788" selection-end-column="43" />
+              <folding>
+                <element signature="n#style#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#section#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#section#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#section#1;n#section#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <marker date="1472720708854" expanded="true" signature="13103:13590" placeholder="..." />
+                <marker date="1472720708854" expanded="true" signature="13170:13555" placeholder="..." />
+                <marker date="1472720708854" expanded="true" signature="13669:14228" placeholder="..." />
+                <marker date="1472720708854" expanded="true" signature="13736:14193" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/html/mobile/shop-xiangqiye/shop-xiangqing.html" />
+        <option value="$USER_HOME$/Desktop/main.html" />
+        <option value="$PROJECT_DIR$/html/mobile/js/getUserInfo.js" />
+        <option value="$PROJECT_DIR$/html/mobile/shop-xiangqiye/shop-jieshao.html" />
+        <option value="$PROJECT_DIR$/html/mobile/shouhuo-dizhi/new-add-dizhi.html" />
+        <option value="$PROJECT_DIR$/html/mobile/shouhuo-dizhi/Receipt-dizhi2.html" />
+        <option value="$PROJECT_DIR$/html/mobile/detail-access.html" />
+        <option value="$PROJECT_DIR$/html/mobile/error.html" />
+        <option value="$PROJECT_DIR$/../mallbuilder/module/product/templates/admin_sellorder.htm" />
+        <option value="$PROJECT_DIR$/html/mobile/shop-xiangqiye/shop-sousuo.html" />
+        <option value="$PROJECT_DIR$/html/mobile/shop-cart/confirm-order.html" />
+        <option value="$PROJECT_DIR$/html/mobile/shop-cart/shop-cart-edit.html" />
+        <option value="$PROJECT_DIR$/themes/simplebootx/Xq/trleisure_newArticle.html" />
+        <option value="$PROJECT_DIR$/application/Xq/Controller/AdminController.class.php" />
+        <option value="$PROJECT_DIR$/html/mobile/js/js.js" />
+        <option value="$PROJECT_DIR$/themes/simplebootx/Xq/trleisure_library.html" />
+        <option value="$PROJECT_DIR$/themes/simplebootx/Public/css/trxq_wdr.css" />
+        <option value="$PROJECT_DIR$/themes/simplebootx/Public/css/layout.css" />
+        <option value="$PROJECT_DIR$/themes/simplebootx/Public/css/advance.css" />
+        <option value="$PROJECT_DIR$/html/mobile/css/shop-cart-edit.css" />
+        <option value="$PROJECT_DIR$/html/mobile/dai-evaluate/pingjia/dai-tuikuan-tuihuo.html" />
+        <option value="$PROJECT_DIR$/html/mobile/my-order.html" />
+        <option value="$PROJECT_DIR$/html/mobile/detail-page1.html" />
+        <option value="$PROJECT_DIR$/html/mobile/favorite-stores/fs-tongren.html" />
+        <option value="$PROJECT_DIR$/html/mobile/js/jquerty-moveDelete.js" />
+        <option value="$PROJECT_DIR$/html/mobile/history.html" />
+        <option value="$PROJECT_DIR$/html/mobile/personal-information.html" />
+        <option value="$PROJECT_DIR$/themes/simplebootx/Public/nav.html" />
+        <option value="$PROJECT_DIR$/html/mobile/personal-access.html" />
+        <option value="$PROJECT_DIR$/html/mobile/css/personal.css" />
+        <option value="$PROJECT_DIR$/html/mobile/css/shop-fenlei.css" />
+        <option value="$PROJECT_DIR$/html/mobile/css/global.css" />
+        <option value="$PROJECT_DIR$/html/mobile/shouhuo-dizhi/guanli-shouhuo-dz.html" />
+        <option value="$PROJECT_DIR$/html/mobile/plugin/plupload.full.min.js" />
+        <option value="$PROJECT_DIR$/html/mobile/js/miao-Dialog.js" />
+        <option value="$PROJECT_DIR$/application/Common/Conf/debug.php" />
+        <option value="$PROJECT_DIR$/application/Common/Conf/config.php" />
+        <option value="$PROJECT_DIR$/html/mobile/personal-feedback.html" />
+        <option value="$PROJECT_DIR$/html/mobile/hot_renqiben.html" />
+        <option value="$PROJECT_DIR$/html/mobile/js/filter.js" />
+        <option value="$PROJECT_DIR$/html/mobile/search/dingzhichang.html" />
+        <option value="$PROJECT_DIR$/html/mobile/sousuo-index.html" />
+        <option value="$PROJECT_DIR$/html/mobile/main.html" />
+        <option value="$PROJECT_DIR$/html/mobile/shangye_xiangqi.html" />
+        <option value="$PROJECT_DIR$/html/mobile/search/shangyedian.html" />
+        <option value="$PROJECT_DIR$/html/mobile/shangye-yinshua.html" />
+        <option value="$PROJECT_DIR$/html/mobile/css/public.css" />
+        <option value="$PROJECT_DIR$/html/mobile/css/detail.css" />
+        <option value="$PROJECT_DIR$/html/mobile/plugin/iscroll.js" />
+        <option value="$PROJECT_DIR$/application/Mall/Controller/IndexController.class.php" />
+        <option value="$PROJECT_DIR$/html/mobile/loveOrKind.html" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" />
+  <component name="JsBuildToolPackageJson" detection-done="true" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+  </component>
+  <component name="PhpServers">
+    <servers />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1066" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>Internationalization issues</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>LossyEncoding</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="Scope" currentSubView="Project Files" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches">
+        <subPane />
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Problems" />
+        <subPane subId="Changed Files" />
+        <subPane subId="Default" />
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="tongrenmiao">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="tongrenmiao">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="themes">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="tongrenmiao">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="themes">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="simplebootx">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="tongrenmiao">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="themes">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="simplebootx">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Public">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="tongrenmiao">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="html">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="tongrenmiao">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="html">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="mobile">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="tongrenmiao">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="html">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="mobile">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="shouhuo-dizhi">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="tongrenmiao">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="html">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="mobile">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="shop-xiangqiye">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="tongrenmiao">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="html">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="mobile">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="shop-cart">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="tongrenmiao">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="html">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="mobile">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="search">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="tongrenmiao">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="html">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="mobile">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="css">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="tongrenmiao">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="application">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="Tests" />
+      </pane>
+      <pane id="ProjectPane">
+        <subPane />
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/html" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="SearchEverywhereHistoryKey" value="：U（）&#9;null&#9;null" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\wamp\www\tongrenmiao\html\mobile\css" />
+      <recent name="E:\wamp\www\tongrenmiao\html\mobile\img" />
+      <recent name="E:\wamp\www\tongrenmiao\share" />
+      <recent name="E:\wamp\www\tongrenmiao\share\img" />
+      <recent name="E:\wamp\www\tongrenmiao\share\js" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\wamp\www\tongrenmiao\html\mobile\js" />
+      <recent name="E:\wamp\www\tongshi\public" />
+      <recent name="E:\wamp\www\tongshi\themes\simplebootx\Public" />
+      <recent name="E:\wamp\www\tongshi\themes\simplebootx\Public\js" />
+      <recent name="E:\wamp\www\tongshi\themes\simplebootx\Public\css" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration" cleanupOnStartRun="true">
+    <configuration>C:\Users\kidstone、\AppData\Roaming\Subversion</configuration>
+    <supportedVersion>125</supportedVersion>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0ca538ae-5c2c-4918-b9af-430695507582" name="Default" comment="" />
+      <created>1459492533312</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1459492533312</updated>
+      <workItem from="1459492536532" duration="3767000" />
+      <workItem from="1459496777372" duration="2064000" />
+      <workItem from="1459498864221" duration="2911000" />
+      <workItem from="1459817774200" duration="5111000" />
+      <workItem from="1459832001683" duration="24266000" />
+      <workItem from="1459904715875" duration="28827000" />
+      <workItem from="1459990001607" duration="35689000" />
+      <workItem from="1460076835460" duration="24122000" />
+      <workItem from="1460424422190" duration="24750000" />
+      <workItem from="1460509857839" duration="25000" />
+      <workItem from="1460509895471" duration="27195000" />
+      <workItem from="1460595484316" duration="135000" />
+      <workItem from="1460595635496" duration="32567000" />
+      <workItem from="1460683396621" duration="26249000" />
+      <workItem from="1460942065343" duration="33159000" />
+      <workItem from="1460980549520" duration="1465000" />
+      <workItem from="1461027986858" duration="25209000" />
+      <workItem from="1461057245027" duration="8019000" />
+      <workItem from="1461114316527" duration="22198000" />
+      <workItem from="1461139634467" duration="6921000" />
+      <workItem from="1461201562181" duration="33671000" />
+      <workItem from="1461287162114" duration="30101000" />
+      <workItem from="1461546391045" duration="33066000" />
+      <workItem from="1461631844751" duration="37507000" />
+      <workItem from="1461717785921" duration="31220000" />
+      <workItem from="1461805155451" duration="2805000" />
+      <workItem from="1461808212966" duration="34782000" />
+      <workItem from="1461892368425" duration="27827000" />
+      <workItem from="1462237695479" duration="33643000" />
+      <workItem from="1462323497126" duration="30473000" />
+      <workItem from="1462410274658" duration="30304000" />
+      <workItem from="1462496594274" duration="27471000" />
+      <workItem from="1462757953172" duration="32539000" />
+      <workItem from="1462842321138" duration="19267000" />
+      <workItem from="1462865872734" duration="1492000" />
+      <workItem from="1462868579012" duration="9355000" />
+      <workItem from="1462928579303" duration="26632000" />
+      <workItem from="1463014589954" duration="33905000" />
+      <workItem from="1463101856250" duration="27270000" />
+      <workItem from="1463361147103" duration="33638000" />
+      <workItem from="1463448305650" duration="26759000" />
+      <workItem from="1463533301502" duration="26233000" />
+      <workItem from="1463620051062" duration="27055000" />
+      <workItem from="1463705947762" duration="28145000" />
+      <workItem from="1463964983702" duration="33609000" />
+      <workItem from="1464052222115" duration="28859000" />
+      <workItem from="1464138154528" duration="22700000" />
+      <workItem from="1464165841852" duration="1433000" />
+      <workItem from="1464224406799" duration="17336000" />
+      <workItem from="1464246512978" duration="13176000" />
+      <workItem from="1464311574771" duration="27076000" />
+      <workItem from="1464570610452" duration="1817000" />
+      <workItem from="1464572535101" duration="30006000" />
+      <workItem from="1464658972280" duration="30504000" />
+      <workItem from="1464742913442" duration="21000" />
+      <workItem from="1464743071461" duration="601000" />
+      <workItem from="1464743762660" duration="81000" />
+      <workItem from="1464743845058" duration="273000" />
+      <workItem from="1464744132996" duration="24575000" />
+      <workItem from="1464828962307" duration="27489000" />
+      <workItem from="1464915862189" duration="3529000" />
+      <workItem from="1464921776002" duration="19623000" />
+      <workItem from="1465175363145" duration="29893000" />
+      <workItem from="1465261334924" duration="26029000" />
+      <workItem from="1465291085853" duration="5877000" />
+      <workItem from="1465348180871" duration="24547000" />
+      <workItem from="1465694164786" duration="2090000" />
+      <workItem from="1465696274456" duration="29054000" />
+      <workItem from="1465779117576" duration="36133000" />
+      <workItem from="1465866315854" duration="31785000" />
+      <workItem from="1465952415402" duration="26417000" />
+      <workItem from="1466039178155" duration="34399000" />
+      <workItem from="1466125266734" duration="27726000" />
+      <workItem from="1466384990118" duration="1917000" />
+      <workItem from="1466386960622" duration="2297000" />
+      <workItem from="1466391298705" duration="19052000" />
+      <workItem from="1466470437569" duration="32462000" />
+      <workItem from="1466556713351" duration="22595000" />
+      <workItem from="1466643786348" duration="23785000" />
+      <workItem from="1466730036262" duration="27743000" />
+      <workItem from="1466989731945" duration="27874000" />
+      <workItem from="1467076139405" duration="27857000" />
+      <workItem from="1467162467902" duration="28459000" />
+      <workItem from="1467248604432" duration="28399000" />
+      <workItem from="1467334576408" duration="26544000" />
+      <workItem from="1467595091016" duration="27494000" />
+      <workItem from="1467681890886" duration="24341000" />
+      <workItem from="1467766887103" duration="26011000" />
+      <workItem from="1467853284885" duration="25373000" />
+      <workItem from="1467939420886" duration="22897000" />
+      <workItem from="1468200177625" duration="23718000" />
+      <workItem from="1468286560837" duration="25646000" />
+      <workItem from="1468372523419" duration="23821000" />
+      <workItem from="1468458119308" duration="31552000" />
+      <workItem from="1468544676899" duration="25503000" />
+      <workItem from="1468804374341" duration="1813000" />
+      <workItem from="1468806228222" duration="1813000" />
+      <workItem from="1468808079334" duration="1872000" />
+      <workItem from="1468809975560" duration="21508000" />
+      <workItem from="1468891238589" duration="20822000" />
+      <workItem from="1468978378779" duration="25451000" />
+      <workItem from="1469062010877" duration="606000" />
+      <workItem from="1469062985490" duration="25526000" />
+      <workItem from="1469149581891" duration="20813000" />
+      <workItem from="1469409128778" duration="25699000" />
+      <workItem from="1469495933981" duration="27187000" />
+      <workItem from="1469581829072" duration="25637000" />
+      <workItem from="1469667891973" duration="28428000" />
+      <workItem from="1469754524807" duration="24674000" />
+      <workItem from="1470012550049" duration="27448000" />
+      <workItem from="1470099807980" duration="26103000" />
+      <workItem from="1470186729671" duration="23371000" />
+      <workItem from="1470273184636" duration="22351000" />
+      <workItem from="1470359420708" duration="15235000" />
+      <workItem from="1470618455373" duration="13275000" />
+      <workItem from="1470707805295" duration="24360000" />
+      <workItem from="1470792047113" duration="1505000" />
+      <workItem from="1470794645058" duration="23160000" />
+      <workItem from="1470878704802" duration="24160000" />
+      <workItem from="1470964020684" duration="27166000" />
+      <workItem from="1471223958418" duration="27182000" />
+      <workItem from="1471309828070" duration="27543000" />
+      <workItem from="1471396197542" duration="24155000" />
+      <workItem from="1471482130625" duration="25261000" />
+      <workItem from="1471568593731" duration="28212000" />
+      <workItem from="1471828305189" duration="1904000" />
+      <workItem from="1471830476841" duration="23628000" />
+      <workItem from="1471913435486" duration="29812000" />
+      <workItem from="1472000270939" duration="26937000" />
+      <workItem from="1472086690848" duration="26294000" />
+      <workItem from="1472176879086" duration="23404000" />
+      <workItem from="1472433115106" duration="23690000" />
+      <workItem from="1472518344443" duration="28638000" />
+      <workItem from="1472604974794" duration="25494000" />
+      <workItem from="1472691354834" duration="11316000" />
+      <workItem from="1472715513414" duration="4434000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="2927151000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15884861" sideWeight="0.496208" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32740587" sideWeight="0.5021322" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942432" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.4978678" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18589744" sideWeight="0.503792" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="73" y="122" width="1736" height="856" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19769874" sideWeight="0.4936034" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32740587" sideWeight="0.5021322" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="73" y="122" width="1736" height="856" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.4978678" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15885417" sideWeight="0.496208" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942432" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19769874" sideWeight="0.4936034" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18589744" sideWeight="0.503792" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/../mallbuilder/official_app/api/libraries/Text/Filter.php</url>
+          <line>5</line>
+          <option name="timeStamp" value="54" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/../mallbuilder/module/sns/ajax_update.php</url>
+          <line>23</line>
+          <option name="timeStamp" value="59" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/application/Mall/Controller/IndexController.class.php</url>
+          <line>51</line>
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/application/Mall/Controller/IndexController.class.php</url>
+          <line>62</line>
+          <option name="timeStamp" value="65" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/application/Mall/Controller/IndexController.class.php</url>
+          <line>63</line>
+          <option name="timeStamp" value="66" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/application/Mall/Controller/IndexController.class.php</url>
+          <line>92</line>
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/application/Mall/Controller/IndexController.class.php</url>
+          <line>93</line>
+          <option name="timeStamp" value="68" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/application/Mall/Controller/IndexController.class.php</url>
+          <line>111</line>
+          <option name="timeStamp" value="69" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/application/Mall/Controller/IndexController.class.php</url>
+          <line>157</line>
+          <option name="timeStamp" value="70" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/application/Mall/Controller/IndexController.class.php</url>
+          <line>225</line>
+          <option name="timeStamp" value="72" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/application/Mall/Controller/IndexController.class.php</url>
+          <line>236</line>
+          <option name="timeStamp" value="73" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/application/Mall/Controller/IndexController.class.php</url>
+          <line>520</line>
+          <option name="timeStamp" value="74" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/application/Mall/Controller/IndexController.class.php</url>
+          <line>52</line>
+          <option name="timeStamp" value="75" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/application/Mall/Controller/IndexController.class.php</url>
+          <line>64</line>
+          <option name="timeStamp" value="76" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/application/Mall/Controller/IndexController.class.php</url>
+          <line>96</line>
+          <option name="timeStamp" value="77" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/html/mobile/search/search-shaixuan.html</url>
+          <line>16</line>
+          <option name="timeStamp" value="81" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/html/mobile/detail-page1.html</url>
+          <line>795</line>
+          <option name="timeStamp" value="86" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="88" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/html/mobile/dai-evaluate/pingjia/dai-tuihuo-fail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1451">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/mobile/dai-fukuan/dai-fukuan.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4925">
+          <caret line="197" column="10" selection-start-line="197" selection-start-column="10" selection-end-line="197" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/runtime/Logs/Mall/16_08_22.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="2087" column="11" selection-start-line="2087" selection-start-column="5" selection-end-line="2087" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/mobile/favorite-stores/fs-customFactory.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1025">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/mobile/shop-xiangqiye/shop-sousuo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5713">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="868" column="9" selection-start-line="868" selection-start-column="9" selection-end-line="868" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/mobile/favorite-stores/fs-officialShop.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-25">
+          <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="90" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/mobile/my-order.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="543">
+          <caret line="1082" column="16" selection-start-line="1082" selection-start-column="16" selection-end-line="1082" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/mobile/dai-evaluate/pingjia/dai-tuikuan-tuihuo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="95" column="27" selection-start-line="95" selection-start-column="27" selection-end-line="95" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/mobile/detail-page1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="20" column="51" selection-start-line="20" selection-start-column="51" selection-end-line="20" selection-end-column="51" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <marker date="1472637353118" expanded="true" signature="20587:20874" placeholder="..." />
+            <marker date="1472637353118" expanded="true" signature="20630:20764" placeholder="..." />
+            <marker date="1472637353118" expanded="true" signature="21410:21667" placeholder="..." />
+            <marker date="1472637353118" expanded="true" signature="21860:22146" placeholder="..." />
+            <marker date="1472637353118" expanded="true" signature="21910:21994" placeholder="..." />
+            <marker date="1472637353118" expanded="true" signature="22046:22098" placeholder="..." />
+            <marker date="1472637353118" expanded="true" signature="22387:22489" placeholder="..." />
+            <marker date="1472637353118" expanded="true" signature="22707:22746" placeholder="..." />
+            <marker date="1472637353118" expanded="true" signature="22707:22777" placeholder="..." />
+            <marker date="1472637353118" expanded="true" signature="22707:22796" placeholder="..." />
+            <marker date="1472637353118" expanded="true" signature="22847:22859" placeholder="..." />
+            <marker date="1472637353118" expanded="true" signature="22847:22914" placeholder="..." />
+            <marker date="1472637353118" expanded="true" signature="22847:22929" placeholder="..." />
+            <marker date="1472637353118" expanded="true" signature="28739:29234" placeholder="..." />
+            <marker date="1472637353118" expanded="true" signature="28792:29228" placeholder="..." />
+            <marker date="1472637353118" expanded="true" signature="30217:30430" placeholder="..." />
+            <marker date="1472637353118" expanded="true" signature="30257:30418" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/mobile/shop-cart/confirm-order.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="223" column="0" selection-start-line="223" selection-start-column="0" selection-end-line="226" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/mobile/shop-cart/shop-cart-edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="387" column="46" selection-start-line="387" selection-start-column="46" selection-end-line="387" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/mobile/css/global.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/mobile/css/personal.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="204" column="0" selection-start-line="204" selection-start-column="0" selection-end-line="204" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/mobile/css/shop-cart-edit.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="124" column="0" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/mobile/css/shop-fenlei.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="124" column="41" selection-start-line="124" selection-start-column="41" selection-end-line="124" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/mobile/js/jquerty-moveDelete.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="9" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/mobile/favorite-stores/fs-tongren.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="760">
+          <caret line="330" column="40" selection-start-line="330" selection-start-column="40" selection-end-line="330" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/mobile/shouhuo-dizhi/Receipt-dizhi.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-225">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/mobile/shouhuo-dizhi/guanli-shouhuo-dz.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="330" column="13" selection-start-line="330" selection-start-column="13" selection-end-line="330" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/mobile/js/miao-Dialog.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="539">
+          <caret line="99" column="40" selection-start-line="99" selection-start-column="40" selection-end-line="99" selection-end-column="40" />
+          <folding>
+            <marker date="1472442734382" expanded="true" signature="2515:2638" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/Common/Conf/config.php.mine" />
+    <entry file="file://$PROJECT_DIR$/application/Common/Conf/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/json.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="90" column="3" selection-start-line="90" selection-start-column="3" selection-end-line="90" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/Common/Conf/debug.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/mobile/plugin/plupload.full.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="1757" column="137" selection-start-line="1757" selection-start-column="125" selection-end-line="1757" selection-end-column="137" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/ueditor/third-party/webuploader/webuploader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="1436" column="12" selection-start-line="1436" selection-start-column="12" selection-end-line="1436" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/mobile/personal-information.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2825">
+          <caret line="113" column="24" selection-start-line="113" selection-start-column="24" selection-end-line="113" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="22" column="32" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/mobile/personal-feedback.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2575">
+          <caret line="103" column="9" selection-start-line="103" selection-start-column="9" selection-end-line="103" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/simplebootx/Public/head.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/simplebootx/Public/nav.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="422">
+          <caret line="70" column="18" selection-start-line="70" selection-start-column="18" selection-end-line="70" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/expo/H&amp;&amp;F.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="20" column="11" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/mobile/hot_renqiben.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="78" column="33" selection-start-line="78" selection-start-column="33" selection-end-line="78" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/mobile/personal-access.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="130" column="13" selection-start-line="130" selection-start-column="13" selection-end-line="130" selection-end-column="13" />
+          <folding>
+            <marker date="1472193796079" expanded="true" signature="5268:5663" placeholder="..." />
+            <marker date="1472193796079" expanded="true" signature="5268:5700" placeholder="..." />
+            <marker date="1472193796079" expanded="true" signature="5268:5736" placeholder="..." />
+            <marker date="1472193796079" expanded="true" signature="5268:5748" placeholder="..." />
+            <marker date="1472193796079" expanded="true" signature="5268:5749" placeholder="..." />
+            <marker date="1472193796079" expanded="true" signature="5308:5663" placeholder="..." />
+            <marker date="1472193796079" expanded="true" signature="5340:5359" placeholder="..." />
+            <marker date="1472193796079" expanded="true" signature="5340:5392" placeholder="..." />
+            <marker date="1472193796079" expanded="true" signature="5425:5459" placeholder="..." />
+            <marker date="1472193796079" expanded="true" signature="5425:5473" placeholder="..." />
+            <marker date="1472193796079" expanded="true" signature="5425:5601" placeholder="..." />
+            <marker date="1472193796079" expanded="true" signature="5425:5619" placeholder="..." />
+            <marker date="1472193796079" expanded="true" signature="5799:5800" placeholder="..." />
+            <marker date="1472193796079" expanded="true" signature="5799:5814" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/mobile/history.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="74" column="10" selection-start-line="74" selection-start-column="10" selection-end-line="74" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/mobile/js/filter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="500" column="21" selection-start-line="500" selection-start-column="21" selection-end-line="500" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/simplebootx/Public/lib/jquery/1.9.1/jquery.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="2147" column="4" selection-start-line="2147" selection-start-column="4" selection-end-line="2147" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../mallbuilder/script/qj.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="3591" column="11" selection-start-line="3591" selection-start-column="11" selection-end-line="3591" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/mobile/main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="566" column="11" selection-start-line="566" selection-start-column="11" selection-end-line="566" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/mobile/search/dingzhichang.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3450">
+          <caret line="138" column="13" selection-start-line="138" selection-start-column="13" selection-end-line="138" selection-end-column="13" />
+          <folding>
+            <marker date="1472693531689" expanded="true" signature="4287:4599" placeholder="..." />
+            <marker date="1472693531689" expanded="true" signature="4346:4586" placeholder="..." />
+            <marker date="1472693531689" expanded="true" signature="4456:4574" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/mobile/shangye-yinshua.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1175">
+          <caret line="47" column="19" selection-start-line="47" selection-start-column="19" selection-end-line="47" selection-end-column="19" />
+          <folding>
+            <marker date="1472698901255" expanded="true" signature="1419:2114" placeholder="{...}" />
+            <marker date="1472698901255" expanded="true" signature="1505:1792" placeholder="{...}" />
+            <marker date="1472698901255" expanded="true" signature="1655:1733" placeholder="{...}" />
+            <marker date="1472698901255" expanded="true" signature="1812:2098" placeholder="{...}" />
+            <marker date="1472698901255" expanded="true" signature="1962:2040" placeholder="{...}" />
+            <marker date="1472698901255" expanded="true" signature="9126:9554" placeholder="..." />
+            <marker date="1472698901255" expanded="true" signature="9202:9523" placeholder="..." />
+            <marker date="1472698901255" expanded="true" signature="9240:9488" placeholder="..." />
+            <marker date="1472698901255" expanded="true" signature="9307:9449" placeholder="..." />
+            <marker date="1472698901255" expanded="true" signature="10321:10509" placeholder="..." />
+            <marker date="1472698901255" expanded="true" signature="10376:10482" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/mobile/css/public.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48800">
+          <caret line="1952" column="5" selection-start-line="1952" selection-start-column="5" selection-end-line="1952" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/mobile/plugin/iscroll.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="533">
+          <caret line="1075" column="0" selection-start-line="1075" selection-start-column="0" selection-end-line="1075" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/mobile/sousuo-index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="228" column="9" selection-start-line="228" selection-start-column="9" selection-end-line="228" selection-end-column="9" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#section#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#section#2;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#section#3;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1472694856925" expanded="true" signature="9032:9100" placeholder="..." />
+            <marker date="1472694856925" expanded="true" signature="9032:9537" placeholder="..." />
+            <marker date="1472694856925" expanded="true" signature="9110:9505" placeholder="..." />
+            <marker date="1472694856925" expanded="true" signature="9270:9333" placeholder="..." />
+            <marker date="1472694856925" expanded="true" signature="9270:9471" placeholder="..." />
+            <marker date="1472694856925" expanded="true" signature="9879:11147" placeholder="..." />
+            <marker date="1472694856925" expanded="true" signature="9941:10515" placeholder="..." />
+            <marker date="1472694856925" expanded="true" signature="9941:10987" placeholder="..." />
+            <marker date="1472694856925" expanded="true" signature="9941:11020" placeholder="..." />
+            <marker date="1472694856925" expanded="true" signature="9998:10162" placeholder="..." />
+            <marker date="1472694856925" expanded="true" signature="10220:10515" placeholder="..." />
+            <marker date="1472694856925" expanded="true" signature="11082:11147" placeholder="..." />
+            <marker date="1472694856925" expanded="true" signature="11797:12103" placeholder="..." />
+            <marker date="1472694856925" expanded="true" signature="11856:12103" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/mobile/shangye_xiangqi.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="872">
+          <caret line="257" column="17" selection-start-line="257" selection-start-column="17" selection-end-line="260" selection-end-column="21" />
+          <folding>
+            <marker date="1472696023244" expanded="true" signature="12229:12554" placeholder="..." />
+            <marker date="1472696023244" expanded="true" signature="12262:12549" placeholder="..." />
+            <marker date="1472696023244" expanded="true" signature="12438:12502" placeholder="..." />
+            <marker date="1472696023244" expanded="true" signature="14977:15023" placeholder="..." />
+            <marker date="1472696023244" expanded="true" signature="15136:15620" placeholder="..." />
+            <marker date="1472696023244" expanded="true" signature="15343:15499" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/mobile/search/shangyedian.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="224" column="71" selection-start-line="224" selection-start-column="63" selection-end-line="224" selection-end-column="71" />
+          <folding>
+            <marker date="1472697945810" expanded="true" signature="7822:8227" placeholder="..." />
+            <marker date="1472697945810" expanded="true" signature="7862:8227" placeholder="..." />
+            <marker date="1472697945810" expanded="true" signature="7894:8008" placeholder="..." />
+            <marker date="1472697945810" expanded="true" signature="8041:8227" placeholder="..." />
+            <marker date="1472697945810" expanded="true" signature="8540:8580" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/mobile/css/detail.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="269" column="0" selection-start-line="269" selection-start-column="0" selection-end-line="269" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/Mall/Controller/IndexController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-209">
+          <caret line="2485" column="38" selection-start-line="2485" selection-start-column="38" selection-end-line="2485" selection-end-column="38" />
+          <folding>
+            <marker date="1472719883387" expanded="true" signature="17179:17419" placeholder="select count... mallbuilder_product_comment" />
+            <marker date="1472719883387" expanded="true" signature="30972:31059" placeholder="..." />
+            <marker date="1472719883387" expanded="true" signature="32343:32554" placeholder="select a.use... mallbuilder_shop" />
+            <marker date="1472719883387" expanded="true" signature="32760:32961" placeholder="select a.id,... mallbuilder_product" />
+            <marker date="1472719883387" expanded="true" signature="32760:32991" placeholder="select a.id,... mallbuilder_product" />
+            <marker date="1472719883387" expanded="true" signature="32852:32940" placeholder="select count... mallbuilder_product" />
+            <marker date="1472719883387" expanded="true" signature="40953:41024" placeholder="..." />
+            <marker date="1472719883387" expanded="true" signature="41436:41867" placeholder="INSERT INTO mallbuilder_product_order... " />
+            <marker date="1472719883387" expanded="true" signature="41890:42139" placeholder="INSERT INTO mallbuilder_product_order_pro... " />
+            <marker date="1472719883387" expanded="true" signature="42165:42208" placeholder="UPDATE mallb... " />
+            <marker date="1472719883387" expanded="true" signature="42239:42290" placeholder="UPDATE mallb... " />
+            <marker date="1472719883387" expanded="true" signature="57308:57544" placeholder="select a.id,... mallbuilder_product" />
+            <marker date="1472719883387" expanded="true" signature="57416:57488" placeholder="select count... mallbuilder_product" />
+            <marker date="1472719883387" expanded="true" signature="60569:60693" placeholder="select * fro... mallbuilder_logistics_temp_con" />
+            <marker date="1472719883387" expanded="true" signature="60963:61082" placeholder="select * fro... mallbuilder_logistics_temp_con" />
+            <marker date="1472719883387" expanded="true" signature="61572:61699" placeholder="select * fro... mallbuilder_logistics_temp_con" />
+            <marker date="1472719883387" expanded="true" signature="61820:61942" placeholder="select * fro... mallbuilder_logistics_temp_con" />
+            <marker date="1472719883387" expanded="true" signature="62433:62556" placeholder="select * fro... mallbuilder_logistics_temp_con" />
+            <marker date="1472719883387" expanded="true" signature="62677:62795" placeholder="select * fro... mallbuilder_logistics_temp_con" />
+            <marker date="1472719883387" expanded="true" signature="67581:67705" placeholder="select count... " />
+            <marker date="1472719883387" expanded="true" signature="67719:67871" placeholder="select count... " />
+            <marker date="1472719883387" expanded="true" signature="67890:68568" placeholder="select sum(c... mallbuilder_product_order" />
+            <marker date="1472719883387" expanded="true" signature="76500:76700" placeholder="select * fro... mallbuilder_product" />
+            <marker date="1472719883387" expanded="true" signature="76500:76706" placeholder="select * fro... mallbuilder_product_order" />
+            <marker date="1472719883387" expanded="true" signature="76500:76712" placeholder="select sum(c... " />
+            <marker date="1472719883387" expanded="true" signature="76500:76722" placeholder="select sum(c... " />
+            <marker date="1472719883387" expanded="true" signature="76500:76731" placeholder="select sum(c... mallbuilder_product_order" />
+            <marker date="1472719883387" expanded="true" signature="76754:76912" placeholder="select * fro... mallbuilder_product_order" />
+            <marker date="1472719883387" expanded="true" signature="76754:76930" placeholder="select * fro... mallbuilder_product_order" />
+            <marker date="1472719883387" expanded="true" signature="76754:76938" placeholder="select * fro... mallbuilder_product_order" />
+            <marker date="1472719883387" expanded="true" signature="76754:76948" placeholder="select * fro... mallbuilder_product_order" />
+            <marker date="1472719883387" expanded="true" signature="76754:76953" placeholder="select * fro... mallbuilder_product_comment" />
+            <marker date="1472719883387" expanded="true" signature="76754:76995" placeholder="select * fro... mallbuilder_product_comment" />
+            <marker date="1472719883387" expanded="true" signature="76754:76997" placeholder="select c.id mallbuilder_product_comment" />
+            <marker date="1472719883387" expanded="true" signature="84811:85047" placeholder="select count... mallbuilder_product_comment" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/mobile/loveOrKind.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="788" column="43" selection-start-line="788" selection-start-column="43" selection-end-line="788" selection-end-column="43" />
+          <folding>
+            <element signature="n#style#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#section#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#section#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#section#1;n#section#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <marker date="1472720708854" expanded="true" signature="13103:13590" placeholder="..." />
+            <marker date="1472720708854" expanded="true" signature="13170:13555" placeholder="..." />
+            <marker date="1472720708854" expanded="true" signature="13669:14228" placeholder="..." />
+            <marker date="1472720708854" expanded="true" signature="13736:14193" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

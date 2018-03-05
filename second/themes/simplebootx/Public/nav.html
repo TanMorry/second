@@ -1,0 +1,124 @@
+<head>
+<title>同人瞄</title>
+<META name="keywords" content="动漫,同人,影视,同人瞄,展会,漫展,周边,衍生,本子,社团,动漫展,同人展,活动,日韩,欧美,腐,BL,耽美,COS,COSPLAY,动画,漫画,插画,魔都,上海"/>
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="shortcut icon" href="__TMPL__Public/images/systemHead/login.png"/>
+	<link href="__TMPL__Public/css/global.css" rel="stylesheet" type="text/css">
+<link href="__TMPL__Public/css/layout.css" rel="stylesheet" type="text/css">
+
+<script src="__TMPL__Public/js/jquery.min.js"></script>
+<script src="__TMPL__Public/js/expo.public.js"></script>
+
+<script type="text/javascript">
+	$().ready(function() {
+		$('.hd-nav-cut').mouseenter(function(event) {
+			$(this).addClass('fixed');
+		});
+		$('.hd-nav-cut').mouseleave(function(event) {
+			$(this).removeClass('fixed');
+		});
+	});
+</script>
+</head>
+<body>
+<div class="M_Header">
+		<div class="hd-bg">
+			<p class="hd-pink"></p>
+		</div>
+		<div class="hd-index M_Center">
+			<div class="hd-main">
+				<ul class="float-center">
+					<li class="hd-m-btn "><a href="http://weibo.com/u/5894274161?topnav=1&wvr=6&topsug=1&is_hot=1">官方微博</a></li>
+					<li class="hd-m-btn"><a href="#">社团铺</a></li>
+					<!--<a href="http://mall.tongrenmiao.com">-->
+					<li class="hd-m-logo"></li>
+					<li class="hd-m-btn"><a href="#">我的</a></li>
+					<li class="hd-m-btn fixed" ><a href="{:U('xq/index/index')}">同人闲情</a></li>
+				</ul>
+			</div>
+
+			<!--**************************************************
+				**************************************************
+				**************************************************
+					取消未登录的注释后已登录UI会叠在未登录之上
+				**************************************************
+				**************************************************
+			    **************************************************-->
+
+			<!-- 未登录start -->
+			<php>if(!isset($_SESSION["user"])){</php>
+			<div class="hd-nav-r">
+				<!--<ul class="hd-nav-not">-->
+					<!--<li><a href="{:U('user/login/index')}">登录</a></li>-->
+					<!--<li><a href="{:U('user/register/index')}">注册</a></li>-->
+				<!--</ul>-->
+			</div>
+
+			<!-- 未登录end -->
+			<php>}else{</php>
+
+			<!-- 已登录start -->
+			<div class="hd-nav-l">
+				<ul class="hd-nav-exit">
+					<li><img src="{:sp_get_user_avatar_url($_SESSION["user"]['avatar'])}"></li>
+					<li><a href="#">{$_SESSION["user"]['user_nicename']}</a></li>
+					<li><a href="{:U('user/index/logout')}">退出</a></li>
+				</ul>
+			</div>
+			<div class="hd-nav-r">
+				<ul class="hd-nav-info">
+					<li class="hd-nav-msg"><a href="#">站内信<b>99</b></a></li>
+					<li class="hd-nav-cut">
+						<a href="#"><i></i>剁手12件</a>
+						<!-- 购物车  -->
+						<div class="hd-cart">
+							<ul>
+								<li class="clearfix">
+									<div class="hd-item-l">
+										<p class="hd-item-name"><a href="#">动感单车家用超静音</a></p>
+										<p class="hd-item-money">￥51811.00</p>
+									</div>
+									<div class="hd-item-r">
+										<img src="images/artwork-box-1.jpg" alt="" />
+									</div>
+								</li>
+								<li class="clearfix">
+									<div class="hd-item-l">
+										<p class="hd-item-name"><a href="#">标题不能太长会显示不出来哒</a></p>
+										<p class="hd-item-money">￥5800.00</p>
+									</div>
+									<div class="hd-item-r">
+										<img src="images/artwork-box-2.jpg" alt="" />
+									</div>
+								</li>
+								<li class="clearfix">
+									<div class="hd-item-l">
+										<p class="hd-item-name"><a href="#">野生奥特曼</a></p>
+										<p class="hd-item-money">￥158.00</p>
+									</div>
+									<div class="hd-item-r">
+										<img src="images/artwork-box-3.jpg" alt="" />
+									</div>
+								</li>
+								<li class="clearfix">
+									<div class="hd-item-l">
+										<p class="hd-item-name"><a href="#">动感光波发射器</a></p>
+										<p class="hd-item-money">￥9958.00</p>
+									</div>
+									<div class="hd-item-r">
+										<a href="#"><img src="images/artwork-box-1.jpg" alt="" /></a>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<!-- 已登录end -->
+			<php>}</php>
+		</div>
+	</div>

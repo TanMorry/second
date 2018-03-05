@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="format-detection" content="telephone=no"/>
+<title>喵</title>
+<link href="../css/global.css" rel="stylesheet" type="text/css">
+<link href="../css/public.css" rel="stylesheet" type="text/css">
+<link type="text/css"  rel="stylesheet" href="../css/shop-cart-edit.css">
+<style type="text/css"></style>
+<script src="../js/jquery-2.2.4.min.js"></script>
+<script src="../js/miao-Dialog.js"></script>
+
+<script>
+$().ready(function(){
+
+    $('.commodity').on('touchend', '.commodity-l-btn', function(event){
+        $(this).toggleClass('true');
+        if( $(this).hasClass('true') )
+            $(this).parents('.content-list').find('.content-choice').find('.commodity-l-btn').addClass('true');
+        else
+            $(this).parents('.content-list').find('.content-choice').find('.commodity-l-btn').removeClass('true');
+
+        var isCheck = true;
+        $('.commodity').find('.commodity-l-btn').each(function(){
+            if( !$(this).hasClass('true') ){
+                isCheck = false;
+            }
+        });
+
+    });
+    $('.content-choice').on('touchend', '.commodity-l-btn', function(event){
+        var isCheck = true;
+        $(this).toggleClass('true');
+        $(this).parents('.content-list').find('.content-choice').find('.commodity-l-btn').each(function(){
+            if( !$(this).hasClass('true') ){
+                isCheck = false;
+            }
+        });
+        isCheck ? $(this).parents('.content-list').find('.commodity').find('.commodity-l-btn').addClass('true') : $(this).parents('.content-top').find('.commodity').find('.commodity-l-btn').removeClass('true');
+
+        var isCheckAll = true;
+        $('.content-choice').find('.commodity-l-btn').each(function(){
+            if( !$(this).hasClass('true') ){
+                isCheckAll = false;
+            }
+        });
+    });
+    
+    /*删除*/
+	var phone = $('#cpp').MiaoDialog();
+	$('.cancel').on('click',  function(event) {
+		phone.MiaoDialog('open');
+		setTimeout(function(){
+			phone.MiaoDialog('close');
+		},1400);
+	});
+//	$('.miao-shade').on('click',function(event) {
+//		phone.MiaoDialog('close');
+//	});
+
+})
+</script>
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex">
+    <section class="header">
+        <div class="header-bg normal">
+            <div class="header-l"><a href="#"></a></div>
+            <div class="header-c header-dz new-dz">我 的 订 单</div>
+        </div>
+        <div class="header-nav">
+            <div>全部订单</div>
+            <div class="content-nav-btn">待付款</div>
+            <div>待发货</div>
+            <div>待收货</div>
+            <div>待评价</div>
+        </div>
+    </section>
+    <!-- 主体 -->
+    <section class="content flex content-cancel">
+        <div class="content-list">
+                <div class="commodity content-top">
+                    <div class="commodity-l">
+                        <div class="commodity-l-btn">
+                            <div class=""></div>
+                        </div>
+                        <p class="commodity-l-p">
+                            <span>社团第三空间</span>
+                            <img src="../img/you-iocn.png">
+                        </p>
+                    </div>
+                    <div class="commodity-t" >
+                        <span>待付款</span>
+                    </div>
+                </div>
+
+                <div class="content-choice clearfix border">
+                    <div class="commodity-l-btn content-choice-l " >
+                        <div></div>
+                    </div>
+                    <div class="content-choice-c">
+                        <p><img src="../img/touxiang.png"></p>
+                    </div>
+                    <div class="content-choice-w">
+                        <p class="choice-w-one content-choice-p">世界与世界的游戏</p>
+                        <p class="choice-w-two content-choice-p">原著：伪装者</p>
+                        <p class="choice-w-three">
+                           <span>￥6.00</span>
+                        </p>
+                    </div>
+                    <div class="commodity-r commodity-r-money">
+                        <i >X 1</i>
+                    </div>
+                </div>
+                <div class="content-choice clearfix border">
+                    <div class="commodity-l-btn content-choice-l " >
+                        <div></div>
+                    </div>
+                    <div class="content-choice-c">
+                        <p><img src="../img/touxiang.png"></p>
+                    </div>
+                    <div class="content-choice-w">
+                        <p class="choice-w-one content-choice-p">世界与世界的游戏</p>
+                        <p class="choice-w-two content-choice-p">原著：伪装者</p>
+                        <p class="choice-w-three">
+                            <span>￥6.00</span>
+                        </p>
+                    </div>
+                    <div class="commodity-r commodity-r-money">
+                        <i>X 1</i>
+                    </div>
+                </div>
+                <div class="content-xixnxi content-shop content-xixnxi-border ">共<span>1</span>件商品 合计￥<span>70.00</span> （含运费￥6.00）</div>
+                <div class="content-xixnxi clearfix  content-xixnxi-border2">
+                    <p >
+                        <a href="#">联系卖家</a>
+                        <a href="#" class="cancel">取消订单</a>
+                        <a href="#" class="more-color">待付款</a>
+                    </p>
+                </div>
+            </div>
+        <div class="content-list">
+            <div class="commodity content-top">
+                <div class="commodity-l">
+                    <div class="commodity-l-btn">
+                        <div class=""></div>
+                    </div>
+                    <p class="commodity-l-p">
+                        <span>社团第三空间</span>
+                        <img src="../img/you-iocn.png">
+                    </p>
+                </div>
+                <div class="commodity-t" >
+                    <span>待付款</span>
+                </div>
+            </div>
+            <div class="content-choice clearfix border">
+                <div class="commodity-l-btn content-choice-l " >
+                    <div></div>
+                </div>
+                <div class="content-choice-c">
+                    <p><img src="../img/touxiang.png"></p>
+                </div>
+                <div class="content-choice-w">
+                    <p class="choice-w-one content-choice-p">世界与世界的游戏</p>
+                    <p class="choice-w-two content-choice-p">原著：伪装者</p>
+                    <p class="choice-w-three">
+                        <span>￥6.00</span>
+                    </p>
+                </div>
+                <div class="commodity-r commodity-r-money">
+                    <i>X 1</i>
+                </div>
+            </div>
+            <div class="content-xixnxi content-shop content-xixnxi-border ">共<span>1</span>件商品 合计￥<span>70.00</span> （含运费￥6.00）</div>
+            <div class="content-xixnxi clearfix content-xixnxi-border2">
+                <p >
+                    <a href="#">联系卖家</a>
+                    <a href="#" class="cancel">取消订单</a>
+                    <a href="#" class="more-color">待付款</a>
+                </p>
+            </div>
+           </div>
+    </section>
+    <section class="footer">
+    </section>
+    <div class="confirm-pop-ups font3" id="cpp">
+		<p>取消订单成功</p>
+	</div>
+</section>
+</body>
+</html>

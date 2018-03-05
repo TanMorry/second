@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="format-detection" content="telephone=no"/>
+<title>喵</title>
+<link href="../css/global.css" rel="stylesheet" type="text/css">
+<link href="../css/public.css" rel="stylesheet" type="text/css">
+<link href="../css/shop-fenlei.css" rel="stylesheet" type="text/css">
+<link href="../css/personal.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+</style>
+
+<script src="../js/jquery-2.2.4.min.js"></script>
+<script src="../js/miao-Dialog.js"></script>
+<script>
+$().ready(function(){
+    /*提交申请*/
+	var phone = $('#cpp').MiaoDialog();
+	var phone2 = $('#cpp2').MiaoDialog();
+	$('.footer-btn').on('click', function(event) {
+		if( isEmpty( $('.content').find('.pf-text-lr').eq(0).find('input').val() ) ){
+			phone2.MiaoDialog('open'); 
+			$('#cpp2').find('p').text('未填写 姓名');
+			setTimeout(function(){
+				phone2.MiaoDialog('close'); 
+			},1400);
+		}
+		else if( len(   $('.content').find('.pf-text-lr').eq(0).find('input').val() ) > 14 ){
+			phone2.MiaoDialog('open'); 
+			$('#cpp2').find('p').text('姓名 超出限定字数');
+			setTimeout(function(){
+				phone2.MiaoDialog('close'); 
+			},1400);
+		}
+		else if( isEmpty( $('.content').find('.pf-text-lr').eq(1).find('input').val() ) ){
+			phone2.MiaoDialog('open'); 
+			$('#cpp2').find('p').text('未填写 手机');
+			setTimeout(function(){
+				phone2.MiaoDialog('close'); 
+			},1400);
+		}
+		else if( isNaN(   $('.content').find('.pf-text-lr').eq(1).find('input').val() )  ){
+			phone2.MiaoDialog('open'); 
+			$('#cpp2').find('p').text('手机 只能填写数字');
+			setTimeout(function(){
+				phone2.MiaoDialog('close'); 
+			},1400);
+		}
+		else if( len(   $('.content').find('.pf-text-lr').eq(1).find('input').val() ) > 11 ){
+			phone2.MiaoDialog('open'); 
+			$('#cpp2').find('p').text('手机 超出限定字数');
+			setTimeout(function(){
+				phone2.MiaoDialog('close'); 
+			},1400);
+		}
+		else if( isEmpty( $('.content').find('.pf-text-lr').eq(2).find('input').val() ) ){
+			phone2.MiaoDialog('open'); 
+			$('#cpp2').find('p').text('未填写 联系QQ');
+			setTimeout(function(){
+				phone2.MiaoDialog('close'); 
+			},1400);
+		}
+		else if( isNaN(   $('.content').find('.pf-text-lr').eq(2).find('input').val() )  ){
+			phone2.MiaoDialog('open'); 
+			$('#cpp2').find('p').text('联系QQ 只能填写数字');
+			setTimeout(function(){
+				phone2.MiaoDialog('close'); 
+			},1400);
+		}
+		else if( len(   $('.content').find('.pf-text-lr').eq(2).find('input').val() ) > 12 ){
+			phone2.MiaoDialog('open'); 
+			$('#cpp2').find('p').text('联系QQ 超出限定字数');
+			setTimeout(function(){
+				phone2.MiaoDialog('close'); 
+			},1400);
+		}
+		else if( isEmpty( $('.content').find('.pf-text-lr').eq(3).find('textarea').val() ) ){
+			phone2.MiaoDialog('open'); 
+			$('#cpp2').find('p').text('未填写 申诉理由');
+			setTimeout(function(){
+				phone2.MiaoDialog('close'); 
+			},1400);
+		}
+		else if( len(   $('.content').find('.pf-text-lr').eq(3).find('textarea').val() ) > 400 ){
+			phone2.MiaoDialog('open'); 
+			$('#cpp2').find('p').text('申诉理由 超出限定字数');
+			setTimeout(function(){
+				phone2.MiaoDialog('close'); 
+			},1400);
+		}
+		else{
+			phone.MiaoDialog('open');
+		}
+//		console.log(  $('.content').find('.pf-text-lr').eq(0).find('input').val().length );
+//		console.log(   $('.content').find('.pf-text-lr').eq(1).find('input').val()  );
+	});
+	$('.miao-shade').on('click',function(event) {
+		phone.MiaoDialog('close');
+		phone2.MiaoDialog('close');
+	});
+	
+	function isEmpty(e){
+		if( e == ""  || e == null  || e == undefined  ){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	
+	function len(s) {
+		var l = 0;
+		var a = s.split("");
+		for (var i = 0 ; i < a.length ; i++) {
+			if (a[i].charCodeAt(0)<299) {
+				l ++;
+			} 
+			else {
+				l += 2;
+			}
+		}
+		return l;
+	}
+	
+})
+</script>
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex">
+    <section class="header">
+        <div class="header-bg normal">
+            <div class="header-l"><a href="search/shangyedian.html"></a></div>
+            <div class="header-c header-dz marR">平台申诉</div>
+        </div>
+    </section>
+    <!-- 主体 -->
+    <section class="content flex">
+    	<div class="pf-text-lr">
+    		<i>姓名：</i>
+    		<div class="pf-text-lr-box">
+    			<input type="text" value="" />
+    		</div>
+    	</div>
+    	<div class="pf-text-lr">
+    		<i>手机：</i>
+    		<div class="pf-text-lr-box">
+    			<input type="text" value="" />
+    		</div>
+    	</div>
+    	<div class="pf-text-lr">
+    		<i>联系QQ：</i>
+    		<div class="pf-text-lr-box">
+    			<input type="text" value="" />
+    		</div>
+    	</div>
+    	<div class="pf-text-lr">
+    		<i>申诉理由：</i>
+    		<div class="pf-text-lr-box">
+    			<textarea placeholder="输入不超过200字的说明"></textarea>
+    		</div>
+    	</div>
+        <div class="pf-pic">
+        	<img src="../img/test/item2.jpg" />
+        	<img src="../img/test/item2.jpg" />
+        	<a href="#">上传凭证</br>(最多三张)<input type="file" /></a>
+        </div>
+        
+    </section>
+    <section class="footer">
+        <div class="footer-last footer-btn">
+            <a class="font-size-18" href="#" >提交申请</a>
+        </div>
+    </section>
+    <div class="confirm-pop-ups font4" id="cpp">
+		<p>申诉成功，客服将在24小时之内提供反馈，请耐心等待！</p>
+	</div>
+	<div class="confirm-pop-ups font3" id="cpp2">
+		<p>&nbsp;</p>
+	</div>
+</section>
+</body>
+</html>

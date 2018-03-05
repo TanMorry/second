@@ -1,0 +1,39 @@
+.main .think-bor-l {border-bottom: 3px solid #eb6877;}
+.main .think-bor-r {border-bottom: 3px solid #e5e5e5;}
+.business{
+    padding: 0 0.7rem;
+}
+.business>li{
+    height: 2.5rem;
+    float: left;
+    width: 25%;
+    font-size: 0.92rem;
+    line-height: 2.5rem;
+}
+.business>li a{color:#979595 ;font-weight: bold;}
+.business{position: relative}
+.business .business-bf:after{height:0;width: 0;
+    border:0.2rem solid transparent;
+    border-top-color:#979595;
+    content: "";
+    position: absolute;
+    right:5%;
+    top: 1.2rem;;
+}
+.bus-goods{ border-top: 1px solid #979595;}
+
+.sale-name-color{text-align: left}
+.sale-name-color span{font-size: 0.7rem;color:#c9c9c9;}
+.footer-bottom{display: flex;flex: 3;}
+.footer-bottom>a{display:block;flex: 1;text-align: center;line-height:2.5rem;height: 2.5rem;font-size: 0.9rem}
+.footer-bottom .footer-bottom-bod{border-left:1px solid #FFFFFF;border-right:1px solid #FFFFFF;}
+
+
+
+
+.introduce{padding:1.2rem 0.95rem;}
+.sale-item2,.introduce{border-bottom:0.4rem solid #eaeaea}
+.introduce>p,.sale-item2>p{font-size: 0.9rem;color: #979595;margin-bottom: 1.2rem;text-align: left}
+.internal-bg p img{width: 100% ;margin-bottom:0.7rem;border: 1px solid  #979595;}
+.internal-bg .internal-name{font-size: 0.92rem;text-align: left;color:#b5b5b5;}
+

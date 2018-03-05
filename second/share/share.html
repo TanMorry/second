@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no"/>
+    <title>喵</title>
+    <link href="css/global.css" rel="stylesheet" type="text/css">
+    <link href="css/share.css" rel="stylesheet" type="text/css">
+
+    <style type="text/css"></style>
+    <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="js/obtainArguments.js"></script>
+    <script src="js/jquery-footer.js"></script>
+    <script type="text/javascript"></script>
+</head>
+<body>
+<!-- 首页 -->
+<div id="loading" style="display:none">
+    <img src="../share/img/loading.jpg">
+</div>
+<section class="flex" id="Info">
+    <div class="cover">
+        <div class="cover-div">
+            <p>ios:<a href="https://www.baidu.com/">www.baidu.com</a></p>
+            <p>Android:<a href="https://www.baidu.com/">www.baidu.com</a></p>
+            <p>关闭</p>
+        </div>
+    </div>
+    <section class="header">
+        <div class="header-bg normal">
+            <div class="header-c header-fot" id="headInfo">腐 向 - 完 结</div>
+            <div class="header-r"><a  href="#" class="header-bg-btn"></a></div>
+        </div>
+    </section>
+    <!-- 主体 -->
+
+    <section class="content" >
+        <div class="nav " id="headTitle">
+            <div class="nav-last clearfix">
+                <div class="nav-last-l ">
+                    <a href="#"></a>
+                    <div>
+                        <p>昵称</p>
+                        <p>0楼</p>
+                    </div>
+                 </div>
+                <div class="nav-last-r">
+                    <a href="#">完结</a>
+                </div>
+            </div>
+            <div class="nav-top">
+                <a class="nav-top-p1">【普作】【np1Xxp2】题</a><br>
+                <a href="#" class="nav-top-p2">非粮食</a>
+            </div>
+            <div class="nav-nr">容</div>
+            <div class="nav-first clearfix">
+               <p class="nav-first-l">
+                   <img src="img/icon-l.jpg">
+                   <span>5</span>
+               </p>
+               <p  class="nav-first-r  nav-color">2016-06-23 11:18:23</p>
+            </div>
+        </div>
+        <div id="content">
+            <div class="nav replyBody" >
+            <div class="nav-last clearfix nav-l">
+                <div class="nav-last-l ">
+                    <a href="#"></a>
+                    <div class="nav-last-p">
+                        <p>昵称</p>
+                    </div>
+                </div>
+                <div class="nav-last-r">
+                    <a href="#" class="nav-color">1楼</a>
+                </div>
+            </div>
+            <div class="nav-nr">恢复</div>
+            <div class="nav-lat clearfix">
+                <p class="nav-color nav-first-l">2016-06-23 11:18:23</p>
+                <p class="nav-first-r nav-bottom">
+                    <a href="#" class="nav-bottom-l"></a>
+                    <a href="#" class="nav-bottom-r">回复</a>
+                </p>
+            </div>
+        </div>
+        </div>
+    </section>
+    <section class="footer"  id="footer">
+        <!--<div class="page-top">-->
+            <!--<div class="page-top-div">2楼***昵称 于2016-06-23  11:32:17 留言***</div>-->
+        <!--</div>-->
+        <div class="page horizontal-center">
+            <a class="page-up" href="javascript:" id="page-up" onclick="page(this)" data-val="prev"></a>
+            <i class="auto-width"></i>
+            <input class="page-write" type="text" id="skipPage">
+            <a class="page-go" href="javascript:" id="go" onclick="page(this)" data-val="GO">GO</a>
+            <span class="page-count"><b id="current"></b><i>/</i><b id="totalPage"></b></span>
+            <i class="auto-width"></i>
+            <a class="page-down" href="javascript:" id="page-down" onclick="page(this)" data-val="next"></a>
+            <a class="page-icon" id="reload"></a>
+        </div>
+
+    </section>
+    <section class="footer">
+        <div class="page-bottom">
+            <input type="text" placeholder="说点什么把" readonly="readonly">
+        </div>
+    </section>
+</section>
+</body>
+</html>
+<script>
+    /*--------获取url中的参数---------*/
+    var reqUrl = new Arguments();
+    var param = reqUrl.Request();
+    //获取url上的定位id（动态id）
+    var dw = window.location.href.split('#')[1];
+    /*--------获取url中的参数---------*/
+    var latestUrl;//当前页面的地址，用于刷新当前页
+    var countPage = 1;//总页数
+    var currentPage = param.page?param.page:1;//当前页数
+    $(function()
+    {
+        IndexList()
+        zhezhao();
+    })
+    $("#reload").click(function()
+    {
+        window.location.href = latestUrl;
+    })
+    function IndexList(data,latestPage)
+    {
+        var url = '/tongrenmiao/index.php?g=Xq&m=Index&a=share';
+        if(!data)
+        {
+            var data2 = {};
+                data2['type'] = param.type
+                data2['id'] = param.id
+                data2['page'] = param.page
+        }
+        else
+        {
+            var data2 = data;
+        }
+        $.ajax({
+            url:url,
+            data:data2,
+            type:'get',
+            dataType:'json',
+            beforeSend:function()
+            {
+                $('#loading').show();
+                $('#Info').hide();
+                $('body').css('background','#fff');
+            },
+            success:function(res)
+            {
+                $('#loading').hide();
+                $('#Info').show();
+                if(res.zhuti)
+                {
+                    var headStr = '';
+                    if(res.zhuti.attr == 1)
+                    {
+                        headStr = '大众';
+                    }
+                    else if(res.zhuti.attr == 2)
+                    {
+                        headStr = '腐向';
+                    }
+                    else
+                    {
+                        headStr = '百合';
+                    }
+                    headInfo = headStr+' - '+res.zhuti.tagname;
+                    $("#headInfo").html(headInfo);
+                    if(latestPage)
+                    {
+                        currentPage = latestPage;
+                    }
+                    var str2 = handleReplies(res.reply);
+                    if(currentPage == 1)
+                    {
+                        var str = "";
+                        //替换0楼的内容
+                        str += '<div class="nav-last clearfix" ><div class="nav-last-l "><a href="#"></a> <div><p>'+res.zhuti.nickname+'</p><p>'+res.zhuti.position+'楼</p></div></div>\
+                            <div class="nav-last-r"><a href="#">'+res.zhuti.tagname+'</a></div></div><div class="nav-top">\
+                            <a class="nav-top-p1">'+res.zhuti.newTitle+'</a><br>'
+                        if(res.zhuti.cpname)
+                        {
+                            str += '<a href="#" class="nav-top-p2">'+res.zhuti.cpname+'</a>';
+                        }
+                        str += '</div><div class="nav-nr">'+res.zhuti.content+'</div><div class="nav-first clearfix"><p class="nav-first-l">\
+                            <img src="img/icon-l.jpg"><span>'+res.zhuti.replies+'</span></p><p  class="nav-first-r  nav-color">'+res.zhuti.zhutiDate+'</p></div>'
+                        $("#headTitle").html(str);
+                        $("#headTitle").show();
+                    }
+                    else
+                    {
+                        $("#headTitle").hide();//除第一页外隐藏0楼
+                    }
+                    if(res.pageNum <=1)
+                    {
+                        $("#footer").hide();
+                    }
+                    else
+                    {
+                        $("#footer").show();
+                        $("#totalPage").html(res.pageNum);
+                        countPage = res.pageNum;
+                    }
+                    $("#content").html(str2);
+                    $('#current').html(currentPage);//暂定
+                    showPage();
+                    zhezhao();
+
+                    if(dw)
+                    {
+                        window.location.href = "#"+dw;
+                    }
+
+                }
+                else
+                {
+                    alert('该帖不存在');
+                }
+                latestUrl = reqUrl.LatestUrl()+'?type='+param.type+'&id='+param.id+'&page='+currentPage;
+                $('.content').animate({scrollTop: '0px'},0);
+            },
+            error:function()
+            {
+                $('body').html('请求失败')
+            }
+        })
+    }
+
+    function handleReplies(list)
+    {
+        var str = "";
+            $.each(list,function(k,v){
+                str += '<div class="nav replyBody" ><div class="nav-last clearfix nav-l" id="dw'+v.position+'">\
+                    <div class="nav-last-l "><a href="#"></a><div class="nav-last-p">\
+                    <p>'+v.nickname+'</p></div></div><div class="nav-last-r"><a href="#" class="nav-color">'+v.position+'楼</a></div></div>\
+                    <div class="nav-nr">'+v.content+'</div><div class="nav-lat clearfix"><p class="nav-color nav-first-l">'+v.replyDate+'</p>\
+                    <p class="nav-first-r nav-bottom"><a href="#" class="nav-bottom-l"></a><a href="#" class="nav-bottom-r">回复</a>\
+                    </p></div></div>'
+            })
+        return str;
+    }
+
+    function page(obj)
+    {
+        /*---点击分页用---*/
+        var prev = $(obj).attr('data-val');
+        var next = $(obj).attr('data-val');
+        var go = $(obj).attr('data-val');
+        var skipPage = $("#skipPage").val();
+        /*---点击分页用---*/
+
+        var prevPage = parseInt(currentPage)-1;//上一页
+        var nextPage = parseInt(currentPage)+1;//下一页
+        var data = {};
+        data['type'] = param.type;
+        data['id'] = param.id;
+        if(prev == 'prev')
+        {
+            data['page'] = prevPage;
+            IndexList(data,prevPage);
+        }
+        if(next == 'next')
+        {
+            data['page'] = nextPage;
+            IndexList(data,nextPage);
+        }
+        if(go == 'GO')
+        {
+            if(skipPage == "" || skipPage>countPage)
+            {
+                return false;
+            }
+            else
+            {
+                data['page'] = skipPage;
+                IndexList(data,skipPage);
+            }
+        }
+        if(currentPage <=1)
+        {
+            $("#page-up").addClass('disable');
+            $("#footer").addClass('updisable');
+        }
+        else
+        {
+            $("#page-up").removeClass('disable');
+            $("#footer").removeClass('updisable');
+        }
+    }
+
+    function showPage(){
+        if(currentPage>=countPage)
+        {
+            $("#page-down").addClass('downdisable');
+            $("#footer").addClass('downdisable');
+        }
+        else
+        {
+            $("#page-down").removeClass('disable');
+            $("#footer").removeClass('downdisable');
+        }
+        if(currentPage == 1)
+        {
+            $("#page-up").addClass('disable');
+            $("#footer").addClass('updisable');
+        }
+        else
+        {
+            $("#page-up").removeClass('disable');
+            $("#footer").removeClass('updisable');
+        }
+    }
+
+    function zhezhao()
+    {
+        var btn1 =$('.header-bg-btn');
+        var btn2 =$('.nav-bottom-r');
+        var btn3 =$('.nav-bottom-l');
+        var btn4 =$('.page-bottom>input');
+        btn1.click(function(){
+            $('.cover').addClass('cover-block')
+        });
+        btn2.click(function(){
+            $('.cover').addClass('cover-block')
+        });
+        btn3.click(function(){
+            $('.cover').addClass('cover-block')
+        });
+        btn4.click(function(){
+            $('.cover').addClass('cover-block')
+        });
+
+        $('.cover').click(function(){
+            $(this).removeClass('cover-block')
+        })
+    }
+</script>

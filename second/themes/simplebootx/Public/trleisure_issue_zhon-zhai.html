@@ -1,0 +1,223 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<title>同人闲情-发布帖子-腐</title>
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<link href="css/global.css" rel="stylesheet" type="text/css" />
+<link href="css/advance.css" rel="stylesheet" type="text/css" />
+<link href="css/trxq_wdr.css" rel="stylesheet" type="text/css" />
+<link href="css/dropkick.css" rel="stylesheet" type="text/css" />
+<link href="css/add_article.css" rel="stylesheet" type="text/css" />
+
+<script src="js/jquery.min.js"></script>
+<script src="js/miao-GoTop.js"></script>
+<script src="js/miao-Dialog.js"></script>
+<script src="js/jquery.Rotate.2.2.js"></script>
+<script src="js/jquery.dropkick-min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/add_zhai.js"></script>
+
+<script type="text/javascript">
+
+
+</script>
+
+<style>
+	
+	
+</style>
+
+</head>
+
+<body>
+	<div class="M_Header">
+		<div class="M-H-bg">
+			<p class="M-H-pink"></p>
+			<p class="M-H-beige"></p>
+		</div>
+		<div class="M-H-li">
+			<div class="M_Center clearfix">
+				<ul class="clearfix">
+					<li><a href="#">展会</a></li>
+					<li><a href="#">社团铺</a></li>
+					<li class="M_LOGO"></li>
+					<li><a href="#">我的</a></li>
+					<li class="fixed"><a href="#">同人闲情</a></li>
+				</ul>
+				<div class="M-H-info">
+					<a href="#" type="login">登录</a>
+					<a href="#" type="register">注册</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--上面是页头-->
+	
+	
+	<!--下面是海报三大块-->
+	<div class="wdr_Center">
+		<div class="top_impression"></div>
+		
+		<div class="wdr_Layout trxq-info clearfix">
+		
+			<div class="search_List clearfix">
+				<div class="search_head">同人闲情 > 腐向 > 文库</div>
+				
+				<div class="fabu_zhai clearfix">
+				
+					<table class="release">
+						<tr class="release_z">
+							<td class="release_text">发帖人：</td>
+							<td class="release_middle" colspan="2"> <input type="text" class="poster_input" style="float: left;"> <div class="select_qx" id="nimingdiv" style="float: left;">
+								<label class="select_checkbox" style="margin-top: 5px;"></label>匿名聊天</div></td>
+							<td class="release_right"></td>
+						</tr>
+						<tr>
+							<td class="release_text">状态：</td>
+							<td class="release_middle">
+								<div class="xiala">
+									<select name="country" class="dropkick" tabindex="2">
+										<option>连载</option> 
+										<option>完结</option>
+									</select>
+								</div>
+							</td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td class="release_text">所属原作：</td>
+							<td class="release_middle">
+								<div class="xiala">
+									<select name="country" class="dropkick" tabindex="2" onchange="changeCrossover(this.value)">
+										<option>非Crossover</option> 
+										<option>Crossover</option> 
+									</select>
+								</div>
+								<div class="fei_crossover" id="fei_crossoverDIV"><input type="text" class="release_input" placeholder="原作名称"></div>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr id="crossoverDIV" style="display: none;">
+							<td></td>
+							<td  class="release_middle_1" colspan="3">
+								<div class="fabu_zhai_gengduo_yuanzuo">
+									<div id="yuanzuoDIV">
+										<div class="detail1">
+											<input type="text" class="gong_input">
+											<div class="title">原作1：</div>
+										</div>
+										<div class="detail">
+											<div class="spanDiv">&</div>
+											<input type="text" class="gong_input">
+											<div class="title">原作2：</div>
+										</div>
+									</div>
+									<div class="detail">
+										<a href="#" onclick="addYuanzuo()"><img class="img" src="images/trxq/tianjia_bj.png"></a>
+										<a style="vertical-align: bottom; font-size: 13px;color: #8c8c8c;" href="#" onclick="addYuanzuo()">添加更多原作</a>
+									</div>
+								</div>
+							</td>
+						</tr>
+						
+						<tr>
+							<td class="release_text">角色：</td>
+							<td  class="release_middle" colspan="2">
+								<div class="ss-dd" style="margin-left: -15px;">
+									<ul>
+									<li class="select_qx"><label class="select_checkbox"></label>CP</li>
+									<li class="select_qx"><label class="select_checkbox"></label>无CP</li>
+									</ul>
+								</div>
+								
+							</td>
+							<td></td>
+						</tr>
+						<tr id="CPDetailDIV0" style="display: none;">
+							<td></td>
+							<td class="release_middle" colspan="3">
+								<div class="fabu_zhai_gengduo">
+									<div id="gengduoCpDIV">
+										<p><span class="gong_left">角色名：<input type="text" class="gong_input" /></span> <span class="gong_right">角色名：<input type="text" class="gong_input" /></span></p>
+									</div>
+									<p><a href="javascript:;" id="addCP">添加更多CP</a></p>
+								</div>
+							</td>
+							<td class="release_right"><div class="release_puton">CP</div></td>
+						</tr>
+						<tr id="CPDetailDIV1" style="display: none;">
+							<td></td>
+							<td class="release_middle" colspan="2">
+								<div class="fabu_zhai_gengduo">
+									<div class="fabu_zhai_gengduo_np">
+										<div id="gengduoNpShouDIV">
+												<div class="detail"><span class="gong_right">角色名：<input type="text" class="gong_input" /></span></div>
+												<div class="detail"><span class="gong_right">角色名：<input type="text" class="gong_input" /></span></div>
+										</div>
+										<div class="detail"><a href="javascript:;" id="addCPRole">添加更多角色</a></div>
+									</div>
+								</div>
+							</td>
+							<td class="release_right"><div class="release_puton">无CP</div></td>
+						</tr>
+						<tr>
+							<td class="release_text" style="line-height: 35px;">TAG：</td>
+							<td  class="release_middle_1" colspan="3">
+								<div class="ss-dd">
+									<ul id="TAGDetailDIV">
+									<li class="select_qx1"><label class="select_checkbox"></label>普通CP</li>
+									<li class="select_qx1"><label class="select_checkbox"></label>普通CP</li>
+									<li class="select_qx1"><label class="select_checkbox"></label>普通CP</li>
+									<li class="select_qx1"><label class="select_checkbox"></label>普通CP</li>
+									<li class="select_qx1"><label class="select_checkbox"></label>普通CP</li>
+									<li class="select_qx1"><label class="select_checkbox"></label>普通CP</li>
+									</ul>
+								</div>
+								
+								<div class="ss-dd-add">
+									<input type="text" id="addTAGInput" /><button id="addTAG">添加</button>
+								</div>
+							</td>
+						</tr>
+						
+						
+						<tr class="release_z">
+							<td class="release_text">文章：</td>
+							<td class="release_middle" colspan="2"> <input type="text" class="poster_input"></td>
+							<td class="release_right"></td>
+						</tr>
+						<tr class="release_z">
+							<td class="release_text">内容：</td>
+							<td class="release_middle" colspan="2"> <textarea class="release_dh">～</textarea></td>
+							<td class="release_right"></td>
+						</tr>
+						
+						<tr>
+							<td></td>
+							<td><a href='#' class='className_fb'>发布</a></td>
+							<td></td>
+							<td></td>
+						</tr>
+						
+					</table>
+				</div>
+			
+			<!--表格-->
+				
+			</div>
+			
+		</div>
+		
+		
+			
+			
+	</div>
+	<a class="M_GoTop" href="javascript:;"></a>
+</body>
+</html>

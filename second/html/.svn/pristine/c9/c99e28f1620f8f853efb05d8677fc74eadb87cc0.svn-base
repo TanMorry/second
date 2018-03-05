@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="format-detection" content="telephone=no"/>
+<title>喵</title>
+<link href="css/global.css" rel="stylesheet" type="text/css">
+<link href="css/public.css" rel="stylesheet" type="text/css">
+<link href="plugin/swiper.css" rel="stylesheet" type="text/css">
+<link href="plugin/pullToRefresh.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+
+</style>
+<script src="js/jquery-2.2.4.min.js"></script>
+<script src="plugin/swiper.jquery.min.js"></script>
+<script src="plugin/iscroll.js"></script>
+<script src="plugin/pullToRefresh.js"></script>
+<script src="js/getUserInfo.js"></script>
+
+<script type="text/javascript">
+
+	$(document).ready(function(){
+		var mySwiper = new Swiper('.swiper-container', {
+			autoplay: 2000,
+			speed: 500,
+			autoplayDisableOnInteraction: false,
+			autoHeight: true,
+			loop: true,
+			pagination : '.swiper-pagination',
+		});
+
+		var mySwiper = new Swiper('.top',{
+			pagination: '.top-one',
+			paginationClickable: true,
+			paginationBulletRender: function (index, className) {
+				switch (index) {
+					case 0: name='欧美榜';break;
+					case 1: name='国韵榜';break;
+					case 2: name='日韩亚榜';break;
+					case 3: name='原创榜';break;
+					default: name='';
+				}
+				return '<div class=' + className + '>' + '<a href="#">'+name+'</a>' + "</div>";
+			}
+		})
+
+		$('.header-in input').on('click',function(){
+			window.location.href='sousuo-index.html'//filterType=1
+		})
+
+	});
+</script>
+</head>
+<body >
+<!-- 首页 -->
+<section class="flex ">
+	<section class="header" id="searchHead">
+		<div class="header-bg home ">
+			<div class="header-l"><a href=""></a></div>
+			<div class="header-c header-in"><input type="text" readonly="readonly"></div>
+			<div class="header-r"><a href="#"></a></div>
+		</div>
+	</section>
+	<!-- 主体 -->
+	<div id="loading" style="display:none">
+		<img src="img/loading.jpg">
+	</div>
+	<section class="content">
+		<div id="wrapper">
+			<div class="iscroll-main">
+				<div class="swiper-container">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide"><a href="#"><img src="img/slide/mian1.jpg"></a></div>
+						<div class="swiper-slide"><a href="#"><img src="img/slide/mian2.png"></a></div>
+						<div class="swiper-slide"><a href="#"><img src="img/slide/mian3.png"></a></div>
+					</div>
+					<!-- 分页器 -->
+						<div class="swiper-pagination"></div>
+				</div>
+				<div class="navigation part clearfix">
+					<div class="nav-single"><a href="loveOrKind.html?type=1" class="main-1" ></a><span>爱の属性</span></div>
+					<div class="nav-single"><a  style="margin-left: 0.6rem"  href="loveOrKind.html?type=2" class="main-2"></a><span>物の类型</span></div>
+					<div class="nav-single"><a href="fenlei/shop-fenlei2.html" class="main-3"></a><span>胜战</span></div>
+
+				</div>
+
+
+				<div class="top">
+					<div class="top-one clearfix top-margin   swiper-pagination-bullets" >
+						<div name="欧美榜"    class="swiper-pagination-bullet swiper-pagination-bullet-active "><a href="#">欧美榜</a></div>
+					    <div name="国韵榜"    class="swiper-pagination-bullet "><a href="#">国韵榜</a></div>
+						<div name="日韩亚榜"  class="swiper-pagination-bullet"><a href="#">日韩亚榜</a></div>
+						<div name="原创榜"    class="swiper-pagination-bullet"><a href="#">原创榜</a></div>
+					</div>
+					<div class="top-sort-p clearfix swiper-wrapper ">
+						<div class="top-sort-p swiper-slide  swiper-slide-active ">
+							<div class="top-two top-margin">
+								<ul>
+									<li class="top-two-li horizontal-center top-bottom">
+										<a href="#" class="up-one up-one-a"></a>
+										<a href="#" class="up-two up-two-a"></a>
+										<span class="up-sp1">楼诚衍生6</span>
+										<i class="up-auto up-auto-a"></i>
+										<span class="up-sp2">568555</span>
+									</li>
+									<li class="top-two-li horizontal-center top-bottom">
+										<a href="#" class="up-one up-one-b"></a>
+										<a href="#" class="up-two up-two-b"></a>
+										<span class="up-sp1">楼诚衍生</span>
+										<i class="up-auto up-auto-a"></i>
+										<span class="up-sp2">5688</span>
+									</li>
+									<li class="top-two-li horizontal-center">
+										<a href="#" class="up-one  up-one-c"></a>
+										<a href="#" class="up-three up-three-a"></a>
+										<span class="up-sp1">楼诚衍生</span>
+										<i class="up-auto up-auto-a"></i>
+										<span class="up-sp2">5688</span>
+									</li>
+								</ul>
+								<ul class="dashed-top">
+									<li class="top-two-li horizontal-center top-bottom">
+										<a href="#" class="up-one up-one-d"></a>
+										<a href="#" class="up-two up-two-a"></a>
+										<span class="up-sp1">楼诚衍生</span>
+										<span class="up-sp2">56888</span>
+									</li>
+									<li class="top-two-li horizontal-center top-bottom">
+										<a href="#" class="up-one up-one-e"></a>
+										<a href="#" class="up-two up-two-b"></a>
+										<span class="up-sp1">楼诚衍生</span>
+										<span class="up-sp2">5688</span>
+									</li>
+									<li>
+										<a href="#" class="up-top">查看更多排名>></a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="top-sort-p swiper-slide  swiper-slide-next ">
+							<div class="top-two top-margin">
+								<ul>
+									<li class="top-two-li horizontal-center top-bottom">
+										<a href="#" class="up-one up-one-a"></a>
+										<a href="#" class="up-two up-two-a"></a>
+										<span class="up-sp1">楼诚衍生</span>
+										<i class="up-auto up-auto-a"></i>
+										<span class="up-sp2">5688</span>
+									</li>
+									<li class="top-two-li horizontal-center top-bottom">
+										<a href="#" class="up-one up-one-b"></a>
+										<a href="#" class="up-two up-two-b"></a>
+										<span class="up-sp1">楼诚衍生</span>
+										<i class="up-auto up-auto-a"></i>
+										<span class="up-sp2">5688</span>
+									</li>
+									<li class="top-two-li horizontal-center">
+										<a href="#" class="up-one  up-one-c"></a>
+										<a href="#" class="up-three up-three-a"></a>
+										<span class="up-sp1">楼诚衍生</span>
+										<i class="up-auto up-auto-a"></i>
+										<span class="up-sp2">5688</span>
+									</li>
+								</ul>
+								<ul class="dashed-top">
+									<li class="top-two-li horizontal-center top-bottom">
+										<a href="#" class="up-one up-one-d"></a>
+										<a href="#" class="up-two up-two-a"></a>
+										<span class="up-sp1">楼诚衍生</span>
+										<span class="up-sp2">5688</span>
+									</li>
+									<li class="top-two-li horizontal-center top-bottom">
+										<a href="#" class="up-one up-one-e"></a>
+										<a href="#" class="up-two up-two-b"></a>
+										<span class="up-sp1">楼诚衍生</span>
+										<span class="up-sp2">5688</span>
+									</li>
+									<li>
+										<a href="#" class="up-top">查看更多排名>></a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="top-sort-p swiper-slide">
+							<div class=" top-margin top-two">
+								<ul>
+									<li class="top-two-li horizontal-center top-bottom">
+										<a href="#" class="up-one up-one-a"></a>
+										<a href="#" class="up-two up-two-a"></a>
+										<span class="up-sp1">楼诚衍生</span>
+										<i class="up-auto up-auto-a"></i>
+										<span class="up-sp2">5688</span>
+									</li>
+									<li class="top-two-li horizontal-center top-bottom">
+										<a href="#" class="up-one up-one-b"></a>
+										<a href="#" class="up-two up-two-b"></a>
+										<span class="up-sp1">楼诚衍生</span>
+										<i class="up-auto up-auto-a"></i>
+										<span class="up-sp2">5688</span>
+									</li>
+									<li class="top-two-li horizontal-center">
+										<a href="#" class="up-one  up-one-c"></a>
+										<a href="#" class="up-three up-three-a"></a>
+										<span class="up-sp1">楼诚衍生</span>
+										<i class="up-auto up-auto-a"></i>
+										<span class="up-sp2">5688</span>
+									</li>
+								</ul>
+								<ul class="dashed-top">
+									<li class="top-two-li horizontal-center top-bottom">
+										<a href="#" class="up-one up-one-d"></a>
+										<a href="#" class="up-two up-two-a"></a>
+										<span class="up-sp1">楼诚衍生</span>
+										<span class="up-sp2">5688</span>
+									</li>
+									<li class="top-two-li horizontal-center top-bottom">
+										<a href="#" class="up-one up-one-e"></a>
+										<a href="#" class="up-two up-two-b"></a>
+										<span class="up-sp1">楼诚衍生</span>
+										<span class="up-sp2">5688</span>
+									</li>
+									<li>
+										<a href="#" class="up-top">查看更多排名>></a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="top-sort-p swiper-slide">
+							<div class="top-two top-margin">
+								<ul>
+									<li class="top-two-li horizontal-center top-bottom">
+										<a href="#" class="up-one up-one-a"></a>
+										<a href="#" class="up-two up-two-a"></a>
+										<span class="up-sp1">楼诚衍生</span>
+										<i class="up-auto up-auto-a"></i>
+										<span class="up-sp2">5688</span>
+									</li>
+									<li class="top-two-li horizontal-center top-bottom">
+										<a href="#" class="up-one up-one-b"></a>
+										<a href="#" class="up-two up-two-b"></a>
+										<span class="up-sp1">楼诚衍生</span>
+										<i class="up-auto up-auto-a"></i>
+										<span class="up-sp2">5688</span>
+									</li>
+									<li class="top-two-li horizontal-center">
+										<a href="#" class="up-one  up-one-c"></a>
+										<a href="#" class="up-three up-three-a"></a>
+										<span class="up-sp1">楼诚衍生</span>
+										<i class="up-auto up-auto-a"></i>
+										<span class="up-sp2">5688</span>
+									</li>
+								</ul>
+								<ul class="dashed-top">
+									<li class="top-two-li horizontal-center top-bottom">
+										<a href="#" class="up-one up-one-d"></a>
+										<a href="#" class="up-two up-two-a"></a>
+										<span class="up-sp1">楼诚衍生</span>
+										<span class="up-sp2">5688</span>
+									</li>
+									<li class="top-two-li horizontal-center top-bottom">
+										<a href="#" class="up-one up-one-e"></a>
+										<a href="#" class="up-two up-two-b"></a>
+										<span class="up-sp1">楼诚衍生</span>
+										<span class="up-sp2">5688</span>
+									</li>
+									<li>
+										<a href="#" class="up-top">查看更多排名>></a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="sale-item part">
+					<div class="sale-cap clearfix">
+						<i class="sale-c-l cap-news"></i>
+						<a class="sale-c-r cap-red" href="xinpin-more.html"><img src="img/gengduo.png"></a>
+					</div>
+
+					<ul class="sale-ones clearfix" id="newProduct">
+						<!--<li>-->
+							<!--<div class="sale-ones-front">-->
+								<!--<p class="sale-of-img"><a href="detail-page1.html"><img src="img/test/item5.jpg"></a> </p>-->
+								<!--<p class="sale-of-name">商品名称</p>-->
+								<!--<p class="sale-of-text">原著:伪装者</p>-->
+								<!--<p class="sale-of-text">CP圈:楼城</p>-->
+								<!--<p class="sale-of-price">￥6.00</p>-->
+							<!--</div>-->
+						<!--</li>-->
+						<!--<li>-->
+							<!--<div class="sale-ones-front">-->
+								<!--<p class="sale-of-img"><img src="img/test/item2.png"></p>-->
+								<!--<p class="sale-of-name">商品名称</p>-->
+								<!--<p class="sale-of-text">原著:伪装者</p>-->
+								<!--<p class="sale-of-text">CP圈:楼城</p>-->
+								<!--<p class="sale-of-price">￥6.00</p>-->
+							<!--</div>-->
+						<!--</li>-->
+						<!--<li>-->
+							<!--<div class="sale-ones-front">-->
+								<!--<p class="sale-of-img"><img src="img/test/item7.jpg"></p>-->
+								<!--<p class="sale-of-name">商品名称</p>-->
+								<!--<p class="sale-of-text">原著:伪装者</p>-->
+								<!--<p class="sale-of-text">CP圈:楼城</p>-->
+								<!--<p class="sale-of-price">￥6.00</p>-->
+							<!--</div>-->
+						<!--</li>-->
+						<!--<li>-->
+							<!--<div class="sale-ones-front">-->
+								<!--<p class="sale-of-img"><a href="detail-page1.html"><img src="img/test/item1.jpg"></a> </p>-->
+								<!--<p class="sale-of-name">商品名称</p>-->
+								<!--<p class="sale-of-text">原著:伪装者</p>-->
+								<!--<p class="sale-of-text">CP圈:楼城</p>-->
+								<!--<p class="sale-of-price">￥6.00</p>-->
+							<!--</div>-->
+						<!--</li>-->
+						<!--<li>-->
+							<!--<div class="sale-ones-front">-->
+								<!--<p class="sale-of-img"><img src="img/test/item-1.jpg"></p>-->
+								<!--<p class="sale-of-name">商品名称</p>-->
+								<!--<p class="sale-of-text">原著:伪装者</p>-->
+								<!--<p class="sale-of-text">CP圈:楼城</p>-->
+								<!--<p class="sale-of-price">￥6.00</p>-->
+							<!--</div>-->
+						<!--</li>-->
+						<!--<li>-->
+							<!--<div class="sale-ones-front">-->
+								<!--<p class="sale-of-img"><img src="img/test/item2.jpg"></p>-->
+								<!--<p class="sale-of-name">商品名称</p>-->
+								<!--<p class="sale-of-text">原著:伪装者</p>-->
+								<!--<p class="sale-of-text">CP圈:楼城</p>-->
+								<!--<p class="sale-of-price">￥6.00</p>-->
+							<!--</div>-->
+						<!--</li>-->
+					</ul>
+					<div class="shop-more clearfix">
+						<p class="shop-m-single">
+							<a class="shop-ms-store" href="search/shangyedian.html"><i></i></a>
+						<p>
+						<p class="shop-m-single">
+							<a class="shop-ms-custom" href="search/dingzhichang.html"><i></i></a>
+						</p>
+					</div>
+				</div>
+
+				<div class="sale-item part">
+					<div class="sale-cap clearfix">
+						<i class="sale-c-l cap-hots"></i>
+						<a class="sale-c-r cap-yellow" href="popularity_tongren.html"><img src="img/gengduo2.png"></a>
+					</div>
+					<ul class="sale-ones clearfix" id="moods">
+						<!--<li>-->
+							<!--<div class="sale-ones-front">-->
+								<!--<p class="sale-of-img "><img src="img/jiazhai-shibai2.png"></p>-->
+								<!--<p class="sale-of-name">商品名称</p>-->
+								<!--<p class="sale-of-text">原著:伪装者</p>-->
+								<!--<p class="sale-of-text">CP圈:楼城</p>-->
+								<!--<p class="sale-of-price">￥6.00</p>-->
+							<!--</div>-->
+						<!--</li>-->
+						<!--<li>-->
+							<!--<div class="sale-ones-front">-->
+								<!--<p class="sale-of-img "><img src="img/csale-icon.png"></p>-->
+								<!--<p class="sale-of-name ">商品名称</p>-->
+								<!--<p class="sale-of-text">原著:伪装者</p>-->
+								<!--<p class="sale-of-text">CP圈:楼城</p>-->
+								<!--<p class="sale-of-price">￥6.00</p>-->
+							<!--</div>-->
+						<!--</li>-->
+						<!--<li>-->
+							<!--<div class="sale-ones-front">-->
+								<!--<p class="sale-of-img "><img src="img/csale-icon.png"></p>-->
+								<!--<p class="sale-of-name">商品名称</p>-->
+								<!--<p class="sale-of-text">原著:伪装者</p>-->
+								<!--<p class="sale-of-text">CP圈:楼城</p>-->
+								<!--<p class="sale-of-price">￥6.00</p>-->
+							<!--</div>-->
+						<!--</li>-->
+						<!--<li>-->
+							<!--<div class="sale-ones-front">-->
+								<!--<p class="sale-of-img "><img src="img/csale-icon.png"></p>-->
+								<!--<p class="sale-of-name">商品名称</p>-->
+								<!--<p class="sale-of-text">原著:伪装者</p>-->
+								<!--<p class="sale-of-text">CP圈:楼城</p>-->
+								<!--<p class="sale-of-price">￥6.00</p>-->
+							<!--</div>-->
+						<!--</li>-->
+						<!--<li>-->
+							<!--<div class="sale-ones-front">-->
+								<!--<p class="sale-of-img "><img src="img/csale-icon.png"></p>-->
+								<!--<p class="sale-of-name">商品名称</p>-->
+								<!--<p class="sale-of-text">原著:伪装者</p>-->
+								<!--<p class="sale-of-text">CP圈:楼城</p>-->
+								<!--<p class="sale-of-price">￥6.00</p>-->
+							<!--</div>-->
+						<!--</li>-->
+						<!--<li>-->
+							<!--<div class="sale-ones-front">-->
+								<!--<p class="sale-of-img "><img src="img/csale-icon.png"></p>-->
+								<!--<p class="sale-of-name">商品名称</p>-->
+								<!--<p class="sale-of-text">原著:伪装者</p>-->
+								<!--<p class="sale-of-text">CP圈:楼城</p>-->
+								<!--<p class="sale-of-price">￥6.00</p>-->
+							<!--</div>-->
+						<!--</li>-->
+
+					</ul>
+
+
+				</div>
+
+				<div class="sale-item part">
+					<div class="sale-cap clearfix">
+						<i class="sale-c-l cap-renqi"></i>
+						<a class="sale-c-r cap-yellow" href="popularity_zhoubian.html"><img src="img/gengduo3.png"></a>
+					</div>
+
+					<ul class="sale-ones clearfix" id="zhoubian">
+						<!--<li>-->
+							<!--<div class="sale-ones-front">-->
+								<!--<p class="sale-of-img "><img src="img/jiazhai-shibai2.png"></p>-->
+								<!--<p class="sale-of-name">商品名称</p>-->
+								<!--<p class="sale-of-text">原著:伪装者</p>-->
+								<!--<p class="sale-of-text">CP圈:楼城</p>-->
+								<!--<p class="sale-of-price">￥6.00</p>-->
+							<!--</div>-->
+						<!--</li>-->
+						<!--<li>-->
+							<!--<div class="sale-ones-front">-->
+								<!--<p class="sale-of-img "><img src="img/csale-icon.png"></p>-->
+								<!--<p class="sale-of-name ">商品名称</p>-->
+								<!--<p class="sale-of-text">原著:伪装者</p>-->
+								<!--<p class="sale-of-text">CP圈:楼城</p>-->
+								<!--<p class="sale-of-price">￥6.00</p>-->
+							<!--</div>-->
+						<!--</li>-->
+						<!--<li>-->
+							<!--<div class="sale-ones-front">-->
+								<!--<p class="sale-of-img "><img src="img/csale-icon.png"></p>-->
+								<!--<p class="sale-of-name">商品名称</p>-->
+								<!--<p class="sale-of-text">原著:伪装者</p>-->
+								<!--<p class="sale-of-text">CP圈:楼城</p>-->
+								<!--<p class="sale-of-price">￥6.00</p>-->
+							<!--</div>-->
+						<!--</li>-->
+						<!--<li>-->
+							<!--<div class="sale-ones-front">-->
+								<!--<p class="sale-of-img "><img src="img/csale-icon.png"></p>-->
+								<!--<p class="sale-of-name">商品名称</p>-->
+								<!--<p class="sale-of-text">原著:伪装者</p>-->
+								<!--<p class="sale-of-text">CP圈:楼城</p>-->
+								<!--<p class="sale-of-price">￥6.00</p>-->
+							<!--</div>-->
+						<!--</li>-->
+						<!--<li>-->
+							<!--<div class="sale-ones-front">-->
+								<!--<p class="sale-of-img "><img src="img/csale-icon.png"></p>-->
+								<!--<p class="sale-of-name">商品名称</p>-->
+								<!--<p class="sale-of-text">原著:伪装者</p>-->
+								<!--<p class="sale-of-text">CP圈:楼城</p>-->
+								<!--<p class="sale-of-price">￥6.00</p>-->
+							<!--</div>-->
+						<!--</li>-->
+						<!--<li>-->
+							<!--<div class="sale-ones-front">-->
+								<!--<p class="sale-of-img "><img src="img/csale-icon.png"></p>-->
+								<!--<p class="sale-of-name">商品名称</p>-->
+								<!--<p class="sale-of-text">原著:伪装者</p>-->
+								<!--<p class="sale-of-text">CP圈:楼城</p>-->
+								<!--<p class="sale-of-price">￥6.00</p>-->
+							<!--</div>-->
+						<!--</li>-->
+
+					</ul>
+
+
+				</div>
+				<div class="sale-item part">
+					<div class="shopping horizontal-center">
+						<p class="sp-l"></p>
+						<p class="sp-c"></p>
+						<p class="sp-r"></p>
+					</div>
+
+					<ul class="sale-ones tie clearfix" id="sales">
+						<!--<li>-->
+							<!--<div class="sale-ones-front tie">-->
+								<!--<p class="sale-of-img"><img src="img/jiazhai-shibai2.png"></p>-->
+								<!--<p class="sale-of-name">商品名称</p>-->
+								<!--<p class="sale-of-price">￥6.00</p>-->
+							<!--</div>-->
+						<!--</li>-->
+						<!--<li>-->
+							<!--<div class="sale-ones-front tie">-->
+								<!--<p class="sale-of-img"><img src="img/csale-icon.png"></p>-->
+								<!--<p class="sale-of-name">商品名称</p>-->
+								<!--<p class="sale-of-price">￥6.00</p>-->
+							<!--</div>-->
+						<!--</li>-->
+						<!--<li>-->
+							<!--<div class="sale-ones-front tie">-->
+								<!--<p class="sale-of-img"><img src="img/csale-icon.png"></p>-->
+								<!--<p class="sale-of-name">商品名称</p>-->
+								<!--<p class="sale-of-price">￥6.00</p>-->
+							<!--</div>-->
+						<!--</li>-->
+						<!--<li>-->
+							<!--<div class="sale-ones-front tie">-->
+								<!--<p class="sale-of-img"><img src="img/csale-icon.png"></p>-->
+								<!--<p class="sale-of-name">商品名称</p>-->
+								<!--<p class="sale-of-price">￥6.00</p>-->
+							<!--</div>-->
+						<!--</li>-->
+						<!--<li>-->
+							<!--<div class="sale-ones-front tie">-->
+								<!--<p class="sale-of-img"><img src="img/csale-icon.png"></p>-->
+								<!--<p class="sale-of-name">商品名称</p>-->
+								<!--<p class="sale-of-price">￥6.00</p>-->
+							<!--</div>-->
+						<!--</li>-->
+						<!--<li>-->
+							<!--<div class="sale-ones-front tie">-->
+								<!--<p class="sale-of-img"><img src="img/csale-icon.png"></p>-->
+								<!--<p class="sale-of-name">商品名称</p>-->
+								<!--<p class="sale-of-price">￥6.00</p>-->
+							<!--</div>-->
+						<!--</li>-->
+						<!--<li>-->
+							<!--<div class="sale-ones-front tie">-->
+								<!--<p class="sale-of-img"><img src="img/csale-icon.png"></p>-->
+								<!--<p class="sale-of-name">商品名称</p>-->
+								<!--<p class="sale-of-price">￥6.00</p>-->
+							<!--</div>-->
+						<!--</li>-->
+						<!--<li>-->
+							<!--<div class="sale-ones-front tie">-->
+								<!--<p class="sale-of-img"><img src="img/csale-icon.png"></p>-->
+								<!--<p class="sale-of-name">商品名称</p>-->
+								<!--<p class="sale-of-price">￥6.00</p>-->
+							<!--</div>-->
+						<!--</li>-->
+					</ul>
+				</div>
+
+		</div>
+	</div>
+	</section>
+	<section class="footer">
+		<div class="foot">
+			<div class="fixed"><a class="nav1" href="#">同人铺</a></div>
+			<div><a class="nav2" href="#">同人闲情</a></div>
+			<div><a class="nav3" href="shop-cart/shop-cart-edit.html">剁手</a></div>
+			<div><a class="nav4" href="personal-information.html">我的</a></div>
+		</div>
+	</section>
+</section>
+</body>
+</html>
+<script>
+
+
+
+var userInfo = new getUerInfo();
+//var info = userInfo.getIno();//获取url参数
+var userid;
+var username;
+
+	$(function(){
+		IndexList();
+//      $("#Info").html(info);
+	})
+//	function getUserInfo(id,name)
+//	{
+//		//从移动端获取用户信息
+//		IndexList(id,name);
+//	}
+	function IndexList(id,name)
+	{
+		userid = id;
+		username = name;
+		var url = "/tongrenmiao/index.php?g=Mall&m=index&a=main";
+		$.ajax({
+			url:url,
+			data:{},
+			dataType:'json',
+			type:'post',
+			beforeSend:function()
+			{
+				$("#wrapper").hide();
+				$("#searchHead").hide();
+				$("#loading").show();
+//				$('body').addClass('loading');
+			},
+			success:function(ret)
+			{
+				var newProduct = "";
+				var moods = "";
+				var around = "";
+				var aroundAndMoods = "";
+//				if(ret.around == "" || ret.moods == "" || ret.new == ""|| ret.aroundAndMoods == "")
+//				{
+//					location.href = 'error.html?status=2';
+//				}
+//				else
+//				{
+					$.each(ret.new,function(key,val)
+					{
+						newProduct +='<li>\
+										<div class="sale-ones-front" >\
+											<p class="sale-of-img"><a href="detail-page1.html?id='+val.id+'"><img src="'+val.pic+'"></a></p>\
+											<p class="sale-of-name">'+val.name+'</p>\
+											<p class="sale-of-price">'+val.price+'</p>\
+										</div>\
+									</li>'
+					});
+					$.each(ret.moods,function(key,val)
+					{
+						moods +='<li>\
+									<div class="sale-ones-front">\
+										<p class="sale-of-img"><a href="detail-page1.html?id='+val.id+'"><img src="'+val.pic+'"></a></p>\
+										<p class="sale-of-name">'+val.name+'</p>\
+										<p class="sale-of-text">原著:伪装者</p>\
+										<p class="sale-of-text">CP圈:楼城</p>\
+										<p class="sale-of-price">'+val.price+'</p>\
+									</div>\
+								</li>'
+					});
+					$.each(ret.PopularityRound,function(key,val)
+					{
+						around +='<li>\
+									<div class="sale-ones-front tie">\
+										<p class="sale-of-img"><a href="detail-page1.html?id='+val.id+'"><img src="'+val.pic+'"></a></p>\
+										<p class="sale-of-name">'+val.name+'</p>\
+										<p class="sale-of-price">'+val.price+'</p>\
+									</div>\
+								</li>'
+					});
+					$.each(ret.moodsAndAround,function(key,val)
+					{
+						aroundAndMoods +='<li>\
+									<div class="sale-ones-front tie">\
+										<p class="sale-of-img"><a href="detail-page1.html?id='+val.id+'"><img src="'+val.pic+'"></a></p>\
+										<p class="sale-of-name">'+val.name+'</p>\
+										<p class="sale-of-price">'+val.price+'</p>\
+									</div>\
+								</li>'
+					});
+					$("#newProduct").html(newProduct);
+					$("#moods").html(moods);
+					$("#zhoubian").html(around);
+					$("#sales").html(aroundAndMoods);
+					$("#wrapper").show();
+					$("#searchHead").show();
+					$("#loading").hide();
+//					$('body').removeClass('loading');
+					wrapper.refresh();
+//				}
+			},
+//			error:function()
+//			{
+//				location.href = 'error.html?status=2'
+//			}
+		})
+	}
+</script>
+<script>
+	refresher.init({
+		id: "wrapper",
+		header: true,
+		footer: false,
+		pullDownAction: Refresh,
+//		pullUpAction: Load,
+
+		timeout: null,
+		start:function(e){
+			clearTimeout(this.timeout);
+			this.timeout = setInterval(functionScroll, 33);
+		},
+		end: function() {
+			clearTimeout(this.timeout);
+		}
+	});
+	function functionScroll( positionSwiper ){
+		var positionSwiper = $('#wrapper .scroller').position().top * -1 -40;
+		var changeY = ( $('.swiper-container').height() - $('.header').height() ) ;
+		if ( changeY && positionSwiper <=  changeY ){
+			var opacityMask ;
+			var opacityHeader ;
+			opacityMask = positionSwiper / changeY ;
+			$('.header-bg').css('background','rgba(235,104,119,' + opacityMask + ')');
+		}
+		else {
+			$('.header-bg').css('background','rgba(235,104,119,1)');
+		}
+
+	}
+
+	function Refresh() {
+		setTimeout(function () {
+			wrapper.refresh();
+			IndexList();
+		}, 500);
+	}
+
+//	function Load() {
+//		setTimeout(function () {
+//			monthMaxSalesOrder();
+//			wrapper.refresh();
+//		}, 500);
+//	}
+//	$page = 1;
+//	function monthMaxSalesOrder()
+//	{
+//		$.ajax({
+//			url:'/tongrenmiao/index.php?g=mall&m=index&a=monthMaxSalesOrder',
+//			data:{'page':$page,'more':1},
+//			type:'get',
+//			dataType:'json',
+//		}).done(function(ret)
+//		{
+//			if(ret.maxSales.length >0)
+//			{
+//				var sales = "";
+//				$.each(ret.maxSales,function(key,val)
+//				{
+//					sales +='<li>\
+//								<div class="sale-ones-front tie">\
+//									<p class="sale-of-img"><a href="detail-page1.html?id='+val.id+'"></a><img src="'+val.pic+'"></p>\
+//									<p class="sale-of-name">'+val.name+'</p>\
+//									<p class="sale-of-price">'+val.price+'</p>\
+//								</div>\
+//							</li>';
+//				});
+//				$("#sales").append(sales);
+//				wrapper.refresh();
+//			}
+//			else
+//			{
+//				$(".pullUpLabel").html("没有更多数据");
+//			}
+//		})
+//		$page++;
+//	}
+</script>

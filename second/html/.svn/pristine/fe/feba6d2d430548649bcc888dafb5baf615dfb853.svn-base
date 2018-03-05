@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="format-detection" content="telephone=no"/>
+<title>喵</title>
+
+<link type="text/css"  rel="stylesheet" href="../css/global.css">
+<link type="text/css"  rel="stylesheet" href="../css/public.css">
+<link type="text/css"  rel="stylesheet" href="../css/shop-cart-edit.css">
+<style type="text/css">
+</style>
+<script src="../js/jquery-2.2.4.min.js"></script>
+<script src="../js/miao-Dialog.js"></script>
+<script src="../js/jquerty-moveDelete.js"></script>
+
+
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex">
+    <section class="header">
+        <div class="header-bg normal">
+            <div class="header-c header-c-color content-h-left marR">购 物 车</div>
+        </div>
+    </section>
+    <section class="content clearfix content-receipt" id="content">
+        <!--<div class="content-top content-top-border">-->
+            <!--<div class="commodity ">-->
+                <!--<div class="commodity-l">-->
+                    <!--<div class="commodity-l-btn">-->
+                        <!--<div class=""></div>-->
+                    <!--</div>-->
+                    <!--<p class="commodity-l-p">-->
+                        <!--<span>社团第三空间</span>-->
+                        <!--<img src="../img/you-iocn.png">-->
+                    <!--</p>-->
+                <!--</div>-->
+                <!--<div class="commodity-r" >-->
+                    <!--<span>运费:￥6.00</span>-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="content-choice clearfix border">-->
+                <!--<div class="commodity-l-btn content-choice-l " >-->
+                    <!--<div></div>-->
+                <!--</div>-->
+                <!--<div class="content-choice-c">-->
+                    <!--<p><img src="../img/touxiang.png"></p>-->
+                <!--</div>-->
+                <!--<div class="content-choice-w">-->
+                    <!--<p class="choice-w-one content-choice-p">世界与世界的游戏</p>-->
+                    <!--<p class="choice-w-two content-choice-p">款式/规格</p>-->
+                    <!--<p class="choice-w-three">-->
+                        <!--<a href="#"  class="choice-w-btn1">-</a>-->
+                        <!--<input type="text" value="1" class="choice-w-in">-->
+                        <!--<a href="#"  class="choice-w-btn2">+</a>-->
+                    <!--</p>-->
+                <!--</div>-->
+                <!--<div class="commodity-r commodity-r-money">-->
+                    <!--<span class="">￥6.00</span>-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--&lt;!&ndash;<div class="content-choice clearfix border">&ndash;&gt;-->
+                <!--&lt;!&ndash;<div class="commodity-l-btn content-choice-l " >&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div></div>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--&lt;!&ndash;<div class="content-choice-c">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<p><img src="../img/touxiang.png"></p>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--&lt;!&ndash;<div class="content-choice-w">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<p class="choice-w-one content-choice-p">世界与世界的游戏</p>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<p class="choice-w-two content-choice-p">款式/规格</p>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<p class="choice-w-three">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<a href="#"  class="choice-w-btn1">-</a>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<input type="text" value="1" class="choice-w-in">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<a href="#"  class="choice-w-btn2">+</a>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</p>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--&lt;!&ndash;<div class="commodity-r commodity-r-money">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<span class="">￥6.00</span>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+            <!--&lt;!&ndash;<div class="content-choice clearfix  ">&ndash;&gt;-->
+                <!--&lt;!&ndash;<div class="commodity-l-btn content-choice-l ">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class=""></div>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--&lt;!&ndash;<div class="content-choice-c">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<p><img src="../img/touxiang.png"></p>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--&lt;!&ndash;<div class="content-choice-w">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<p class="choice-w-one content-choice-p">世界与世界的游戏</p>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<p class="choice-w-two content-choice-p">款式/规格</p>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<p class="choice-w-three">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<a href="#"  class="choice-w-btn1">-</a>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<input type="text" value="1">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<a href="#"  class="choice-w-btn2">+</a>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</p>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--&lt;!&ndash;<div class="commodity-r commodity-r-money">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<span class="">￥6.00</span>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--</div>-->
+        <!--<div class="content-top content-top-border">-->
+            <!--<div class="commodity ">-->
+                <!--<div class="commodity-l">-->
+                    <!--<div class="commodity-l-btn">-->
+                        <!--<div class=""></div>-->
+                    <!--</div>-->
+                    <!--<p class="commodity-l-p">-->
+                        <!--<span>社团第三空间</span>-->
+                        <!--<img src="../img/you-iocn.png">-->
+                    <!--</p>-->
+                <!--</div>-->
+                <!--<div class="commodity-r" >-->
+                    <!--<span>运费:￥6.00</span>-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="content-choice clearfix border">-->
+                <!--<div class="commodity-l-btn content-choice-l " >-->
+                    <!--<div></div>-->
+                <!--</div>-->
+                <!--<div class="content-choice-c">-->
+                    <!--<p><img src="../img/touxiang.png"></p>-->
+                <!--</div>-->
+                <!--<div class="content-choice-w">-->
+                    <!--<p class="choice-w-one content-choice-p">世界与世界的游戏</p>-->
+                    <!--<p class="choice-w-two content-choice-p">款式/规格</p>-->
+                    <!--<p class="choice-w-three">-->
+                        <!--<a href="#"  class="choice-w-btn1">-</a>-->
+                        <!--<input type="text" value="1" class="choice-w-in">-->
+                        <!--<a href="#"  class="choice-w-btn2">+</a>-->
+                    <!--</p>-->
+                <!--</div>-->
+                <!--<div class="commodity-r commodity-r-money">-->
+                    <!--<span class="">￥6.00</span>-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="content-choice clearfix  ">-->
+                <!--<div class="commodity-l-btn content-choice-l ">-->
+                    <!--<div class=""></div>-->
+                <!--</div>-->
+                <!--<div class="content-choice-c">-->
+                    <!--<p><img src="../img/touxiang.png"></p>-->
+                <!--</div>-->
+                <!--<div class="content-choice-w">-->
+                    <!--<p class="choice-w-one content-choice-p">世界与世界的游戏</p>-->
+                    <!--<p class="choice-w-two content-choice-p">款式/规格</p>-->
+                    <!--<p class="choice-w-three">-->
+                        <!--<a href="#"  class="choice-w-btn1">-</a>-->
+                        <!--<input type="text" value="1">-->
+                        <!--<a href="#"  class="choice-w-btn2">+</a>-->
+                    <!--</p>-->
+                <!--</div>-->
+                <!--<div class="commodity-r commodity-r-money">-->
+                    <!--<span class="">￥6.00</span>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="sale-item part content-top-border">-->
+            <!--<div class="shopping horizontal-center">-->
+                <!--<p class="sp-l"></p>-->
+                <!--<p class="sp-a"></p>-->
+                <!--<p class="sp-r"></p>-->
+            <!--</div>-->
+            <!--<div class="part">-->
+                <!--<ul class="sale-ones tie clearfix">-->
+                    <!--<li>-->
+                        <!--<div class="sale-ones-front tie">-->
+                            <!--<p class="sale-of-img"><img src="../img/test/item4.jpg"></p>-->
+                            <!--<p class="sale-of-name">商品名称</p>-->
+                            <!--<p class="sale-of-price">￥6.00</p>-->
+                        <!--</div>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<div class="sale-ones-front tie">-->
+                            <!--<p class="sale-of-img"><img src="../img/test/item5.jpg"></p>-->
+                            <!--<p class="sale-of-name">商品名称</p>-->
+                            <!--<p class="sale-of-price">￥6.00</p>-->
+                        <!--</div>-->
+                    <!--</li>-->
+                <!--</ul>-->
+            <!--</div>-->
+        <!--</div>-->
+    </section>
+    <section class="footer">
+        <div class="foot-top ">
+            <div class="foot-top-l">
+                <div class="foot-btn"></div>
+                <span>全选</span>
+            </div>
+            <div class="foot-top-r">
+                <div class="font--r-r">
+                    <p>合计：<span id="totalPrice">￥ 0.00</span>元</p>
+                    <p>不含运费</p>
+                </div>
+                <p class="font--r-f">
+                    <a id="jiesuan" href="javascript:" onclick="jiesuan()">结 算<span id="jisuanNum"></span></a>
+                </p>
+            </div>
+        </div>
+        <div class="foot">
+            <div class="fixed"><a class="nav1" href="../main.html" >首页</a></div>
+            <div><a class="nav2" href="javascript:">闲情</a></div>
+            <div><a class="nav3" href="javascript:">购物车</a></div>
+            <div><a class="nav4" href="javascript:">我的</a></div>
+        </div>
+    </section>
+    <div class="confirm-pop-ups font1" id="cpp">
+		<p>确认要删除该宝贝？</p>
+		<div class="box1">
+			<div class="auto-width"><!-- auto width --></div>
+			<a href="javascript:" id="cancel">取消</a>
+			<div class="auto-width"><!-- auto width --></div>
+			<a href="javascript:" id="determine">确定</a>
+			<div class="auto-width"><!-- auto width --></div>
+		</div>
+	</div>
+</section>
+</body>
+</html>
+<script>
+    var userid = 1;
+    var username;
+    var checkIdArr = [];
+    var checkNum = 0;
+    var phone = $('#cpp').MiaoDialog();
+//    function getUserInfo(id,name)
+//    {
+//        //从移动端获取用户信息
+//        IndexList(id,name);
+//    }
+    $(function()
+    {
+        IndexList();
+    })
+    function IndexList()//id,name
+    {
+//        userid = id;
+//        username = name;
+        var url = '/tongrenmiao/index.php?g=Mall&m=Index&a=shopCarList';
+        $.ajax({
+            url:url,
+            data:{'userid':userid},
+            type:'get',
+            dataType:'json',
+            beforeSend:function()
+            {
+
+            },
+            success:function(res)
+            {
+            	var $delete;
+                handleHtml(res.Info);
+                /*滑动删除*/
+                movetouch( '.content-choice' );
+                $('.mtDelete').on('touchend',function(){
+                	$delete = $(this).parents('.content-choice');
+                	phone.MiaoDialog('open');
+                	cannotMove = true;
+                });
+                $('.miao-shade').on('touchend',function() {
+					phone.MiaoDialog('close');
+                	cannotMove = false;
+				});
+				$('#cancel').on('touchend',function() {
+					phone.MiaoDialog('close');
+                	cannotMove = false;
+				});
+				$('#determine').on('touchend',function() {
+					$.ajax({
+			            url:'/tongrenmiao/index.php?g=Mall&m=Index&a=deleteCart',
+			            data:{'id':$delete.find('.commodity-l-btn').attr('data-val') },
+			            type:'get',
+			            dataType:'json',
+			            beforeSend:function()
+			            {
+
+			            },
+			            success:function(data)
+			            {
+			            	$delete.fadeOut(1400);
+			            	var needDelete = true;
+			            	setTimeout(function(){
+			            		$delete.parents('.content-top').find('.content-choice').each(function(){
+				            		if( $(this).css('display') != 'none' ){
+				            			needDelete = false;
+				            		}
+				            	});
+			            		if(needDelete){
+			            			$delete.parents('.content-top').css('display','none');
+			            		};
+			            	},1400);
+
+			        	}
+			       	});
+			       	phone.MiaoDialog('close');
+                	cannotMove = false;
+				});
+            },
+            error:function()
+            {
+
+            }
+        })
+    }
+    function handleHtml(list)
+    {
+        var str = '';
+        $.each(list,function(k,v)
+        {
+            str += '<div class="content-top content-top-border">\
+                        <div class="commodity ">\
+                            <div class="commodity-l">\
+                                <div class="commodity-l-btn" ontouchend="clickShop(this)">\
+                                    <div class=""></div>\
+                                </div>\
+                                <a href="../shangye_xiangqi.html?shopId='+v.shopid+'" style="display: block;-webkit-box-flex: 1"><p class="commodity-l-p">\
+                                <span>'+v.name+'</span>\
+                                <img src="../img/you-iocn.png">\
+                                </p></a>\
+                            </div>\
+                        </div>'
+                $.each(v.detail,function(key,va)
+                {
+                    str += '<div class="content-choice clearfix border">'
+                            if((va.setmealid == null && va.pstock == null) || (va.setmealid != null && va.mstock == null))
+                            {
+                                str += '<div class="commodity-l-btn content-choice-l " ontouchend="clickChilder(this)" data-val="'+va.carid+'" data-state="1">'
+                            }
+                            else
+                            {
+                                str += '<div class="commodity-l-btn content-choice-l " ontouchend="clickChilder(this)" data-val="'+va.carid+'">'
+                            }
+                        str += '<div></div>\
+                            </div>\
+                            <div class="content-choice-c">\
+                                <p><img src="'+va.pic+'"></p>\
+                            </div>\
+                            <div class="content-choice-w">\
+                                <p class="choice-w-one content-choice-p">'+va.name+'</p>\
+                                <p class="choice-w-two content-choice-p">'
+                                if(va.setmeal != null)
+                                {
+                                    str += va.setmeal;
+                                }
+                        str += '</p><p class="choice-w-three">'
+                                if((va.setmealid == null && va.pstock == null) || (va.setmealid != null && va.mstock == null))
+                                {
+                                    //库存不足
+                            str += '<a href="javascript:"  class="choice-w-btn1">-</a>\
+                                    <input type="text" value="1" class="choice-w-in" readonly="readonly">\
+                                    <a href="javascript:"  class="choice-w-btn2" >+</a>'
+                                }
+                                else
+                                {
+                            str += '<a href="javascript:"  class="choice-w-btn1" ontouchend="numUpDown(this)">-</a>\
+                                    <input type="text" value="'+va.quantity+'" class="choice-w-in" onblur="blurAndProper(this)" oninput="blurAndProper(this)">'
+                                    if(va.mstock == null)
+                                    {
+                                str += '<input type="hidden" value="'+va.pstock+'">'
+                                    }
+                                    else
+                                    {
+                                str += '<input type="hidden" value="'+va.mstock+'">'
+                                    }
+                                str += '<a href="javascript:"  class="choice-w-btn2" ontouchend="numUpDown(this)">+</a>';
+                                }
+                    str += '</p>\
+                            </div>\
+                            <div class="commodity-r commodity-r-money">'
+                    if((va.setmealid == null && va.pstock == null) || (va.setmealid != null && va.mstock == null))
+                    {
+                        str +='<span>缺货</span>';
+                    }
+                    else
+                    {
+                        str +='<span data-price="'+va.price+'">￥'+(va.quantity*va.price).toFixed(2)+'</span>';
+                    }
+                        str += '</div>\
+                             </div>';
+                })
+            str += '</div>';
+        })
+        $("#content").html(str);
+        checkId();
+    }
+
+    /*点击子目录*/
+    function clickChilder(obj)
+    {
+        var isCheck = true;
+        $(obj).toggleClass('true');
+        $(obj).parents('.content-top').find('.content-choice').find('.commodity-l-btn').each(function(){
+            if( !$(this).hasClass('true') ){
+                isCheck = false;
+            }
+        });
+        isCheck ? $(obj).parents('.content-top').find('.commodity').find('.commodity-l-btn').addClass('true') : $(obj).parents('.content-top').find('.commodity').find('.commodity-l-btn').removeClass('true');
+
+        var isCheckAll = true;
+        $('.content-choice').find('.commodity-l-btn').each(function(){
+            if( !$(this).hasClass('true') ){
+                isCheckAll = false;
+            }
+        });
+        isCheckAll ? $('.foot-top-l').find('.foot-btn').addClass('true') : $('.foot-top-l').find('.foot-btn').removeClass('true');
+        checkId();
+        setAmount();
+    }
+
+    /*点击商铺*/
+    function clickShop(obj)
+    {
+        $(obj).toggleClass('true');
+        if( $(obj).hasClass('true') )
+            $(obj).parents('.content-top').find('.content-choice').find('.commodity-l-btn').addClass('true');
+        else
+            $(obj).parents('.content-top').find('.content-choice').find('.commodity-l-btn').removeClass('true');
+
+        var isCheck = true;
+        $('.commodity').find('.commodity-l-btn').each(function(){
+            if( !$(this).hasClass('true') ){
+                isCheck = false;
+            }
+        });
+        isCheck ? $('.foot-top-l').find('.foot-btn').addClass('true') : $('.foot-top-l').find('.foot-btn').removeClass('true');
+        checkId();
+        setAmount();
+    }
+
+    /*点击全选按钮*/
+    $('.foot-top-l').on('touchend', '.foot-btn', function(event){
+//        debugger;
+        $(this).toggleClass('true');
+        if( $(this).hasClass('true') ){
+            $('.commodity').find('.commodity-l-btn').addClass('true');
+            $('.content-choice').find('.commodity-l-btn').addClass('true');
+        }
+        else{
+            $('.commodity').find('.commodity-l-btn').removeClass('true');
+            $('.content-choice').find('.commodity-l-btn').removeClass('true');
+        }
+        checkId();
+        setAmount();
+    });
+
+
+    /*数量加减*/
+    function numUpDown(obj)
+    {
+        var $count = $(obj).parents(".choice-w-three").find("input").eq(0);
+        //console.log($count.val());
+        if($(obj).hasClass('choice-w-btn1'))
+        {
+            $count.val(parseInt($count.val(), 10) - 1 || 1);
+            ajaxAdd($(obj).parents('.content-choice'));
+       		setMoney($(obj));
+       		setAmount();
+        }
+        else if($(obj).hasClass('choice-w-btn2'))
+        {
+            $count.val((parseInt($count.val(), 10) + 1) < $count.siblings('input').val() ? (parseInt($count.val(), 10) + 1) : $count.siblings('input').val() );
+       		ajaxAdd($(obj).parents('.content-choice'));
+       		setMoney($(obj));
+       		setAmount();
+        }
+        return false;
+    }
+
+
+    /*输入数量验证*/
+    function blurAndProper(obj)
+    {
+        function isEmpty (val)
+        {
+            return val == '' || val === null || val === undefined;
+        }
+
+        var val = $(obj).val();
+        /*如果不是空则强转数字*/
+        if (!isEmpty(val))
+        {
+            val = parseInt(val.replace(/[^\d]/ig,''), 10);
+        }
+
+        isNaN(val) ? $(obj).val(1) : ( ( val < $(obj).siblings('input').val() ) ? $(obj).val(val) : $(obj).val( $(obj).siblings('input').val() ) );
+
+        if(event.type == 'blur' || event.type == 'focusout')
+        {
+            if(isEmpty(val))
+            {
+                $(obj).val(1);
+            }
+            ajaxAdd($(obj).parents('.content-choice'));
+       		setMoney($(obj));
+       		setAmount();
+        }
+
+    }
+
+    /*检验是否可以结算以及结算id*/
+    function checkId(){
+    	checkIdArr = [];
+    	checkNum = 0;
+    	var canCheck = true;
+    	if( $('.content-choice').find('.commodity-l-btn.true').length == 0 ){
+    		canCheck = false;
+    	}
+    	else{
+    		$('.content-choice').find('.commodity-l-btn').each(function(){
+		    	if( $(this).hasClass('true') && $(this).attr('data-state') ){
+		    		canCheck = false;
+		    		checkNum++;
+		    	}
+		    	else if( $(this).hasClass('true') && !$(this).attr('data-state') ){
+		    		checkIdArr.push( $(this).attr('data-val') );
+		    		checkNum++;
+		    	}
+		    });
+    	}
+    	if(canCheck){
+    		$('#jiesuan').addClass('btn-color-sc');
+//  		$('#jiesuan').attr('href','../shop-cart/confirm-order.html');
+    	}
+    	else{
+    		$('#jiesuan').removeClass('btn-color-sc');
+//  		$('#jiesuan').attr('href','#');
+    	}
+    	if( checkNum ){
+    		$('#jiesuan').text('结 算(' + checkNum + ')');
+    	}
+    	else{
+    		$('#jiesuan').text('结 算');
+    	}
+    };
+
+    /*检验单个金额*/
+   	function setMoney($this){
+   		var totalMoney = 0;
+   		var $money = $this.parents('.content-choice').find('.commodity-r').find('span');
+   		totalMoney = $money.attr('data-price') * $this.parents('.choice-w-three').find('input').eq(0).val();
+   		totalMoney = totalMoney.toFixed(2);
+   		$money.text('￥' + totalMoney);
+  	}
+
+
+    /*检验总金额*/
+   	function setAmount(){
+   		var totalAmount = 0;
+// 		$('.commodity').find('.commodity-l-btn.true').parents('.commodity').find('.commodity-r').find('span').each(function(){
+// 			if( $(this).attr('data-yunfei') ){
+// 				totalAmount += parseInt( $(this).attr('data-yunfei') );
+// 			}
+// 		});
+   		$('.content-choice').find('.commodity-l-btn.true').parents('.content-choice').find('.commodity-r').find('span').each(function(){
+   			if( $(this).attr('data-price') ){
+   				totalAmount += Number( $(this).attr('data-price') ) * Number( $(this).parents('.commodity-r').siblings('.content-choice-w').find('.choice-w-three').find('input').eq(0).val() );
+   			}
+   		});
+   		totalAmount = isEmpty(totalAmount) ? "0.00" : totalAmount.toFixed(2);
+   		$('#totalPrice').text('￥ ' + totalAmount);
+   	}
+
+    //ajax数量加减
+    function ajaxAdd($this)
+    {
+    	var getId = $this.find('.commodity-l-btn').attr('data-val');
+    	var getNum = $this.find('.choice-w-three').find('input').eq(0).val();
+        var url = '/tongrenmiao/index.php?g=Mall&m=Index&a=upAndDown';
+        $.ajax({
+            url:url,
+            data:{"id":getId,"num":getNum},
+            type:'get',
+            dataType:'json',
+            success:function(res)
+            {
+
+            }
+        })
+    }
+
+    function isEmpty(e){
+    	return e == "" || e === null || e === undefined;
+    }
+
+
+    //结算
+    function jiesuan()
+    {
+    	if( $('#jiesuan').hasClass('btn-color-sc') ){
+    		var url = '/tongrenmiao/index.php?g=Mall&m=Index&a=saveSession';
+	        $.ajax({
+	            url:url,
+	            data:{'ids':checkIdArr,'jiesuan':1},
+	            type:'get',
+	            dataType:'json',
+	            success:function(res)
+	            {
+                    if(res.Info == 1)
+                    {
+                        location.href = '../shop-cart/confirm-order.html?from=car';
+                    }
+                    else
+                    {
+                        alert('参数错误');
+                    }
+	            },
+                error:function()
+                {
+                    alert('请求失败');
+                }
+	        })
+    	};
+
+    }
+</script>

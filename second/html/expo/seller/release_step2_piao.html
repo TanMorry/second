@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>展会</title>
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<link href="../css/global.css" rel="stylesheet" type="text/css">
+<link href="../css/layout.css" rel="stylesheet" type="text/css">
+<link href="../css/seller.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	#add_tc{display: none;}
+</style>
+
+<script src="../js/jquery.min.js"></script>
+<script src="../js/jedate.min.js"></script>
+<script src="../js/release.js"></script>
+<script src="../js/expo.public.js"></script>
+<script type="text/javascript">
+
+function dateBind () {
+	jeDate({
+		dateCell:"input[append='date']",
+		format:"YYYY-MM-DD hh:mm",
+		isinitVal:true,
+		isClear:true,
+		isTime:true
+	});
+}
+
+$(document).ready(function(){
+	/*等待DOM操作完成*/
+	$('.wp-tb').on('click', '*[add="ticket"]', function(event) {
+		setTimeout(dateBind, 100);
+	});
+
+});
+
+</script>
+
+<body>
+	<div class="M_Header M_BTM_25">
+		<div class="hd-bg">
+			<p class="hd-pink"></p>
+		</div>
+		<div class="hd-index M_Center">
+			<div class="hd-main">
+				<ul class="float-center clearfix">
+					<li class="hd-m-btn" ><a href="#">展会</a></li>
+					<li class="hd-m-btn fixed"><a href="#">社团铺</a></li>
+					<li class="hd-m-logo"></li>
+					<li class="hd-m-btn" ><a href="#">我的</a></li>
+					<li class="hd-m-btn" ><a href="#">同人闲情</a></li>
+				</ul>
+			</div>
+			<div class="hd-nav-r">
+				<ul class="hd-nav-not">
+					<li><a href="#">登录</a></li>
+					<li><a href="#">注册</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="M_Center M_Layout M_BTM_175">
+		<div class="write-part">
+			<p class="wp-cap clearfix">
+				<i class="wp-c-l">1.商品基本信息</i>
+				<i class="wp-c-r">*表示该项必填</i>
+			</p>
+			<table class="wp-tb fixed-table">
+				<tr>
+					<td class="wp-td-l"><p class="wp-name wp-must">作品名称</p></td>
+					<td class="wp-td-r"><input class="wp-input" type="text"/></td>
+				</tr>
+				<tr>
+					<td class="wp-td-l"><p class="wp-name">副标题</p></td>
+					<td class="wp-td-r"><input class="wp-input" type="text"/></td>
+				</tr>
+				<tr>
+					<td class="wp-td-l"><p class="wp-name">关键字</p></td>
+					<td class="wp-td-r"><input class="wp-input" type="text"/></td>
+				</tr>
+				<tr group="cp">
+					<td class="wp-td-l"><p class="wp-name wp-must">售票服务</p></td>
+					<td class="wp-td-r">
+						<!-- clone -->
+						<div class="ticket-bg none" id="ticket">
+							<div class="wp-ticket clearfix">
+								<i class="wp-t-name">票种</i>
+								<input class="wp-input2" type="text"/>
+								<a class="wp-b-remove" href="#">删除</a>
+							</div>
+							<table class="ticket-tb">
+								<tr>
+									<th class="tick-1">*单价（元）</th>
+									<th class="tick-2">优惠票价（元）</th>
+									<th class="tick-3">优惠票价起售数</th>
+									<th class="tick-4">*票售库存量</th>
+									<th class="tick-5">有效使用时间</th>
+									<th class="tick-6">商家编码</th>
+								</tr>
+								<tr>
+									<td><input class="tick-text" type="text"/></td>
+									<td><input class="tick-text" type="text"/></td>
+									<td><input class="tick-text" type="text"/></td>
+									<td><input class="tick-text" type="text"/></td>
+									<td>
+										<input class="tick-date" type="text" append="date" readonly="readonly"/>
+										<input class="tick-date" type="text" append="date" readonly="readonly"/>
+									</td>
+									<td><input class="tick-text" type="text"/></td>
+								</tr>
+							</table>
+						</div>
+						<!-- end -->
+						<div class="ticket-bg">
+							<div class="wp-ticket clearfix">
+								<i class="wp-t-name">票种</i>
+								<input class="wp-input2" type="text"/>
+							</div>
+							<table class="ticket-tb">
+								<tr>
+									<th class="tick-1">*单价（元）</th>
+									<th class="tick-2">优惠票价（元）</th>
+									<th class="tick-3">优惠票价起售数</th>
+									<th class="tick-4">*票售库存量</th>
+									<th class="tick-5">*有效使用时间</th>
+									<th class="tick-6">商家编码</th>
+								</tr>
+								<tr>
+									<td><input class="tick-text" type="text"/></td>
+									<td><input class="tick-text" type="text"/></td>
+									<td><input class="tick-text" type="text"/></td>
+									<td><input class="tick-text" type="text"/></td>
+									<td>
+										<input class="tick-date" type="text" append="date" readonly="readonly"/>
+										<input class="tick-date" type="text" append="date" readonly="readonly"/>
+									</td>
+									<td><input class="tick-text" type="text"/></td>
+								</tr>
+							</table>
+						</div>
+						<p>
+							<a class="wp-btn" add="ticket" href="#">添加票种</a>
+						</p>
+
+						<div class="wp-b-to-b cp-switch">
+							<a class="wp-sure" sgin="locker" href="#">确定</a>
+							<a class="wp-sure none" sgin="unlock" href="#">重新填写</a>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td class="wp-td-l"><p class="wp-name wp-must">票务类型</p></td>
+					<td class="wp-td-r">
+						<label class="wp-radio"><input type="radio" name="p" checked="checked"/><i>电子票</i></label>
+						<p class="wp-red">选用电子票后，系统将自动生成一系列电子二维码，可使用“同人瞄”APP进行扫码功能</p>
+					</td>
+				</tr>
+				<tr>
+					<td class="wp-td-l"><p class="wp-name wp-must">货品预览</p></td>
+					<td class="wp-td-r">
+						<div class="wp-one-to">
+							<!-- img可替换成上传的图片 -->
+							<label class="wp-file"><input type="file"/><img src="../images/file1.png" alt=""></label>
+							<label class="wp-file"><input type="file"/><img src="../images/file1.png" alt=""></label>
+							<label class="wp-file"><input type="file"/><img src="../images/file1.png" alt=""></label>
+							<label class="wp-file"><input type="file"/><img src="../images/file1.png" alt=""></label>
+							<label class="wp-file"><input type="file"/><img src="../images/file1.png" alt=""></label>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td class="wp-td-l" rowspan="2"><p class="wp-name">货品简介</p></td>
+					<td class="wp-td-r">
+						<div>此处应该是符文本编辑框</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="write-part">
+			<p class="wp-cap">2.物流信息</p>
+			<table class="wp-tb fixed-table">
+				<tr>
+					<td class="wp-td-l"><p class="wp-name">物流体积</p></td>
+					<td class="wp-td-r"><input class="wp-input2" type="text"/></td>
+				</tr>
+				<tr>
+					<td class="wp-td-l"><p class="wp-name">物流重量</p></td>
+					<td class="wp-td-r"><input class="wp-input2" type="text"/></td>
+				</tr>
+				<tr>
+					<td class="wp-td-l"><p class="wp-name"> </p></td>
+					<td class="wp-td-r">
+						<select class="wp-select2">
+							<option value="1">asd</option>
+							<option value="2">asd</option>
+						</select>
+						<a class="wp-btn" href="#">新建运费模板</a>
+						<div class="wp-express" id="express">
+							<p class="clearfix">
+								<a class="wp-e-btn fixed" href="#">快递</a>
+								<a class="wp-e-btn" href="#">EMS</a>
+								<a class="wp-e-look" href="#">查看详情</a>
+							</p>
+							<p class="wp-e-txt wp-bb-dashed">默认运费:<i>1</i>件内<i>6</i>元，每增加<i>1</i>件，加<i>0</i>元</p>
+							<p class="wp-e-txt">指定区域运费:</p>
+							<p class="wp-e-txt">东城区、西城区、崇文区、宣武区、丰台区、石景山区:<i>1</i>件内<i>6</i>元，每增加<i>1</i>件，加<i>0</i>元</p>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="write-part">
+			<p class="wp-cap">3.售后保障信息</p>
+			<table class="wp-tb fixed-table">
+				<tr>
+					<td class="wp-td-l"><p class="wp-name">发票</p></td>
+					<td class="wp-td-r">
+						<label class="wp-radio"><input type="radio" name="fapiao"/><i>无</i></label>
+						<label class="wp-radio"><input type="radio" name="fapiao" checked="checked"/><i>有</i></label>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="write-part">
+			<p class="wp-cap">4.其他信息</p>
+			<table class="wp-tb fixed-table">
+				<tr>
+					<td class="wp-td-l"><p class="wp-name">自定义类别</p></td>
+					<td class="wp-td-r">
+						<select class="wp-select2">
+							<option value="1">asd</option>
+							<option value="2">asd</option>
+						</select>
+						<a class="wp-btn" href="#">管理类别</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="wp-td-l"><p class="wp-name">有效期</p></td>
+					<td class="wp-td-r">
+						<label class="wp-radio"><input type="radio" name="youxiaoqi" checked="checked"/><i>七天</i></label>
+						<label class="wp-radio"><input type="radio" name="youxiaoqi"/><i>否</i></label>
+						<label class="wp-radio"><input type="radio" name="youxiaoqi"/><i>永久</i></label>
+					</td>
+				</tr>
+				<tr>
+					<td class="wp-td-l"><p class="wp-name">开始时间</p></td>
+					<td class="wp-td-r">
+						<p>
+							<label class="wp-radio"><input type="radio" name="kaishi" checked="checked"/><i>立刻</i></label>
+						</p>
+						<p>
+							<label class="wp-radio"><input type="radio" name="kaishi"/><i>设定</i></label>
+							<input class="wp-input" type="text" append="date" readonly="readonly"/>
+						</p>
+						<p>
+							<label class="wp-radio"><input type="radio" name="kaishi"/><i>放入仓库</i></label>
+						</p>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="write-part write-extra">
+			<div class="wp-one-to clearfix">
+				<i class="wp-make">是否支持7天无理由退货:</i>
+				<label class="wp-radio"><input type="radio" name="day7" checked="checked"/><i>是</i></label>
+				<label class="wp-radio"><input type="radio" name="day7"/><i>否</i></label>
+			</div>
+			<div class="cb-shou">
+				<p class="cbs-cash"><a href="#">完成</a></p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

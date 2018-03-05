@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="format-detection" content="telephone=no"/>
+<title>喵</title>
+<link type="text/css"  rel="stylesheet" href="css/global.css">
+<link type="text/css"  rel="stylesheet" href="css/public.css">
+<!--<link type="text/css"  rel="stylesheet" href="css/shop-fenlei.css">-->
+<link href="css/shop-shaixuan.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+</style>
+<script src="js/jquery-2.2.4.min.js"></script>
+<script src="js/obtainArguments.js"></script>
+<script src="js/miao-Dialog.js"></script>
+<script src="js/filter.js"></script>
+
+<script>
+$().ready(function () {
+    var h1 = $(".header-btn-a>a");
+    var text = $(".header-in-btn");
+    h1.click(function () {
+        text.slideDown();
+        text.focus();
+
+    });
+    text.on('click', 'a', function () {
+        var t = $(this).text();
+        h1.text(t);
+        $("#searchType").val($(this).attr('data-val'));
+        text.hide();
+    });
+
+    var h2=$(".nav-btn-color");
+    var last=$(".nav-btn-ul");
+    var none=$(".content-cover");
+    var val=last.find("li a");
+    h2.click(function(event){
+        last.show();
+        none.show();
+        last.focus();
+    });
+
+    last.on('click', 'li a',function(event){
+        var t = $(this).text();
+        h2.text(t);
+        last.hide();
+        none.hide();
+    });
+
+    none.click(function(event) {
+       last.hide();
+        none.hide();
+    });
+
+    
+    $('#info').on('keydown',function(e){
+    	if( e.keyCode == 13 ){
+            if($("#info").val().trim() == "")
+            {
+                alert('请输入查询内容');
+                return false;
+            }
+            IndexList();
+    	}
+    });
+
+    $('#filter> a').click(function(){
+        $(this).addClass('nav-btn-color').addClass('nav-btn-b');
+        $(this).siblings().removeClass('nav-btn-color').removeClass('nav-btn-b')
+        if($(this).attr('data-val') != 'shaixuan')
+        {
+            $("#content").show();
+            $(".shaixuan").hide();
+        }
+    });
+
+    var h3=$(".nav-btn-color").siblings();
+    h3.click(function(){
+        none.hide();
+        last.hide();
+    })
+})
+</script>
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex" >
+    <section class="header">
+        <div class="header-bg normal header-input ">
+            <div class="header-c position-relative">
+                <input type="text" id="info" class="position-relative-ss">
+                <div class="header-btn-a"><a href="#" id="filInfo">综合搜索</a></div>
+                <div class="header-in-btn">
+                    <a href="#" data-val="1">综合搜索</a>
+                    <a href="#" data-val="2">搜索原作</a>
+                    <a href="#" data-val="3">搜索CP圈</a>
+                    <a href="#" data-val="4">搜索角色</a>
+                    <input type="hidden" value="1" id="searchType">
+                </div>
+            </div>
+            <div class="header-more"><a href="javascript:history.go(-1)">取 消</a></div>
+        </div>
+        <div class="nav-btn" id="filter" style="display:none;">
+            <a href="#" class="nav-btn-color nav-btn-a position-a nav-btn-top nav-btn-b">人气排序</a>
+            <a href="#" data-val="sales" onclick="IndexList(this)">销量优先</a>
+            <a href="#" class="nav-btn-a position-c" id="choose" data-val="shaixuan">筛选</a>
+            <ul class="nav-btn-ul">
+                <li><a href="#" data-val="clicks" onclick="IndexList(this)">人气排序</a> </li>
+                <li><a href="#" data-val="sort_asc" onclick="IndexList(this)">价格从低到高</a></li>
+                <li><a href="#" data-val="sort_desc" onclick="IndexList(this)">价格从高到低</a></li>
+            </ul>
+        </div>
+    </section>
+    <section class="content" id="content">
+        <div class="content-cover"></div>
+        <div><ul class="sale-ones tie clearfix" id="contentInfo"></ul></div>
+    </section>
+
+    <section class="content shaixuan" style="display: none;">
+        <div class="shop-type clearfix">
+            <p>
+                <span class="icon-sp"></span>
+                <span class="type-span">店 铺 类 型</span>
+            </p>
+            <p class="more  type-a btn">
+                <a data-val="4">同人铺</a>
+                <a data-val="5">商业店</a>
+            </p>
+        </div>
+
+        <div class="shop-type list clearfix">
+            <p>
+                <span class="icon-sp"></span>
+                <span class="type-span">同 人 圈 类 型</span>
+            </p>
+            <p class="more fan btn">
+                <a data-val="1">非crossover</a>
+                <a data-val="2">crossover</a>
+                <a data-val="3">衍生圈</a>
+            </p>
+        </div>
+
+        <div class="shop-type list clearfix">
+            <p>
+                <span class="icon-sp"></span>
+                <span class="type-span">偏 好</span>
+            </p>
+            <p class="more fan btn">
+                <a data-val="3">百合</a>
+                <a data-val="2">腐向</a>
+                <a data-val="1">大众向</a>
+            </p>
+        </div>
+
+        <div class="shop-type list clearfix" id="categories">
+            <p>
+                <span class="icon-sp"></span>
+                <span class="type-span">商品类型</span>
+            </p>
+            <div class="type-input clearfix">
+                <p class="text-clamp-one" id="text"></p>
+                <i>×</i>
+            </div>
+            <ul class="menu-btn clearfix ss-pop-button" id="categories1">
+
+            </ul>
+
+        </div>
+        <div class="shop-bottom">
+            <p class="inactivated">重 置</p>
+        </div>
+        </div>
+    </section>
+    <section class="footer shaixuan footer-sx" style="display: none;">
+        <a href="#" class="inactivated">确 认</a>
+    </section>
+</section>
+<div class="confirm-pop-ups font5" id="cpp">
+    <div class="cpp-top"><i id="cancel">×</i></div>
+		<span id="level3">
+
+		</span>
+    <div class="finish" id="determine">完成</div>
+</div>
+
+
+</body>
+</html>
+<script>
+    var param = new Arguments();
+    var urlParam = param.Request();
+    var AllFilter={};//用来存多条件筛选之后的结果
+    $("#choose").on('click', function () {
+        $("#content").hide();
+        $(".shaixuan").show();
+        filter()
+    })
+    function IndexList(obj,param)
+    {
+        //筛选导航
+        var url = '/tongrenmiao/index.php?g=Mall&m=Index&a=search';
+        var data = {};
+        if(param)
+        {
+            AllFilter = param;
+        }
+        data['shaixuan'] = AllFilter;
+
+        if(obj)
+        {
+            data['filterType'] = $(obj).attr('data-val');
+        }
+        data['search_type']=$("#searchType").val();
+        data['name']=$('#info').val().trim();
+        console.log(data);
+        $.ajax({
+            url:url,
+            data:data,
+            type:'get',
+            dataType:'json',
+            beforeSend:function()
+            {
+
+            },
+            success:function(res)
+            {
+                $(".shaixuan").hide();
+                $("#content").show();
+                if(res.Info != "")
+                {
+                    handleHtml(res);
+                    $("#filter").show();
+                }
+                else
+                {
+                    $("#filter").hide();·
+                    $("#contentInfo").html('没有找到该商品');
+                    $("#contentInfo").css({'color':'gray','padding-top':'20%','font-size':'0.8rem'});
+                }
+            },
+            error:function()
+            {
+
+            }
+        })
+    }
+
+    function handleHtml(list)
+    {
+        var str = '';
+        $.each(list.Info,function(k,va)
+        {
+            str += '<li>\
+                        <div class="sale-ones-front tie">\
+                            <p class="sale-of-img"><img src="'+va.pic+'"></p>\
+                            <p class="sale-of-name">'+va.name+'</p>\
+                            <p class="sale-of-text">'
+                            if(va.original !=null)
+                            {
+                                str += '<span>原作:'+va.original+'</span>'
+                            }
+                            if(va.circlename !=null)
+                            {
+                                str += '<span>CP圈:'+va.circlename+'</span>'
+                            }
+                            str +='</p><p class="sale-of-price">￥'+va.price+'</p>\
+                        </div>\
+                    </li>'
+//            if(list.type == 1)
+//            {
+//                //循环商品显示
+//                str += '<li><div class="sale-ones-front tie"><p class="sale-of-img"><img src="'+va.pic+'"></p>\
+//                    <p class="sale-of-name">'+va.name+'</p><p class="sale-of-text"><span>原作:伪装者</span>\
+//                    <span>CP圈:楼成</span></p><p class="sale-of-price">￥'+va.price+'</p></div></li>'
+//            }
+////            else
+////            {
+////                //同人铺只显示商铺信息
+////                str += '<div class="store-search part clearfix">\
+////                        <div class="store-box clearfix">\
+////                            <div class="store-img">\
+////                                <a href="shangye_xiangqi.html?shopId='+va.userid+'"><img src="'+va.logo+'" alt=""></a>\
+////                            </div>\
+////                            <div class="store-info">\
+////                                <p class="store-i-name">'+va.company+'</p>\
+////                                <p class="store-i-text">关注人数 '+va.shop_collect+'</p>\
+////                                <p class="store-i-text">全部宝贝 '+va.allbaby+'</p>\
+////                            </div>\
+////                            <div class="store-up"><a href="#">收 藏</a></div>\
+////                        </div>\
+////                        <div class="store-box clearfix">\
+////                            <ul class="sale-ones clearfix">'
+////                if(list.type == 3)
+////                {
+////                    //商业店加每家店的三件最新商品显示
+////                    $.each(va.product,function(k,v)
+////                    {
+////                        str += '<li><div class="sale-ones-front"><p class="sale-of-img"><a href="detail-page1.html?id='+v.id+'"><img src="'+v.pic+'"></a></p></div></li>';
+////                    })
+////                }
+////                str +='	</ul></div>	</div>';
+////            }
+        })
+        $("#contentInfo").html(str);
+    }
+</script>

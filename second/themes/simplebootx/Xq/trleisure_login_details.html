@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>【{$head[0]['title']}】 <if condition="$type eq 2">- 文库</if> - <if condition="$tzAttr eq 1">大众<elseif condition="$tzAttr eq 3"/>百合<else/>腐</if> - 同人闲情 - 同人瞄</title>
+	<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<tc_include file="Public:nav" />
+	<link href="__TMPL__Public/css/advance.css" rel="stylesheet" type="text/css" />
+	<link href="__TMPL__Public/css/trxq_wdr.css" rel="stylesheet" type="text/css" />
+	<link href="__TMPL__Public/css/dropkick.css" rel="stylesheet" type="text/css" />
+
+	<script src="__TMPL__Public/js/systemHead.js"></script>
+	<script src="__TMPL__Public/js/miao-GoTop.js"></script>
+	<!--<script src="__TMPL__Public/js/miao-Dialog.js"></script>-->
+	<script src="__TMPL__Public/js/jquery.Rotate.2.2.js"></script>
+	<script src="__TMPL__Public/js/jquery.dropkick-min.js"></script>
+	<script src="__TMPL__Public/js/common.js"></script>
+	<script src="__TMPL__Public/js/filterSubtleWord.js"></script>
+
+	<script type="text/javascript" src="__PUBLIC__/js/content_addtop.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/ueditor/ueditor.config.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/ueditor/ueditor.all.min.js"></script>
+
+	<style>
+
+		/*table .edui-default{
+			margin: 0px;
+		}*/
+
+		.fan_post {
+		}
+		.article {
+			position:relative;
+			float: left;
+			width: 100%;
+			text-align: left;
+			border-bottom: solid #cbcbcb 1px;
+			margin-bottom: 15px;
+			/*min-height: 248px;*/
+			background-color: #ECECE7;
+		}
+		.article .left {
+			float: left;
+			width: 110px;
+		}
+
+		.article .right {
+			float: right;
+			width: 850px;
+			background-color: #ECECE7;
+			/*font-weight: bold;*/
+		}
+		.right
+		{
+			position: relative;
+		}
+		.article .left .author {
+			float: left;
+			width: 90px;
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+
+		.article .left .head {
+			float: left;
+			width: 70px;
+			height: 70px;
+			border-radius: 50px;
+			margin-left: 10px;
+			margin-right: 10px;
+		}
+
+		.article .left .name {
+			width:90px;
+			word-wrap:break-word;
+			float: left;
+			font-size: 14px;
+			line-height: 30px;
+			color: #000000;
+			text-align: center;
+		}
+
+
+		.articlesTitle {
+			margin: 0 110px 10px 0;
+			font-size: 16px;
+			color: #3b3b3b;
+			text-align: left;
+			line-height: 32px;
+			font-weight: bold;
+		}
+		.articlesStatus {
+			float: right;
+			width: 100px;
+			font-size: 13px;
+			color: #6f6f6f;
+			text-align: right;
+			height: 50px;
+			line-height: 50px;
+			padding-right: 15px;
+		}
+
+		/*.articlesSpan{*/
+			/*float: right;*/
+			/*width: 830px;*/
+			/*font-size: 12px;*/
+			/*text-align: right;*/
+			/*height: 30px;*/
+			/*line-height: 30px;*/
+			/*padding: 10px;*/
+			/*right:0;bottom:0;*/
+		/*}*/
+		/*.articlesSpan .tag{*/
+			/*margin-right: 10px;*/
+		/*}*/
+		.articlesDetail {
+			float: left;
+			width: 830px;
+			font-size: 14px;
+			text-align: left;
+			line-height: 30px;
+			padding: 10px;
+		}
+		.articlesDetail p, .articlesDetail p span{background-color: #ECECE7!important;word-break:break-word;font-size: 16px !important;color:#000 !important;}
+		.articlesDetail img{max-width:800px;}
+		.articlesCreateTime ,.articlesSpan{
+			float: right;
+			width: 830px;
+			font-size: 12px;
+			text-align: right;
+			height: 30px;
+			line-height: 30px;
+			/*padding: 10px;*/
+			font-weight: normal;
+			right:0;bottom:0;
+		}
+
+		.articlesCreateTime .louceng {
+			margin-right: 15px;
+		}
+
+		.articlesCreateTime .time,.tag{
+			margin-right: 10px;
+		}
+
+		.fabu_fu table {
+			width: 740px;
+			text-align: left;
+			margin: 0 auto;
+		}
+
+		.fabu_fu table tr {
+			line-height: 45px;
+		}
+
+		.fabu_fu table tr td{
+			vertical-align:top;
+			height: 45px;
+			white-space:nowrap;
+		}
+
+		.x-page{
+			padding: 16px 20px;
+			/*border-bottom: #d5d5d5 solid 1px;*/
+		}
+		.x-page .left{
+			float: left;
+			font-size: 14px;
+			color: #8d8d8d;
+		}
+		.x-page .right{
+			float: right;
+			text-align: right;
+			font-size: 14px;
+			color: #8d8d8d;
+		}
+		.x-page .right *{
+			margin-right: 4px;
+		}
+		.x-page .right a{
+			font-size: 14px;
+			color: #8d8d8d;
+		}
+		.x-page .right input[type=text]{
+			text-align: center;
+			width: 28px;
+			height: 18px;
+			border: #9a9a9a solid 1px;
+		}
+		.x-page .right input[type=button]{
+			width: 38px;
+			height: 20px;
+			border: #9a9a9a solid 1px;
+			font-size: 14px;
+			color: #565656;
+			cursor: pointer;
+		}
+
+	</style>
+
+
+</head>
+
+
+	<body <if condition="$type eq 2"> ondragstart="return false" onselectstart="return false" onselect="document.selection.empty();" oncopy="document.selection.empty()" onbeforecopy="return false;" onmouseup="document.selection.empty();"</if>>
+
+
+
+<!--上面是页头-->
+<div class="wdr_Center bottom" >
+	<div class="top_Picture"></div>
+	<div class="x-page clearfix" style="background-color: #F6F6F6;">
+		<div class="left">
+			<if condition="$gb eq 3">
+				<i>全站公告</i>
+				<elseif condition="$gb eq 4"/>
+				<i>全局公告</i>
+				<else/>
+				<a href="{:U('index/index',array('attr'=>$tzAttr))}">同人闲情</a>
+				<i>&gt;</i>
+				<i><if condition="$tzAttr eq 2"><a href="{:U('index/index',array('attr'=>$tzAttr))}">腐向</a><elseif condition="$tzAttr eq 1"/><a href="{:U('index/index',array('attr'=>$tzAttr))}">大众</a><else/><a href="{:U('index/index',array('attr'=>$tzAttr))}">百合</a></if><if condition="$address eq 2"><i>&gt;</i><a href="{:U('index/trleisure_library',array('attr'=>$tzAttr))}">同人文库</a></if></i>
+			</if>
+		</div>
+	</div>
+		<div class="wdr_Layout trxq-info clearfix" style="background-color: #ECECE7;" <if condition="$type eq 2">id="wrap"</if>>
+			<div class="fan_post clearfix" >
+                <div class="article" style="min-height: 50px; padding-bottom: 10px">
+                    <div class="left"></div>
+                    <div class="right">
+                        <div class="articlesTitle"><if condition="$head[0]['type'] neq 3">{$head[0]['author']}{$head[0]['cpname']}</if>{$head[0]['title']}</div>
+                        <foreach name="head[0]['tagInfo']" item="tag">
+                            <div class="hobby_text">{$tag}</div>
+                        </foreach>
+
+                        <div class="articlesSpan">
+                            <span class="tag">标签：<if condition="$noticeId neq ''">公告<else/>{$head[0]['tagname']}</if></span>
+                        </div>
+                    </div>
+                </div>
+					<div class="article" <if condition="$p neq 1">style="display:none"</if>>
+						<div class="left">
+							<div class="author">
+								<if condition="$login eq '1'">
+									<!--<img src="__TMPL__Public/images/trxq/login.png" width="68px;" height="68px;">-->
+									<div class="head"><img src="{$head[0]['headimg']}"  width="68px;" height="68px;"/></div>
+									<else/>
+									<!--<img src="__TMPL__Public/images/trxq/notlogin.png" width="68px;" height="68px;">-->
+									<div class="head"><img src="{$head[0]['headimg']}"  width="68px;" height="68px;"/></div>
+								</if>
+								<div class="name">{$head[0]['nickname']}</div>
+							</div>
+						</div>
+						<div class="right">
+							<div class="articlesDetail">
+									<if condition="$head[0]['rshield'] neq 2">
+									<p style="color: red">此处8CJ，已被马赛克</p>
+									<else/>
+									{$head[0]['content']}
+									</if>
+
+							</div>
+
+							<div class="articlesCreateTime">
+								<span class="louceng">{$head[0]['position']}楼</span><span class="time">{$head[0]['createtime']|date='Y-m-d H:i:s',###}</span>
+							</div>
+						</div>
+					</div>
+
+				<volist name="reply" id="vo">
+					<div class="article aa">
+						<div class="left">
+							<div class="author" id="dw{$vo.position}">
+								<div class="head"><img src="{$vo.headimg}" width="68px;" height="68px;"></div>
+								<if condition="$vo.isadmin eq 1">
+									<div class="name" style="color:red;">{$vo.rnickname}</div>
+									<else/>
+									<div class="name" >{$vo.rnickname}</div>
+								</if>
+							</div>
+						</div>
+						<div class="right">
+							{$vo.isadmin}
+							<if condition="$vo.rshield eq 2">
+								<if condition="$vo.isadmin eq 1">
+									<div class="articlesDetail" style="color:red;">{$vo.content}<br/></div>
+									<else/>
+									<div class="articlesDetail">{$vo.content}<br/></div>
+								</if>
+							<else/>
+								<p style="color: red">此处8CJ，已被马赛克</p>
+							</if>
+
+							<div class="articlesCreateTime">
+								<span class="louceng">{$vo.position}楼</span><span class="time">{$vo.rcreatetime|date='Y-m-d H:i:s',###}</span>
+							</div>
+						</div>
+					</div>
+				</volist>
+			</div>
+			<div class="x-page clearfix">
+				<div class="right">
+					{$page}
+				</div>
+			</div>
+	<if condition="$head[0]['isclosed'] eq '1'">
+	<p style="color: #000;font-size: 12px;position: absolute; left: 0; bottom: 5px; right: 0;">沪ICP备16017797号</p>
+	</if>
+</div>
+	<!--</if>-->
+	<if condition="$head[0]['isclosed'] neq '1'">
+		<div class="beijingse_bj"></div>
+		<div class="wdr_Center" style="	background-color: #ECECE7;">
+			<div class="top_Picture"></div>
+			<div class="wdr_Layout trxq-info clearfix">
+				<div class="search_List clearfix">
+
+					<div class="fabu_fu clearfix">
+						<form action="{:U('index/reply')}" method="post" id="myForm">
+							<table cellpadding="0" cellspacing="0" style="margin-left: 70px">
+								<tr>
+									<td>发布回复</td>
+									<td colspan="2"> </td>
+								</tr>
+								<tr>
+									<td class="release_text">名字：</td>
+									<td colspan="2">
+										<input id="nickname" type="text" class="poster_input" style="float: left;margin-top: 10px;"  name="nickname">
+										<if condition="$login eq 1">
+											<div class="select_qx checked" id="nimingdiv" style="float: left; margin-top: 5px;" onclick="changName(this)">
+												<label class="select_checkbox" style="margin-top: 17px;"></label>匿名聊天
+											</div>
+										</if>
+									</td>
+								</tr>
+								<tr class="release_z">
+									<td class="release_text" style="vertical-align: middle;">选择头像：</td>
+									<td class="imgTd" style="height: 80px; margin: 15px 0px;">
+										<ul id="systemHead">
+											<li onclick="choose(this);" class="selected"><img src="__TMPL__Public/images/systemHead/default-1.png" /></li>
+											<li onclick="choose(this);"><img src="__TMPL__Public/images/systemHead/default-2.png" /></li>
+											<li onclick="choose(this);"><img src="__TMPL__Public/images/systemHead/default-3.png" /></li>
+											<li onclick="choose(this);"><img src="__TMPL__Public/images/systemHead/default-4.png" /></li>
+											<li onclick="choose(this);"><img src="__TMPL__Public/images/systemHead/default-5.png" /></li>
+											<li onclick="choose(this);"><img src="__TMPL__Public/images/systemHead/default-6.png" /></li>
+											<li onclick="choose(this);"><img src="__TMPL__Public/images/systemHead/default-7.png" /></li>
+										</ul>
+									</td>
+									<input name="systemHead" type="hidden">
+								</tr>
+								<tr>
+									<td class="release_text">内容：</td>
+									<td colspan="2"><script type="text/plain" id="editor" name="post[post_content]" ></script></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td colspan="2"><button type="button" onclick="return doSubmit()" class='className_fb'>发布</button></td>
+								</tr>
+							</table>
+							<input type="hidden" name="type" value="{$head[0]['rtype']}">
+							<input type="hidden" name="tid" value="{$head[0]['id']}">
+							<input type="hidden" name="isCryptonym" value="1">
+							<input type="hidden" name="isAdmin" value="{$isAdmin}"/>
+							<input type="hidden" name="tzAttr" value="{$tzAttr}"/>
+							<input type="hidden" name="address" value="{$address}"/>
+						</form>
+					</div>
+				</div>
+				<p style="color: #000;font-size: 12px;position: absolute; left: 0; bottom: 5px; right: 0;">沪ICP备16017797号</p>
+			</div>
+		</div>
+	</if>
+</div>
+<a class="M_GoTop" href="javascript:;"></a>
+<a class="M_GoBottom" href="javascript:;"></a>
+
+</body>
+</html>
+<script>
+	var ue = UE.getEditor('editor');
+	//分页
+	$(function() {
+		var tzAttr = $("input[name=tzAttr]").val();
+		var address = $("input[name=address]").val();
+		var tid = $("input[name=tid]").val();
+		var totalPage = $("#totalPage").text();//获取总页数
+		if(totalPage<2)
+		{
+			$("#jump").hide();
+		}
+		var url = $('.tiaozhuan').attr("href");
+		$("#test").removeAttr('href');//禁止跳转
+		var type = '{$type}'
+		$('#z').bind('input propertychange', function() {
+			var totalPage = $("#totalPage").text();
+			var value = this.value;
+			var all = $('.all').attr("title");
+			var i = parseFloat(all);//将字符转化成数字
+			if (value <= i && !isNaN(value) && value > 0 && value !="") {
+				value = Math.ceil(value);
+				var newurl = url+ value+'&type='+type+'&id='+tid+'&tzAttr='+tzAttr+'&address='+address;
+				$('.tiaozhuan').attr("href", newurl);
+			}
+			else
+			{
+				$("#test").removeAttr('href');//禁止跳转
+			}
+		})
+		$("input[name=systemHead]").val($("#systemHead").find('.selected').find('img').attr('src'));
+		//右键不能点击
+		var table = document.getElementById ('wrap');
+		table.oncontextmenu = function ()
+		{
+			return false;
+		}
+	})
+	//回车触发按钮点击
+	document.onkeydown=function()
+	{
+		if (event.keyCode == 13)
+		{
+			document.getElementById("test").click();
+		}
+	}
+	//更改发帖人名称
+	function changName(obj)
+	{
+		var newName = '{$nickname}';
+		if($(obj).hasClass('checked'))
+		{
+			$("#nickname").val(newName);
+			$("#nickname").attr('readonly','readonly');
+			$('input[name=isCryptonym]').val(2);
+		}
+		else
+		{
+			$("#nickname").removeAttr('readonly','readonly');
+			$("#nickname").val('');
+			$('input[name=isCryptonym]').val(1);
+		}
+	}
+
+	function doSubmit()
+	{
+		var type = {$type};
+		var tid = $("input[name=tid]").val();
+		if($.trim($("#nickname").val()) == "")
+		{
+			alert('请填写名字');
+			return false;
+		}
+		if(UE.getEditor('editor').getContent() == "")
+		{
+			alert('请填写内容');
+			return false;
+		}
+		$.ajax({
+			url:"{:U('index/ajaxInterval')}",
+			type:"GET",
+			data:{'type':2,'lib':type,'id':tid},
+			success:function(res)
+			{
+				if(!res['isExist'])
+				{
+					if(res['info'] == 1)
+					{
+						var time = res['time']?res['time']:3
+						alert("连续发布时间不能少于"+time+"秒");
+					}
+					else if(res['info'] == 2)
+					{
+						alert('您已被禁言');
+					}
+					else
+					{
+						//标题和文章替换，其他的提示
+						UE.getEditor('editor').setContent(filter(UE.getEditor('editor').getContent()));
+						$("#nickname").val(filter($("#nickname").val()));
+						$(".className_fb").attr('disabled','true');
+						$(".className_fb").text("正在提交");
+						$("#myForm").submit();
+					}
+				}
+				else
+				{
+					$("#myForm").attr('action',"{:U('index/replyError')}")
+					$("#myForm").submit();
+				}
+			},
+			error:function()
+			{
+				alert('请求失败');
+			}
+		})
+	}
+</script>

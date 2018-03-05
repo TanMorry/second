@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>展会</title>
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<link href="css/global.css" rel="stylesheet" type="text/css">
+<link href="css/layout.css" rel="stylesheet" type="text/css">
+
+<script src="js/jquery.min.js"></script>
+<script src="js/expo.public.js"></script>
+<script src="js/jquery.Rotate.2.2.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+	//图片的旋转
+	$(".M_Store_1 img").rotate(-10);
+	$(".M_Store_3 img").rotate(10);
+});
+
+</script>
+
+<body>
+	<div class="M_Header">
+		<div class="hd-bg">
+			<p class="hd-pink"></p>
+		</div>
+		<div class="hd-index M_Center">
+			<div class="hd-main">
+				<ul class="float-center clearfix">
+					<li class="hd-m-btn" ><a href="#">展会</a></li>
+					<li class="hd-m-btn fixed"><a href="#">社团铺</a></li>
+					<li class="hd-m-logo"></li>
+					<li class="hd-m-btn" ><a href="#">我的</a></li>
+					<li class="hd-m-btn" ><a href="#">同人闲情</a></li>
+				</ul>
+			</div>
+			<div class="hd-nav-r">
+				<ul class="hd-nav-not">
+					<li><a href="#">登录</a></li>
+					<li><a href="#">注册</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="M_Store M_Layout M_BTM_20">
+		<!-- bg层,因为IE8旋转元素的兼容问题 -->
+		<div>
+			<span class="M_Store_1">
+					<img src="images/miao-store-1.png">
+			</span>
+			<span class="M_Store_2"></span>
+			<span class="M_Store_3">
+					<img src="images/miao-store-2.png">
+			</span>
+		</div>
+		<!-- top层,正常显示 -->
+		<div>
+			<span class="M_Store_1">
+				<a href="#">
+					<img src="images/miao-store-tongren.png">
+				</a>
+			</span>
+			<span class="M_Store_2">
+				<a href="#">
+					<img src="images/miao-store-3.png">
+				</a>
+			</span>
+			<span class="M_Store_3">
+				<a href="#">
+					<img src="images/miao-store-guanfang.png">
+				</a>
+			</span>
+			<p>订制厂</p>
+		</div>
+		<!-- background 100% of < IE9 -->
+		<img src="images/miao-store-bg.png">
+	</div>
+
+	<div class="factory-list">
+		<div class="factory-box">
+			<img src="images/miao-factory-bg.png">
+			<ul>
+				<li class="fb-name">厂商名称:<i>XXX</i></li>
+				<li class="fb-info">厂商介绍</li>
+				<li class="fb-desc">asdasdasdasdasdsad</li>
+			</ul>
+			<p class="fb-btn">
+				<a href="#">本子印刷</a>
+				<a href="#">周边制作</a>
+			</p>
+		</div>
+		<div class="factory-box">
+			<img src="images/miao-factory-bg.png">
+			<ul>
+				<li class="fb-name">厂商名称:<i>XXX</i></li>
+				<li class="fb-info">厂商介绍</li>
+				<li class="fb-desc">asdasdasdasdasdsad</li>
+			</ul>
+			<p class="fb-btn">
+				<a href="#">本子印刷</a>
+			</p>
+		</div>
+		<div class="factory-box">
+			<img src="images/miao-factory-bg.png">
+			<ul>
+				<li class="fb-name">厂商名称:<i>XXX</i></li>
+				<li class="fb-info">厂商介绍</li>
+				<li class="fb-desc">asdasdasdasdasdsad</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

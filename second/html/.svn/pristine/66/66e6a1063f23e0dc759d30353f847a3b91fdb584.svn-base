@@ -1,0 +1,6 @@
+.nav-sub{padding:0  0.7rem;border-bottom:1px solid #979595 }
+.nav-sub ul{display: -webkit-box;flex: 4;-webkit-box-pack: center;-webkit-box-align: center;display: flex}
+.nav-sub ul li {flex: 4;position: relative}
+.nav-sub li a{height: 2.5rem;font-size:0.9rem;;color: #979595;display: block;line-height: 2.5rem}
+.nav-sub-a:after{height: 0;width: 0;border: 0.3rem solid transparent;border-bottom-color:#979595;content:"";
+  position: absolute;left: 82%;top:31%;}

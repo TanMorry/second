@@ -1,0 +1,119 @@
+@charset "utf-8";
+/* 你自己的样式 */
+.return_text p{
+		text-align: center;
+		font-size: 18px;
+		color: #7a7a7a;
+	}
+	.return_text_z{
+		margin: 0 25% 0 25%;
+	}
+	.duohang_text{
+		margin: 0 25% 0 25%;
+		margin-top: 30px;
+		
+	}
+	
+	.className{
+	  line-height:30px;
+	  height:30px;
+	  width:70px;
+	  color:#ffffff;
+	  background-color:#3ba354;
+	  font-size:16px;
+	  font-weight:normal;
+	  font-family:Arial;
+	  border:0px solid #dcdcdc;
+	  -moz-box-shadow: inset 0px 0px 0px 0px #ffffff;
+	  -webkit-box-shadow: inset 0px 0px 0px 0px #ffffff;
+	  box-shadow: inset 0px 0px 0px 0px #ffffff;
+	  text-align:center;
+	  display:inline-block;
+	  text-decoration:none;
+}
+
+.className-pb{
+	  line-height:30px;
+	  height:30px;
+	  width:70px;
+	  color:#ffffff;
+	  background-color:#3ba354;
+	  font-size:16px;
+	  font-weight:normal;
+	  font-family:Arial;
+	  border:0px solid #dcdcdc;
+	  -moz-box-shadow: inset 0px 0px 0px 0px #ffffff;
+	  -webkit-box-shadow: inset 0px 0px 0px 0px #ffffff;
+	  box-shadow: inset 0px 0px 0px 0px #ffffff;
+	  text-align:center;
+	  display:inline-block;
+	  text-decoration:none;
+	  margin-left: 205px;
+	  margin-top: 8px;
+}
+	.className1{
+	  line-height:30px;
+	  height:30px;
+	  width:70px;
+	  color:#ffffff;
+	  background-color:#969896;
+	  font-size:16px;
+	  font-weight:normal;
+	  font-family:Arial;
+	  border:0px solid #dcdcdc;
+	  -moz-box-shadow: inset 0px 0px 0px 0px #ffffff;
+	  -webkit-box-shadow: inset 0px 0px 0px 0px #ffffff;
+	  box-shadow: inset 0px 0px 0px 0px #ffffff;
+	  text-align:center;
+	  display:inline-block;
+	  text-decoration:none;
+}
+
+.toolTip{
+	background: #fff;
+	width: 480px;
+	height: 240px;
+}
+.toolTip-liyou{
+	text-align: center;
+	width: 445px;
+	height: 50px;
+	line-height: 50px;
+	font-size: 16px;
+	margin-left: 25px;
+}
+.toolTip-dx{
+	width: 400px;
+	height: 120px;
+	text-align: left;
+	margin: 0 auto;
+	margin-left: 40px;
+	color: #3B4249;
+	padding: 4px 4px; 
+	resize:none;
+}
+.tooltip-gb{
+	float: right;
+}
+
+.anniu{
+	margin-left: 75%;
+}
+
+/*user*/
+.user-zh{text-align:center; display:block;
+}
+.select{
+	box-sizing: border-box;
+cursor: pointer;
+line-height: normal;
+font-weight: normal;
+width: 100px;
+white-space: nowrap;
+}
+.user-zh-sj{
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 30px;
+}

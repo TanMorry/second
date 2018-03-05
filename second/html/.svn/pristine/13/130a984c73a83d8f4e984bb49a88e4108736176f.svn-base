@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>展会</title>
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<link href="../css/global.css" rel="stylesheet" type="text/css">
+<link href="../css/layout.css" rel="stylesheet" type="text/css">
+<link href="../css/buyer.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+</style>
+
+<script src="../js/jquery.min.js"></script>
+<script src="../js/jquery.dropkick-min.js"></script>
+<script src="../js/expo.public.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+	/*弹框*/
+	$('.rf-p6').on('click', 'a', function(event) {
+		if ( $(this).html() == "申请介入")
+		{
+			$(".return-pop-ups").css("display","block");
+		}
+	});
+	$('.rpp-title').on('click', 'button', function(event) {
+		$(".return-pop-ups").css("display","none");
+	});
+	$('.rpp-content').on('click', '.rpp-content-btn2', function(event) {
+		$(".return-pop-ups").css("display","none");
+	});
+	/*倒计时*/
+	function timeKeeping ( countd, sd, sh, sm, ss) {
+		function finish () {
+			countd.html( '<i><strong>请处理退货申请</strong></i>倒计时结束 ' );
+		}
+		function run () {
+			countd.find('.second').text(ss);
+			countd.find('.minute').text(sm);
+			countd.find('.hour').text(sh);
+			countd.find('.day').text(sd);
+			if( ss < 10){
+				countd.find('.second').text( '0' + ss);
+			}
+			if( sm < 10){
+				countd.find('.minute').text( '0' + sm);
+			}
+			if( sh < 10){
+				countd.find('.hour').text( '0' + sh);
+			}
+			if( sd < 10){
+				countd.find('.day').text( '0' + sd);
+			}
+			ss--;
+			
+			if( ss<0 ){
+				ss += 60;
+				sm -= 1;
+			}
+			if( sm<0 ){
+				sm += 60;
+				sh -= 1;
+			}
+			if( sh<0 ){
+				sh += 24;
+				sd -= 1;
+			}
+			if( sd<0 ){
+				finish();
+			}
+			else{
+				setTimeout(run, 1000);
+			}
+		}
+		
+		run();
+	}
+	
+	var timename =  ['second','minute','hour','day'];
+	/*传输当前剩余的天数，小时数，分钟数，秒数*/
+	var arr = ['1','0','0','10'];
+	$('.countdown').find('b').each(function(){
+		$(this).addClass( timename.pop() );
+	});
+	timeKeeping( $('.countdown'), arr[0], arr[1], arr[2], arr[3] );
+});
+
+</script>
+
+<body>
+	<div class="M_Header">
+		<div class="hd-bg">
+			<p class="hd-pink"></p>
+		</div>
+		<div class="hd-index M_Center">
+			<div class="hd-main">
+				<ul class="float-center clearfix">
+					<li class="hd-m-btn" ><a href="#">展会</a></li>
+					<li class="hd-m-btn"><a href="#">社团铺</a></li>
+					<li class="hd-m-logo"></li>
+					<li class="hd-m-btn fixed" ><a href="#">我的</a></li>
+					<li class="hd-m-btn" ><a href="#">同人闲情</a></li>
+				</ul>
+			</div>
+			<div class="hd-nav-r">
+				<ul class="hd-nav-not">
+					<li><a href="#">登录</a></li>
+					<li><a href="#">注册</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="M_Center M_Layout M_BTM_175">
+		<div class="refund-bg clearfix">
+			<div class="refund-step">
+				<ul class="clearfix">
+					<li class="true"><i class="true"></i>买家申请退货退款</li>
+					<li class="true"><i class="true"></i>卖家处理退货申请</li>
+					<li class="fixed"><i class="three"></i>买家退货给卖家</li>
+					<li><i class="four"></i>卖家确认退款，退款成功</li>
+				</ul>
+			</div>
+
+			<div class="refund-left">
+				<div class="refund-fill">
+					<p class="rf-p4 countdown"><i><strong>买家已发货</strong></i><img src="../images/time.png"/>倒计时 : <b></b>天 <b></b>时 <b></b>分 <b></b>秒 </p>
+					<p class="rf-p5"><i>•</i>您已退货 物流公司：申请快递 运单号：368235910584</p>
+					<p class="rf-p4"><i>
+						<input type="button" class="rf-btn-agree2" value="确认退款" />
+					</i></p>
+					<div class="rf-p6"><i>你还可以： <a href="#">申请介入</a></i>
+						<!--弹框-->
+						<div class="return-pop-ups">
+							<div class="rpp-title">
+								<button>X</button>
+							</div>
+							<div class="rpp-content">
+								<p>退款将直接退款还于买家<a>test</a>支付宝账户，共<a>4.00</a>元</p>
+								<button class="rpp-content-btn1">确认</button>
+								<button class="rpp-content-btn2">取消</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<p class="rf-title">交易记录</p>
+				<div class="refund-information">
+					<i></i>
+					<div class="clearfix">
+						<h1>JCSCV</h1><h2>2015年12月5日晚上12点18分</h2></br>
+						<p>买家(JCSCV)发起了退款申请，货物状态：未收到货 原因：买家发错货，金额：11.00，说明：123。</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="refund-right">
+				<div class="refund-order">
+					<p class="ro-p1">退款/退货申请</p>
+					<p class="ro-item clearfix">
+						<a class="ro-i-img" href="#"><img src="../images/artwork-box-1.jpg"/></a>
+						<a class="ri-i-txt" href="#">迪士尼动画长片(疯狂动物城)同人本</a>
+					</p>
+					<p class="ro-p2"><i>买家要求:</i><b>退货退款</b></p>
+					<p class="ro-p2"><i>退款金额:</i><b>1.00元</b></p>
+					<p class="ro-p2"><i>原 因:</i>123123</p>
+					<p class="ro-p2"><i>货物状态:</i>已收到货</p>
+					<p class="ro-p2"><i>退款编号:</i>R1459625463</p>
+					<p class="ro-p2"><i>申请时间:</i>2016-03-30 16:11:03</p>
+				</div>
+				<div class="refund-shop">
+					<p class="ro-p2"><i>卖 家:</i>TEST</p>
+					<a class="ro-call" href="#"><b>联系客服</b></a>
+					<p class="ro-p2"><i>订单编号:</i><b>150330031545001</b></p>
+					<p class="ro-p2"><i>单 价:</i>1.00元 * 1（数量）</p>
+					<p class="ro-p2"><i>宝贝实付:</i>1.00元</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

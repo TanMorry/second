@@ -1,0 +1,164 @@
+/**/
+.part2{
+	overflow: hidden;
+	background: #fff;
+	border-bottom: 1px solid #bcb5b5;
+}
+.part3{
+	overflow: hidden;
+	background: #fff;
+}
+.pi-home{
+	position: relative;
+	height: 100%;
+}
+.pi-pic{
+	position: absolute;
+	top: 28%;
+	left: 5%;
+	height: 50%;
+	width: 28.7%;
+	-webkit-border-radius: 50%;
+	background: url(../img/home-head-portrait.png) 0rem 0rem no-repeat;
+	background-size: 100%;
+	border: 2px solid #fff;
+	z-index: 20;
+}
+.pi-pic img{
+	-webkit-border-radius: 50%;
+}
+.pi-login{
+	position: absolute;
+	top: 84%;
+	left: -2.25rem;
+	height: 0.8rem;
+	width: 4.5rem;
+	-webkit-border-radius:100rem;
+	background-color: rgba(0,0,0,0.35);
+	border: 2px solid #fff;
+	z-index: 20;
+	font-size: 0.6rem;
+	color: #fff;
+}
+.pi-login i{
+	display: block;
+	height: 1rem;
+	width: 1rem;
+	float: left;
+	background: url(../img/home-icon.png) 0.4rem 0.2rem no-repeat;
+	background-size: 0.6rem;
+}
+.personal-navigation{
+	display: -webkit-box;
+	padding: 0.5rem;
+	line-height: 1rem;
+	font-size: 0.7rem;
+	white-space:nowrap; 
+}
+.pn-l,
+.pn-r{
+	height: 1rem;
+	width: 0.9rem;
+}
+.pn-l.font1{
+	background: url(../img/personal.png) 0rem 0.05rem no-repeat;
+	background-size: 0.9rem;
+}
+.pn-l.font2{
+	background: url(../img/personal.png) 0rem -1.9rem no-repeat;
+	background-size: 0.9rem;
+}
+.pn-l.font3{
+	background: url(../img/personal.png) 0rem -3.6rem no-repeat;
+	background-size: 0.9rem;
+}
+.pn-l.font4{
+	background: url(../img/personal.png) 0rem -5.4rem no-repeat;
+	background-size: 0.9rem;
+}
+.pn-l.font5{
+	background: url(../img/personal.png) 0rem -7.3rem no-repeat;
+	background-size: 0.9rem;
+}
+.pn-l.font6{
+	background: url(../img/personal.png) 0rem -8.9rem no-repeat;
+	background-size: 0.9rem;
+}
+.pn-l.font7{
+	background: url(../img/personal.png) 0rem -10.7rem no-repeat;
+	background-size: 0.9rem;
+}
+
+.pn-r{
+	background: url(../img/you-iocn.png) 0.35rem 0 no-repeat;
+	background-size: 0.55rem;
+}
+.pn-c1,
+.pn-c2{
+	-webkit-box-flex: 1;
+}
+.pn-c1{
+	text-align: left;
+	padding-left: 0.3rem;
+	color: #000;
+}
+.pn-c2{
+	text-align: right;
+	padding-right: 0.3rem;
+	color: #bcb5b5;
+}
+.receivables-delivery{
+	display: -webkit-box;
+	padding: 0.5rem 0rem;
+}
+.pird{
+	-webkit-box-flex: 1;
+}
+.pird a{
+	display: block;
+	position: relative;
+    width: 2.5rem;
+    margin: 0 auto;
+    padding-top: 2.8rem;
+    font-size: 0.6rem;
+    color: #777777;
+	white-space:nowrap; 
+}
+.pird a b{
+	display: block;
+	height: 0.8rem;
+	line-height: 0.8rem;
+	width: 0.8rem;
+	position: absolute;
+	right: 0.1rem;
+	top: 0rem;
+	color: #fff;
+	background-color: #00baff;
+	-webkit-border-radius: 100%;
+}
+.pird .nav1{
+	background: url(../img/personal2.png) 0rem -0.02rem no-repeat;
+    background-size: auto 2.5rem;
+}
+.pird .nav2{
+	background: url(../img/personal2.png) -4.55rem 0.07rem no-repeat;
+    background-size: auto 2.5rem;
+}
+.pird .nav3{
+	background: url(../img/personal2.png) -8.95rem 0.07rem no-repeat;
+    background-size: auto 2.5rem;
+}
+.pird .nav4{
+	background: url(../img/personal2.png) -13.45rem 0.06rem no-repeat;
+    background-size: auto 2.5rem;
+} 
+.pird .nav5{
+	background: url(../img/personal2.png) -17.9rem -0.05rem no-repeat;
+    background-size: auto 2.5rem;
+}
+.pi-mar{
+	margin-bottom: 1.5rem;
+}
+.pi-pad{
+	margin: 0rem 0.5rem;
+}

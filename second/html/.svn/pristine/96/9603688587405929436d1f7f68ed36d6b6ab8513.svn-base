@@ -1,0 +1,76 @@
+@charset "utf-8";
+.terms-bg{
+	width: 1000px;
+	height: 600px;
+	margin: 0 100px;
+	background: url(../images/icon/terms-bg.png) center center no-repeat;
+}
+.terms-title{
+	padding: 20px 0;
+	font-size: 18px;
+	color: #606060;
+}
+.terms-text{
+	padding: 5px 40px;
+	color: #727272;
+	text-align: left;
+}
+
+.review-bg{
+	width: 650px;
+	height: 720px;
+	margin: 0 100px;
+	padding: 0 175px;
+	background-color: #fff;
+}
+.review-title{
+	width: 525px;
+	height: 95px;
+	line-height: 95px;
+	margin: 63px auto 19px;
+	padding-left: 18px;
+	background: url(../images/icon/review-title-bg.png) center center no-repeat;
+	color: #fff;
+}
+.review-input{
+	margin-bottom: 44px;
+}
+.review-input textarea{
+	width: 470px;
+	height: 180px;
+	padding: 5px;
+	font-size: 14px;
+	border: #0094e6 solid 1px;
+	background-color: #fcfcfc;
+	/*禁止拖动*/
+	resize: none;
+	max-width: 470px;
+	max-height: 180px;
+	/*去IE滚动条*/
+	overflow-y:auto;
+}
+.review-grade{
+	text-align: left;
+	padding-left: 90px;
+}
+.review-grade span{
+	display: inline-block;
+	width: 17px;
+	height: 15px;
+	margin: 0 15px 32px;
+	background: url(../images/button/review-icon-grade.png) center center no-repeat;
+}
+.review-p1{
+	margin-bottom: 32px;
+	text-align: left;
+	color: #727272;
+}
+.review-p2{
+	margin-bottom: 20px;
+	text-align: left;
+}
+.review-p3{
+	margin-bottom: 15px;
+	text-align: right;
+	color: #727272;
+}

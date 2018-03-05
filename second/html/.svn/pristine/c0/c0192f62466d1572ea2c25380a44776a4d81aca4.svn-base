@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>展会</title>
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../css/global.css" rel="stylesheet" type="text/css">
+    <link href="../css/layout.css" rel="stylesheet" type="text/css">
+    <link href="../css/dindan-a.css" rel="stylesheet" type="text/css">
+<body>
+<div class="conter">
+    <div class="list">
+        <p class="conter-li">订单详情</p>
+        <ul class="list-a">
+            <li>订单创建日期：2016-1-1  15:55:32 </li>
+            <li class="list-li">订单信息 </li>
+            <li>订单编号： 1604120.5028001 <span>订单状态： 等待卖家发货 </span><span>订单状态： 等待卖家发货</span> <span>配送状态： 未配送</span></li>
+            <li class="list-li">产品信息 </li>
+            <li class="conter-li">
+              <ul class="more">
+                  <li>编号</li>
+                  <li>产品</li>
+                  <li class="more-r">单价</li>
+                  <li class="more-l">数量</li>
+                  <li>总价</li>
+              </ul>
+            </li>
+            <li class="conter-li">
+                <ul class="more">
+                    <li>1000202  </li>
+                    <li>12313 </li>
+                    <li class="more-r"><img src="../images/icon-qian.png">1.00 </li>
+                    <li class="more-l">1</li>
+                    <li><img src="../images/icon-qian.png">1</li>
+                </ul>
+            </li>
+            <li>
+               <ul>
+                   <li class="more-qh ">
+                       <ul>
+                           <li>商品质量：0.00kg </li>
+                           <li>商品总金额：<img src="../images/icon-qian.png">1.00 </li>
+                           <li>配送费用：<img src="../images/icon-qian.png"> 10.00 </li>
+                           <li>订单总金额：<img src="../images/icon-qian.png"> 11.00 </li>
+                       </ul>
+                   </li>
+               </ul>
+            </li>
+            <li class="list-li">
+               <p>收货地址</p>
+            </li>
+            <li class="list-c conter-li "><span >收件人</span>afafafa</li>
+            <li class="list-c conter-li "><span>联系电话</span> 1321212  </li>
+            <li class="list-c conter-li "><span>收货地址 </span>天津和平区  劝业场街道  FAFDAF  </li>
+        </ul>
+        <ul></ul>
+    </div>
+</div>
+
+<!-- 页脚 -->
+<div class="M_Footer">
+    <div class="M_Center clearfix">
+        <dl class="ft-dl">
+            <dt>同人喵APP</dt>
+            <dd class="ft-dd-i"><img src="../images/qr.png" /></dd>
+            <dd class="ft-dd-o">
+                <a href="#">安卓客户端</a>
+                <a href="#">安卓客户端</a>
+            </dd>
+        </dl>
+        <dl class="ft-dl">
+            <dt>关于我们</dt>
+            <dd class="ft-dd-o">
+                <a href="#">法律申明</a>
+                <a href="#">商务合作</a>
+            </dd>
+            <dd class="ft-dd-t">
+                <a href="#">使用手册</a>
+                <a href="#">服务条款</a>
+                <a href="#">意见反馈</a>
+            </dd>
+        </dl>
+        <dl class="ft-dl">
+            <dt>友情链接</dt>
+            <dd class="ft-dd-c">
+                <a href="http://www.wft-wft-wft.cn">www.wft-wft-wft.cn</a>
+                <b>上海wtf-666有限公司</b>
+                <i>上海市奉贤区wft-wft-wft路666号666室旁边的菜市场</i>
+            </dd>
+        </dl>
+        <dl class="ft-dl">
+            <dt>联系方式</dt>
+            <dd class="ft-dd-l">
+                <i>电话：400(800)-020-0000000</i>
+                <i>邮箱：wtf@wft-wft-wft.cn</i>
+                <p>
+                    <a class="ft-share-s" href="#"></a>
+                    <a class="ft-share-w" href="#"></a>
+                    <a class="ft-share-q" href="#"></a>
+                </p>
+            </dd>
+        </dl>
+
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no"/>
+    <title>喵</title>
+    <link href="../css/global.css" rel="stylesheet" type="text/css">
+    <link href="../css/public.css" rel="stylesheet" type="text/css">
+    <link href="../plugin/swiper.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+
+    </style>
+    <script src="../js/jquery-2.2.4.min.js"></script>
+    <script src="../plugin/swiper.jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+//            var mySwiper = new Swiper('.swiper-container', {
+//                autoplay: 2000,
+//                speed: 500,
+//                autoplayDisableOnInteraction: false,
+//                autoHeight: true,
+//                loop: true,
+//                pagination : '.swiper-pagination'
+//            });
+
+            function remove(){
+                $("#wrapper").hide();
+                $('.bg-color').addClass('bg_eb');
+                $('.btn').addClass('btn-pos');
+                $('.top-sort').addClass('t-sort-pos');
+                $('.top-sort>ul').addClass('top-ul')
+            }
+            function add(){
+                $("#wrapper").slideDown();
+                $('.bg-color').removeClass('bg_eb');
+                $('.btn').removeClass('btn-pos');
+                $('.top-sort').removeClass('t-sort-pos');
+                $('.top-sort>ul').removeClass('top-ul')
+            }
+            $('.btn-b').click(function(){
+                $('.content').css({
+                    "overflow-x":"hidden",
+                    "overflow-y":"hidden"
+                });
+                $('.btn-y').find('i').removeClass('btn-up')
+                $('.btn-y').find('span').removeClass('btn1-b-color')
+                $('.top-btn1-y').removeClass('btn-block');
+                remove()
+                $('.content-cover').show();
+
+                if($(this).find('i').hasClass('btn-up')){
+                    $(this).find("i").removeClass(' btn-up');
+                    $(this).find('span').removeClass('btn1-b-color');
+                    $('.top-btn1-b').removeClass('btn-block');
+                    $('.content-cover').hide();
+                    $('.content').css({
+                        "overflow-x":"auto",
+                        "overflow-y":"auto"
+                    });
+                }else{
+                    $(this).find("i").addClass(' btn-up');
+                    $(this).find('span').addClass('btn1-b-color');
+                    $('.top-btn1-b').addClass('btn-block');
+                    $('.content-cover').show();
+                    $('.top-sort>ul').addClass('top-ul')
+                }
+            });
+
+
+            $('.btn-y').click(function(){
+                $('.btn-b').find('i').removeClass('btn-up')
+                $('.btn-b').find('span').removeClass('btn1-b-color')
+                $('.top-btn1-b').removeClass('btn-block');
+                $('.content').css({
+                    "overflow-x":"hidden",
+                    "overflow-y":"hidden"
+                });
+                remove()
+                $('.content-cover').show();
+
+                if($(this).find('i').hasClass('btn-up')){
+                    $(this).find("i").removeClass(' btn-up');
+                    $(this).find('span').removeClass('btn1-b-color');
+                    $('.top-btn1-y').removeClass('btn-block');
+                    $('.content-cover').hide();
+                    $('.content').css({
+                        "overflow-x":"auto",
+                        "overflow-y":"auto"
+                    });
+                }else{
+                    $(this).find("i").addClass(' btn-up');
+                    $(this).find('span').addClass('btn1-b-color');
+                    $('.top-btn1-y').addClass('btn-block');
+                    $('.content-cover').show();
+                    $('.top-sort>ul').addClass('top-ul')
+                }
+            });
+            $('.content-cover').click(function(){
+                $(this).hide();
+                $('.btn-y,.btn-b').find('i').removeClass('btn-up');
+                $('.btn-y,.btn-b').find('span').removeClass('btn1-b-color');
+                $('.top-btn1-y,.top-btn1-b').removeClass('btn-block');
+                $('.content').css({
+                    "overflow-x":"auto",
+                    "overflow-y":"auto"
+                });
+            });
+            $('.top-btn1-b,.top-btn1-y').on('click', 'a', function(){
+                    $(this).addClass('btn1-b-color').siblings().removeClass('btn1-b-color');
+                    $('.content-cover').hide();
+                    $('.btn-y,.btn-b').find('i').removeClass('btn-up');
+                    $('.btn-y,.btn-b').find('span').removeClass('btn1-b-color');
+                    $('.content').css({
+                        "overflow-x":"auto",
+                        "overflow-y":"auto"
+                    });
+                $('.top-btn1-y,.top-btn1-b').removeClass('btn-block');
+                   if($(this).parent().hasClass("top-btn1-b")){
+                       $('.btn-b>span').text($(this).text())
+                   }else{
+                       if($(this).parent().hasClass("top-btn1-y")){
+                       $('.btn-y>span').text($(this).text())
+                       }
+                   }
+            });
+                $('.top-btn2').click(function(){
+                    $(this).children('i').toggleClass('dir-down');
+                    $('.top-btn1-y').removeClass('btn-block');
+                    $('.top-btn1-b').removeClass('btn-block');
+                    $('.content-cover').hide();
+                })
+
+                $('.content').scroll(function(){
+                    var a=$(".bg-color").outerHeight();
+                    var b=$('.content-battle').offset().top;
+//                    console.log($('.content').scroll);
+                    console.log(b);
+                    if(b<=a)
+                    {
+                        remove()
+                    }
+                    if(b==0){
+                        add();
+                    }
+              })
+
+        });
+    </script>
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex " >
+    <section class="header">
+        <div class="bg-color"></div>
+        <div class="top-bg ranking">
+            <div class="top-l"><a href=""></a></div>
+            <div class="top-c header-in"></div>
+            <div class="top-r"><a href="#"></a></div>
+        </div>
+    </section>
+    <section class="content ">
+        <div class="content-cover"></div>
+        <div id="wrapper">
+            <div class="iscroll-main">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><a href="#"><img src="../img/ip-1.png"></a></div>
+                        <div class="swiper-slide"><a href="#"><img src="../img/slide/mian2.png"></a></div>
+                        <div class="swiper-slide"><a href="#"><img src="../img/slide/mian3.png"></a></div>
+                    </div>
+                    <!--&lt;!&ndash; 分页器 &ndash;&gt;-->
+                    <!--<div class="swiper-pagination swiper-pagination-bullets">-->
+                    <!--<span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span>-->
+                    <!--<span class="swiper-pagination-bullet"></span>-->
+                    <!--<span class="swiper-pagination-bullet"></span>-->
+                    <!--</div>-->
+                </div>
+            </div>
+        </div>
+        <div class="content-battle">
+            <div class="btn">
+                <div class="top-nav top-border">
+                    <a href="#" class="top-btn1 btn-b"  ><span>日榜</span><i class="down"></i></a>
+                    <a href="#" class="top-btn1 btn-y" ><span>作品类型</span ><i class="down"></i></a>
+                    <a href="#" class="top-btn2" ><span>剁手数</span></a>
+                </div>
+                <div class="top-btn1-b" >
+
+                    <a href="javascript:" class="btn1-b-color"  data-val="daycut" onclick="time_order(this)">日榜</a>
+                    <a href="javascript:"  data-val="weekcut" onclick="time_order(this)">周榜</a>
+                    <a href="javascript:"  data-val="monthcut" onclick="time_order(this)">月榜</a>
+                </div>
+                <div class="top-btn1-y">
+                    <a href="javascript:" class="btn1-b-color" data-val="-1" onclick="work_type(this)">作品类型</a>
+                    <a href="javascript:" data-val="0" onclick="work_type(this)">ACG</a>
+                    <a href="javascript:" data-val="1" onclick="work_type(this)">小说</a>
+                    <a href="javascript:" data-val="2" onclick="work_type(this)">影视</a>
+                    <a href="javascript:" data-val="3" onclick="work_type(this)">其他</a>
+                </div>
+            </div>
+            <div class="top-sort">
+                <ul id="rank_content">
+                    <!--<li class="top-sort-li">-->
+                        <!--<div class="sort-sp" ><span class="sort-sp-color sort-sp-one">1</span><i class="sort-sp-up"></i><span class="sort-sp-name">老九门九门11九门九门</span></div>-->
+                        <!--<div class="sort-name">ACG</div>-->
+                        <!--<div class="sort-number"><i class="number-d"></i><span>5688111111</span></div>-->
+                    <!--</li>-->
+                    <!--<li class="top-sort-li">-->
+                        <!--<div class="sort-sp" ><span class="sort-sp-color sort-sp-one">2</span><i class="sort-sp-ping"></i><span class="sort-sp-name">美国队长</span></div>-->
+                        <!--<div class="sort-name">小说</div>-->
+                        <!--<div class="sort-number"><i class="number-d"></i><span>568811</span></div>-->
+                    <!--</li>-->
+                    <!--<li class="top-sort-li">-->
+                        <!--<div class="sort-sp" ><span class="sort-sp-color sort-sp-one">3</span><i class="sort-sp-down"></i><span class="sort-sp-name">驯龙高手</span></div>-->
+                        <!--<div class="sort-name">影视</div>-->
+                        <!--<div class="sort-number"><i class="number-d"></i><span>5688</span></div>-->
+                    <!--</li>-->
+                    <!--<li class="top-sort-li">-->
+                        <!--<div class="sort-sp" ><span class=" sort-sp-one">4</span><i class="sort-sp-down"></i><span class="sort-sp-name">邪恶力量</span></div>-->
+                        <!--<div class="sort-name">其他</div>-->
+                        <!--<div class="sort-number"><i ></i><span>5688</span></div>-->
+                    <!--</li>-->
+                    <!--<li class="top-sort-li">-->
+                        <!--<div class="sort-sp" ><span class=" sort-sp-one">5</span><i class="sort-sp-up"></i><span class="sort-sp-name">老九门</span></div>-->
+                        <!--<div class="sort-name">ACG</div>-->
+                        <!--<div class="sort-number"><i></i><span>5688</span></div>-->
+                    <!--</li>-->
+                    <!--<li class="top-sort-li">-->
+                        <!--<div class="sort-sp" ><span class=" sort-sp-one">6</span><i class="sort-sp-ping"></i><span class="sort-sp-name">美国队长</span></div>-->
+                        <!--<div class="sort-name">小说</div>-->
+                        <!--<div class="sort-number"><i></i><span>5688</span></div>-->
+                    <!--</li>-->
+                    <!--<li class="top-sort-li">-->
+                        <!--<div class="sort-sp" ><span class=" sort-sp-one">7</span><i class="sort-sp-down"></i><span class="sort-sp-name">驯龙高手</span></div>-->
+                        <!--<div class="sort-name">影视</div>-->
+                        <!--<div class="sort-number"><i></i><span>5688</span></div>-->
+                    <!--</li>-->
+                    <!--<li class="top-sort-li">-->
+                        <!--<div class="sort-sp" ><span class=" sort-sp-one">8</span><i class="sort-sp-ping"></i><span class="sort-sp-name">邪恶力量</span></div>-->
+                        <!--<div class="sort-name">其他</div>-->
+                        <!--<div class="sort-number"><i></i><span>5688</span></div>-->
+                    <!--</li>-->
+                    <!--<li class="top-sort-li">-->
+                        <!--<div class="sort-sp" ><span class=" sort-sp-one">9</span><i class="sort-sp-up"></i><span class="sort-sp-name">老九门</span></div>-->
+                        <!--<div class="sort-name">ACG</div>-->
+                        <!--<div class="sort-number"><i></i><span>5688</span></div>-->
+                    <!--</li>-->
+                    <!--<li class="top-sort-li">-->
+                        <!--<div class="sort-sp" ><span class=" sort-sp-one">10</span><i class="sort-sp-down"></i><span class="sort-sp-name">美国队长</span></div>-->
+                        <!--<div class="sort-name">小说</div>-->
+                        <!--<div class="sort-number"><i></i><span>5688</span></div>-->
+                    <!--</li>-->
+                    <!--<li class="top-sort-li">-->
+                        <!--<div class="sort-sp" ><span class=" sort-sp-one">11</span><i class="sort-sp-ping"></i><span class="sort-sp-name">驯龙高手</span></div>-->
+                        <!--<div class="sort-name">影视</div>-->
+                        <!--<div class="sort-number"><i></i><span>5688</span></div>-->
+                    <!--</li>-->
+                    <!--<li class="top-sort-li">-->
+                        <!--<div class="sort-sp" ><span class=" sort-sp-one">12</span><i class="sort-sp-down"></i><span class="sort-sp-name">邪恶力量</span></div>-->
+                        <!--<div class="sort-name">其他</div>-->
+                        <!--<div class="sort-number"><i></i><span>5688</span></div>-->
+                    <!--</li>-->
+                    <!--<li class="top-sort-li">-->
+                        <!--<div class="sort-sp" ><span class=" sort-sp-one">11</span><i class="sort-sp-up"></i><span class="sort-sp-name">老九门</span></div>-->
+                        <!--<div class="sort-name">ACG</div>-->
+                        <!--<div class="sort-number"><i></i><span>5688</span></div>-->
+                    <!--</li>-->
+                    <!--<li class="top-sort-li">-->
+                        <!--<div class="sort-sp" ><span class=" sort-sp-one">10</span><i class="sort-sp-down"></i><span class="sort-sp-name">美国队长</span></div>-->
+                        <!--<div class="sort-name">小说</div>-->
+                        <!--<div class="sort-number"><i></i><span>5688</span></div>-->
+                    <!--</li>-->
+                    <!--<li class="top-sort-li">-->
+                        <!--<div class="sort-sp" ><span class=" sort-sp-one">11</span><i class="sort-sp-ping"></i><span class="sort-sp-name">驯龙高手</span></div>-->
+                        <!--<div class="sort-name">影视</div>-->
+                        <!--<div class="sort-number"><i></i><span>5688</span></div>-->
+                    <!--</li>-->
+                    <!--<li class="top-sort-li">-->
+                        <!--<div class="sort-sp" ><span class=" sort-sp-one">12</span><i class="sort-sp-down"></i><span class="sort-sp-name">邪恶力量</span></div>-->
+                        <!--<div class="sort-name">其他</div>-->
+                        <!--<div class="sort-number"><i></i><span>5688</span></div>-->
+                    <!--</li>-->
+                    <!--<li class="top-sort-li">-->
+                        <!--<div class="sort-sp" ><span class=" sort-sp-one">13</span><i class="sort-sp-up"></i><span class="sort-sp-name">老九门</span></div>-->
+                        <!--<div class="sort-name">ACG</div>-->
+                        <!--<div class="sort-number"><i></i><span>5688</span></div>-->
+                    <!--</li>-->
+                    <!--<li class="top-sort-li">-->
+                        <!--<div class="sort-sp" ><span class=" sort-sp-one">14</span><i class="sort-sp-down"></i><span class="sort-sp-name">美国队长</span></div>-->
+                        <!--<div class="sort-name">小说</div>-->
+                        <!--<div class="sort-number"><i></i><span>5688</span></div>-->
+                    <!--</li>-->
+                    <!--<li class="top-sort-li">-->
+                        <!--<div class="sort-sp" ><span class=" sort-sp-one">15</span><i class="sort-sp-down"></i><span class="sort-sp-name">驯龙高手</span></div>-->
+                        <!--<div class="sort-name">影视</div>-->
+                        <!--<div class="sort-number"><i></i><span>5688</span></div>-->
+                    <!--</li>-->
+                    <!--<li class="top-sort-li">-->
+                        <!--<div class="sort-sp" ><span class=" sort-sp-one">16</span><i class="sort-sp-ping"></i><span class="sort-sp-name">邪恶力量</span></div>-->
+                        <!--<div class="sort-name">其他</div>-->
+                        <!--<div class="sort-number"><i></i><span>5688</span></div>-->
+                    <!--</li>-->
+                    <!--<li class="top-sort-li">-->
+                        <!--<div class="sort-sp" ><span class=" sort-sp-one">17</span><i class="sort-sp-up"></i><span class="sort-sp-name">老九门</span></div>-->
+                        <!--<div class="sort-name">ACG</div>-->
+                        <!--<div class="sort-number"><i></i><span>5688</span></div>-->
+                    <!--</li>-->
+                    <!--<li class="top-sort-li">-->
+                        <!--<div class="sort-sp" ><span class=" sort-sp-one">18</span><i class="sort-sp-down"></i><span class="sort-sp-name">美国队长</span></div>-->
+                        <!--<div class="sort-name">小说</div>-->
+                        <!--<div class="sort-number"><i></i><span>5688</span></div>-->
+                    <!--</li>-->
+                    <!--<li class="top-sort-li">-->
+                        <!--<div class="sort-sp" ><span class=" sort-sp-one">19</span><i class="sort-sp-down"></i><span class="sort-sp-name">驯龙高手</span></div>-->
+                        <!--<div class="sort-name">影视</div>-->
+                        <!--<div class="sort-number"><i></i><span>5688</span></div>-->
+                    <!--</li>-->
+                    <!--<li class="top-sort-li">-->
+                        <!--<div class="sort-sp" ><span class=" sort-sp-one">20</span><i class="sort-sp-ping"></i><span class="sort-sp-name">邪恶力量</span></div>-->
+                        <!--<div class="sort-name">其他</div>-->
+                        <!--<div class="sort-number"><i></i><span>5688</span></div>-->
+                    <!--</li>-->
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="footer" id="footer">
+
+    </section>
+</section>
+</body>
+</html>
+<script>
+    var dayType = 'daycut';
+    var workType = -1;
+    $(function(){
+        IndexList()
+    })
+    function IndexList()
+    {
+        ajax_data(dayType,workType);
+    }
+
+    //日周月排序
+    function time_order(obj)
+    {
+        dayType = $(obj).attr('data-val');
+        ajax_data(dayType,workType);
+    }
+
+    /**
+     * 作品类型
+     */
+    function work_type(obj)
+    {
+        workType = $(obj).attr('data-val');
+        ajax_data(dayType,workType);
+    }
+
+    /**
+     * 根据条件请求相应的数据
+     * @param  time_order   榜单时间排序
+     * @param  work_type    作品类型
+     */
+    function ajax_data(time_order,work_type)
+    {
+        var url = '/tongrenmiao/index.php?g=Mall&m=Index&a=IpWar';
+        $.ajax({
+            url:url,
+            data:{'time_order':time_order,'work_type':work_type},
+            type:'get',
+            dataType:'json',
+            beforeSend:function(){
+
+            },
+            success:function(res){
+                if(res.Info)
+                {
+                    $("#rank_content").html(handleHtml(res.Info));
+                }else{
+
+                }
+
+            },
+            error:function(){
+
+            }
+        })
+    }
+
+    function handleHtml(list)
+    {
+        var str = '';
+        $.each(list,function(k,v){
+            str += '<li class="top-sort-li">\
+                        <div class="sort-sp" ><span class="sort-sp-color sort-sp-one">'+(k+1)+'</span><i class="'+switchCase(v.mchange,1)+'"></i><span class="sort-sp-name">'+v.ipname+'</span></div>\
+                        <div class="sort-name">'+switchCase(v.iptype,2)+'</div>\
+                        <div class="sort-number">'
+                if(k<3)
+                {
+                    str += '<i class="number-d"></i>';
+                }
+                    str += '<span>';
+                        if(dayType == 'weekcut')
+                        {
+                            str += v.weekcut;
+                        }
+                        else if(dayType == 'monthcut')
+                        {
+                            str += v.monthcut;
+                        }
+                        else
+                        {
+                            str += v.daycut;
+                        }
+                    str += '</span>\
+                        </div>\
+                    </li>';
+        })
+        return str;
+    }
+
+    function switchCase(info,type)
+    {
+        if(type == 2)
+        {
+            //作品类型
+            switch(info)
+            {
+                case '0':
+                    return 'ACG';
+                case '1':
+                    return '小说';
+                case '2':
+                    return '影视';
+                case '3':
+                    return '其他';
+            }
+        }
+        else
+        {
+            //升，降，持平
+            switch(info)
+            {
+                case '-1':
+                    return 'sort-sp-down';
+                case '0':
+                    return 'sort-sp-ping';
+                case '1':
+                    return 'sort-sp-up';
+            }
+        }
+
+    }
+</script>

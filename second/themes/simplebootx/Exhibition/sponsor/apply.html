@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{$site_name}</title>
+<meta name="keywords" content="{$site_seo_keywords}" />
+<meta name="description" content="{$site_seo_description}">
+<meta name="author" content="ThinkCMF">
+<admintpl file="header" />
+<tc_include file="Public:head" />
+
+<script src="__TMPL__Public/js/area.js"></script>
+<script type="text/javascript">
+	var Gid = document.getElementById;
+	var showArea = function() {
+		Gid('show').innerHTML = "<h3>省" + Gid('s_province').value + " - 市"
+				+ Gid('s_city').value + " - 县/区" + Gid('s_county').value
+				+ "</h3>"
+	}
+	Gid('s_county').setAttribute('onchange', 'showArea()');
+</script>
+</head>
+
+<body class="body-white">
+	<tc_include file="Public:nav" />
+
+	<div class="container tc-main">
+		<div class="row">
+			<div class="span7 offset2">
+				<h2 class="text-center">主办方申请</h2>
+				<ul class="nav nav-tabs" id="myTab">
+					<li class="active"><a href="#person" data-toggle="tab">个人</a></li>
+					<li><a href="#organization" data-toggle="tab">机构</a></li>
+				</ul>
+
+				<div class="tab-content">
+					<div class="tab-pane active" id="person">
+						<form class="form-horizontal js-ajax-form"
+							action="{:U('Exhibition/sponsor/apply')}" method="post">
+							<h4 class="text-left"><b>丨个人信息</b></h4>
+							<hr>
+							<input type="hidden" value="0" name="applytype"/>
+							<div class="control-group">
+								姓名：<input type="text" name="truename" placeholder="请填写真实姓名"
+									class="span3">
+							</div>
+
+							<div class="control-group">
+								身份证正面：
+								<div style="text-align: left;margin-left:100px;">
+									<input type="hidden" name="smeta[thumb]" id="thumb"
+										value="{$smeta.thumb|default=''}"> <a
+										href="javascript:void(0);"
+										onclick="flashupload('thumb_images', '附件上传','thumb',thumb_images,'1,jpg|jpeg|gif|png|bmp,1,,,1','','','');return false;">
+										<if condition="empty($smeta['thumb'])"> <img
+											src="__TMPL__Public/assets/images/default-thumbnail.png"
+											id="thumb_preview" width="135" style="cursor: hand" /> <else />
+										<img src="{:sp_get_asset_upload_path($smeta['thumb'])}"
+											id="thumb_preview" width="135" style="cursor: hand" /> </if>
+									</a> <input type="button" class="btn btn-small"
+										onclick="$('#thumb_preview').attr('src','__TMPL__Public/assets/images/default-thumbnail.png');$('#thumb').val('');return false;"
+										value="取消图片">
+								</div>
+							</div>
+							<div class="control-group">
+								身份证背面：
+								<div style="text-align: left;margin-left:100px;">
+									<input type="hidden" name="smeta[thumb]" id="thumb1"
+										value="{$smeta.thumb|default=''}"> <a
+										href="javascript:void(0);"
+										onclick="flashupload('thumb_images', '附件上传','thumb1',thumb_images,'1,jpg|jpeg|gif|png|bmp,1,,,1','','','');return false;">
+										<if condition="empty($smeta['thumb'])"> <img
+											src="__TMPL__Public/assets/images/default-thumbnail.png"
+											id="thumb1_preview" width="135" style="cursor: hand" /> <else />
+										<img src="{:sp_get_asset_upload_path($smeta['thumb'])}"
+											id="thumb1_preview" width="135" style="cursor: hand" /> </if>
+									</a> <input type="button" class="btn btn-small"
+										onclick="$('#thumb1_preview').attr('src','__TMPL__Public/assets/images/default-thumbnail.png');$('#thumb').val('');return false;"
+										value="取消图片">
+								</div>
+							</div>
+							<div class="control-group">
+								手机号码：<input type="text" name="phone" placeholder="请输入手机号"
+									class="span3">
+							</div>
+							<div class="control-group">
+								QQ号码：<input type="text" name="qq" placeholder="请输入联系qq"
+									class="span3">
+							</div>
+							<div class="control-group">
+								邮箱地址：<input type="text" name="email" placeholder="请输入邮箱地址"
+									class="span3">
+							</div>
+							<div class="control-group">
+								联系地址：<select style="width: 90px; margin-left: 0px"
+									id="s_province" name="s_province"></select>   <select
+									id="s_city" name="s_city" style="width: 90px;"></select>   <select
+									id="s_county" name="s_county" style="width: 120px;"></select>
+
+								<script type="text/javascript">
+									_init_area();
+								</script>
+								<input type="text" name="address" placeholder="请输入详细地址"
+									class="span5" style="margin-top: 10px; margin-left: 70px;">
+							</div>
+							<hr>
+							<h4 class="text-left"><b>丨展会信息</b></h4>
+							<hr>
+							<div class="control-group">
+								官方链接：<input type="text" name="homeurl" placeholder="请输入官方链接"
+									class="span3">
+							</div>
+							<div class="control-group">
+								举办过展会：<span><input type="radio" style="width: 20px;"
+									checked="checked" name="been" value="yes" /></span> <span>有过</span> <span><input
+									type="radio" style="width: 20px;" name="been" value="no" /></span> <span>没有过</span>
+									<input type="text" name="oldurl" placeholder="请输入曾经办过的展会链接"
+									class="span5" style="margin-top: 10px; margin-left: 70px;">
+							</div>
+							<div class="control-group">
+								说明：<textarea rows="4"  name="description" placeholder="请输入展会说明"
+									class="span5"></textarea>
+							</div>
+							
+
+							<div class="control-group">
+								<button class="btn btn-primary js-ajax-submit span4"
+									type="submit" data-wait="1500" style="margin-left: 0px;">提交申请</button>
+							</div>
+
+
+						</form>
+					</div>
+					<div class="tab-pane" id="organization">
+						<form class="form-horizontal js-ajax-form"
+							action="{:U('Exhibition/sponsor/apply')}" method="post">
+							<input type="hidden" value="1" name="applytype"/>
+							<h4 class="text-left"><b>丨机构信息</b></h4>
+							<hr>
+							<div class="control-group">
+								机构名称：<input type="text" name="institution" placeholder="请填写机构名称" class="span4">
+							</div>
+							<div class="control-group">
+								负责人姓名：<input type="text" name="truename" placeholder="请填写机构负责人姓名" class="span4">
+							</div>
+							<div class="control-group">
+								身份证正面：
+								<div style="text-align: left;margin-left:100px;">
+									<input type="hidden" name="smeta[thumb]" id="thumb"
+										value="{$smeta.thumb|default=''}"> <a
+										href="javascript:void(0);"
+										onclick="flashupload('thumb_images', '附件上传','thumb',thumb_images,'1,jpg|jpeg|gif|png|bmp,1,,,1','','','');return false;">
+										<if condition="empty($smeta['thumb'])"> <img
+											src="__TMPL__Public/assets/images/default-thumbnail.png"
+											id="thumb_preview" width="135" style="cursor: hand" /> <else />
+										<img src="{:sp_get_asset_upload_path($smeta['thumb'])}"
+											id="thumb_preview" width="135" style="cursor: hand" /> </if>
+									</a> <input type="button" class="btn btn-small"
+										onclick="$('#thumb_preview').attr('src','__TMPL__Public/assets/images/default-thumbnail.png');$('#thumb').val('');return false;"
+										value="取消图片">
+								</div>
+							</div>
+							<div class="control-group">
+								身份证背面：
+								<div style="text-align: left;margin-left:100px;">
+									<input type="hidden" name="smeta[thumb]" id="thumb"
+										value="{$smeta.thumb|default=''}"> <a
+										href="javascript:void(0);"
+										onclick="flashupload('thumb_images', '附件上传','thumb',thumb_images,'1,jpg|jpeg|gif|png|bmp,1,,,1','','','');return false;">
+										<if condition="empty($smeta['thumb'])"> <img
+											src="__TMPL__Public/assets/images/default-thumbnail.png"
+											id="thumb_preview" width="135" style="cursor: hand" /> <else />
+										<img src="{:sp_get_asset_upload_path($smeta['thumb'])}"
+											id="thumb_preview" width="135" style="cursor: hand" /> </if>
+									</a> <input type="button" class="btn btn-small"
+										onclick="$('#thumb_preview').attr('src','__TMPL__Public/assets/images/default-thumbnail.png');$('#thumb').val('');return false;"
+										value="取消图片">
+								</div>
+							</div>
+							<div class="control-group">
+								手机号码：<input type="text" name="phone" placeholder="请填写联系手机号码" class="span4">
+							</div>
+							<div class="control-group">
+								联系QQ：<input type="text" name="qq" placeholder="请填写联系qq" class="span4">
+							</div>
+							<div class="control-group">
+								联系邮箱：<input type="text" name="email" placeholder="请填写联系邮箱" class="span4">
+							</div>
+							<div class="control-group">
+								证件信息：<div style="text-align: left;margin-left:100px;">
+									<input type="hidden" name="smeta[thumb]" id="thumb"
+										value="{$smeta.thumb|default=''}"> <a
+										href="javascript:void(0);"
+										onclick="flashupload('thumb_images', '附件上传','thumb',thumb_images,'1,jpg|jpeg|gif|png|bmp,1,,,1','','','');return false;">
+										<if condition="empty($smeta['thumb'])"> <img
+											src="__TMPL__Public/assets/images/default-thumbnail.png"
+											id="thumb_preview" width="135" style="cursor: hand" /> <else />
+										<img src="{:sp_get_asset_upload_path($smeta['thumb'])}"
+											id="thumb_preview" width="135" style="cursor: hand" /> </if>
+									</a> <input type="button" class="btn btn-small"
+										onclick="$('#thumb_preview').attr('src','__TMPL__Public/assets/images/default-thumbnail.png');$('#thumb').val('');return false;"
+										value="取消图片">
+								</div>
+							</div>
+							<hr>
+							<h4 class="text-left"><b>丨展会信息</b></h4>
+							<hr>
+							<div class="control-group">
+								官方链接：<input type="text" name="homeurl" placeholder="请输入官方链接"
+									class="span3">
+							</div>
+							<div class="control-group">
+								举办过展会：<span><input type="radio" style="width: 20px;"
+									checked="checked" name="been" value="yes" /></span> <span>有过</span> <span><input
+									type="radio" style="width: 20px;" name="been" value="no" /></span> <span>没有过</span>
+									<input type="text" name="oldurl" placeholder="请输入曾经办过的展会链接"
+									class="span5" style="margin-top: 10px; margin-left: 70px;">
+							</div>
+							<div class="control-group">
+								说明：<textarea rows="4"  name="description" placeholder="请输入展会说明"
+									class="span5"></textarea>
+							</div>
+
+							<div class="control-group">
+								<button class="btn btn-primary js-ajax-submit span4"
+									type="submit" data-wait="1500" style="margin-left: 0px;">提交申请</button>
+							</div>
+
+							
+						</form>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<tc_include file="Public:footer" />
+
+	</div>
+	<!-- /container -->
+	<script type="text/javascript" src="__PUBLIC__/js/content_addtop.js"></script>
+	<tc_include file="Public:scripts" />
+</body>
+</html>

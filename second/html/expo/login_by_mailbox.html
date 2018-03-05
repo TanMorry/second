@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>展会</title>
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<link href="css/global.css" rel="stylesheet" type="text/css">
+<link href="css/layout.css" rel="stylesheet" type="text/css">
+
+<script src="js/jquery.min.js"></script>
+<script src="js/expo.public.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+	/*input提示判定*/
+	$(".lm-input").on('focus blur input propertychange', function(event) {
+		if(event.type == 'focus' || event.type == 'input' || event.type == 'propertychange')
+		{
+			$(this).parent("div").addClass('lm-be');
+		}
+		else if(event.type == 'blur')
+		{
+			/*离开时没有输入则继续隐藏*/
+			if(!$(this).val().length)
+			{
+				$(this).parent("div").removeClass('lm-be');
+			}
+		}
+	});
+});
+</script>
+
+<body>
+	<div class="M_Header">
+		<div class="hd-bg">
+			<p class="hd-pink"></p>
+		</div>
+		<div class="hd-index M_Center">
+			<div class="hd-main">
+				<ul class="float-center clearfix">
+					<li class="hd-m-btn" ><a href="#">展会</a></li>
+					<li class="hd-m-btn fixed"><a href="#">社团铺</a></li>
+					<li class="hd-m-logo"></li>
+					<li class="hd-m-btn" ><a href="#">我的</a></li>
+					<li class="hd-m-btn" ><a href="#">同人闲情</a></li>
+				</ul>
+			</div>
+			<div class="hd-nav-r">
+				<ul class="hd-nav-not">
+					<li><a href="#">登录</a></li>
+					<li><a href="#">注册</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="M_Login">
+		<div class="login-bg">
+			<img src="images/login-bg.jpg">
+			<div class="M_Center">
+				<div class="login-qr">
+					<p class="lq-logo"></p>
+					<img class="lq-code" src="images/qr.png">
+					<ul class="lq-txt">
+						<li class="lq-txt1"><a href="#">手机安装同人喵</a></li>
+						<li class="lq-txt2"><a href="#">安卓客户端</a></li>
+						<li class="lq-txt3"><a href="#">IOS客户端</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="login-main">
+			<!-- 注册开始 -->
+			<div class="login-menu3">
+				<div class="lm-main2">
+					<p class="font1"><img src="images/icon-gatn.png"/>还差一步就可以注册了</p>
+					<p>我们已向您的邮箱：</p>
+					<p class="font2">1335568696@163.com</p>
+					<p>发送了确认邮件，请收到邮件后点击邮件中的确认链接</p>
+					<a class="lm-submit2" href="#">立即去我的邮箱确认</a>
+					<i>如果收件箱中找不到我们发送的邮件，请稍等片刻或者检查您的垃圾邮件。</i>
+					<i>如果长时间未收到，请尝试<a href="#">重发邮件</a>或者<a href="#">换个邮箱</a></i>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

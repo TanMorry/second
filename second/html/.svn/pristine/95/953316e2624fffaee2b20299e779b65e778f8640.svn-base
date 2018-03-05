@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>展会</title>
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<link href="css/global.css" rel="stylesheet" type="text/css">
+<link href="css/layout.css" rel="stylesheet" type="text/css">
+
+<script src="js/jquery.min.js"></script>
+<script src="js/expo.public.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+	/*M_Item 鼠标移入移出*/
+	$(".M_Item").on('mouseover mouseout', function(event) {
+		if(event.type == 'mouseover')
+		{
+			$(this).addClass('checked');
+		}
+		else if (event.type == 'mouseout')
+		{
+			$(this).removeClass('checked');
+		}
+	});
+});
+
+</script>
+
+<body>
+	<div class="M_Header">
+		<div class="hd-bg">
+			<p class="hd-pink"></p>
+		</div>
+		<div class="hd-index M_Center">
+			<div class="hd-main">
+				<ul class="float-center clearfix">
+					<li class="hd-m-btn" ><a href="#">展会</a></li>
+					<li class="hd-m-btn fixed"><a href="#">社团铺</a></li>
+					<li class="hd-m-logo"></li>
+					<li class="hd-m-btn" ><a href="#">我的</a></li>
+					<li class="hd-m-btn" ><a href="#">同人闲情</a></li>
+				</ul>
+			</div>
+			<div class="hd-nav-r">
+				<ul class="hd-nav-not">
+					<li><a href="#">登录</a></li>
+					<li><a href="#">注册</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="M_Layout shelf-info">
+		<!-- background 100% of < IE9 -->
+		<img src="images/miao-mass-info-bg.png">
+		<div class="M_Center si-shop">
+			<!-- 绝对定位 -->
+			<div>
+				<p class="si-name">黑森林</p>
+				<p class="si-time">开张时间:2016.12.34</p>
+				<p class="si-disc">社团介绍社团介绍社团介绍社团介绍社团介绍社团介绍社团介绍社团介绍社团介绍社团介绍社团介绍社团介绍社团介绍社团介绍社团介绍社团介绍</p>
+				<a href="#" class="si-img"><img src="images/miao-mass-2.png"></a>
+				<p class="si-right">
+					<a class="si-call" href="#"><b>联系客服</b></a>
+					<a class="si-follow" href="#"><span><i>&#43;&nbsp;</i><i>关注&nbsp;&nbsp;</i></span></a>
+					<span class="si-num">关注人数:<i>115</i>人</span>
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="M_Center M_BTM_175">
+		<p class="M_ItemTxt">本子印刷</p>
+		<div class="M_Layout">
+			<div class="M_ItemFive clearfix">
+				<a class="M_Item" href="#">
+					<ul>
+						<li class="M_Item_1"><img src="images/s1.jpg"></li>
+						<li class="M_Item_2">￥58</li>
+						<li class="M_Item_3">神的情书的情书情书书</li>
+						<li class="M_Item_4">原作:琅琊榜</li>
+						<li class="M_Item_4">CP圈:楼诚</li>
+					</ul>
+				</a>
+				<a class="M_Item" href="#">
+					<ul>
+						<li class="M_Item_1"><img src="images/s2.jpg"></li>
+						<li class="M_Item_2">￥58</li>
+						<li class="M_Item_3">神的情书的情书情书书</li>
+						<li class="M_Item_4">原作:琅琊榜</li>
+						<li class="M_Item_4">CP圈:楼诚</li>
+					</ul>
+				</a>
+				<a class="M_Item" href="#">
+					<ul>
+						<li class="M_Item_1"><img src="images/s3.jpg"></li>
+						<li class="M_Item_2">￥58</li>
+						<li class="M_Item_3">神的情书的情书情书书</li>
+						<li class="M_Item_4">原作:琅琊榜</li>
+						<li class="M_Item_4">CP圈:楼诚</li>
+					</ul>
+				</a>
+				<a class="M_Item" href="#">
+					<ul>
+						<li class="M_Item_1"><img src="images/s4.jpg"></li>
+						<li class="M_Item_2">￥58</li>
+						<li class="M_Item_3">神的情书的情书情书书</li>
+						<li class="M_Item_4">原作:琅琊榜</li>
+						<li class="M_Item_4">CP圈:楼诚</li>
+					</ul>
+				</a>
+				<a class="M_Item" href="#">
+					<ul>
+						<li class="M_Item_1"><img src="images/s5.jpg"></li>
+						<li class="M_Item_2">￥58</li>
+						<li class="M_Item_3">神的情书的情书情书书</li>
+						<li class="M_Item_4">原作:琅琊榜</li>
+						<li class="M_Item_4">CP圈:楼诚</li>
+					</ul>
+				</a>
+				<a class="M_Item" href="#">
+					<ul>
+						<li class="M_Item_1"><img src="images/s1.jpg"></li>
+						<li class="M_Item_2">￥58</li>
+						<li class="M_Item_3">神的情书的情书情书书</li>
+						<li class="M_Item_4">原作:琅琊榜</li>
+						<li class="M_Item_4">CP圈:楼诚</li>
+					</ul>
+				</a>
+			</div>
+		</div>
+
+		<p class="M_ItemTxt">周边制作</p>
+		<div class="M_Layout">
+			<div class="M_ItemFive clearfix">
+				<a class="M_Item" href="#">
+					<ul>
+						<li class="M_Item_1"><img src="images/s1.jpg"></li>
+						<li class="M_Item_2">￥58</li>
+						<li class="M_Item_3">神的情书的情书情书书</li>
+						<li class="M_Item_4">原作:琅琊榜</li>
+						<li class="M_Item_4">CP圈:楼诚</li>
+					</ul>
+				</a>
+				<a class="M_Item" href="#">
+					<ul>
+						<li class="M_Item_1"><img src="images/s2.jpg"></li>
+						<li class="M_Item_2">￥58</li>
+						<li class="M_Item_3">神的情书的情书情书书</li>
+						<li class="M_Item_4">原作:琅琊榜</li>
+						<li class="M_Item_4">CP圈:楼诚</li>
+					</ul>
+				</a>
+				<a class="M_Item" href="#">
+					<ul>
+						<li class="M_Item_1"><img src="images/s3.jpg"></li>
+						<li class="M_Item_2">￥58</li>
+						<li class="M_Item_3">神的情书的情书情书书</li>
+						<li class="M_Item_4">原作:琅琊榜</li>
+						<li class="M_Item_4">CP圈:楼诚</li>
+					</ul>
+				</a>
+				<a class="M_Item" href="#">
+					<ul>
+						<li class="M_Item_1"><img src="images/s4.jpg"></li>
+						<li class="M_Item_2">￥58</li>
+						<li class="M_Item_3">神的情书的情书情书书</li>
+						<li class="M_Item_4">原作:琅琊榜</li>
+						<li class="M_Item_4">CP圈:楼诚</li>
+					</ul>
+				</a>
+				<a class="M_Item" href="#">
+					<ul>
+						<li class="M_Item_1"><img src="images/s5.jpg"></li>
+						<li class="M_Item_2">￥58</li>
+						<li class="M_Item_3">神的情书的情书情书书</li>
+						<li class="M_Item_4">原作:琅琊榜</li>
+						<li class="M_Item_4">CP圈:楼诚</li>
+					</ul>
+				</a>
+				<a class="M_Item" href="#">
+					<ul>
+						<li class="M_Item_1"><img src="images/s1.jpg"></li>
+						<li class="M_Item_2">￥58</li>
+						<li class="M_Item_3">神的情书的情书情书书</li>
+						<li class="M_Item_4">原作:琅琊榜</li>
+						<li class="M_Item_4">CP圈:楼诚</li>
+					</ul>
+				</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

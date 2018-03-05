@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="format-detection" content="telephone=no"/>
+<title>喵</title>
+
+<link href="css/global.css" rel="stylesheet" type="text/css">
+<link href="css/public.css" rel="stylesheet" type="text/css">
+<link href="css/shop-fenlei.css" rel="stylesheet" type="text/css">
+<!--插件的样式-->
+<link href="plugin/swiper.css" rel="stylesheet" type="text/css">
+<link href="plugin/pullToRefresh.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+
+</style>
+<script src="js/jquery-2.2.4.min.js"></script>
+<script src="plugin/swiper.jquery.min.js"></script>
+<script src="plugin/iscroll.js"></script>
+<script src="plugin/pullToRefresh.js"></script>
+<script src="js/obtainArguments.js"></script>
+<script src="js/jquery-footer.js"></script>
+
+
+<script type="text/javascript">
+	$().ready(function(){
+		$('.love-btn').on('click','a', function(){
+			$(this).siblings('.fixed').removeClass('fixed').removeClass('btn');
+			$(this).addClass('fixed').addClass('btn');
+		});
+
+		$(".think-tf-love").click(function(){
+			$(".kind-tc").hide();
+		});
+		$(".think-tf-kind").click(function(){
+			$(".love-tc").hide();
+		});
+		var link=$(".love-btn");
+		link.click(function(){
+			$(".kind-tc").show();
+			$(".love-tc").show();
+		});
+		link.find("a").on("click",function(){
+			var index=$(this).index();
+			$(".love-tc").children("div:eq("+index+")").show().siblings().hide();
+		})
+	})
+</script>
+<body>
+<!-- 首页 -->
+<section class="flex">
+	<section class="header">
+		<div class="header-bg normal">
+			<div class="header-l"><a href="main.html"></a></div>
+			<div class="header-c"><input type="text" placeholder=""></div>
+			<div class="header-r"><a href="#"></a></div>
+		</div>
+	</section>
+	<!-- 主体 -->
+	<section class="content">
+		<!-- love与kind互相切换 -->
+		<nav class="think-to part-tc love" id="cate">
+			<div class="think-to-first clearfix">
+				<a class="think-tf-love" href="javascript:;"><i>爱の属性</i></a>
+				<a class="think-tf-kind" href="javascript:;"><i>物の类型</i></a>
+			</div>
+			<!-- love和kind的属性 -->
+			<div class="think-to-next love love-btn" id="love">
+				<a class="fixed  love-btn-bf1 love-tc-1" href="#" data-value="1" >CP圈</a>
+				<a href="#" data-value="2" class=" love-btn-bf2 ">原作</a>
+				<a href="#" data-value="3" class=" love-btn-bf3 ">CrossOver</a>
+				<a href="#" data-value="4" class=" love-btn-bf4 ">偏好</a>
+			</div>
+			<div class="think-to-next kind love-btn " id="kind">
+				<a class="fixed love-btn-bf1 " href="#" data-value="1">CP圈</a>
+				<a href="#" data-value="2" class="love-btn-bf2 ">原作</a>
+				<a href="#" data-value="3" class="love-btn-bf3">CrossOver</a>
+				<a href="#" data-value="4" class="love-btn-bf4 ">偏好</a>
+			</div>
+			<div class="love-tc">
+				<div>1</div>
+				<div>2</div>
+				<div>3</div>
+				<div>4</div>
+			</div>
+			<div class="kind-tc">
+				<div>1</div>
+				<div>2</div>
+				<div>3</div>
+				<div>4</div>
+			</div>
+		</nav>
+		<div id="wrapper">
+			<div class="iscroll-main">
+				<div class="swiper-container">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<div class="sale-item2 part">
+								<ul class="sale-ones tie clearfix" id="loveList"></ul>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="sale-item2 part">
+								<ul class="sale-ones tie clearfix" id="matterList"></ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="footer" id="footer">
+		<div class="page horizontal-center">
+			<a class="page-up" href="#" id="page-up" onclick="page(this)" data-val="prev"></a>
+			<i class="auto-width"><!-- auto width --></i>
+			<input class="page-write" type="text" id="skipPage">
+			<a class="page-go" href="#" id="go" onclick="page(this)" data-val="GO">GO</a>
+			<span class="page-count"><b id="current"></b><i>/</i><b id="totalPage"></b></span>
+			<i class="auto-width"><!-- auto width --></i>
+			<a class="page-down" href="#" id="page-down" onclick="page(this)" data-val="next"></a>
+		</div>
+	</section>
+</section>
+</body>
+</html>
+<script>
+	//页面Dom元素绘制完成执行（不包括图片等关联元素）
+	var loveCountPage = 1;//爱的属性的总页数
+	var kindCountPage = 1;//物的类型的总页数
+	var loveCurrentPage = 1;
+	var kindCurrentPage = 1;
+	var type;//当前类型
+	var attr = 1;//当前选中的属性
+	$(document).ready(function(){
+		var mySwiper = new Swiper('.swiper-container', {
+			speed: 100,
+			autoplayDisableOnInteraction: false,
+			resistanceRatio: 0,
+//			autoHeight: true,//影响页面第一次加载的效果
+			touchRatio : 0.35,
+			onTransitionStart: function(swiper) {
+				function change(one, two) {
+					$('.think-to').removeClass(one).addClass(two);
+					changeAttr();
+					$('.page-write').val("");
+					$("#go").css('background','#eb6877');
+					showPage();
+				}
+				if(swiper.activeIndex == 0)
+				{
+					if(loveCountPage < 1)
+					{
+						$("#footer").hide();
+					}
+					else
+					{
+						$("#footer").show();
+						$("#current").html(loveCurrentPage);
+						$("#totalPage").html(loveCountPage);
+					}
+					change('kind', 'love');
+				}
+				else if(swiper.activeIndex == 1)
+				{
+					if(kindCountPage < 1)
+					{
+						$("#footer").hide();
+					}
+					else
+					{
+						$("#footer").show();
+						$("#current").html(kindCurrentPage);
+						$("#totalPage").html(kindCountPage);
+					}
+					change('love', 'kind');
+				}
+			}
+		});
+		var Request = new Arguments();
+		var url = Request.Request();//获取url参数
+		if(url.type)
+		{
+			if(url.type != 1)
+			{
+				mySwiper.slideNext();
+			}
+			else
+			{
+				mySwiper.slidePrev();
+			}
+		}
+		$('.think-to-first').on('click', 'a', function(event) {
+			if($(this).hasClass('think-tf-love'))
+			{
+				mySwiper.slidePrev();
+			}
+			else if($(this).hasClass('think-tf-kind'))
+			{
+				mySwiper.slideNext();
+			}
+		});
+		list(isFirst=1);
+		changeAttr();
+	});
+
+	function list(isFirst)
+	{
+		if(isFirst == 2)//下拉刷新，传递当前页的所有参数，分页用
+		{
+			var data = {};
+				data['attr'] = attr;
+				data['cate'] = type;
+			if(type == 1)
+			{
+				data['page'] = loveCurrentPage;
+			}
+			else
+			{
+				data['page'] = kindCurrentPage;
+			}
+		}
+		else
+		{
+			var data = "";
+		}
+		var url = "/tongrenmiao/index.php?g=Mall&m=index&a=loveList";
+		$.ajax({
+			url:url,
+			data:data,
+			dataType:'json',
+			type:'get'
+		}).done(function(ret)
+		{
+			if(isFirst ==1)
+			{
+				if(ret.loveList != "" || ret.matter != "")
+				{
+					var loveList = handleHtml(ret.loveList,1);
+					var matter = handleHtml(ret.matter,2);
+					$("#loveList").html(loveList);
+					$("#matterList").html(matter);
+					loveCountPage = ret.loveCountNum;
+					kindCountPage = ret.kindCountNum;
+
+					if(type == 1)
+					{
+						//爱的属性
+						if(loveCountPage<1)
+						{
+							$("#footer").hide();
+						}
+						else
+						{
+							$("#footer").show();
+							$("#current").html(loveCurrentPage);
+							$("#totalPage").html(ret.loveCountNum);
+						}
+						showPage()
+					}
+					else
+					{
+						if(kindCountPage<1)
+						{
+							$("#footer").hide();
+						}
+						else
+						{
+							$("#footer").show();
+							$("#current").html(kindCurrentPage);
+							$("#totalPage").html(ret.kindCountNum);
+						}
+						showPage();
+					}
+				}
+				else
+				{
+					alert('数据加载失败');
+				}
+			}
+			else
+			{
+				if(ret.currentList)
+				{
+					var list = handleHtml(ret.currentList,type);
+					if(type == 1)
+					{
+						$("#loveList").html(list);
+						loveCountPage = ret.totalPage;
+						if(ret.totalPage<1)
+						{
+							$("#footer").hide();
+						}
+						else
+						{
+							$("#footer").show();
+							$("#current").html(loveCurrentPage);
+							$("#totalPage").html(ret.totalPage);
+						}
+					}
+					else
+					{
+						$("#matterList").html(list);
+						kindCountPage = ret.totalPage;
+						if(ret.totalPage<1)
+						{
+							$("#footer").hide();
+						}
+						else
+						{
+							$("#footer").show();
+							$("#current").html(kindCurrentPage);
+							$("#totalPage").html(ret.totalPage);
+						}
+					}
+
+				}
+				else
+				{
+					alert('数据加载失败');
+				}
+			}
+			page();
+			wrapper.refresh();
+		})
+	}
+	/**
+	 * 重构数据的html
+	 * @param   type   1=>爱的属性  2=>物的类型
+	 * @param   list   数据结果集
+	 */
+	function handleHtml(list,type)
+	{
+		var result = "";
+		if(type == 1)
+		{
+			$.each(list,function(key,val)
+			{
+				result +='<li>\
+                                <div class="sale-ones-front tie">\
+                                    <p class="sale-of-img"><a href="detail-page1.html?id='+val.id+'"><img src="img/test/item1.png"></a><</p>\
+                                    <p class="sale-of-name">'+val.name+'</p>\
+									<p class="sale-of-text">原作:布吉岛</p>\
+                                    <p class="sale-of-price">'+val.price+'</p>\
+                                </div>\
+                            </li>'
+			})
+		}
+		else
+		{
+			$.each(list,function(key,val)
+			{
+				result +='<li>\
+                                <div class="sale-ones-front tie">\
+                                    <p class="sale-of-img"><a href="detail-page1.html?id='+val.id+'"><img src="img/test/item1.png"></a></p>\
+                                    <p class="sale-of-name">'+val.name+'</p>\
+                                    <p class="sale-of-text">原作:伪装者</p>\
+									<p class="sale-of-text">CP圈:不知道</p>\
+                                    <p class="sale-of-price">'+val.price+'</p>\
+                                </div>\
+                            </li>'
+			})
+		}
+		return result;
+	}
+
+	//下拉刷新
+	refresher.init({
+		id: "wrapper",
+		header: true,
+		footer: false,
+		pullDownAction: Refresh
+	});
+	function Refresh() {
+		setTimeout(function () {
+			list(isFirst=2);
+			wrapper.refresh();
+		}, 500);
+	}
+
+	//页面元素加载完成执行（包括图片等关联元素）
+
+	/**
+	 *	点击切换类型
+	 */
+	function changeAttr()
+	{
+		var love = $("#love").find('a');
+		var kind = $("#kind").find('a');
+		var isClass = $("#cate").hasClass('love');
+		var url = "/tongrenmiao/index.php?g=Mall&m=index&a=loveList";
+		if(isClass)
+		{
+			//爱的属性
+			var length = love.length;
+			var obj = love;
+			//要替换的html标签
+			var html = $("#loveList");
+			type = 1;
+		}
+		else
+		{
+			//物的类型
+			var length = kind.length;
+			var obj = kind;
+			//要替换的html标签
+			var html = $("#matterList");
+			type = 2;
+		}
+		for(i=0;i<length;i++){
+//			$(obj).eq(i).click(function()
+//			{
+//				alert($(this).text());
+//			})//弹出多次，不明原由（jq）
+			obj[i].onclick = function(){
+//				alert(this.innerHTML);//(js)
+				var val = $(this).attr('data-value');
+				//先切换在请求数据  2017/7/5
+				$(this).addClass('fixed').siblings().removeClass();
+//				var thisObj = $(this);
+				$.ajax({
+					url:url,
+					data:{'cate':type,'attr':val},
+					type:'get',
+					dataType:'json'
+				}).done(function(ret)
+				{
+					if(ret)
+					{
+						var result;
+						if(ret.matter)
+						{
+							result = handleHtml(ret.matter,2);
+						}
+						if(ret.loveList)
+						{
+							result = handleHtml(ret.loveList,1);
+						}
+						html.html(result);
+//						thisObj.addClass('fixed').siblings().removeClass();
+						attr = val;//将当前点击选中的属性赋值给全局，分页用
+						page();
+					}
+					else
+					{
+						alert('数据加载失败');
+					}
+				}).fail(function()
+				{
+					alert('请求失败');
+				})
+			}
+		}
+	}
+
+	//分页
+	function page(obj)
+	{
+		/*---点击分页用---*/
+		var prev = $(obj).attr('data-val');
+		var next = $(obj).attr('data-val');
+		var go = $(obj).attr('data-val');
+		var skipPage = $("#skipPage").val();
+		/*---点击分页用---*/
+		url = "/tongrenmiao/index.php?g=Mall&m=index&a=loveList";
+		data = {};
+		data['cate'] = type;
+		data['attr'] = attr;
+
+		if(type == 1)
+		{
+			var prevPage = parseInt(loveCurrentPage)-1;
+			var nextPage = parseInt(loveCurrentPage)+1;
+			if(prev == 'prev')
+			{
+				data['page'] = prevPage;
+				pageAjax(url,data,prevPage);
+			}
+			if(next == 'next')
+			{
+				data['page'] = nextPage;
+				pageAjax(url,data,nextPage);
+			}
+			if(go == 'GO')
+			{
+				if(skipPage == "" || skipPage>loveCountPage)
+				{
+					return false;
+				}
+				else
+				{
+					data['page'] = skipPage;
+					pageAjax(url,data,skipPage);
+				}
+
+			}
+			if(loveCurrentPage <=1)
+			{
+				$("#page-up").addClass('disable');
+				$("#footer").addClass('updisable');
+			}
+			else
+			{
+				$("#page-up").removeClass('disable');
+				$("#footer").removeClass('updisable');
+
+			}
+		}
+		else
+		{
+			var prevPage = parseInt(kindCurrentPage)-1;
+			var nextPage = parseInt(kindCurrentPage)+1;
+			if(prev == 'prev')
+			{
+				data['page'] = prevPage;
+				pageAjax(url,data,prevPage);
+			}
+			if(next == 'next')
+			{
+				data['page'] = nextPage;
+				pageAjax(url,data,nextPage);
+			}
+			if(go == 'GO')
+			{
+				if(skipPage == "" || skipPage>kindCountPage)
+				{
+					return false;
+				}
+				if(skipPage<=kindCountPage)
+				{
+					data['page'] = skipPage;
+					pageAjax(url,data,skipPage);
+				}
+			}
+			if(kindCurrentPage <=1)
+			{
+				$("#page-up").addClass('disable');
+				$("#footer").addClass('updisable');
+
+			}
+			else
+			{
+				$("#page-up").removeClass('disable');
+				$("#footer").removeClass('updisable');
+
+			}
+		}
+	}
+
+	function showPage()
+	{
+//		$("#page-down").show();
+		if(type == 1)
+		{
+				if(loveCurrentPage>=loveCountPage)
+				{
+					$("#page-down").addClass('disable');
+					$("#footer").addClass('downdisable');
+				}
+				else
+				{
+					$("#page-down").removeClass('disable');
+					$("#footer").removeClass('downdisable');
+				}
+				if(loveCurrentPage == 1)
+				{
+					$("#page-up").addClass('disable');
+					$("#footer").addClass('updisable');
+				}
+				else
+				{
+					$("#page-up").removeClass('disable');
+					$("#footer").removeClass('updisable');
+				}
+		}
+		else
+		{
+			if(kindCurrentPage>=kindCountPage)
+			{
+				$("#page-down").addClass('disable');
+				$("#footer").addClass('downdisable');
+
+			}
+			else
+			{
+				$("#page-down").removeClass('disable');
+				$("#footer").removeClass('downdisable');
+
+			}
+			if(kindCurrentPage == 1)
+			{
+				$("#page-up").addClass('disable');
+				$("#footer").addClass('updisable');
+
+			}
+			else
+			{
+				$("#page-up").removeClass('disable');
+				$("#footer").removeClass('updisable');
+
+			}
+		}
+	}
+
+	function pageAjax(url,data,latestPage)
+	{
+		$.ajax({
+			url:url,
+			data:data,
+			async:false,
+			type:'get',
+			dataType:'json'
+		}).done(function(ret){
+			if(ret.currentList.length>0)
+			{
+				if(type == 1)
+				{
+					loveCurrentPage = latestPage;
+					$("#loveList").html(handleHtml(ret.currentList,type));
+					showPage();
+				}
+				else
+				{
+					kindCurrentPage = latestPage;
+					$("#matterList").html(handleHtml(ret.currentList,type));
+					showPage();
+				}
+				$('#current').html(latestPage);//暂定
+			}
+			else
+			{
+				alert('无数据');
+			}
+		}).fail(function(){
+			alert('请求失败');
+		})
+	}
+//
+//	function skip()
+//	{
+//
+//	}
+
+</script>

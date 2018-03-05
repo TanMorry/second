@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no"/>
+    <title>喵</title>
+    <link href="css/global.css" rel="stylesheet" type="text/css">
+    <link href="css/public.css" rel="stylesheet" type="text/css">
+    <link href="css/shop-fenlei.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+    </style>
+
+    <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="js/obtainArguments.js"></script>
+    <script src="js/miao-Dialog.js"></script>
+    <script>
+        $().ready(function(){
+            $('.header-r').on('click', '.header-bg-btn', function(event) {
+                if( $(".header-r-tc").css('display') == 'none' ){
+                    $(".header-r-tc").css('display','block')
+                }
+                else{
+                    $(".header-r-tc").css('display','none');
+                }
+            });
+
+            $('.content').on('click', function(event) {
+                $(".header-r-tc").css('display','none');
+            });
+            $('.footer').on('click', function(event) {
+                $(".header-r-tc").css('display','none');
+            });
+
+            $('.think-to-first .think-bor-l').click(function(){
+                $('.page1').show();
+                $('.page2').hide();
+                changeCate(1);
+            });
+
+            $('.think-to-first .think-bor-r').click(function(){
+                $('.page1').hide();
+                $('.page2').show();
+                changeCate(2)
+            });
+
+            $('.think-to-first>a').click(function(){
+                $(this).siblings().removeClass('think-bor')
+                $(this).addClass('think-bor')
+            })
+//            var phone = $('#cpp').MiaoDialog();
+//            var scw=true;
+//            $('.list-btn').click(function(){
+//                $(this).toggleClass('list-btn-bg')
+//                if(scw==true){
+//                    $('#cpp').find('p').text('收藏成功~');
+//                    phone.MiaoDialog('open');
+//                    setTimeout(function(){
+//                        phone.MiaoDialog('close');
+//                    },1400);
+//                    scw=false
+//                }else if( scw==false){
+//                    $('#cpp').find('p').text('取消收藏~');
+//                    phone.MiaoDialog('open');
+//                    setTimeout(function(){
+//                        phone.MiaoDialog('close');
+//                    },1400);
+//                    scw=true
+//                }
+//
+//            })
+        })
+    </script>
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex">
+    <section class="header">
+        <div class="header-bg normal">
+            <div class="header-l"><a href="javascript:history.go(-1)"></a></div>
+            <div class="header-c header-in "><input class="search" type="text" placeholder="搜索店铺内的宝贝" onclick="location.href='sousuo-index.html'" ></div>
+            <div class="header-r">
+                <a  href="javascript:" class="header-bg-btn"></a>
+                <div class="header-r-tc">
+                    <a href="#" class="header-tc-a"><img src="img/xinfeng.png">消息</a>
+                    <a href="main.html" class="header-tc-b"><img src="img/shouy.png">首页</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 主体 -->
+    <div id="loading" style="display:none">
+        <img src="img/loading.jpg">
+    </div>
+    <section class="content flex" id="content">
+        <div class="nav-more">
+            <img src="img/bg-hear.png">
+            <div class="list clearfix">
+                <div class="list-l list-bg2">
+                    <span id="shopname"></span>
+                    <a href="javascript:" id="shopType" >商业店</a>
+                </div>
+                <div class="list-r">
+                    <div class="list-follow">
+                        <p id="foucs"></p>
+                        <p>关注人数</p>
+                    </div>
+                    <a class="list-btn" href="javascript:" onclick="collect(this)">
+                        <i></i>
+                        <div></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="main think-to love">
+            <div class="think-to-first clearfix">
+                <a class=" think-bor-l think-bor" href="javascript:"><i>全部宝贝</i></a>
+                <a class="think-tf-kind think-bor-r" href="javascript:"><i >新品上架</i></a>
+            </div>
+            <div class="page1">
+                <ul class="business" id="product_type">
+                    <li><a href="javascript:" class="fixed" data-val="-1">综合</a></li>
+                    <li><a href="javascript:" data-val="1">销量</a></li>
+                    <li><a href="javascript:" data-val="2">新品</a></li>
+                    <li class="business-bf"><a href="javascript:" data-val="3">价格</a></li>
+                </ul>
+                <div class="sale-item2 part bus-goods" >
+                    <ul class="sale-ones tie clearfix" id="product_info" >
+                        <!--<li>-->
+                            <!--<div class="sale-ones-front tie">-->
+                                <!--<p class="sale-of-img"><img src="img/huibai-bg.png"></p>-->
+                                <!--<p class="sale-of-name">商品名称</p>-->
+                                <!--<p class="sale-of-text">-->
+                                    <!--<span>原作:伪装者</span>-->
+                                    <!--<span>CP圈:楼成</span>-->
+                                <!--</p>-->
+                                <!--<p class="sale-of-price">￥6</p>-->
+                            <!--</div>-->
+                        <!--</li>-->
+
+                    </ul>
+                </div>
+            </div>
+            <div class="page2">
+                <!--<div class="introduce  ">-->
+                    <!--<p>3月11日</p>-->
+                    <!--<div class="internal-bg">-->
+                        <!--<p><img src="img/internal-bg.png"></p>-->
+                        <!--<p class="internal-name">商品名称</p>-->
+                        <!--<p class="sale-of-text">-->
+                            <!--<span>原著：伪装者</span>-->
+                            <!--<span>CP圈：楼成</span>-->
+                        <!--</p>-->
+                        <!--<p class="sale-of-price">￥6.00 </p>-->
+                    <!--</div>-->
+                    <!--<div class="internal-bg">-->
+                        <!--<p><img src="img/internal-bg.png"></p>-->
+                        <!--<p class="internal-name">商品名称</p>-->
+                        <!--<p class="sale-of-text">-->
+                            <!--<span>原著：伪装者</span>-->
+                            <!--<span>CP圈：楼成</span>-->
+                        <!--</p>-->
+                        <!--<p class="sale-of-price">￥6.00 </p>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="sale-item2 part">-->
+                    <!--<p>3月10日</p>-->
+                    <!--<ul class="sale-ones tie clearfix">-->
+                        <!--<li>-->
+                            <!--<div class="sale-ones-front tie">-->
+                                <!--<p class="sale-of-img"><img src="img/huibai-bg.png"></p>-->
+                                <!--<p class="sale-of-name">商品名称</p>-->
+                                <!--<p class="sale-of-text">-->
+                                    <!--<span>原作:伪装者</span>-->
+                                    <!--<span>CP圈:楼成</span>-->
+                                <!--</p>-->
+                                <!--<p class="sale-of-price">￥6.00</p>-->
+                            <!--</div>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<div class="sale-ones-front tie">-->
+                                <!--<p class="sale-of-img"><img src="img/huibai-bg.png"></p>-->
+                                <!--<p class="sale-of-name">商品名称</p>-->
+                                <!--<p class="sale-of-text">-->
+                                    <!--<span>原作:伪装者</span>-->
+                                    <!--<span>CP圈:楼成</span>-->
+                                <!--</p>-->
+                                <!--<p class="sale-of-price">￥6.00</p>-->
+                            <!--</div>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+            </div>
+
+        </div>
+    </section>
+    <section class="footer" id="footer" style="display: none;">
+        <div class="page horizontal-center">
+            <a class="page-up" href="#" id="page-up" onclick="page(this)" data-val="prev"></a>
+            <i class="auto-width"><!-- auto width --></i>
+            <input class="page-write" type="text" id="skipPage">
+            <a class="page-go" href="#" id="go" onclick="page(this)" data-val="GO">GO</a>
+            <span class="page-count"><b id="current"></b><i>/</i><b id="totalPage"></b></span>
+            <i class="auto-width"><!-- auto width --></i>
+            <a class="page-down" href="#" id="page-down" onclick="page(this)" data-val="next"></a>
+        </div>
+    </section>
+    <section class="footer">
+        <div class="footer-bottom">
+            <a id="cateBaby" href="javascript:" >宝贝分类</a>
+            <a id="shopIntroduce" href="javascript:" class="footer-bottom-bod">店铺介绍</a>
+            <a href="javascript:" >联系买家</a>
+        </div>
+    </section>
+    <div class="confirm-pop-ups font3" id="cpp">
+        <p></p>
+    </div>
+</section>
+</body>
+</html>
+<script>
+    var url = new Arguments();
+    var param = url.Request();
+    var cate = 1;//1=> 全部宝贝  2=>新品上架
+    var type = -1;//-1=>综合  1=>销量   2=>新品  3=>价格
+    //    var sort;//只用于翻页时价格的排序参数
+    var countPage = 1;//总页数
+    var currentPage = 1;//当前页数
+    var userid = 2;
+    var username = "lalala";
+    var shopname;
+    $(function()
+    {
+        IndexList();
+        forClick();
+        changeCate(1)
+    })
+    function IndexList()
+    {
+        var url = '/tongrenmiao/index.php?g=Mall&m=Index&a=shopInfo';
+        var data = {};
+        data['shopId'] = param.shopId;
+        data['uid'] = userid;
+        $.ajax({
+            url:url,
+            data:data,
+            type:'get',
+            dataType:'json',
+            beforeSend:function()
+            {
+            },
+            success:function(res)
+            {
+                if(res.Info.length>0)
+                {
+                    if(res.Info[0].collect == 1)
+                    {
+                        $(".list-btn").addClass('list-btn list-btn-bg');
+                    }
+                    if(parseInt(res.Info[0].shop_type) == 4)
+                    {
+                        $("#shopType").show();
+                    }
+                    else
+                    {
+                        $("#shopType").hide();
+                    }
+                    //替换店铺信息
+                    shopname = res.Info[0].company;
+                    $("#shopname").html(res.Info[0].company);
+                    $("#foucs").html(res.Info[0].shop_collect);
+                    $("#current").html(currentPage);
+                    $("#totalPage").html(res.countPage);
+                    countPage = res.countPage;
+                    showPage();
+                    var babyUrl = 'shop-xiangqiye/baby-fenlei.html?shopId='+ param.shopId;
+                    var shopIntroduce = 'shop-xiangqiye/shop-jieshao.html?shopId='+ param.shopId;
+                    $("#cateBaby").attr('href',babyUrl);
+                    $("#shopIntroduce").attr('href',shopIntroduce);
+                }
+            },
+            error:function()
+            {
+                $(".Info").hide();
+                $("#content").html('请求失败');
+            }
+        })
+        var productId = param.productId;
+        $("#prevHref").attr('href','../detail-page1.html?id='+productId);
+    }
+
+    function handleHtml(list)
+    {
+        var str = "";
+        $.each(list,function(k,v)
+        {
+            str += '<li><div class="sale-ones-front tie"><p class="sale-of-img"><a href="detail-page1.html?id='+v.id+'"><img src="'+v.pic+'"></a></p>\
+                    <p class="sale-of-name">'+v.name+'</p><p class="sale-of-text"><span>原作:伪装者</span>\
+                    <span>CP圈:楼成</span></p><p class="sale-of-price">￥'+v.price+'</p></div></li>'
+        })
+        return str;
+    }
+
+    function changeCate(cate)
+    {
+        if(cate == 1)
+        {
+            product_ajax(data={'shopId':param.shopId,'type':type},currentPage);
+        }
+        else
+        {
+            new_product();
+        }
+    }
+
+    //全部宝贝（四个分类）
+    function forClick()
+    {
+        var clickObj = $("#product_type").find('a');
+        var typeNum = $("#product_type").find('a').length;
+
+        for(var i=0;i<typeNum;i++)
+        {
+            clickObj[i].onclick = function()
+            {
+                var val = $(this).attr('data-val');
+                var data = {};
+                data['shopId'] = param.shopId;
+//                data['act'] = 'ajax';
+                data['type'] = val;
+                if(val == '3')
+                {
+                    //有这个类样式表示第二次点击  查询的数据价格要从高往低
+                    if($(this).hasClass('fixed'))
+                    {
+                        if($(this).parent().hasClass('business-bf2'))
+                        {
+                            $(this).parent().removeClass().addClass('business-bf');
+                            data['sort'] = 'asc';
+                        }
+                        else
+                        {
+                            $(this).parent().removeClass().addClass('business-bf2');
+                            data['sort'] = 'desc';
+                        }
+                    }
+                    else
+                    {
+                        //没有这个类样式表示第一次点击 查询的数据价格要从低到高
+                        data['sort'] = 'asc';
+                    }
+                }
+                type = val;
+                $(this).addClass('fixed').parent().siblings('li').find('a').removeClass();
+                product_ajax(data,currentPage=1)
+            };
+        }
+    }
+
+    //新品上架
+    function new_product()
+    {
+        var url='/tongrenmiao/index.php?g=Mall&m=Index&a=new_product';
+        $.ajax({
+            url:url,
+            data:{'shopId':param.shopId},
+            type:'get',
+            dataType:'json',
+            beforeSend:function()
+            {
+                $(".page2").html("<div id='loading'><img src='img/loading.jpg'></div>")
+            },
+            success:function(res)
+            {
+                if(res.data)
+                {
+                    var str = '';
+                    $.each(res.data,function(k,v){
+                        str += '<div class="introduce ">\
+                                <p>'+k+'</p>'
+                        $.each(v,function(ke,va){
+                            str += '<div class="internal-bg">\
+                                    <p><img src="'+va.pic+'"></p>\
+                                    <p class="internal-name">'+va.name+'</p>\
+                                    <p class="sale-of-text">\
+                                    <span>原著：伪装者</span>\
+                                    <span>CP圈：楼成</span>\
+                                    </p>\
+                                    <p class="sale-of-price">￥'+va.price+' </p>\
+                                </div>'
+                        })
+                        str += '</div>'
+                    })
+                    $(".page2").html(str);
+                }
+                else
+                {
+                    $('.page1').hide();
+                    $(".page2").html('<div class="load-fail">没有找到该店铺商品</div><div>');
+                }
+
+            },
+            error:function()
+            {
+
+            }
+        })
+    }
+
+    //全部宝贝
+    function product_ajax(data,latestPage)
+    {
+        var url = '/tongrenmiao/index.php?g=Mall&m=Index&a=shopBaby';
+        $.ajax({
+            url:url,
+            data:data,
+            type:'get',
+            dataType:'json',
+            beforeSend:function()
+            {
+                $("#product_info").html("<div id='loading'><img src='img/loading.jpg'></div>")
+            },
+            success:function(res)
+            {
+                if(res.Info.length>0)
+                {
+                    //从后台去参数相对应的数据进行页面替换
+                    $("#product_info").html(handleHtml(res.Info));
+                    if(res.countPage <= 1)
+                    {
+                        $("#footer").hide();
+                    }
+                    else
+                    {
+                        $("#footer").show();
+                    }
+                    currentPage = latestPage;
+                    countPage = res.countPage;
+                    $("#current").html(latestPage);
+                    $("#totalPage").html(res.countPage);
+                    showPage()
+                }
+                else
+                {
+                    $("#product_info").html('<div class="load-fail">没有找到该店铺商品</div><div>');
+                    $("#footer").hide();
+                }
+            },
+            error:function()
+            {
+                //将页面中显示区域文字替换
+            }
+        })
+    }
+
+    function page(obj)
+    {
+        /*---点击分页用---*/
+        var prev = $(obj).attr('data-val');
+        var next = $(obj).attr('data-val');
+        var go = $(obj).attr('data-val');
+        var skipPage = $("#skipPage").val();
+        /*---点击分页用---*/
+
+        var prevPage = parseInt(currentPage)-1;//上一页
+        var nextPage = parseInt(currentPage)+1;//下一页
+        var data = {};
+        data['type'] = type;
+        data['shopId'] = param.shopId;
+        if(prev == 'prev')
+        {
+            data['page'] = prevPage;
+            product_ajax(data,prevPage);
+        }
+        if(next == 'next')
+        {
+            data['page'] = nextPage;
+            product_ajax(data,nextPage);
+        }
+        if(go == 'GO')
+        {
+            if(skipPage == "" || parseInt(skipPage)>parseInt(countPage))
+            {
+                return false;
+            }
+            else
+            {
+                data['page'] = skipPage;
+                product_ajax(data,skipPage);
+            }
+        }
+        if(currentPage <=1)
+        {
+            $("#page-up").addClass('disable');
+            $("#footer").addClass('updisable');
+        }
+        else
+        {
+            $("#page-up").removeClass('disable');
+            $("#footer").removeClass('updisable');
+        }
+    }
+
+    function showPage(){
+        if(currentPage>=countPage)
+        {
+            $("#page-down").addClass('downdisable');
+            $("#footer").addClass('downdisable');
+        }
+        else
+        {
+            $("#page-down").removeClass('disable');
+            $("#footer").removeClass('downdisable');
+        }
+        if(currentPage == 1)
+        {
+            $("#page-up").addClass('disable');
+            $("#footer").addClass('updisable');
+        }
+        else
+        {
+            $("#page-up").removeClass('disable');
+            $("#footer").removeClass('updisable');
+        }
+    }
+
+    /*输入数量验证*/
+    $(".footer input").on('blur input propertychange', function(event) {
+        function isEmpty (val)
+        {
+            return val == '' || val === null || val === undefined;
+        }
+        var val = $(this).val();
+        /*如果不是空则强转数字*/
+        if (!isEmpty(val))
+        {
+            val = parseInt(val.replace(/[^\d]/ig,''), 10);
+        }
+
+        isNaN(val) ? $(this).val("") : $(this).val(val);
+        if(val > countPage)
+        {
+            $("#go").css('background','#999');
+        }
+        else
+        {
+            $("#go").css('background','#eb6877');
+        }
+    })
+
+
+    function collect(obj)
+    {
+        //先判断cookie里面有没有登陆信息没有跳转登录页
+        if(userid == "")
+        {
+            //返回登录页
+        }
+        else
+        {
+            var url="/tongrenmiao/index.php?g=Mall&m=index&a=isCollect";
+            var data = {};
+            data['collect'] = $(obj).hasClass('list-btn-bg') ? 0 : 1;
+            data['userid'] = userid;
+            data['uname'] = username;
+            data['shopid'] = param.shopId;
+            data['shopname'] = shopname;
+            //添加取消收藏
+            $.ajax({
+                url:url,
+                data:data,
+                type:'get',
+                dataType:'json',
+                beforeSend:function()
+                {
+
+                },
+                success:function(data)
+                {
+                    if(data.collect == 1)
+                    {
+                        alertInfo('收藏成功');
+                    }
+                    else
+                    {
+                        alertInfo('取消收藏');
+                    }
+                    $("#foucs").html(data.attenNum);
+                    $(obj).toggleClass('list-btn-bg')
+                }
+            })
+        }
+    }
+    //提示框
+    function alertInfo(mes)
+    {
+        var phone2 = $('#cpp').MiaoDialog();
+        phone2.MiaoDialog('open');
+        $('#cpp').find('p').text(mes);
+        setTimeout(function(){
+            phone2.MiaoDialog('close');
+        },1400);
+    }
+</script>

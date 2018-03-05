@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文库回复编辑</title>
+    <link rel="stylesheet" type="text/css" href="__TMPL__Public/css/replyEdit.css"/>
+    <link rel="stylesheet" type="text/css" href="__TMPL__Public/css/advance.css"/>
+
+    <script type="text/javascript" src="__PUBLIC__/js/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/ueditor/ueditor.all.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+    <h2>文库回复编辑</h2>
+    <div class="baseInfo">
+        <span>属性:<if condition="$result[0][attr] eq 1">大众<elseif condition="$result[0][attr] eq 2"/>广付肉<else/>百合</if></span><span>状态:{$stateName}</span><span>楼层:{$result[0][position]}</span><span>回帖人昵称:{$result[0][nickname]}</span><span>回帖人ip:{$result[0][createip]}</span><span>回帖人邮箱/手机:{$result[0][user_email]}/{$result[0][mobile]}</span>
+        <p>标题:{$result[0][author]}{$result[0][cpname]}{$result[0][title]}</p>
+        <p>TAG:{$tagInfo}
+    </div>
+    <form action="{:U('Admin/editReply')}" method="post" id="myForm">
+        <div class="content">
+            <div class="postContent">
+                <p><span>前台显示区</span><script type="text/plain" id="editor" name="post[post_content]" style="width:500px;height:500px;">{$result[0][content]}</script></p>
+            </div>
+            <div class="postHiddenText">
+                <p><span>隐藏留底区</span><script type="text/plain" id="editor2" name="post[post_hiddentext]" style="width:500px;height:500px;">{$result[0][hiddentext]}</script></p>
+            </div>
+            <input type="hidden" name="replyId" value="{$result[0]['rid']}">
+            <input type="hidden" name="type" value="{$result[0]['rtype']}">
+        </div>
+        <a class='className_fb' onclick="return doSubmit()" style="margin:10px 0px 50px 650px ;">发布</a>
+    </form>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+    var ue = UE.getEditor('editor');
+    var ue = UE.getEditor('editor2');
+
+    function doSubmit()
+    {
+        var content = UE.getEditor('editor').getContent();
+        var editContent =UE.getEditor('editor2').getContent();
+        var button = document.getElementById('myForm');
+        if(content == "")
+        {
+            alert("请填写前台显示内容");
+            return false;
+        }
+//        if(editContent == "")
+//        {
+//            alert("请填写留底内容");
+//            return false;
+//        }
+        button.submit();
+    }
+</script>

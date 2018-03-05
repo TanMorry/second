@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no"/>
+    <title>喵</title>
+    <link type="text/css"  rel="stylesheet" href="../css/shop-fenlei.css">
+    <link type="text/css"  rel="stylesheet" href="../css/global.css">
+    <link type="text/css"  rel="stylesheet" href="../css/public.css">
+    <style type="text/css">
+    </style>
+    <script src="../js/jquery-2.2.4.min.js"></script>
+    <script src="../js/obtainArguments.js"></script>
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex">
+    <section class="header">
+        <div class="header-bg normal">
+            <div class="header-l"><a href="javascript:history.go(-1)"></a></div>
+            <div class="header-c header-fot">宝 贝 分 类</div>
+            <div class="header-r"><a  href="#" class="header-bg-btn"></a></div>
+        </div>
+    </section>
+    <section class="content">
+        <div class="nav-top "><a href="#" class="nav-hover">全 部 宝 贝</a></div>
+        <div class="nav-bottom">
+            <ul>
+                <li><a href="#" class="nav-hover">同 人 本</a></li>
+                <li><a href="#" class="nav-hover">T 恤</a></li>
+                <li><a href="#" class="nav-hover">宝 宝</a></li>
+                <li><a href="#" class="nav-hover">首 饰</a></li>
+            </ul>
+        </div>
+    </section>
+</section>
+</body>
+</html>
+<script>
+    var request = new Arguments()
+    var param = request.Request();
+    $(function(){
+        IndexList()
+    })
+    function IndexList()
+    {
+        var url = '/tongrenmiao/index.php?g=Mall&m=Index&a=babyCate';
+        $.ajax({
+            url:url,
+            data:{'shopId':param.shopId},
+            type:'get',
+            dataType:'json',
+            beforeSend:function()
+            {
+
+            },
+            success:function(res)
+            {
+                debugger;
+            },
+            error:function()
+            {
+
+            }
+        })
+    }
+</script>

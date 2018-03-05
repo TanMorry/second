@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>展会</title>
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<link href="css/global.css" rel="stylesheet" type="text/css">
+<link href="css/rec-layout.css" rel="stylesheet" type="text/css">
+
+<script src="js/jquery.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+	/*input提示判定*/
+	$(".rm-input").on('focus blur input propertychange', function(event) {
+		if(event.type == 'focus' || event.type == 'input' || event.type == 'propertychange')
+		{
+			$(this).parent("div").addClass('rm-be');
+		}
+		else if(event.type == 'blur') //失去焦点时
+		{
+			!$(this).val().length && $(this).parent("div").removeClass('rm-be');
+		}
+	});
+	/*select初始化与事件绑定*/
+	(function () {
+		$(".rm-select").on('change', 'select', function(event) {
+			$(this).next('b').text($(this).val());
+		});
+		$('.rm-select select').each(function(index, el) {
+			$(this).next('b').text($(this).val());
+		});
+	})();
+	/*图片添加*/
+	$(".rm-images").on('click', '.rm-i-add', function(event) {
+		$(this).before( $(this).prevAll('label').filter('.none').clone().removeClass('none') );
+		return false;
+	});
+	/*图片删除*/
+	$(".rm-images").on('click', '.rm-i-remove', function(event) {
+		$(this).parent('label').siblings('label:not(.none)').length > 0 ? $(this).parent('label').remove() : false;
+		return false;
+	});
+});
+</script>
+
+<body>
+	<div class="M_Header M_BTM_25">
+		<div class="header-bg">
+			<p class="header-pink"></p>
+			<p class="header-beige"></p>
+		</div>
+		<div class="header-rec">
+			<div class="M_Center clearfix">
+				<ul class="clearfix">
+					<li class="M_LOGO"></li>
+					<li><b href="#">申请主办方</b></li>
+				</ul>
+				<div class="header-info">
+					<a href="#" type="login">登录</a>
+					<a href="#" type="register">注册</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="M_Layout M_Center M_BTM_50">
+		<div class="run-step clearfix">
+			<ul class="rs-ul float-center">
+				<li><b>01</b>注册帐号<i></i></li>
+				<li class="fixed"><b>02</b>填写信息<i></i></li>
+				<li><b>03</b>审核中<i></i></li>
+				<li><b>04</b>完成</li>
+			</ul>
+		</div>
+		<div class="reg-main">
+			<p class="rm-aside">请填写相关信息</p>
+			<p class="rm-for">
+				<a href="#" class="fixed">个人申请</a>
+				<a href="#">机构申请</a>
+			</p>
+			<p class="rm-tag"><i>个人信息</i></p>
+
+			<div class="rm-main clearfix">
+				<i><b>*</b>姓名：</i>
+				<div class="rm-normal">
+					<input class="rm-input" type="text" sign="account" />
+					<input class="rm-hint" type="text" value="" />
+					<p class="rm-msg">此处是错误提示~~</p>
+				</div>
+			</div>
+
+			<div class="rm-main clearfix">
+				<i><b>*</b>身份证：</i>
+				<div class="rm-card">
+					<label>
+						<img class="none" src="#" />
+						<input type="file" value="选择文件" />请上传身份证正面
+					</label>
+					<label>
+						<img class="none" src="#" />
+						<input type="file" value="选择文件" />请上传身份证反面
+					</label>
+					<p class="rm-msg">此处是错误提示~~</p>
+				</div>
+			</div>
+
+			<div class="rm-main clearfix">
+				<i>QQ：</i>
+				<div class="rm-normal">
+					<input class="rm-input" type="text" sign="qq" />
+					<input class="rm-hint" type="text" value="请输入QQ号码" />
+					<p class="rm-msg">此处是错误提示~~</p>
+				</div>
+			</div>
+
+			<div class="rm-main clearfix">
+				<i><b>*</b>邮箱：</i>
+				<div class="rm-normal">
+					<input class="rm-input" type="text" sign="mail" />
+					<input class="rm-hint" type="text" value="请输入邮箱" />
+					<p class="rm-msg">此处是错误提示~~</p>
+				</div>
+			</div>
+
+			<div class="rm-main clearfix">
+				<i><b>*</b>展会所在地：</i>
+				<div class="rm-select">
+					<label>
+				 		<select>
+				 			<option value="广西壮族自治区">广西壮族自治区</option>
+				 			<option value="上海市">上海市</option>
+			 			</select>
+				 		<b>未选择</b>
+				 	</label>
+					<label>
+				 		<select>
+				 			<option value="广西壮族自治区">广西壮族自治区</option>
+				 			<option value="上海市">上海市</option>
+			 			</select>
+				 		<b>未选择</b>
+				 	</label>
+					<label>
+				 		<select>
+				 			<option value="广西壮族自治区">广西壮族自治区</option>
+				 			<option value="上海市">上海市</option>
+			 			</select>
+				 		<b>未选择</b>
+				 	</label>
+				</div>
+				<i></i>
+				<div class="rm-select">
+					<p class="rm-msg">此处是错误提示(DOM结构略有不同)~~</p>
+				</div>
+			</div>
+
+			<p class="rm-tag"><i>展会信息</i></p>
+
+			<div class="rm-main clearfix">
+				<i>官方链接：</i>
+				<div class="rm-normal">
+					<input class="rm-input" type="text" sign="" />
+					<input class="rm-hint" type="text" value="如网站，微博等" />
+					<p class="rm-msg">此处是错误提示~~</p>
+				</div>
+			</div>
+
+			<div class="rm-main clearfix">
+				<i>办展历史：</i>
+				<div class="rm-normal">
+					<input class="rm-input" type="text" sign="" />
+					<input class="rm-hint" type="text" value="如有，请附上链接，可提升通过率" />
+					<p class="rm-msg">此处是错误提示~~</p>
+				</div>
+			</div>
+
+			<div class="rm-main clearfix">
+				<i>其他说明：</i>
+				<div class="rm-normal">
+					<input class="rm-input" type="text" sign="" />
+					<input class="rm-hint" type="text" value="" />
+					<p class="rm-msg">此处是错误提示~~</p>
+				</div>
+			</div>
+
+			<div class="rm-main clearfix M_BTM_25">
+				<i>相关资料图片：</i>
+				<div class="rm-images">
+					<!-- jq的clone对象 -->
+					<label class="none">
+						<img class="none" src="#" />
+						<input type="file" accept="image/*" value="选择文件" />
+						<b class="rm-i-remove"></b>
+					</label>
+					<!-- end -->
+					<label>
+						<img class="none" src="#" />
+						<input type="file" accept="image/*" value="选择文件" />
+						<b class="rm-i-remove"></b>
+					</label>
+
+					<a class="rm-i-add" href="#">添加</a>
+
+					<p class="rm-msg">此处是错误提示~~</p>
+				</div>
+			</div>
+
+			<p class="rm-submit">
+				<a href="#">完成</a>
+			</p>
+		</div>
+	</div>
+</body>
+</html>

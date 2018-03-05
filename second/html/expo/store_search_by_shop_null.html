@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>展会</title>
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<link href="css/global.css" rel="stylesheet" type="text/css">
+<link href="css/layout.css" rel="stylesheet" type="text/css">
+<link href="css/dropkick.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+/*下拉选择框高度*/
+.dk_toggle,
+.dk_container{
+	height: 30px;
+	line-height: 30px;
+}
+/*右侧店铺下拉框*/
+.ss-right .dk_container{
+	background: #ff8795;
+}.ss-right .dk_toggle{
+	color: #fff;
+}
+/*隐藏的select*/
+select.dropkick{
+	width: 0;
+}
+</style>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/expo.public.js"></script>
+<script src="js/jquery.dropkick-min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+	/*下拉选择框*/
+	$('.dropkick').dropkick({autoWidth:false});
+	/*排序的小箭头切换*/
+	$(".ss-left").on('click', 'a', function(event) {
+		/*共有三种class*/
+		var test = ['ss-curr-all','ss-curr-up','ss-curr-down'];
+		for (var i = 0; i < test.length; i++)
+		{
+			if($(this).hasClass(test[i]))
+			{
+				$(this).removeClass().addClass( i + 1 == test.length ? test[0] : test[i + 1]);
+				break;
+			}
+		}
+		return false;
+	});
+});
+
+</script>
+
+<body>
+	<div class="M_Header">
+		<div class="hd-bg">
+			<p class="hd-pink"></p>
+		</div>
+		<div class="hd-index M_Center">
+			<div class="hd-main">
+				<ul class="float-center clearfix">
+					<li class="hd-m-btn" ><a href="#">展会</a></li>
+					<li class="hd-m-btn fixed"><a href="#">社团铺</a></li>
+					<li class="hd-m-logo"></li>
+					<li class="hd-m-btn" ><a href="#">我的</a></li>
+					<li class="hd-m-btn" ><a href="#">同人闲情</a></li>
+				</ul>
+			</div>
+			<div class="hd-nav-r">
+				<ul class="hd-nav-not">
+					<li><a href="#">登录</a></li>
+					<li><a href="#">注册</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="M_Center">
+		<div class="store-search">
+			<ul class="ss-bar">
+				<li>
+					<select name="country-nofake" class="dropkick">
+						<option value="">货品</option>
+						<option value="AU">同人圈</option>
+						<option value="CA">巴拉拉小魔仙</option>
+					</select>
+				</li>
+				<li><input type="text"></li>
+				<li><a href="#"></a></li>
+			</ul>
+		</div>
+		<div class="M_Layout M_BTM_175">
+			<div class="store-screen">
+				<div class="ss-result clearfix">
+					<ul>
+						<li>搜索结果&gt;</li>
+						<li><i>玉虚</i>&quot;</li>
+					</ul>
+					<span class="ss-count">共<i>22</i>家店铺</span>
+				</div>
+			</div>
+
+			<div class="store-sort clearfix M_BTM_25">
+				<ul class="ss-left">
+					<li><a href="#" class="ss-curr-all">默认排序<i></i></a></li>
+					<li><a href="#" class="ss-curr-all">好评率<i></i></a></li>
+					<li><a href="#" class="ss-curr-all">销售<i></i></a></li>
+				</ul>
+				<ul class="ss-right">
+					<li>
+						<select name="country-nofake" class="dropkick">
+							<option value="">啊</option>
+							<option value="qq">得分</option>
+							<option value="ww">温柔</option>
+						</select>
+					</li>
+				</ul>
+			</div>
+			
+			<div class="shop-over">
+				<div class="shop-null">
+					<p class="shop-n-img"></p>
+					<p class="shop-n-txt">没有找到"<i>asdasd</i>"相关的店铺</p>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</body>
+</html>

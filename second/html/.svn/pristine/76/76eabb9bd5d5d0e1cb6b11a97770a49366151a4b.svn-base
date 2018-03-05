@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no"/>
+    <title>喵</title>
+
+    <link href="../css/global.css" rel="stylesheet" type="text/css">
+    <link href="../css/public.css" rel="stylesheet" type="text/css">
+    <link href="../css/detail.css" rel="stylesheet" type="text/css">
+    <link href="../css/confirm-order.css" rel="stylesheet" type="text/css">
+
+    <style type="text/css">
+
+    </style>
+    <script src="../js/obtainArguments.js"></script>
+    <script src="../js/jquery-2.2.4.min.js"></script>
+    <script src="../js/miao-Dialog.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+            /*数量加减*/
+            $(".detail-count").on('click', 'a', function(event) {
+                var $count = $(this).parents(".detail-count").find("input");
+                if($(this).hasClass('detail-count-sub'))
+                {
+                    $count.val(parseInt($count.val(), 10) - 1 || 1);
+                }
+                else if($(this).hasClass('detail-count-add'))
+                {
+                    $count.val(parseInt($count.val(), 10) + 1 || 1);
+                }
+            });
+            /*输入数量验证*/
+            $(".detail-count input").on('blur input propertychange', function(event) {
+
+                function isEmpty (val)
+                {
+                    return val == '' || val === null || val === undefined;
+                }
+
+                var val = $(this).val();
+                /*如果不是空则强转数字*/
+                if (!isEmpty(val))
+                {
+                    val = parseInt(val.replace(/[^\d]/ig,''), 10);
+                }
+
+                isNaN(val) ? $(this).val(1) : $(this).val(val);
+
+                if(event.type == 'blur' || event.type == 'focusout')
+                {
+                    if(isEmpty(val))
+                    {
+                        $(this).val(1);
+                    }
+                }
+            });
+
+        });
+    </script>
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex">
+    <section class="header">
+        <div class="header-bg confirm">
+            <div class="header-l"><a onclick="skipHistory()"></a></div>
+            <div class="header-l"></div>
+            <div class="header-c"><p class="header-p">确认订单</p></div>
+        </div>
+    </section>
+    <!-- 主体 -->
+    <section class="content">
+        <div class="detail part">
+            <a class="detail-address clearfix" id="address">
+                <div class="detail-address1">
+                    <i></i>
+                </div>
+                <div class="detail-address-content" id="addr">
+                    <!--<p class="title-l">收货人：小明</p>
+                    <p class="title-r">156123476781</p><br>
+                    <p class="title-l">上海 上海市 闵行区 浦江镇 浦连路XXX弄，XXX号，XXX室</p>-->
+                </div>
+                <div class="detail-address2">
+                    <i></i>
+                </div>
+            </a>
+        </div>
+        <div class="shop-nav" id="Info">
+            <div class="detail part2">
+                <a class="detail-share-enter detail-access-borderbtm clearfix" href="javascript:">
+                    <p><b>社团：第三空间</b> ></p>
+                    <i><b>待发货</b></i>
+                </a>
+            </div>
+            <div class="detail part2">
+                <div class="detail-commodity detail-access-borderbtm clearfix">
+                    <div class="detail-commodity-box1">
+                        <img src="../img/test/item2.jpg"/>
+                    </div>
+                    <div class="detail-commodity-box1">
+                        <p>商品名称</p>
+                        <p class="price">￥6.00</p>
+                    </div>
+                    <div class="detail-commodity-box3">
+                        <p class="font3">×<b>1</b></p>
+                    </div>
+                </div>
+                <div class="detail-commodity detail-access-borderbtm clearfix">
+                    <div class="detail-commodity-box1">
+                        <img src="../img/test/item2.jpg"/>
+                    </div>
+                    <div class="detail-commodity-box1">
+                        <p>商品名称</p>
+                        <p class="price">￥6.00</p>
+                    </div>
+                    <div class="detail-commodity-box3">
+                        <p class="font3">×<b>1</b></p>
+                    </div>
+                </div>
+            </div>
+            <div class="detail part">
+                <!--<div class="detail-count horizontal-center detail-access-borderbtm">-->
+                    <!--<p>购买数量</p>-->
+                    <!--<i class="auto-width"></i>-->
+                    <!--<a class="detail-count-sub" href="javascript:">-</a>-->
+                    <!--<input class="detail-count-write" type="text" value="1" id="quantity">-->
+                    <!--<a class="detail-count-add" href="javascript:">+</a>-->
+                <!--</div>-->
+                <!--<a class="detail-share-enter detail-access-borderbtm clearfix" href="javascript:">-->
+                    <!--<p>运费</p>-->
+                    <!--<i>￥6.00</i>-->
+                <!--</a>-->
+                <!--<a class="detail-share-enter detail-access-borderbtm clearfix" href="javascript:">-->
+                    <!--<p>配送方式</p>-->
+                    <!--<i>快递</i>-->
+                <!--</a>-->
+                <!--<a class="detail-share-enter detail-access-borderbtm clearfix" href="javascript:">-->
+                    <!--<p>支付方式</p>-->
+                    <!--<i>在线支付</i>-->
+                <!--</a>-->
+                <!--<a class="detail-share-input detail-access-borderbtm clearfix" href="javascript:">-->
+                    <!--<p>买家留言：</p>-->
+                    <!--<input placeholder="可选，可填写您与卖家达成一致的要求"/>-->
+                <!--</a>-->
+                <!--<a class="detail-share-enter detail-access-borderbtm clearfix" href="javascript:">-->
+                    <!--<p>商品总额</p>-->
+                    <!--<i class="color-red">￥106.00</i>-->
+                <!--</a>-->
+            </div>
+        </div>
+        <!--<div class="shop-nav">-->
+            <!--<div class="detail part2">-->
+                <!--<a class="detail-share-enter detail-access-borderbtm clearfix" href="javascript:">-->
+                    <!--<p><b>社团：第三空间</b> ></p>-->
+                    <!--<i><b>待发货</b></i>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="detail part2">-->
+                <!--<div class="detail-commodity detail-access-borderbtm clearfix">-->
+                    <!--<div class="detail-commodity-box1">-->
+                        <!--<img src="../img/test/item2.jpg"/>-->
+                    <!--</div>-->
+                    <!--<div class="detail-commodity-box1">-->
+                        <!--<p>商品名称</p>-->
+                        <!--<p class="price">￥6.00</p>-->
+                    <!--</div>-->
+                    <!--<div class="detail-commodity-box3">-->
+                        <!--<p class="font3">×<b>1</b></p>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="detail-commodity detail-access-borderbtm clearfix">-->
+                    <!--<div class="detail-commodity-box1">-->
+                        <!--<img src="../img/test/item2.jpg"/>-->
+                    <!--</div>-->
+                    <!--<div class="detail-commodity-box1">-->
+                        <!--<p>商品名称</p>-->
+                        <!--<p class="price">￥6.00</p>-->
+                    <!--</div>-->
+                    <!--<div class="detail-commodity-box3">-->
+                        <!--<p class="font3">×<b>1</b></p>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="detail part">-->
+                <!--<a class="detail-share-enter detail-access-borderbtm clearfix" href="javascript:">-->
+                    <!--<p>运费</p>-->
+                    <!--<i>￥6.00</i>-->
+                <!--</a>-->
+                <!--<a class="detail-share-enter detail-access-borderbtm clearfix" href="javascript:">-->
+                    <!--<p>配送方式</p>-->
+                    <!--<i>快递</i>-->
+                <!--</a>-->
+                <!--<a class="detail-share-enter detail-access-borderbtm clearfix" href="javascript:">-->
+                    <!--<p>支付方式</p>-->
+                    <!--<i>在线支付</i>-->
+                <!--</a>-->
+                <!--<a class="detail-share-input detail-access-borderbtm clearfix" href="javascript:">-->
+                    <!--<p>买家留言：</p>-->
+                    <!--<input placeholder="可选，可填写您与卖家达成一致的要求"/>-->
+                <!--</a>-->
+                <!--<a class="detail-share-enter detail-access-borderbtm clearfix" href="javascript:">-->
+                    <!--<p>商品总额</p>-->
+                    <!--<i class="color-red">￥106.00</i>-->
+                <!--</a>-->
+            <!--</div>-->
+        <!--</div>-->
+
+
+
+    </section>
+
+    <section class="footer">
+        <div class="foot-border2"></div>
+        <div class="foot-pay" >
+            <p>实 付 款：<b id="pay"></b></p>
+            <a href="javascript:" class="del"  onclick="goPay()">立 即 支 付</a>
+        </div>
+    </section>
+    <div class="confirm-pop-ups font1" id="cpp" >
+        <img src="../img/zhuan.gif" id="img1">
+        <span></span>
+    </div>
+</section>
+</body>
+</html>
+<script>
+	var userid = 22;
+    var username;
+    var Request = new Arguments();
+    var urlMember = Request.Request();//获取url参数
+    var pro_ids = "";
+    var setmeal_ids = "";
+    var isCar = "";
+    var car_ids="";
+//    function getUserInfo(id,name)
+//    {
+//        IndexList(id,name);
+//    }
+    $(function(){
+        IndexList();
+    })
+    function IndexList()//id,name
+    {
+//        userid = id;
+//        username = name;
+        var url = '/tongrenmiao/index.php?g=Mall&m=Index&a=confirmOrder'
+        $.ajax({
+            url:url,
+            data:{'userid':userid,'addressId':urlMember.address},
+            type:'get',
+            dataType:'json',
+            beforeSend:function()
+            {
+
+            },
+            success:function(res)
+            {
+                handleHtml(res);
+                pro_ids = res.pro_ids;
+                setmeal_ids = res.setmeal_ids;
+                isCar = res.isCar;
+                car_ids = car_ids
+                var str = '../shouhuo-dizhi/guanli-shouhuo-dz.html'
+                if(urlMember.from == 'car')
+                {
+                    str += '?from='+urlMember.from;
+                }
+                else
+                {
+                    str += '?pid='+urlMember.pid;
+                }
+                if(urlMember.address)
+                {
+                    str += '&queren=1&address='+urlMember.address;
+                }
+                else
+                {
+                    str += '&queren=1';
+                }
+                $("#address").attr('href',str);
+            },
+            error:function()
+            {
+
+            }
+        })
+    }
+    function handleHtml(list)
+    {
+        var totalmoney=0;
+        var totalYunfei=0;
+        var addr = '';
+        var str = '';
+        if(list.addressList)
+        {
+    		addr = '<p class="title-l">收货人：<span>' + list.addressList.name + '</span></p>\
+                    <p class="title-r">' + list.addressList.mobile + '</p><br>\
+                    <p class="title-l">' + list.addressList.area + ' ' + list.addressList.address + '</p>'
+        }
+        else
+        {
+        	addr = '<p class="title-c">请添加收货地址</p>'
+        }
+        $('#addr').html(addr);
+        $.each(list.Info,function(k,v){
+            str += '<div class="shop-nav" id="Info">\
+                        <div class="detail part2">\
+                            <a class="detail-share-enter detail-access-borderbtm clearfix" href="javascript:">\
+                            <p><b class="shopName" data-shopid="'+v.shopid+'" data-yunfei="'+v.yunfei+'">社团：'+v.name+'</b> ></p>\
+                            <i><b>待发货</b></i>\
+                            </a>\
+                        </div>\
+                        <div class="detail part2">'
+                $.each(v.detail,function(ke,va){
+                    str += '<div class="detail-commodity detail-access-borderbtm clearfix proInfo">\
+                                <div class="detail-commodity-box1">\
+                                    <img class="propic" src="'+va.pic+'" data-proid="'+va.pid+'" data-procatid="'+va.pcatid+'" data-prospec_val="'+va.setmeal+'" data-setmealId="'+va.setmealid+'" data-prospec_name="'+va.setmealname+'" data-virtual="'+va.is_virtual+'"/>\
+                                </div>\
+                                <div class="detail-commodity-box1">\
+                                    <p class="proname">'+va.name+'</p>\
+                                    <p class="price">￥<span class="unit-price">'+parseInt(va.price).toFixed(2)+'</span></p>\
+                                </div>\
+                                <div class="detail-commodity-box3">\
+                                <p class="font3">×<b calss="newquantity">'+va.newquantity+'</b></p>\
+                                </div>\
+                            </div>'
+                    if(v.isCar == 2)
+                    {
+                    str += '<div class="detail-count horizontal-center detail-access-borderbtm">\
+                                <p>购买数量</p>\
+                                <i class="auto-width"></i>\
+                                <a class="detail-count-sub" href="javascript:" ontouchend="numUpDown(this)">-</a>\
+                                <input class="detail-count-write" type="text" value="'+va.newquantity+'" id="quantity" onblur="blurAndProper(this)" oninput="blurAndProper(this)">'
+                        if(va.mstock == null)
+                        {
+                            str += '<input type="hidden" value="'+va.pstock+'">'
+                        }
+                        else
+                        {
+                            str += '<input type="hidden" value="'+va.mstock+'">'
+                        }
+                        str += '<a class="detail-count-add" href="javascript:" ontouchend="numUpDown(this)">+</a>\
+                            </div>'
+                    }
+                })
+                str += '</div>\
+                        <div class="detail part isstock">'
+                        if(v.virtualNum != v.productNum )
+                        {
+                    str += '<a class="detail-share-enter detail-access-borderbtm clearfix" href="javascript:">\
+                                <p>运费</p>'
+                            if(v.yunfei != "")
+                            {
+                        str += '<i>￥<span class="yunfei">'+v.yunfei+'</span></i>'
+                            }
+                            else
+                            {
+                        str += '<i>免运费</i>'
+                            }
+                    str += '</a>\
+                            <a class="detail-share-enter detail-access-borderbtm clearfix" href="javascript:">\
+                                <p>配送方式</p>\
+                                <i>快递</i>\
+                            </a>'
+                        }
+                    str += '<a class="detail-share-enter detail-access-borderbtm clearfix" href="javascript:">\
+                                <p>支付方式</p>\
+                                <i>在线支付</i>\
+                            </a>\
+                            <a class="detail-share-input detail-access-borderbtm clearfix" href="javascript:">\
+                                <p>买家留言：</p>\
+                                <input class="remark" placeholder="可选，可填写您与卖家达成一致的要求"/>\
+                            </a>\
+                        <a class="detail-share-enter detail-access-borderbtm clearfix" href="javascript:">\
+                            <p>商品总额</p>\
+                            <i class="color-red">￥<span class="totalmoney">'+v.total.toFixed(2)+'</span></i>\
+                        </a>\
+                        </div>\
+                    </div>';
+            totalmoney+=v.total;
+            totalYunfei+=v.yunfei;
+        })
+        $("#Info").replaceWith(str);
+
+        $("#pay").text(totalmoney.toFixed(2));
+    }
+
+    function skipHistory()
+    {
+        var from = urlMember.from;
+        var pid = urlMember.pid;
+        var str = '';
+        if(from == 'car')
+        {
+            //userid  购物车页面自己获取不需要url传
+            str = '../shop-cart/shop-cart-edit.html';
+        }
+        else if(typeof(pid) != 'undefined')
+        {
+            str = '../detail-page1.html?id='+pid;
+        }
+        else
+        {
+            str = '../main.html';
+        }
+        location.href = str;
+    }
+
+    //立即支付
+    function goPay()
+    {
+        //循环将所有商品组合成数组传递到后台
+        var data = {};
+        data['address'] = $("#addr").find('p').eq(2).text();
+        data['consignee_mobile'] = $("#addr").find('p').eq(1).text();
+        data['consignee'] = $("#addr").find('p').eq(0).find('span').text();
+        data['pro_ids'] = pro_ids;
+        if(isCar<2)
+        {
+            //购物车id，生成订单后删除购物车数据
+            data['car_ids'] = car_ids;
+        }
+        data['setmeal_ids'] = setmeal_ids;
+        data['buyerid'] = userid;
+        data['Info'] = orderInfo();
+        var url = '/tongrenmiao/index.php?g=Mall&m=Index&a=payPromptly';
+        $.ajax({
+            url:url,
+            data:data,
+            type:'post',
+            dataType:'json',
+            beforeSend:function()
+            {
+                //调用弹窗的方法
+                str = 'open';
+                payLoading();
+            },
+            success:function(res)
+            {
+
+                if(res == 1)
+                {
+                    str = 'open';
+                    payLoading(str);
+                    //跳转到支付页面
+//                    alert(1);
+                }
+                else
+                {
+                    str = 'close';
+                    payLoading(str);
+                    $(".isstock").html('库存不足');
+                }
+            },
+            error:function()
+            {
+
+            }
+        })
+    }
+
+    //将订单页里面每家商铺的信息处理成数组
+    function orderInfo()
+    {
+        var result = new Array();
+        $.each($('.shop-nav'),function(k)
+        {
+            var result2 = {};
+            var detail = new Array();
+
+                result2['shopId'] = $(this).find('.shopName').attr('data-shopid');
+                result2['logistics_price'] = $(this).find('.shopName').attr('data-yunfei');
+                result2['proremark'] = $(this).find('.remark').val();
+                result2['proTotalMoney'] = $(this).find('.totalmoney').text();
+                result2['logistics_type'] = '快递';//暂定
+                result2['is_virtual'] = $(this).find('.propic').attr('data-virtual');
+                $.each($(this).find('.proInfo'),function(k)
+                {
+                    var proInfo = {};
+                    proInfo['proid'] = $(this).find('.propic').attr('data-proid');
+                    proInfo['procatid'] = $(this).find('.propic').attr('data-procatid');
+                    proInfo['propic'] = $(this).find('.propic').attr('src');
+                    proInfo['pronum'] = $(this).find('.font3').find('b').text();
+                    proInfo['proname'] = $(this).find('.proname').text();
+                    proInfo['proprice'] = $(this).find('.unit-price').text();
+                    proInfo['prosetmealId'] = $(this).find('.propic').attr('data-setmealId');
+                    proInfo['prospec_name'] = $(this).find('.propic').attr('data-prospec_name');
+                    proInfo['prospec_val'] = $(this).find('.propic').attr('data-prospec_val');
+                    detail[k] = proInfo;
+                })
+            result2['detail'] = detail;
+            result[k] = result2;
+        })
+        return result;
+    }
+
+    /*数量加减*/
+    function numUpDown(obj)
+    {
+        var $count = $(obj).parents(".detail-count").find("input").eq(0);
+        //console.log($count.val());
+        if($(obj).hasClass('detail-count-sub'))
+        {
+            $count.val(parseInt($count.val(), 10) - 1 || 1);
+            $(obj).parents(".shop-nav").find('.font3').find('b').text($count.val());
+//            ajaxAdd($(obj).parents('.content-choice'));
+            setMoney($(obj));
+            setAmount();
+        }
+        else if($(obj).hasClass('detail-count-add'))
+        {
+            $count.val((parseInt($count.val(), 10) + 1) < $count.siblings('input').val() ? (parseInt($count.val(), 10) + 1) : $count.siblings('input').val() );
+//            ajaxAdd($(obj).parents('.content-choice'));
+            $(obj).parents(".shop-nav").find('.font3').find('b').text($count.val());
+            setMoney($(obj));
+            setAmount();
+        }
+        return false;
+
+
+    }
+
+    /*检验单个金额*/
+    function setMoney($this){
+        var totalMoney = 0;
+        var $money = $this.parents('.shop-nav').find('.totalmoney');
+        totalMoney = parseInt($this.parents('.shop-nav').find('.unit-price').text()) * parseInt($this.parents('.shop-nav').find('.detail-count-write').val());
+        yunfei = 0;
+        if($this.parents('.shop-nav').find('.yunfei').text() != '')
+        {
+            yunfei = parseInt($this.parents('.shop-nav').find('.yunfei').text());
+        }
+        totalMoney = (totalMoney+yunfei).toFixed(2);
+        $money.text(totalMoney);
+    }
+
+    /*检验总金额*/
+    function setAmount(){
+        var totalAmount = 0;
+        $('.shop-nav').find('.totalmoney').each(function(){
+             totalAmount += Number( $(this).parents('.shop-nav').find('.unit-price').text() ) * Number( $(this).parents('.shop-nav').find('.detail-count-write').val());
+            if($(this).parents('.shop-nav').find('.yunfei').text() != "")
+            {
+                totalAmount += parseInt($(this).parents('.shop-nav').find('.yunfei').text())
+            }
+        });
+        totalAmount = isEmpty(totalAmount) ? "0.00" : totalAmount.toFixed(2);
+        $('#pay').text(totalAmount);
+    }
+
+    /*输入数量验证*/
+    function blurAndProper(obj)
+    {
+        function isEmpty (val)
+        {
+            return val == '' || val === null || val === undefined;
+        }
+
+        var val = $(obj).val();
+        /*如果不是空则强转数字*/
+        if (!isEmpty(val))
+        {
+            val = parseInt(val.replace(/[^\d]/ig,''), 10);
+        }
+
+        isNaN(val) ? $(obj).val(1) : ( ( val < $(obj).siblings('input').val() ) ? $(obj).val(val) : $(obj).val( $(obj).siblings('input').val() ) );
+        if(event.type == 'blur' || event.type == 'focusout')
+        {
+            if(isEmpty(val))
+            {
+                $(obj).val(1);
+            }
+            $(obj).parents(".shop-nav").find('.font3').find('b').text(val);
+
+            setMoney($(obj));
+            setAmount();
+        }
+
+    }
+
+    function isEmpty(e){
+        return e == "" || e === null || e === undefined;
+    }
+
+    var phone = $('#cpp').MiaoDialog();
+    function payLoading(str)
+    {
+        phone.MiaoDialog(str);
+        $('.del').css({'background':'grey'})
+        $(".del").attr("onclick",null);
+    }
+</script>

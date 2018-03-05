@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no"/>
+    <title>喵</title>
+    <link href="css/global.css" rel="stylesheet" type="text/css">
+    <link href="css/public.css" rel="stylesheet" type="text/css">
+    <style type="text/css"></style>
+
+
+
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex">
+    <section class="header">
+        <div class="header-bg normal">
+            <div class="header-l"><a href="javascript:history.go(-1)"></a></div>
+            <div class="header-c header-dz"></div>
+            <div class="header-r"><span class="header-r-btn"></span></div>
+        </div>
+    </section>
+    <!-- 主体 -->
+    <section class="content flex content-error">
+          <div><img src="img/error.png"></div>
+          <div id="errorInfo"></div>
+    </section>
+</section>
+</body>
+</html>
+<script src="js/obtainArguments.js"></script>
+<script src="js/jquery-2.2.4.min.js"></script>
+<script>
+    $(function()
+    {
+        var request = new Arguments();
+        var url = request.Request()
+        errorInfo(url);
+
+    })
+    function errorInfo(url)
+    {
+        switch (parseInt(url.status))
+        {
+            case 1:
+                info='该商品不存在';
+                break;
+            case 2:
+                info='请求失败';
+                break;
+        }
+        $("#errorInfo").html(info);
+    }
+</script>

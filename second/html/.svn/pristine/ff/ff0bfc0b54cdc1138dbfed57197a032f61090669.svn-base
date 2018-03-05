@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="format-detection" content="telephone=no"/>
+<title>喵</title>
+<link href="css/global.css" rel="stylesheet" type="text/css">
+<link href="css/public.css" rel="stylesheet" type="text/css">
+<link type="text/css"  rel="stylesheet" href="css/shop-cart-edit.css">
+<style type="text/css"></style>
+<script src="js/jquery-2.2.4.min.js"></script>
+<script src="js/miao-Dialog.js"></script>
+<script src="js/obtainArguments.js"></script>
+
+<script>
+$().ready(function(){
+	/*删除  我的订单*/
+	var phone = $('#cpp').MiaoDialog();
+	$('.del').on('click', function(event) {
+		phone.MiaoDialog('open');
+	});
+	$('.miao-shade').on('click',function(event) {
+		phone.MiaoDialog('close');
+	});
+	$('#cancel').on('click',function(event) {
+		phone.MiaoDialog('close');
+	});
+
+   /*待付款*/
+    $('.commodity').on('touchend', '.commodity-l-btn', function(event){
+        $(this).toggleClass('true');
+        if( $(this).hasClass('true') )
+            $(this).parents('.content-list').find('.content-choice').find('.commodity-l-btn').addClass('true');
+        else
+            $(this).parents('.content-list').find('.content-choice').find('.commodity-l-btn').removeClass('true');
+
+        var isCheck = true;
+        $('.commodity').find('.commodity-l-btn').each(function(){
+            if( !$(this).hasClass('true') ){
+                isCheck = false;
+            }
+        });
+
+    });
+    $('.content-choice').on('touchend', '.commodity-l-btn', function(event){
+        var isCheck = true;
+        $(this).toggleClass('true');
+        $(this).parents('.content-list').find('.content-choice').find('.commodity-l-btn').each(function(){
+            if( !$(this).hasClass('true') ){
+                isCheck = false;
+            }
+        });
+        isCheck ? $(this).parents('.content-list').find('.commodity').find('.commodity-l-btn').addClass('true') : $(this).parents('.content-top').find('.commodity').find('.commodity-l-btn').removeClass('true');
+
+        var isCheckAll = true;
+        $('.content-choice').find('.commodity-l-btn').each(function(){
+            if( !$(this).hasClass('true') ){
+                isCheckAll = false;
+            }
+        });
+    });
+
+    /*待收货*/
+    var contentBtn = $('.content');
+    $('.content-sh-btn').click(function(){
+        $(this).find('.content-sh-tc').toggleClass('content-tc-block');
+    });
+//        contentBtn.click(function(event){
+//        $('.content-sh-tc').hide()
+//    });
+    var phone2 = $('#cpp2').MiaoDialog();
+    var phone3 = $('#cpp3').MiaoDialog();
+    var isFeasible = true;
+    $('.delay').on('click',function(){
+        phone.MiaoDialog('open');
+    });
+    $('.miao-shade').on('click',function(event) {
+        phone.MiaoDialog('close');
+        phone2.MiaoDialog('close');
+        phone3.MiaoDialog('close');
+    });
+    $('#cancel').on('click',function(event) {
+        phone.MiaoDialog('close');
+    });
+    $('#determine').on('click',function(event) {
+        phone.MiaoDialog('close');
+        if( isFeasible ){
+            phone2.MiaoDialog('open');
+            setTimeout(function(){
+                phone2.MiaoDialog('close');
+            },1400);
+        }
+        else{
+            phone3.MiaoDialog('open');
+            setTimeout(function(){
+                phone3.MiaoDialog('close');
+            },1400);
+        }
+    });
+})
+</script>
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex cancel-pos">
+    <section class="header">
+        <div class="header-bg normal">
+            <div class="header-l"><a href="javascript:history.go(-1)"></a></div>
+            <div class="header-c header-dz new-dz">我 的 订 单</div>
+        </div>
+        <div class="header-nav">
+            <div  class="content-nav-btn" data-code="all">全部订单</div>
+            <div data-code="waitPay">等待付款</div>
+            <div data-code="waitSend">待发货</div>
+            <div data-code="waitConfirm">待收货</div>
+            <div data-code="waitRate">待评价</div>
+        </div>
+    </section>
+    <!-- 主体 -->
+
+    <section class="content">
+    <div id="loading" style="display:none">
+        <img src="img/loading.jpg">
+    </div>
+        <section class="flex content-cancel">
+            <div class="content-list" order="1">
+                <div class="commodity content-top">
+                    <div class="commodity-l">
+                        <p class="commodity-l-p">
+                            <span>社团第三空间</span>
+                            <img src="img/you-iocn.png">
+                        </p>
+                    </div>
+                    <div class="commodity-t" >
+                        <span>待付款</span>
+                    </div>
+                </div>
+                <div class="content-choice  border">
+                    <div class="clearfix">
+                        <div class="content-choice-c">
+                            <p><img src="img/touxiang.png"></p>
+                        </div>
+                        <div class="content-choice-w">
+                            <p class="choice-w-one content-choice-p">世界与世界的游戏</p>
+                            <p class="choice-w-two content-choice-p">原著：伪装者</p>
+                            <p class="choice-w-three">
+                                <span>￥6.00</span>
+                            </p>
+                        </div>
+                        <div class="commodity-r commodity-r-money">
+                            <i >X 1</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-choice border">
+                    <div class="clearfix">
+                        <div class="content-choice-c">
+                            <p><img src="img/touxiang.png"></p>
+                        </div>
+                        <div class="content-choice-w">
+                            <p class="choice-w-one content-choice-p">世界与世界的游戏</p>
+                            <p class="choice-w-two content-choice-p">原著：伪装者</p>
+                            <p class="choice-w-three">
+                                <span>￥6.00</span>
+                            </p>
+                        </div>
+                        <div class="commodity-r commodity-r-money">
+                            <i >X 1</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-xixnxi content-shop content-xixnxi-border ">共<span>1</span>件商品 合计￥<span>70.00</span> （含运费￥6.00）</div>
+                <div class="content-xixnxi clearfix  content-xixnxi-border2">
+                    <p >
+                        <a href="#">联系卖家</a>
+                        <a href="#" class="chance-btn">取消订单</a>
+                        <a href="#" class="more-color">待付款</a>
+                    </p>
+                </div>
+            </div>
+            <div class="content-list">
+                <div class="commodity content-top">
+                    <div class="commodity-l">
+
+                        <p class="commodity-l-p">
+                            <span>社团第三空间</span>
+                            <img src="img/you-iocn.png">
+                        </p>
+                    </div>
+                    <div class="commodity-t" >
+                        <span>买家已付款</span>
+                    </div>
+                </div>
+                <div class="content-choice  border">
+                    <div class="clearfix">
+                        <div class="content-choice-c">
+                            <p><img src="img/touxiang.png"></p>
+                        </div>
+                        <div class="content-choice-w">
+                            <p class="choice-w-one content-choice-p">世界与世界的游戏</p>
+                            <p class="choice-w-two content-choice-p">原著：伪装者</p>
+                            <p class="choice-w-three">
+                                <span>￥6.00</span>
+                            </p>
+                        </div>
+                        <div class="commodity-r commodity-r-money">
+                            <i >X 1</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-xixnxi content-shop content-xixnxi-border ">共<span>1</span>件商品 合计￥<span>70.00</span> （含运费￥6.00）</div>
+                <div class="content-xixnxi clearfix content-xixnxi-border2">
+                    <p >
+                        <a href="#">联系卖家</a>
+                        <a href="#">申请退款</a>
+                    </p>
+                </div>
+            </div>
+            <div class="content-list">
+                <div class="commodity content-top">
+                    <div class="commodity-l">
+                        <p class="commodity-l-p">
+                            <span>社团第三空间</span>
+                            <img src="img/you-iocn.png">
+                        </p>
+                    </div>
+                    <div class="commodity-t" >
+                        <span>等待买家收货</span>
+                    </div>
+                </div>
+                <div class="content-choice  border">
+                    <div class="clearfix">
+                        <div class="content-choice-c">
+                            <p><img src="img/touxiang.png"></p>
+                        </div>
+                        <div class="content-choice-w">
+                            <p class="choice-w-one content-choice-p">世界与世界的游戏</p>
+                            <p class="choice-w-two content-choice-p">原著：伪装者</p>
+                            <p class="choice-w-three">
+                                <span>￥6.00</span>
+                            </p>
+                        </div>
+                        <div class="commodity-r commodity-r-money">
+                            <i >X 1</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-xixnxi content-shop content-xixnxi-border ">共<span>1</span>件商品 合计￥<span>70.00</span> （含运费￥6.00）</div>
+                <div class="content-xixnxi clearfix content-xixnxi-border2">
+                    <p >
+                        <a href="#">联系卖家</a>
+                        <a href="#" class="more-color">待付款</a>
+                    </p>
+                </div>
+            </div>
+            <div class="content-list">
+                <div class="commodity content-top">
+                    <div class="commodity-l">
+                        <p class="commodity-l-p">
+                            <span>社团第三空间</span>
+                            <img src="img/you-iocn.png">
+                        </p>
+                    </div>
+                    <div class="commodity-t" >
+                        <span>交易成功</span>
+                    </div>
+                </div>
+                <div class="content-choice border">
+                    <div class="clearfix">
+                        <div class="content-choice-c">
+                            <p><img src="img/touxiang.png"></p>
+                        </div>
+                        <div class="content-choice-w">
+                            <p class="choice-w-one content-choice-p">世界与世界的游戏</p>
+                            <p class="choice-w-two content-choice-p">原著：伪装者</p>
+                            <p class="choice-w-three">
+                                <span>￥6.00</span>
+                            </p>
+                        </div>
+                        <div class="commodity-r commodity-r-money">
+                            <i >X 1</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-xixnxi content-shop content-xixnxi-border ">共<span>1</span>件商品 合计￥<span>70.00</span> （含运费￥6.00）</div>
+                <div class="content-xixnxi clearfix content-xixnxi-border2">
+                    <p >
+                        <a href="#">申请退款</a>
+                        <a href="#" class="more-color">评价</a>
+                    </p>
+                </div>
+            </div>
+            <div class="content-list">
+                <div class="commodity content-top">
+                    <div class="commodity-l">
+                        <p class="commodity-l-p">
+                            <span>社团第三空间</span>
+                            <img src="img/you-iocn.png">
+                        </p>
+                    </div>
+                    <div class="commodity-t" >
+                        <span>交易关闭</span>
+                    </div>
+                </div>
+                <div class="content-choice  border">
+                    <div class="clearfix">
+                        <div class="content-choice-c">
+                            <p><img src="img/touxiang.png"></p>
+                        </div>
+                        <div class="content-choice-w">
+                            <p class="choice-w-one content-choice-p">世界与世界的游戏</p>
+                            <p class="choice-w-two content-choice-p">原著：伪装者</p>
+                            <p class="choice-w-three">
+                                <span>￥6.00</span>
+                            </p>
+                        </div>
+                        <div class="commodity-r commodity-r-money">
+                            <i >X 1</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-xixnxi content-shop content-xixnxi-border ">共<span>1</span>件商品 合计￥<span>70.00</span> （含运费￥6.00）</div>
+                <div class="content-xixnxi clearfix content-xixnxi-border2">
+                    <p >
+                        <a href="#" class="del">删除订单</a>
+                    </p>
+                </div>
+            </div>
+            <div class="content-list">
+                <div class="commodity content-top">
+                    <div class="commodity-l">
+
+                        <p class="commodity-l-p">
+                            <span>社团第三空间</span>
+                            <img src="img/you-iocn.png">
+                        </p>
+                    </div>
+                    <div class="commodity-t" >
+                        <span>交易关闭</span>
+                    </div>
+                </div>
+                <div class="content-choice border">
+                    <div class="clearfix">
+                        <div class="content-choice-c">
+                            <p><img src="img/touxiang.png"></p>
+                        </div>
+                        <div class="content-choice-w">
+                            <p class="choice-w-one content-choice-p">世界与世界的游戏</p>
+                            <p class="choice-w-two content-choice-p">原著：伪装者</p>
+                            <p class="choice-w-three">
+                                <span>￥6.00</span>
+                            </p>
+                        </div>
+                        <div class="commodity-r commodity-r-money">
+                            <i >X 1</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-xixnxi content-shop content-xixnxi-border ">共<span>1</span>件商品 合计￥<span>70.00</span> （含运费￥6.00）</div>
+                <div class="content-xixnxi clearfix content-xixnxi-border2">
+                    <p >
+                        <a href="#" class="del">删除订单</a>
+                    </p>
+                </div>
+            </div>
+            <div class="content-list">
+                <div class="commodity content-top">
+                    <div class="commodity-l">
+
+                        <p class="commodity-l-p">
+                            <span>社团第三空间</span>
+                            <img src="img/you-iocn.png">
+                        </p>
+                    </div>
+                    <div class="commodity-t" >
+                        <span>交易成功</span>
+                    </div>
+                </div>
+                <div class="content-choice  border">
+                    <div class="clearfix">
+                        <div class="content-choice-c">
+                            <p><img src="img/touxiang.png"></p>
+                        </div>
+                        <div class="content-choice-w">
+                            <p class="choice-w-one content-choice-p">世界与世界的游戏</p>
+                            <p class="choice-w-two content-choice-p">原著：伪装者</p>
+                            <p class="choice-w-three">
+                                <span>￥6.00</span>
+                            </p>
+                        </div>
+                        <div class="commodity-r commodity-r-money">
+                            <i >X 1</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-xixnxi content-shop content-xixnxi-border ">共<span>1</span>件商品 合计￥<span>70.00</span> （含运费￥6.00）</div>
+                <div class="content-xixnxi clearfix content-xixnxi-border2">
+                    <p>
+                        <a href="#" class="del">删除订单</a>
+                    </p>
+                </div>
+            </div>
+            <div class="content-list">
+                <div class="commodity content-top">
+                    <div class="commodity-l">
+
+                        <p class="commodity-l-p">
+                            <span>社团第三空间</span>
+                            <img src="img/you-iocn.png">
+                        </p>
+                    </div>
+                    <div class="commodity-t" >
+                        <span>交易成功</span>
+                    </div>
+                </div>
+                <div class="content-choice border">
+                    <div class="clearfix">
+                        <div class="content-choice-c">
+                            <p><img src="img/touxiang.png"></p>
+                        </div>
+                        <div class="content-choice-w">
+                            <p class="choice-w-one content-choice-p">世界与世界的游戏</p>
+                            <p class="choice-w-two content-choice-p">原著：伪装者</p>
+                            <p class="choice-w-three">
+                                <span>￥6.00</span>
+                            </p>
+                        </div>
+                        <div class="commodity-r commodity-r-money">
+                            <i>X 1</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-xixnxi content-shop content-xixnxi-border ">共<span>1</span>件商品 合计￥<span>70.00</span> （含运费￥6.00）</div>
+                <div class="content-xixnxi clearfix content-xixnxi-border2">
+                    <p >
+                        <a href="#" class="del">删除订单</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content flex content-cancel">
+            <div class="content-list">
+                <div class="commodity content-top">
+                    <div class="commodity-l">
+                        <div class="commodity-l-btn">
+                            <div class=""></div>
+                        </div>
+                        <p class="commodity-l-p">
+                            <span>社团第三空间</span>
+                            <img src="img/you-iocn.png">
+                        </p>
+                    </div>
+                    <div class="commodity-t" >
+                        <span>待付款</span>
+                    </div>
+                </div>
+                <div class="content-choice border">
+                    <div class="clearfix">
+                        <div class="commodity-l-btn content-choice-l " >
+                            <div></div>
+                        </div>
+                        <div class="content-choice-c">
+                            <p><img src="img/touxiang.png"></p>
+                        </div>
+                        <div class="content-choice-w">
+                            <p class="choice-w-one content-choice-p">世界与世界的游戏</p>
+                            <p class="choice-w-two content-choice-p">原著：伪装者</p>
+                            <p class="choice-w-three">
+                                <span>￥6.00</span>
+                            </p>
+                        </div>
+                        <div class="commodity-r commodity-r-money">
+                            <i >X 1</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-choice border">
+                    <div class="clearfix">
+                        <div class="commodity-l-btn content-choice-l " >
+                            <div></div>
+                        </div>
+                        <div class="content-choice-c">
+                            <p><img src="img/touxiang.png"></p>
+                        </div>
+                        <div class="content-choice-w">
+                            <p class="choice-w-one content-choice-p">世界与世界的游戏</p>
+                            <p class="choice-w-two content-choice-p">原著：伪装者</p>
+                            <p class="choice-w-three">
+                                <span>￥6.00</span>
+                            </p>
+                        </div>
+                        <div class="commodity-r commodity-r-money">
+                            <i>X 1</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-xixnxi content-shop content-xixnxi-border ">共<span>1</span>件商品 合计￥<span>70.00</span> （含运费￥6.00）</div>
+                <div class="content-xixnxi clearfix  content-xixnxi-border2">
+                    <p >
+                        <a href="#">联系卖家</a>
+                        <a href="#" class="cancel">取消订单</a>
+                        <a href="#" class="more-color">待付款</a>
+                    </p>
+                </div>
+            </div>
+            <div class="content-list">
+                <div class="commodity content-top">
+                    <div class="commodity-l">
+                        <div class="commodity-l-btn">
+                            <div class=""></div>
+                        </div>
+                        <p class="commodity-l-p">
+                            <span>社团第三空间</span>
+                            <img src="img/you-iocn.png">
+                        </p>
+                    </div>
+                    <div class="commodity-t" >
+                        <span>待付款</span>
+                    </div>
+                </div>
+                <div class="content-choice  border">
+                    <div class="clearfix">
+                        <div class="commodity-l-btn content-choice-l " >
+                            <div></div>
+                        </div>
+                        <div class="content-choice-c">
+                            <p><img src="img/touxiang.png"></p>
+                        </div>
+                        <div class="content-choice-w">
+                            <p class="choice-w-one content-choice-p">世界与世界的游戏</p>
+                            <p class="choice-w-two content-choice-p">原著：伪装者</p>
+                            <p class="choice-w-three">
+                                <span>￥6.00</span>
+                            </p>
+                        </div>
+                        <div class="commodity-r commodity-r-money">
+                            <i>X 1</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-xixnxi content-shop content-xixnxi-border ">共<span>1</span>件商品 合计￥<span>70.00</span> （含运费￥6.00）</div>
+                <div class="content-xixnxi clearfix content-xixnxi-border2">
+                    <p >
+                        <a href="#">联系卖家</a>
+                        <a href="#" class="cancel">取消订单</a>
+                        <a href="#" class="more-color">待付款</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="flex content-cancel">
+            <div class="content-list">
+                <div class="commodity content-top">
+                    <div class="commodity-l">
+                        <p class="commodity-l-p">
+                            <span>社团第三空间</span>
+                            <img src="img/you-iocn.png">
+                        </p>
+                    </div>
+                    <div class="commodity-t" >
+                        <span>待发货</span>
+                    </div>
+                </div>
+
+                <div class="content-choice border">
+                    <div class="clearfix">
+                        <div class="content-choice-c">
+                            <p><img src="img/touxiang.png"></p>
+                        </div>
+                        <div class="content-choice-w">
+                            <p class="choice-w-one content-choice-p">世界与世界的游戏</p>
+                            <p class="choice-w-two content-choice-p">原著：伪装者</p>
+                            <p class="choice-w-three">
+                                <span>￥6.00</span>
+                            </p>
+                        </div>
+                        <div class="commodity-r commodity-r-money">
+                            <i >X 1</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-choice  border">
+                    <div class="clearfix">
+                        <div class="content-choice-c">
+                            <p><img src="img/touxiang.png"></p>
+                        </div>
+                        <div class="content-choice-w">
+                            <p class="choice-w-one content-choice-p">世界与世界的游戏</p>
+                            <p class="choice-w-two content-choice-p">原著：伪装者</p>
+                            <p class="choice-w-three">
+                                <span>￥6.00</span>
+                            </p>
+                        </div>
+                        <div class="commodity-r commodity-r-money">
+                            <i>X 1</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-xixnxi content-shop content-xixnxi-border ">共<span>1</span>件商品 合计￥<span>70.00</span> （含运费￥6.00）</div>
+                <div class="content-xixnxi clearfix  content-xixnxi-border2">
+                    <p >
+                        <a href="#">联系卖家</a>
+                        <a href="#">提醒发货</a>
+                    </p>
+                </div>
+            </div>
+            <div class="content-list">
+                <div class="commodity content-top">
+                    <div class="commodity-l">
+                        <p class="commodity-l-p">
+                            <span>社团第三空间</span>
+                            <img src="img/you-iocn.png">
+                        </p>
+                    </div>
+                    <div class="commodity-t" >
+                        <span>待发货</span>
+                    </div>
+                </div>
+                <div class="content-choice border">
+                    <div class="clearfix">
+                        <div class="content-choice-c">
+                            <p><img src="img/touxiang.png"></p>
+                        </div>
+                        <div class="content-choice-w">
+                            <p class="choice-w-one content-choice-p">世界与世界的游戏</p>
+                            <p class="choice-w-two content-choice-p">原著：伪装者</p>
+                            <p class="choice-w-three">
+                                <span>￥6.00</span>
+                            </p>
+                        </div>
+                        <div class="commodity-r commodity-r-money">
+                            <i>X 1</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-xixnxi content-shop content-xixnxi-border ">共<span>1</span>件商品 合计￥<span>70.00</span> （含运费￥6.00）</div>
+                <div class="content-xixnxi clearfix content-xixnxi-border2">
+                    <p >
+                        <a href="#">联系卖家</a>
+                        <a href="#">提醒发货</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="flex content-cancel">
+            <div class="content-list">
+                <div class="commodity content-top">
+                    <div class="commodity-l">
+                        <p class="commodity-l-p">
+                            <span>社团第三空间</span>
+                            <img src="img/you-iocn.png">
+                        </p>
+                    </div>
+                    <div class="commodity-t" >
+                        <span>待收货</span>
+                    </div>
+                </div>
+
+                <div class="content-choice  border">
+                    <div class="clearfix">
+                        <div class="content-choice-c">
+                            <p><img src="img/touxiang.png"></p>
+                        </div>
+                        <div class="content-choice-w">
+                            <p class="choice-w-one content-choice-p">商品名称</p>
+                            <p class="choice-w-two content-choice-p">原著：伪装者</p>
+                            <p class="choice-w-three">
+                                <span>￥6.00</span>
+                            </p>
+                        </div>
+                        <div class="commodity-r commodity-r-money">
+                            <i >X 1</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-choice  border">
+                    <div class="clearfix">
+                        <div class="content-choice-c">
+                            <p><img src="img/touxiang.png"></p>
+                        </div>
+                        <div class="content-choice-w">
+                            <p class="choice-w-one content-choice-p">商品名称</p>
+                            <p class="choice-w-two content-choice-p">原著：伪装者</p>
+                            <p class="choice-w-three">
+                                <span>￥6.00</span>
+                            </p>
+                        </div>
+                        <div class="commodity-r commodity-r-money">
+                            <i>X 1</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-xixnxi content-shop content-xixnxi-border ">共<span>1</span>件商品 合计￥<span>70.00</span> （含运费￥6.00）</div>
+                <div class="content-xixnxi clearfix  content-xixnxi-border2">
+                    <p>
+                        <i class="content-sh-btn">
+                       <span class="content-sh-tc">
+                           <a href="#" class="content-tc-border content-bf">联系卖家</a>
+                           <a href="#">申请退货</a>
+                       </span>
+                        </i>
+                        <a href="#" class="delay">延迟收货</a>
+                        <a href="#">查看物流</a>
+                        <a href="#" class="more-color">确认收获</a>
+                    </p>
+                </div>
+            </div>
+            <div class="content-list">
+                <div class="commodity content-top">
+                    <div class="commodity-l">
+                        <p class="commodity-l-p">
+                            <span>社团第三空间</span>
+                            <img src="img/you-iocn.png">
+                        </p>
+                    </div>
+                    <div class="commodity-t" >
+                        <span>待收货</span>
+                    </div>
+                </div>
+                <div class="content-choice  border">
+                    <div class="clearfix">
+                        <div class="content-choice-c">
+                            <p><img src="img/touxiang.png"></p>
+                        </div>
+                        <div class="content-choice-w">
+                            <p class="choice-w-one content-choice-p">商品名称</p>
+                            <p class="choice-w-two content-choice-p">原著：伪装者</p>
+                            <p class="choice-w-three">
+                                <span>￥6.00</span>
+                            </p>
+                        </div>
+                        <div class="commodity-r commodity-r-money">
+                            <i>X 1</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-xixnxi content-shop content-xixnxi-border ">共<span>1</span>件商品 合计￥<span>70.00</span> （含运费￥6.00）</div>
+                <div class="content-xixnxi clearfix content-xixnxi-border2">
+                    <p>
+                        <i class="content-sh-btn">
+                       <span class="content-sh-tc">
+                           <a href="#" class="content-tc-border content-bf">联系卖家</a>
+                           <a href="#">申请退货</a>
+                       </span>
+                        </i>
+                        <a href="#" class="delay">延迟收货</a>
+                        <a href="#">查看物流</a>
+                        <a href="#" class="more-color">确认收获</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class=" flex content-cancel">
+            <div class="content-list" order="1">
+                <div class="commodity content-top">
+                    <div class="commodity-l">
+                        <p class="commodity-l-p">
+                            <span>社团第三空间</span>
+                            <img src="img/you-iocn.png">
+                        </p>
+                    </div>
+                    <div class="commodity-t" >
+                        <span>待收货</span>
+                    </div>
+                </div>
+                <div class="content-choice clearfix border">
+                    <div class="clearfix">
+                        <div class="content-choice-c">
+                            <p><img src="img/touxiang.png"></p>
+                        </div>
+                        <div class="content-choice-w">
+                            <p class="choice-w-one content-choice-p">商品名称</p>
+                            <p class="choice-w-two content-choice-p">原著：伪装者</p>
+                            <p class="choice-w-three">
+                                <span>￥6.00</span>
+                            </p>
+                        </div>
+                        <div class="commodity-r commodity-r-money">
+                            <i>X 1</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-xixnxi content-shop content-xixnxi-border ">共<span>1</span>件商品 合计￥<span>70.00</span> （含运费￥6.00）</div>
+                <div class="content-xixnxi clearfix  content-xixnxi-border2">
+                    <p >
+                        <a href="#">申请退货</a>
+                        <a href="#"  class="more-color">评价</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <div class="confirm-pop-ups font1" id="cpp">
+            <p>确认要删除订单？</p>
+            <p class="prompt">删除订单后，该记录将永久删除！</p>
+            <div class="box1">
+                <div class="auto-width"><!-- auto width --></div>
+                <a href="#" id="cancel">取消</a>
+                <div class="auto-width"><!-- auto width --></div>
+                <a href="#" id="determine">确定</a>
+                <div class="auto-width"><!-- auto width --></div>
+            </div>
+        </div>
+
+        <div class="confirm-pop-ups font1" id="cpp4">
+            <p>确认延长收货时间？</p>
+            <p class="prompt">每笔订单只能延迟一次哦</p>
+            <div class="box1">
+                <div class="auto-width"><!-- auto width --></div>
+                <a href="#" id="cancel">取消</a>
+                <div class="auto-width"><!-- auto width --></div>
+                <a href="#" id="determine">确定</a>
+                <div class="auto-width"><!-- auto width --></div>
+            </div>
+        </div>
+        <div class="confirm-pop-ups font3" id="cpp2">
+            <p>申请成功，收货时间延长3天</p>
+        </div>
+        <div class="confirm-pop-ups font3" id="cpp3">
+            <p>亲，距离结束时间不足3天才可以申请哦</p>
+        </div>
+    </section>
+
+
+</section>
+</body>
+</html>
+<script>
+    var userid = 22;
+    var urlInfo = new Arguments();
+    var param = urlInfo.Request();
+    $(function()
+    {
+        IndexList(param);
+    })
+    function IndexList(param)
+    {
+        $("section[data-code="+param+"]").show().siblings().hide();
+        var url='/tongrenmiao/index.php?g=Mall&m=Index&a=my_order';
+        var data = {};
+        data['userid'] = userid;
+        data['search_status'] = param.code;
+        $.ajax({
+            url: url,
+            data: data,
+            type: 'get',
+            dataType: 'json',
+            beforeSend: function ()
+            {
+                $("#loading").show();
+            },
+            success: function (res)
+            {
+                if (res.Info) {
+
+                }
+                else {
+                    //没有订单
+                }
+            },
+            error: function () {
+
+            }
+        })
+    }
+</script>
+
+

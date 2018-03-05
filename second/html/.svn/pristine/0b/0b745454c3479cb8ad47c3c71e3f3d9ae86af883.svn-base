@@ -1,0 +1,103 @@
+/*无底边段落格式*/
+.part2{
+	overflow: hidden;
+	background: #fff;
+}
+.header-nav{font-size: 0.7rem;color: #FFFFFF;}
+.content-top{border-top: 0.2rem solid #e5e5e5;;padding: 0 0.3rem;box-sizing: border-box;
+    border-bottom: 0.2rem solid #e5e5e5;display: -webkit-box}
+.content-img {padding:1.63rem 1.2rem;}
+.content-img img{height: 1.6rem;width: 1.2rem}
+
+.information-center{
+	border-bottom: 1px solid #d7d3d3;
+}
+
+.ic-pic{
+	float: left;
+	padding: 0.5rem 1rem;
+}
+
+.ic-pic i{
+	display: block;
+	height: 2rem;
+	width: 2rem;
+}
+
+.ic-pic .font1{
+	background: url(../img/information-pic1.png) 0rem 0rem no-repeat;
+	background-size: 2rem;
+}
+
+.ic-pic .font2{
+	background: url(../img/information-pic1.png) 0rem -3rem no-repeat;
+	background-size: 2rem;
+}
+
+.ic-pic .font3{
+	background: url(../img/information-pic1.png) 0rem -6rem no-repeat;
+	background-size: 2rem;
+}
+
+.ic-content{
+	text-align: left;
+	white-space:nowrap; 
+}
+
+.ic-content b{
+	font-size: 0.8rem;
+	color: #777777;
+}
+
+.ic-content p{
+	font-size: 0.7rem;
+	color: #c9c9c9;
+}
+
+.is-title{
+	height: 2rem;
+	line-height: 2rem;
+	padding: 0rem 0.5rem;
+	font-size: 0.8rem;
+	color: #8e741b;
+}
+
+.is-content{
+	height: 2rem;
+	line-height: 2rem;
+	padding: 0rem 0.5rem;
+	font-size: 0.8rem;
+	text-align: left;
+	color: #777777;
+}
+
+.is-button{
+	position: relative;
+	display: block;
+	height: 2rem;
+	line-height: 2rem;
+	padding: 0rem 0.5rem;
+	font-size: 0.8rem;
+	text-align: left;
+	color: #777777;
+}
+
+.is-button i{
+	position: absolute;
+	margin: 0.5rem 0rem;
+	height: 1.0rem;
+	width: 1.0rem;
+	right: 0rem;
+	background: url(../img/you-iocn.png) 0rem 0rem no-repeat;
+	background-size: 0.55rem;
+}
+
+.is-borderbtm{
+	border-bottom: 1px solid #d7d3d3;
+}
+
+.ic-BLANK{height: 20rem;background-color: #fff;}
+.is-BLANK{height: 25rem;background-color: #fff;}
+
+
+

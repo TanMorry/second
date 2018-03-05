@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>展会</title>
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<link href="../css/global.css" rel="stylesheet" type="text/css">
+<link href="../css/layout.css" rel="stylesheet" type="text/css">
+<link href="../css/seller.css" rel="stylesheet" type="text/css">
+
+<script src="../js/jquery.min.js"></script>
+<script src="../js/expo.public.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+	/*点击输入框变色*/
+	$('input[type=text]').on('focus blur' , function(event) {
+		if(event.type == 'focus'|| event.type == 'focusin')
+		{
+			$(this).css('background-color','#FFF');
+			$(this).css('border-color','#ca22e7')
+		}
+		else if(event.type == 'blur' || event.type == 'focusout')
+		{
+			$(this).css('background-color','#FBFBFB');
+			$(this).css('border-color','#a9a9a9')
+		}
+	});
+	$('select').on('focus blur' , function(event) {
+		if(event.type == 'focus'|| event.type == 'focusin')
+		{
+			$(this).css('background-color','#FFF');
+			$(this).css('border-color','#ca22e7')
+		}
+		else if(event.type == 'blur' || event.type == 'focusout')
+		{
+			$(this).css('background-color','#FBFBFB');
+			$(this).css('border-color','#a9a9a9')
+		}
+	});
+	
+	/*运输选择方式改变*/
+	$(".lt-table").on("click" , "input[type=checkbox]" , function(event){
+		if( $(this).is(':checked') )
+			$(this).parents('.lt-table').find(".lt-table-li").css("display","block")
+		else
+			$(this).parents('.lt-table').find(".lt-table-li").css("display","none")
+	});
+	
+});
+
+</script>
+
+<body>
+	<div class="M_Header M_BTM_25">
+		<div class="hd-bg">
+			<p class="hd-pink"></p>
+		</div>
+		<div class="hd-index M_Center">
+			<div class="hd-main">
+				<ul class="float-center clearfix">
+					<li class="hd-m-btn" ><a href="#">展会</a></li>
+					<li class="hd-m-btn"><a href="#">社团铺</a></li>
+					<li class="hd-m-logo"></li>
+					<li class="hd-m-btn fixed" ><a href="#">我的</a></li>
+					<li class="hd-m-btn" ><a href="#">同人闲情</a></li>
+				</ul>
+			</div>
+			<div class="hd-nav-r">
+				<ul class="hd-nav-not">
+					<li><a href="#">登录</a></li>
+					<li><a href="#">注册</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="M_Center">
+
+		<div class="seller-nav clearfix">
+			<a class="sn-l" href="#">我是卖家</a>
+			<span class="sn-r"><a href="#"><i><img src="../images/miao-mass-info.png" alt=""></i>我の铺子</a></span>
+		</div>
+
+		<div class="M_Left M_Layout M_BTM_175">
+			<div class="left-tree">
+				<dl>
+					<dt><a href="#">商品管理</a></dt>
+					<dd><a href="#">商品发布</a></dd>
+					<dd><a href="#">出售中的商品</a></dd>
+					<dd><a href="#">仓库中的商品</a></dd>
+					<dd><a href="#">分类管理</a></dd>
+
+					<dt><a href="#">交易管理</a></dt>
+					<dd><a href="#">已售商品</a></dd>
+					<dd><a href="#">发货地址</a></dd>
+					<dd><a class="fixed" href="#">物流工具</a></dd>
+					<dd><a href="#">我的评论</a></dd>
+
+					<dt><a href="#">店铺设置</a></dt>
+
+					<dt><a href="#">财布</a></dt>
+					<dd><a href="#">我の财布</a></dd>
+					<dd><a href="#">交易记录</a></dd>
+
+					<dt><a href="#">我の买买买</a></dt>
+				</dl>
+			</div>
+		</div>
+
+		<div class="M_Right M_Layout M_BTM_175">
+			<div class="seller-site">
+				<a class="ss-base" href="#">卖家中心</a>
+				<a class="ss-next" href="#">物流工具</a>
+				<a class="ss-last" href="#">物流工具</a>
+			</div>
+			<button class="lt-add">新增运输模版</button>
+			<div class="cbs-info">
+				<div class="lt-module">
+					<div class="lt-module-title">运费模版</div>
+					<div class="lt-module-pad">
+						<div class="lt-d1 clearfix">
+							<i><strong>*</strong>模版名称：</i>
+							<input type="text" />
+						</div>
+						<div class="lt-d1 clearfix">
+							<i><strong>*</strong>商品地址：</i>
+							<select>
+								<option value="请选择">请选择</option>
+							</select>
+							<select>
+								<option value="请选择">请选择</option>
+							</select>
+							<select>
+								<option value="请选择">请选择</option>
+							</select>
+						</div>
+						<div class="lt-d1 clearfix">
+							<i>是否包邮：</i>
+							<form>
+								<label><input type="radio" name="是否包邮"  value="" /> 买家承担运费</label>
+								<label><input type="radio" name="是否包邮"  value="" /> 买家承担运费</label>
+							</form>
+						</div>
+						<div class="lt-d1 clearfix">
+							<i>计费方式：</i>
+							<form>
+								<label><input type="radio" name="计费方式"  value="" /> 按件数</label>
+								<label><input type="radio" name="计费方式"  value="" /> 按重量</label>
+								<label><input type="radio" name="计费方式"  value="" /> 按体积</label>
+							</form>
+						</div>
+						<div class="lt-explain">
+							<div class="lt-explain">
+								<p><b>切换计价方式后，所设置的模版的运输信息将被清空。</b></p>
+							</div>
+						</div>
+						<div class="lt-d1 clearfix">
+							<i>运输方式：</i>
+							<p><b>除了指定地区外，其他地方的运费采用“默认运费”。</b></p>
+						</div>
+						<div class="lt-table clearfix">
+							<div class="lt-table-cho clearfix">
+								<label><input type="checkbox"/><p>快递</p></label>
+							</div>
+							<div class="lt-table-li" style="display: none;">
+								<div class="ltl-title">
+									<p>默认运费：<input />kg内，<input />元，每增加<input />kg，增加运费<input />元。</p>
+								</div>
+								<table class="ltl-ta">
+									<tr>
+										<th class="ltl-ta1">运送到</th>
+										<th class="ltl-ta2">起始（件）</th>
+										<th class="ltl-ta2">起始（费）</th>
+										<th class="ltl-ta2">每增（件）</th>
+										<th class="ltl-ta2">续费（元）</th>
+										<th class="ltl-ta3">操作</th>
+									</tr>
+									<tr>
+										<td class="ltl-ta1">
+											<div class="ltl-cons">黄浦区,卢湾区,徐汇区,长宁区,静安区,普陀区,闸北区,虹口区,杨浦区,闵行区,宝山区,嘉定区,浦东新区,金山区,松江区,青浦区,南汇区,奉贤区,崇明县,福州市,厦门市,莆田市,三明市,泉州市,漳州市,南平市,龙岩市,宁德市,南昌市,景德镇市,萍乡市,九江市,新余市,鹰潭市,赣州市,吉安市,宜春市,抚州市,上饶市,长沙市,株洲市,湘潭市,衡阳市,邵阳市,岳阳市,常德市,张家界市,益阳市,郴州市,永州市,怀化市,娄底市,湘西土家族苗族自治州,广州市,韶关市,深圳市,珠海市,汕头市,佛山市,江门市,湛江市,茂名市,肇庆市,惠州市,梅州市,汕尾市,河源市,阳江市,清远市,东莞市,中山市,潮州市,揭阳市,云浮市</div>
+											<a href="#">编辑</a>
+										</td>
+										<td class="ltl-ta2"><input type="text" value="" /></td>
+										<td class="ltl-ta2"><input type="text" value="" /></td>
+										<td class="ltl-ta2"><input type="text" value="" /></td>
+										<td class="ltl-ta2"><input type="text" value="" /></td>
+										<td class="ltl-ta3"><a href="#">删除</a></td>
+									</tr>
+								</table>
+								<div class="ltl-add">
+									<a href="#">为指定地区城市设置运费</a>
+								</div>
+							</div>
+						</div>
+						<div class="lt-table clearfix">
+							<div class="lt-table-cho clearfix">
+								<label><input type="checkbox"/><p>EMS</p></label>
+							</div>
+							<div class="lt-table-li" style="display: none;">
+								<div class="ltl-title">
+									<p>默认运费：<input />kg内，<input />元，每增加<input />kg，增加运费<input />元。</p>
+								</div>
+								<table class="ltl-ta">
+									<tr>
+										<th class="ltl-ta1">运送到</th>
+										<th class="ltl-ta2">起始（件）</th>
+										<th class="ltl-ta2">起始（费）</th>
+										<th class="ltl-ta2">每增（件）</th>
+										<th class="ltl-ta2">续费（元）</th>
+										<th class="ltl-ta3">操作</th>
+									</tr>
+									<tr>
+										<td class="ltl-ta1">
+											<div class="ltl-cons">黄浦区,卢湾区,徐汇区,长宁区,静安区,普陀区,闸北区,虹口区,杨浦区,闵行区,宝山区,嘉定区,浦东新区,金山区,松江区,青浦区,南汇区,奉贤区,崇明县,福州市,厦门市,莆田市,三明市,泉州市,漳州市,南平市,龙岩市,宁德市,南昌市,景德镇市,萍乡市,九江市,新余市,鹰潭市,赣州市,吉安市,宜春市,抚州市,上饶市,长沙市,株洲市,湘潭市,衡阳市,邵阳市,岳阳市,常德市,张家界市,益阳市,郴州市,永州市,怀化市,娄底市,湘西土家族苗族自治州,广州市,韶关市,深圳市,珠海市,汕头市,佛山市,江门市,湛江市,茂名市,肇庆市,惠州市,梅州市,汕尾市,河源市,阳江市,清远市,东莞市,中山市,潮州市,揭阳市,云浮市</div>
+											<a href="#">编辑</a>
+										</td>
+										<td class="ltl-ta2"><input type="text" value="" /></td>
+										<td class="ltl-ta2"><input type="text" value="" /></td>
+										<td class="ltl-ta2"><input type="text" value="" /></td>
+										<td class="ltl-ta2"><input type="text" value="" /></td>
+										<td class="ltl-ta3"><a href="#">删除</a></td>
+									</tr>
+								</table>
+								<div class="ltl-add">
+									<a href="#">为指定地区城市设置运费</a>
+								</div>
+							</div>
+						</div>
+						<div class="lt-table clearfix">
+							<div class="lt-table-cho clearfix">
+								<label><input type="checkbox"/><p>平邮</p></label>
+							</div>
+							<div class="lt-table-li" style="display: none;">
+								<div class="ltl-title">
+									<p>默认运费：<input />kg内，<input />元，每增加<input />kg，增加运费<input />元。</p>
+								</div>
+								<table class="ltl-ta">
+									<tr>
+										<th class="ltl-ta1">运送到</th>
+										<th class="ltl-ta2">起始（件）</th>
+										<th class="ltl-ta2">起始（费）</th>
+										<th class="ltl-ta2">每增（件）</th>
+										<th class="ltl-ta2">续费（元）</th>
+										<th class="ltl-ta3">操作</th>
+									</tr>
+									<tr>
+										<td class="ltl-ta1">
+											<div class="ltl-cons">黄浦区,卢湾区,徐汇区,长宁区,静安区,普陀区,闸北区,虹口区,杨浦区,闵行区,宝山区,嘉定区,浦东新区,金山区,松江区,青浦区,南汇区,奉贤区,崇明县,福州市,厦门市,莆田市,三明市,泉州市,漳州市,南平市,龙岩市,宁德市,南昌市,景德镇市,萍乡市,九江市,新余市,鹰潭市,赣州市,吉安市,宜春市,抚州市,上饶市,长沙市,株洲市,湘潭市,衡阳市,邵阳市,岳阳市,常德市,张家界市,益阳市,郴州市,永州市,怀化市,娄底市,湘西土家族苗族自治州,广州市,韶关市,深圳市,珠海市,汕头市,佛山市,江门市,湛江市,茂名市,肇庆市,惠州市,梅州市,汕尾市,河源市,阳江市,清远市,东莞市,中山市,潮州市,揭阳市,云浮市</div>
+											<a href="#">编辑</a>
+										</td>
+										<td class="ltl-ta2"><input type="text" value="" /></td>
+										<td class="ltl-ta2"><input type="text" value="" /></td>
+										<td class="ltl-ta2"><input type="text" value="" /></td>
+										<td class="ltl-ta2"><input type="text" value="" /></td>
+										<td class="ltl-ta3"><a href="#">删除</a></td>
+									</tr>
+								</table>
+								<div class="ltl-add">
+									<a href="#">为指定地区城市设置运费</a>
+								</div>
+							</div>
+						</div>
+						<input type="submit" value="提交"/>
+					</div>
+					
+					<!--弹框-->
+					<div class="ltl-pop-ups">
+						<div class="lpp-title">
+							<strong>选择城市</strong>
+							<a href="#">×</a>
+						</div>
+						<div class="lpp-blank"></div>
+						<div class="lpp-table">
+							<div class="lpp-table-td">
+								<label><input type="checkbox"/>天津市</label>
+							</div>
+							<div class="lpp-table-td">
+								<label><input type="checkbox"/>湖北省</label>
+							</div>
+							<div class="lpp-table-td">
+								<label><input type="checkbox"/>山西省</label>
+							</div>
+							<div class="lpp-table-td">
+								<label><input type="checkbox"/>内蒙古自治区</label>
+							</div>
+							<div class="lpp-table-td">
+								<label><input type="checkbox"/>辽宁省</label>
+							</div>
+							<div class="lpp-table-td">
+								<label><input type="checkbox"/>吉林省</label>
+							</div>
+							<div class="lpp-table-td">
+								<label><input type="checkbox"/>黑龙江省</label>
+							</div>
+							<div class="lpp-table-td">
+								<label><input type="checkbox" checked="checked"/>上海市</label>
+								<div class="ltt-pop-ups">
+									<div class="ltpp-title">
+										<!--提示框箭头-->
+										<div class="pp-arrow"></div>
+										<div class="pp-arrow2"></div>
+									</div>
+									<div class="ltpp-content">
+										<label><input type="checkbox" value=""/>黄浦区</label>
+										<label><input type="checkbox" value=""/>卢湾区</label>
+										<label><input type="checkbox" value=""/>徐汇区</label>
+										<label><input type="checkbox" value=""/>长宁区</label>
+										<label><input type="checkbox" value=""/>静安区</label>
+										<label><input type="checkbox" value=""/>普陀区</label>
+										<label><input type="checkbox" value=""/>闸北区</label>
+										<label><input type="checkbox" value=""/>虹口区</label>
+										<label><input type="checkbox" value=""/>杨浦区</label>
+										<label><input type="checkbox" value=""/>闵行区</label>
+										<label><input type="checkbox" value=""/>宝山区</label>
+										<label><input type="checkbox" value=""/>嘉定区</label>
+										<label><input type="checkbox" value=""/>浦东新区</label>
+										<label><input type="checkbox" value=""/>金山区</label>
+										<label><input type="checkbox" value=""/>松江区</label>
+										<label><input type="checkbox" value=""/>青浦区</label>
+										<label><input type="checkbox" value=""/>南汇区</label>
+										<label><input type="checkbox" value=""/>奉贤区</label>
+										<label><input type="checkbox" value=""/>崇明县</label>
+										<label><input type="checkbox" value=""/>长宁区</label>
+										<div style="clear: both;height: 30px;"></div>
+										<a href="#">关闭</a>
+									</div>
+								</div>
+							</div>
+							<div class="lpp-table-td">
+								<label><input type="checkbox"/>江苏省</label>
+							</div>
+							<div class="lpp-table-td">
+								<label><input type="checkbox"/>浙江省</label>
+							</div>
+							<div class="lpp-table-td">
+								<label><input type="checkbox"/>安徽省</label>
+							</div>
+							<div class="lpp-table-td">
+								<label><input type="checkbox"/>福建省</label>
+							</div>
+							<div class="lpp-table-td">
+								<label><input type="checkbox"/>江西省</label>
+							</div>
+							<div class="lpp-table-td">
+								<label><input type="checkbox"/>山东省</label>
+							</div>
+							<div class="lpp-table-td">
+								<label><input type="checkbox"/>河南省</label>
+							</div>
+							<div class="lpp-table-td">
+								<label><input type="checkbox"/>湖北省</label>
+							</div>
+							<div class="lpp-table-td">
+								<label><input type="checkbox"/>湖南省</label>
+							</div>
+							<div class="lpp-table-td">
+								<label><input type="checkbox"/>广东省</label>
+							</div>
+							<div class="lpp-table-td">
+								<label><input type="checkbox"/>广西壮族自治区</label>
+							</div>
+							<div class="lpp-table-td">
+								<label><input type="checkbox"/>海南省</label>
+							</div>
+							<div class="lpp-table-td">
+								<label><input type="checkbox"/>重庆市</label>
+							</div>
+							<div class="lpp-table-td">
+								<label><input type="checkbox"/>四川省</label>
+							</div>
+							<div class="lpp-table-td">
+								<label><input type="checkbox"/>贵州省</label>
+							</div>
+							<div class="lpp-table-td">
+								<label><input type="checkbox"/>云南省</label>
+							</div>
+							<div class="lpp-table-td">
+								<label><input type="checkbox"/>西藏自治区</label>
+							</div>
+							<div class="lpp-table-td">
+								<label><input type="checkbox"/>陕西省</label>
+							</div>
+							<div class="lpp-table-td">
+								<label><input type="checkbox"/>甘肃省</label>
+							</div>
+							<div class="lpp-table-td">
+								<label><input type="checkbox"/>青海省</label>
+							</div>
+							<div class="lpp-table-td">
+								<label><input type="checkbox"/>宁夏回族自治区</label>
+							</div>
+							<div class="lpp-table-td">
+								<label><input type="checkbox"/>新疆维吾尔自治区</label>
+							</div>
+							<div class="lpp-table-td">
+								<label><input type="checkbox"/>台湾省</label>
+							</div>
+							<div class="lpp-table-td">
+								<label><input type="checkbox"/>香港特别行政区</label>
+							</div>
+							<div class="lpp-table-td">
+								<label><input type="checkbox"/>澳门特别行政区</label>
+							</div>
+							<div class="lpp-table-td">
+								<label><input type="checkbox"/>海外</label>
+							</div>
+						</div>
+						<div class="lpp-determine">
+							<input type="button" value="确定" />
+						</div>
+						
+					</div>
+					<div class="M_BLANK_50"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

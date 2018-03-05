@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>主办方机构还是个人申请选择</title>
+<tc_include file="Public:head" />
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<link href="__TMPL__Public/css/public_head.css" rel="stylesheet" type="text/css">
+<link href="__TMPL__Public/css/ioapplyselect/ioapplyselect.css" rel="stylesheet" type="text/css">
+
+<link href="__TMPL__Public/css/global.css" rel="stylesheet" type="text/css">
+<link href="__TMPL__Public/css/layout.css" rel="stylesheet" type="text/css">
+<link href="__TMPL__Public/css/expo_style.css" rel="stylesheet" type="text/css">
+<link href="__TMPL__Public/css/idangerous.swiper.css" rel="stylesheet" type="text/css">
+
+<script src="__TMPL__Public/js/jquery.min.js"></script>
+<script src="__TMPL__Public/js/idangerous.swiper.min.js"></script>
+
+<style>
+body{background:#ffffff;}
+</style>
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+	$(".sidebar-list").on('click', 'li', function(event) {
+		$(".sidebar-list").find('li').removeClass('checked');
+		$(this).addClass('checked');
+	});
+
+	$(".column-list").on('click', 'li', function(event) {
+		$(".column-list").find('li').removeClass('checked');
+		$(this).addClass('checked');
+	});
+
+	var mySwiper = new Swiper('.swiper-container',{
+		autoplay: 1000,
+		speed: 800,
+		autoplayDisableOnInteraction:false,
+		slidesPerGroup: 4,
+		slidesPerView: 4,
+		pagination: '.pagination',
+		paginationClickable :true,
+		createPagination :true,
+		paginationAsRange : true
+	});
+});
+
+</script>
+<body>
+
+
+<div class="global">
+<!--公共头部开始-->
+<head>
+	<div class="head_situation">
+		<div class="head_logo">logo</div>
+		<ul class="head_text">
+			<li style="margin-left:59px;">发现</li>
+			<li>圈子</li>
+			<li>展会</li>
+			<li>社团铺</li>
+			<li>我的</li>
+		</ul>
+		<div class="head_user">
+			<span><img src="__TMPL__Public/images\public_head\images\magnifying-_11.png"></span>
+			<a href="#">登录</a> | <a href="/tongshi/?g=Exhibition&m=sponsor&a=reg">注册</a>
+			
+		</div>
+	</div>
+</head>
+<!--公共头部结束-->
+<div class="public_iframe">
+	<div class="application"><span>主办方申请</span></div>
+	<div class="register_img"><img src="__TMPL__Public/images/register_14_03.png"></div>
+</div>
+
+	<div class="global_iframes">
+		<div  class="ioapp_information">
+			<span>请填写相关信息</span>
+		</div>
+		
+	<!--之前写好的代码-->
+		<form id="form1" name="form1" method="post" action="">
+
+		<script>
+		function jump2(){
+		window.location.href="__ROOT__/?g=Exhibition&m=sponsor&a=oapply";
+		}
+		function jump(){
+		window.location.href="__ROOT__/?g=Exhibition&m=sponsor&a=iapply";
+		}
+		</script>
+		</form>
+		<div class="head_name1">
+			<span>
+				<input type="button" class="ipt_1" name="applytype0" value="个人申请" onclick=javascrtpt:jump()>
+			
+
+				<input type="button" class="ipt_2" name="applytype1" value="机构申请" onclick=javascrtpt:jump2()>
+			</span>
+		</div>
+	<!--代码结束-->
+	
+	<!--
+	<div class="iframe_show">
+	
+		<div class="personal_details">
+			<span>个人信息</span>
+		</div>
+		
+		<ul class="ioapp_name">
+			<li>姓名：</li>
+			<li>身份证正反面：</li>
+			<li>手机号码：</li>
+			<li>QQ：</li>
+			<li>邮箱：</li>
+			<li>目前所在地址：</li>
+		</ul>
+		<ul class="iframe_show2">
+			<li><input type="text" name="name"></li>
+			<li>
+				<input type="file" name="status_front1">
+				<input type="file" name="status_front2">
+			</li>
+			
+			<li><input type="text" name="phone"></li>
+			<li><input type="text" name="mailbox"></li>
+			<li class="ganged">
+				<select>
+					<option>上海</option>
+					<option></option>
+					<option></option>
+				</select>
+				<select>
+					<option>上海</option>
+					<option></option>
+					<option></option>
+				</select>
+				<select>
+					<option>上海</option>
+					<option></option>
+					<option></option>
+				</select>
+			</li>
+			<li><input type="text" name="detailed_address"></li>
+		</ul>
+	</div>
+		
+		
+	</div>
+	-->
+	<iframe width=579px; class="ioapp_iframe" height=1500px; frameborder=0 scrolling=auto src="/tongshi/?g=Exhibition&m=sponsor&a=iapply"></iframe>
+	
+	
+</div>
+</body>
+</html>

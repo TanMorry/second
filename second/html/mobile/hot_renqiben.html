@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no"/>
+    <title>喵</title>
+    <link href="css/global.css" rel="stylesheet" type="text/css">
+    <link href="css/public.css" rel="stylesheet" type="text/css">
+    <link href="css/shop-fenlei.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+    </style>
+
+    <script src="js/jquery-2.2.4.min.js"></script>
+    <script>
+        $().ready(function(){
+            $('.header-r').on('click', '.header-bg-btn', function(event) {
+                if( $(".header-r-tc").css('display') == 'none' ){
+                    $(".header-r-tc").css('display','block')
+                }
+                else{
+                    $(".header-r-tc").css('display','none');
+                }
+            });
+            $('.content').on('click', function(event) {
+                $(".header-r-tc").css('display','none');
+            });
+            $('.footer').on('click', function(event) {
+                $(".header-r-tc").css('display','none');
+            });
+        })
+    </script>
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex">
+    <section class="header">
+        <div class="header-bg normal">
+            <div class="header-l"><a href="main.html"></a></div>
+            <div class="header-c"><input class="search" type="text" placeholder="搜索店铺内的宝贝"></div>
+            <div class="header-r"><a  href="#" class="header-bg-btn"></a>
+                <div class="header-r-tc">
+                    <a href="#" class="header-tc-a"><img src="img/xinfeng.png">消息</a>
+                    <a href="main.html" class="header-tc-b"><img src="img/shouy.png">首页</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 主体 -->
+    <section class="content flex">
+        <div class="nav-more ">
+            <img src="img/bg-hear.png">
+            <div class="list clearfix">
+                <div class="list-l list-bg1">
+                    <span>向日葵的忧伤</span>
+                    <a href="#">定制厂</a>
+                </div>
+                <div class="list-r">
+                    <div class="list-follow">
+                        <p>60人</p>
+                        <p>关注人数</p>
+                    </div>
+                    <a class="list-btn" href="#"></a>
+                </div>
+            </div>
+        </div>
+       <div class="main think-to love">
+           <div class="think-to-first clearfix">
+               <a class="think-tf-kind" href="shangye-yinshua.html"><i>本子印刷</i></a>
+               <a class=" think-tf-love fixed" href="#"><i class="think-color">厂商信息</i></a>
+           </div>
+           <ul class="main-infor">
+               <li>厂商名称：XXXX</li>
+               <li><p>厂商介绍：</p>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX XXXXXXXX</li>
+               <li>厂商地址：XXXXXXXXXXXX </li>
+               <li>开业时间：XXXX-XX-XX</li>
+               <li class="main-img">厂商实景
+                   <ul class="sale-ones clearfix main-img-d">
+                       <li>
+                           <div class="sale-ones-front">
+                               <p class="sale-of-img"></p>
+                           </div>
+                       </li>
+                       <li>
+                           <div class="sale-ones-front ">
+                               <p class="sale-of-img"></p>
+                           </div>
+                       </li>
+                       <li>
+                           <div class="sale-ones-front">
+                               <p class="sale-of-img"></p>
+                           </div>
+                       </li>
+                    </ul>
+               </li>
+           </ul>
+       </div>
+    </section>
+    <section class="footer">
+        <div class="footer-last">
+            <a href="#"> 联系商家</a>
+        </div>
+    </section>
+</section>
+</body>
+</html>

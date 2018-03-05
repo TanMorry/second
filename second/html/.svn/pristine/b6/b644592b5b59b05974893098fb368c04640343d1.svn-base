@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="format-detection" content="telephone=no"/>
+<title>喵</title>
+<link href="../css/global.css" rel="stylesheet" type="text/css">
+<link href="../css/public.css" rel="stylesheet" type="text/css">
+<link type="text/css"  rel="stylesheet" href="../css/shop-cart-edit.css">
+
+<style type="text/css"></style>
+<script src="../js/jquery-2.2.4.min.js"></script>
+<script src="../js/miao-Dialog.js"></script>
+
+<script>
+$().ready(function(){
+    var contentBtn = $('.content');
+    $('.content-sh-btn').click(function(){
+        $(this).find('.content-sh-tc').toggleClass('content-tc-block');
+    });
+//        contentBtn.click(function(event){
+//        $('.content-sh-tc').hide()
+//    });
+    
+    /*延迟收货*/
+    var phone = $('#cpp').MiaoDialog();
+	var phone2 = $('#cpp2').MiaoDialog();
+	var phone3 = $('#cpp3').MiaoDialog();
+	var isFeasible = true;
+	$('.delay').on('click',function(){
+		phone.MiaoDialog('open'); 
+	});
+	$('.miao-shade').on('click',function(event) {
+		phone.MiaoDialog('close');
+		phone2.MiaoDialog('close');
+		phone3.MiaoDialog('close');
+	});
+	$('#cancel').on('click',function(event) {
+		phone.MiaoDialog('close');
+	});
+	$('#determine').on('click',function(event) {
+		phone.MiaoDialog('close');
+		if( isFeasible ){
+			phone2.MiaoDialog('open');
+			setTimeout(function(){
+				phone2.MiaoDialog('close'); 
+			},1400);
+		}
+		else{
+			phone3.MiaoDialog('open');
+			setTimeout(function(){
+				phone3.MiaoDialog('close'); 
+			},1400);
+		}
+	});
+})
+</script>
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex">
+    <section class="header">
+        <div class="header-bg normal">
+            <div class="header-l"><a href="#"></a></div>
+            <div class="header-c header-dz new-dz">我 的 订 单</div>
+        </div>
+        <div class="header-nav">
+            <div>全部订单</div>
+            <div>等待付款</div>
+            <div>待发货</div>
+            <div class="content-nav-btn">待收货</div>
+            <div>待评价</div>
+        </div>
+    </section>
+    <!-- 主体 -->
+    <section class="content flex content-cancel">
+        <div class="content-list">
+            <div class="commodity content-top">
+                <div class="commodity-l">
+                    <p class="commodity-l-p">
+                        <span>社团第三空间</span>
+                        <img src="../img/you-iocn.png">
+                    </p>
+                </div>
+                <div class="commodity-t" >
+                    <span>待收货</span>
+                </div>
+            </div>
+
+            <div class="content-choice  border">
+                <div class="clearfix">
+                    <div class="content-choice-c">
+                        <p><img src="../img/touxiang.png"></p>
+                    </div>
+                    <div class="content-choice-w">
+                        <p class="choice-w-one content-choice-p">商品名称</p>
+                        <p class="choice-w-two content-choice-p">原著：伪装者</p>
+                        <p class="choice-w-three">
+                            <span>￥6.00</span>
+                        </p>
+                    </div>
+                    <div class="commodity-r commodity-r-money">
+                        <i >X 1</i>
+                    </div>
+                </div>
+            </div>
+            <div class="content-choice  border">
+                <div class="clearfix">
+                    <div class="content-choice-c">
+                        <p><img src="../img/touxiang.png"></p>
+                    </div>
+                    <div class="content-choice-w">
+                        <p class="choice-w-one content-choice-p">商品名称</p>
+                        <p class="choice-w-two content-choice-p">原著：伪装者</p>
+                        <p class="choice-w-three">
+                            <span>￥6.00</span>
+                        </p>
+                    </div>
+                    <div class="commodity-r commodity-r-money">
+                        <i>X 1</i>
+                    </div>
+                </div>
+            </div>
+            <div class="content-xixnxi content-shop content-xixnxi-border ">共<span>1</span>件商品 合计￥<span>70.00</span> （含运费￥6.00）</div>
+            <div class="content-xixnxi clearfix  content-xixnxi-border2">
+                <p>
+                    <i class="content-sh-btn">
+                       <span class="content-sh-tc">
+                           <a href="#" class="content-tc-border content-bf">联系卖家</a>
+                           <a href="#">申请退货</a>
+                       </span>
+                    </i>
+                    <a href="#" class="delay">延迟收货</a>
+                    <a href="#">查看物流</a>
+                    <a href="#" class="more-color">确认收获</a>
+                </p>
+            </div>
+        </div>
+        <div class="content-list">
+            <div class="commodity content-top">
+                <div class="commodity-l">
+                    <p class="commodity-l-p">
+                        <span>社团第三空间</span>
+                        <img src="../img/you-iocn.png">
+                    </p>
+                </div>
+                <div class="commodity-t" >
+                    <span>待收货</span>
+                </div>
+            </div>
+            <div class="content-choice  border">
+                <div class="clearfix">
+                    <div class="content-choice-c">
+                        <p><img src="../img/touxiang.png"></p>
+                    </div>
+                    <div class="content-choice-w">
+                        <p class="choice-w-one content-choice-p">商品名称</p>
+                        <p class="choice-w-two content-choice-p">原著：伪装者</p>
+                        <p class="choice-w-three">
+                            <span>￥6.00</span>
+                        </p>
+                    </div>
+                    <div class="commodity-r commodity-r-money">
+                        <i>X 1</i>
+                    </div>
+                </div>
+            </div>
+            <div class="content-xixnxi content-shop content-xixnxi-border ">共<span>1</span>件商品 合计￥<span>70.00</span> （含运费￥6.00）</div>
+            <div class="content-xixnxi clearfix content-xixnxi-border2">
+                <p>
+                    <i class="content-sh-btn">
+                       <span class="content-sh-tc">
+                           <a href="#" class="content-tc-border content-bf">联系卖家</a>
+                           <a href="#">申请退货</a>
+                       </span>
+                    </i>
+                    <a href="#" class="delay">延迟收货</a>
+                    <a href="#">查看物流</a>
+                    <a href="#" class="more-color">确认收获</a>
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="footer">
+    </section>
+    <div class="confirm-pop-ups font1" id="cpp">
+		<p>确认延长收货时间？</p>
+		<p class="prompt">每笔订单只能延迟一次哦</p>
+		<div class="box1">
+			<div class="auto-width"><!-- auto width --></div>
+			<a href="#" id="cancel">取消</a>
+			<div class="auto-width"><!-- auto width --></div>
+			<a href="#" id="determine">确定</a>
+			<div class="auto-width"><!-- auto width --></div>
+		</div>
+	</div>
+	<div class="confirm-pop-ups font3" id="cpp2">
+		<p>申请成功，收货时间延长3天</p>
+	</div>
+	<div class="confirm-pop-ups font3" id="cpp3">
+		<p>亲，距离结束时间不足3天才可以申请哦</p>
+	</div>
+</section>
+</body>
+</html>

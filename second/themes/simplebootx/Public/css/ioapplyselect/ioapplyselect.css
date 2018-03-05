@@ -1,0 +1,37 @@
+*{margin:0px; padding:0px;}
+@charset "utf-8";
+
+.global_iframes{width:960px;height:auto; margin-top:10px;background:#f2f2f2;border:1px solid #fff;}
+.ioapp_information{width:auto;height:18px;margin-top:44px;}
+.ioapp_information span{float:left;margin-left:30px;}
+.head_name1{width:898px;height:40px;border-bottom:1px solid #e4e4e4;margin-left:30px;margin-top:-20px;}
+.ipt_1{width:70px;height:40px;color:#0099ff;border-bottom:3px solid #0099ff;font-weight:800;background:none;float:left;}
+.head_name1 span{width:187px;height:40px;display:block;margin:auto;}
+.ipt_2{width:70px;height:40px;font-weight:800;background:none;float:right;color:#929292;}
+.iframe_show{width:479px;height:534px; margin:auto;}
+.personal_details{width:auto;height:23px; margin-top:33px;}
+.personal_details span{width:81px;height:23px;border-left:3px solid #0099ff;display:block;margin-left:29px;}
+.ioapp_name{width:115px;height:488px; margin:0;padding:0;float:left;margin-top:25px;}
+.iframe_show2{width:360px;height:453px; float:left;margin:0;padding:0;margin-top:25px;}
+.iframe_show2 li{width:364px;height:34px; margin-top:16px;}
+.iframe_show2 li input{float:left;width:345px;}
+.ganged select{width:109px;height:30px; display:block;float:left;margin-left:15px;margin-top:2px;}
+.ganged{width:364px;height:30px; }
+.ioapp_name li{margin-top:16px;width:115px;height:34px; line-height:34px;}
+.ioapp_name li span{float:right;}
+.ioapp_iframe{margin-top:0px;}	
+.exhibition_information{width:auto;height:26px; display:block;}
+.exhibition_all{width:479px;height:467px; float:left;}
+.information_message{width:115px;height:415px; margin:0;padding:0;margin-top:25px;float:left;}
+.information_message li{width:115px;height:34px; margin-top:24px;line-height:34px;text-align:center;}
+.information_messages{width:359px;height:415px; margin:0;padding:0;margin-top:25px;float:left;}
+.information_messages li{width:359px;height:34px; margin-top:24px;line-height:34px;text-align:center;}
+.information_messages input{float:left;width:345px;}
+.but{float:left;margin-left:162px;width:}
+.btn{width:123px;height:39px; background:#81c8f8;color:#fff;font-weight:800;text-align:center;}
+.radio_group span{float:left;margin-left:30px;}
+.radio_group span input{position:absolute;margin-top:12px;margin-left:-25px;}
+
+
+
+

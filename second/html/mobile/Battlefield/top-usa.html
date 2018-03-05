@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no"/>
+    <title>喵</title>
+    <link href="../css/global.css" rel="stylesheet" type="text/css">
+    <link href="../css/public.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+    </style>
+    <script src="../js/jquery-2.2.4.min.js"></script>
+    <script src="../js/obtainArguments.js"></script>
+    <!--<script>-->
+        <!--$().ready(function () {-->
+          <!--$(".btn-b").click(function(){-->
+              <!---->
+          <!--})-->
+        <!--})-->
+    <!--</script>-->
+
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex">
+    <section class="header">
+        <div class="header-bg normal">
+            <div class="header-l"><a href="javascript:history.go(-1)"></a></div>
+            <div class="header-c header-dz header_pad" id="title_name">欧美排行区</div>
+            <div class="header-s"></div>
+            <div class="header-r"><a href="javascript:"></a></div>
+        </div>
+        <div class="btn ">
+            <div class="top-nav top-border">
+                <a href="javascript:" class="top-btn1 btn-b" data-val="daycut" onclick="time_order(this)"><span class="btn1-b-color">日榜</span></a>
+                <a href="javascript:" class="top-btn1 btn-b" data-val="weekcut" onclick="time_order(this)"><span>周榜</span></a>
+                <a href="javascript:" class="top-btn1 btn-b" data-val="monthcut" onclick="time_order(this)"><span>月榜</span></a>
+                <!--<a href="#" class="top-btn2"><span>剁手数</span><i class="direction dir-up"></i></a>-->
+            </div>
+            <!--<div class="top-btn1-b">-->
+                <!--<a href="#" class="btn1-b-color">日榜</a>-->
+                <!--<a href="#">周榜</a>-->
+                <!--<a href="#">月榜</a>-->
+            <!--<div class="top-btn1-b">-->
+                <!--<a href="#" class="btn1-b-color">日榜</a>-->
+                <!--<a href="#">周榜</a>-->
+                <!--<a href="#">月榜</a>-->
+            <!--</div>-->
+            <!--<div class="top-btn1-b">-->
+                <!--<a href="javascript:" class="btn1-b-color" data-val="daycut" onclick="time_order(this)">日榜</a>-->
+                <!--<a href="javascript:" data-val="weekcut" onclick="time_order(this)">周榜</a>-->
+                <!--<a href="javascript:" data-val="monthcut" onclick="time_order(this)">月榜</a>-->
+            <!--</div>-->
+        </div>
+    </section>
+    <!-- 主体 -->
+    <section class="content">
+        <div class="top-sort">
+            <ul id="rank_content">
+                <li class="top-sort-li">
+                    <div class="sort-sp" ><span class="sort-sp-color sort-sp-one">1</span><i class="sort-sp-up"></i><span class="sort-sp-name">老九门九门九门九门</span></div>
+                    <div class="sort-number"><i class="number-d"></i><span>5688111111</span></div>
+                </li>
+                <!--<li class="top-sort-li">-->
+                    <!--<div class="sort-sp" ><span class="sort-sp-color sort-sp-one">2</span><i class="sort-sp-ping"></i><span class="sort-sp-name">美国队长</span></div>-->
+                    <!--<div class="sort-number"><i class="number-d"></i><span>568811</span></div>-->
+                <!--</li>-->
+                <!--<li class="top-sort-li">-->
+                    <!--<div class="sort-sp" ><span class="sort-sp-color sort-sp-one">3</span><i class="sort-sp-down"></i><span class="sort-sp-name">驯龙高手</span></div>-->
+                    <!--<div class="sort-number"><i class="number-d"></i><span>5688</span></div>-->
+                <!--</li>-->
+                <!--<li class="top-sort-li">-->
+                    <!--<div class="sort-sp" ><span class=" sort-sp-one">4</span><i class="sort-sp-down"></i><span class="sort-sp-name">邪恶力量</span></div>-->
+                    <!--<div class="sort-number"><i ></i><span>5688</span></div>-->
+                <!--</li>-->
+                <!--<li class="top-sort-li">-->
+                    <!--<div class="sort-sp" ><span class=" sort-sp-one">5</span><i class="sort-sp-up"></i><span class="sort-sp-name">老九门</span></div>-->
+                    <!--<div class="sort-number"><i></i><span>5688</span></div>-->
+                <!--</li>-->
+                <!--<li class="top-sort-li">-->
+                    <!--<div class="sort-sp" ><span class=" sort-sp-one">6</span><i class="sort-sp-ping"></i><span class="sort-sp-name">美国队长</span></div>-->
+                    <!--<div class="sort-number"><i></i><span>5688</span></div>-->
+                <!--</li>-->
+                <!--<li class="top-sort-li">-->
+                    <!--<div class="sort-sp" ><span class=" sort-sp-one">7</span><i class="sort-sp-down"></i><span class="sort-sp-name">驯龙高手</span></div>-->
+                    <!--<div class="sort-number"><i></i><span>5688</span></div>-->
+                <!--</li>-->
+                <!--<li class="top-sort-li">-->
+                    <!--<div class="sort-sp" ><span class=" sort-sp-one">8</span><i class="sort-sp-ping"></i><span class="sort-sp-name">邪恶力量</span></div>-->
+                    <!--<div class="sort-number"><i></i><span>5688</span></div>-->
+                <!--</li>-->
+                <!--<li class="top-sort-li">-->
+                    <!--<div class="sort-sp" ><span class=" sort-sp-one">9</span><i class="sort-sp-up"></i><span class="sort-sp-name">老九门</span></div>-->
+                    <!--<div class="sort-number"><i></i><span>5688</span></div>-->
+                <!--</li>-->
+                <!--<li class="top-sort-li">-->
+                    <!--<div class="sort-sp" ><span class=" sort-sp-one">10</span><i class="sort-sp-down"></i><span class="sort-sp-name">美国队长</span></div>-->
+                    <!--<div class="sort-number"><i></i><span>5688</span></div>-->
+                <!--</li>-->
+                <!--<li class="top-sort-li">-->
+                    <!--<div class="sort-sp" ><span class=" sort-sp-one">11</span><i class="sort-sp-ping"></i><span class="sort-sp-name">驯龙高手</span></div>-->
+                    <!--<div class="sort-number"><i></i><span>5688</span></div>-->
+                <!--</li>-->
+                <!--<li class="top-sort-li">-->
+                    <!--<div class="sort-sp" ><span class=" sort-sp-one">12</span><i class="sort-sp-down"></i><span class="sort-sp-name">邪恶力量</span></div>-->
+                    <!--<div class="sort-number"><i></i><span>5688</span></div>-->
+                <!--</li>-->
+                <!--<li class="top-sort-li">-->
+                    <!--<div class="sort-sp" ><span class=" sort-sp-one">9</span><i class="sort-sp-up"></i><span class="sort-sp-name">老九门</span></div>-->
+                    <!--<div class="sort-number"><i></i><span>5688</span></div>-->
+                <!--</li>-->
+                <!--<li class="top-sort-li">-->
+                    <!--<div class="sort-sp" ><span class=" sort-sp-one">10</span><i class="sort-sp-down"></i><span class="sort-sp-name">美国队长</span></div>-->
+                    <!--<div class="sort-number"><i></i><span>5688</span></div>-->
+                <!--</li>-->
+                <!--<li class="top-sort-li">-->
+                    <!--<div class="sort-sp" ><span class=" sort-sp-one">11</span><i class="sort-sp-ping"></i><span class="sort-sp-name">驯龙高手</span></div>-->
+                    <!--<div class="sort-number"><i></i><span>5688</span></div>-->
+                <!--</li>-->
+                <!--<li class="top-sort-li">-->
+                    <!--<div class="sort-sp" ><span class=" sort-sp-one">12</span><i class="sort-sp-down"></i><span class="sort-sp-name">邪恶力量</span></div>-->
+                    <!--<div class="sort-number"><i></i><span>5688</span></div>-->
+                <!--</li>-->
+                <!--<li class="top-sort-li">-->
+                    <!--<div class="sort-sp" ><span class=" sort-sp-one">13</span><i class="sort-sp-up"></i><span class="sort-sp-name">老九门</span></div>-->
+                    <!--<div class="sort-number"><i></i><span>5688</span></div>-->
+                <!--</li>-->
+                <!--<li class="top-sort-li">-->
+                    <!--<div class="sort-sp" ><span class=" sort-sp-one">14</span><i class="sort-sp-down"></i><span class="sort-sp-name">美国队长</span></div>-->
+                    <!--<div class="sort-number"><i></i><span>5688</span></div>-->
+                <!--</li>-->
+                <!--<li class="top-sort-li">-->
+                    <!--<div class="sort-sp" ><span class=" sort-sp-one">15</span><i class="sort-sp-down"></i><span class="sort-sp-name">驯龙高手</span></div>-->
+                    <!--<div class="sort-number"><i></i><span>5688</span></div>-->
+                <!--</li>-->
+                <!--<li class="top-sort-li">-->
+                    <!--<div class="sort-sp" ><span class=" sort-sp-one">16</span><i class="sort-sp-ping"></i><span class="sort-sp-name">邪恶力量</span></div>-->
+                    <!--<div class="sort-number"><i></i><span>5688</span></div>-->
+                <!--</li>-->
+                <!--<li class="top-sort-li">-->
+                    <!--<div class="sort-sp" ><span class=" sort-sp-one">17</span><i class="sort-sp-up"></i><span class="sort-sp-name">老九门</span></div>-->
+                    <!--<div class="sort-number"><i></i><span>5688</span></div>-->
+                <!--</li>-->
+                <!--<li class="top-sort-li">-->
+                    <!--<div class="sort-sp" ><span class=" sort-sp-one">18</span><i class="sort-sp-down"></i><span class="sort-sp-name">美国队长</span></div>-->
+                    <!--<div class="sort-number"><i></i><span>5688</span></div>-->
+                <!--</li>-->
+                <!--<li class="top-sort-li">-->
+                    <!--<div class="sort-sp" ><span class=" sort-sp-one">19</span><i class="sort-sp-down"></i><span class="sort-sp-name">驯龙高手</span></div>-->
+                    <!--<div class="sort-number"><i></i><span>5688</span></div>-->
+                <!--</li>-->
+                <!--<li class="top-sort-li">-->
+                    <!--<div class="sort-sp" ><span class=" sort-sp-one">20</span><i class="sort-sp-ping"></i><span class="sort-sp-name">邪恶力量</span></div>-->
+                    <!--<div class="sort-number"><i></i><span>5688</span></div>-->
+                <!--</li>-->
+            </ul>
+        </div>
+    </section>
+      <!--<section class="footer">-->
+          <!--<div class="page horizontal-center">-->
+              <!--<a class="page-up" href="#" id="page-up" onclick="page(this)" data-val="prev"></a>-->
+              <!--<i class="auto-width">&lt;!&ndash; auto width &ndash;&gt;</i>-->
+              <!--<input class="page-write" type="text" id="skipPage">-->
+              <!--<a class="page-go" href="#" id="go" onclick="page(this)" data-val="GO">GO</a>-->
+              <!--<span class="page-count"><b id="current"></b><i>/</i><b id="totalPage"></b></span>-->
+              <!--<i class="auto-width">&lt;!&ndash; auto width &ndash;&gt;</i>-->
+              <!--<a class="page-down" href="#" id="page-down" onclick="page(this)" data-val="next"></a>-->
+          <!--</div>-->
+    <!--</section>-->
+</section>
+</body>
+</html>
+<script>
+    var urlObj = new Arguments();
+    var urlParam = urlObj.Request();
+    var dayType = 'daycut';
+
+    $(function(){
+        IndexList();
+    })
+
+    function IndexList()
+    {
+        $("#title_name").html(title_name(urlParam.type));
+        ajax_data(urlParam.type,dayType);
+    }
+
+    //日周月排序
+    function time_order(obj)
+    {
+        $(obj).children('span').addClass("btn1-b-color")
+        $(obj).siblings().children('span').removeClass('btn1-b-color')
+        dayType = $(obj).attr('data-val');
+        ajax_data(urlParam.type,dayType);
+        $("#cut_hand").children('i').removeClass('dir-down');
+    }
+
+    //显示相应的榜单标题
+    function title_name(type)
+    {
+        switch (parseInt(type))
+        {
+            case 1:
+                return '国韵排行区';
+            case 2:
+                return '日韩亚排行区';
+            case 3:
+                return '原创区';
+            default:
+                return '欧美排行区';
+        }
+    }
+
+    /**
+     * 根据条件请求相应的数据
+     * @param  type         榜单类型
+     * @param  time_order   榜单时间排序
+     */
+    function ajax_data(type,time_order)
+    {
+        var url = '/tongrenmiao/index.php?g=Mall&m=Index&a=rank_detail';
+        $.ajax({
+            url:url,
+            data:{'rank_type':type,'time_order':time_order},
+            type:'get',
+            dataType:'json',
+            beforeSend:function(){
+
+            },
+            success:function(res){
+                if(res.Info)
+                {
+                    $("#rank_content").html(handleHtml(res.Info));
+                }else{
+
+                }
+
+            },
+            error:function(){
+
+            }
+        })
+    }
+
+    /**
+     * 填充数据
+     */
+    function handleHtml(list)
+    {
+        var str = "";
+        $.each(list,function(k,v){
+            str += '<li class="top-sort-li">\
+                        <div class="sort-sp" >\
+                            <span class="sort-sp-color sort-sp-one">'+(k+1)+'</span>'
+                if(v.mchange == 1)
+                {
+                    str += '<i class="sort-sp-up"></i>';
+                }
+                else if(v.mchange == 0)
+                {
+                    str += '<i class="sort-sp-ping"></i>';
+                }
+                else if(v.mchange == -1)
+                {
+                    str += '<i class="sort-sp-down"></i>';
+                }
+                    str += '<span class="sort-sp-name">'
+                            if(urlParam.type != 3)
+                            {
+                                str += '<a href="top-yc.html?name='+encodeURI(v.cpname)+'">'+v.cpname+'</a>'
+                            }
+                            else
+                            {
+                                str += '<a href="../detail-page1.html?id='+v.id+'">'+v.cpname+'</a>'
+                            }
+                    str += '</span>'
+                str += '</div>\
+                        <div class="sort-number">'
+                if(k<3)
+                {
+                    str += '<i class="number-d"></i>';
+                }
+                    str += '<span>';
+                    if(dayType == 'weekcut')
+                    {
+                        str += v.weekcut;
+                    }
+                    else if(dayType == 'monthcut')
+                    {
+                        str += v.monthcut;
+                    }
+                    else
+                    {
+                        str += v.daycut;
+                    }
+                    str += '</span>\
+                        </div>\
+                    </li>';
+        })
+        return str;
+    }
+</script>

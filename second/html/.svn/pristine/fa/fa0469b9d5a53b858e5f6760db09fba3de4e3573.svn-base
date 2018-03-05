@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no"/>
+    <title>喵</title>
+    <link href="css/global.css" rel="stylesheet" type="text/css">
+    <link href="css/public.css" rel="stylesheet" type="text/css">
+    <link href="css/hot-renqiben.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+    </style>
+
+    <script src="js/jquery-2.2.4.min.js"></script>
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex">
+    <section class="header">
+        <div class="header-bg normal">
+            <div class="header-l"><a href="#"></a></div>
+            <div class="header-c"><input class="search" type="text" placeholder="搜索店铺内的宝贝"></div>
+            <div class="header-r"><a href="#"></a></div>
+        </div>
+    </section>
+    <!-- 主体 -->
+    <section class="content flex">
+        <div class="nav-more ">
+            <img src="img/bg-hear.png">
+            <div class="list clearfix">
+                <div class="list-l list-bg1">
+                    <span>向日葵的忧伤</span>
+                    <a href="#">定制厂</a>
+                </div>
+                <div class="list-r">
+                    <div class="list-follow">
+                        <p>60人</p>
+                        <p>关注人数</p>
+                    </div>
+                    <a class="list-btn" href="#"></a>
+                </div>
+            </div>
+        </div>
+        <div class="main think-to love">
+            <div class="think-to-first clearfix">
+                <a class=" think-tf-love fixed" href="#"><i class="think-color">本子印刷</i></a>
+                <a class="think-tf-kind" href="#"><i>厂商信息</i></a>
+            </div>
+        </div>
+        <div class="sale-item part csale-h" >
+            <ul class="sale-ones clearfix">
+                <li>
+                    <div class="sale-ones-front">
+                        <p class="sale-of-img"><img src="img/csale-icon.png"></p>
+
+                    </div>
+                </li>
+                <li>
+                    <div class="sale-ones-front">
+                        <p class="sale-of-img"><img src="img/csale-icon.png"></p>
+
+                    </div>
+                </li>
+                <li>
+                    <div class="sale-ones-front">
+                        <p class="sale-of-img"><img src="img/csale-icon.png"></p>
+                    </div>
+                </li>
+                <li>
+                    <div class="sale-ones-front">
+                        <p class="sale-of-img"><img src="img/csale-icon.png"></p>
+
+                    </div>
+                </li>
+                <li>
+                    <div class="sale-ones-front">
+                        <p class="sale-of-img"><img src="img/csale-icon.png"></p>
+
+                    </div>
+                </li>
+                <li>
+                    <div class="sale-ones-front">
+                        <p class="sale-of-img"><img src="img/csale-icon.png"></p>
+
+                    </div>
+                </li>
+                <li>
+                    <div class="sale-ones-front">
+                        <p class="sale-of-img"><img src="img/csale-icon.png"></p>
+
+                    </div>
+                </li>
+                <li>
+                    <div class="sale-ones-front">
+                        <p class="sale-of-img"><img src="img/csale-icon.png"></p>
+
+                    </div>
+                </li>
+                <li>
+                    <div class="sale-ones-front">
+                        <p class="sale-of-img"><img src="img/csale-icon.png"></p>
+
+                    </div>
+                </li>
+                </ul>
+            </div>
+    </section>
+    <section class="footer">
+
+    </section>
+</section>
+</body>
+</html>

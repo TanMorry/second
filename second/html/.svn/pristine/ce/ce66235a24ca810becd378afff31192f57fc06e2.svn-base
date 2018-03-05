@@ -1,0 +1,8 @@
+function getUerInfo() {
+    this.getIno = function () {
+        var userInfo = new Object();
+        //调用安卓和ios的获取用户信息的方法
+        // userInfo = share();
+        return "asd";
+    }
+}

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="format-detection" content="telephone=no"/>
+<title>喵</title>
+<link href="css/global.css" rel="stylesheet" type="text/css">
+<link href="css/public.css" rel="stylesheet" type="text/css">
+<link href="css/personal.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+</style>
+
+<script src="js/jquery-2.2.4.min.js"></script>
+<script src="js/miao-Dialog.js"></script>
+<script src="js/jquerty-moveDelete.js"></script>
+<script>
+$().ready(function(){
+	/*垃圾桶*/
+	$('.header-r').on('click' , 'p' , function(){
+		$('.hc-btn').removeClass('true');
+		$('.hc-btn').toggleClass('none');
+		$('.footer').toggleClass('none');
+		if( $(this).text() == '编辑' ){
+			$(this).text('完成');
+		}
+		else if( $(this).text() == '完成' ){
+			$(this).text('编辑');
+		}
+	});
+	
+	/*选择*/
+	$('.hc-btn').on('click' , function(){
+		$(this).toggleClass('true');
+	});
+	
+	/*全选*/
+	$('.footer-chooseAll').on('click' , '.font1' , function(){
+		$('.hc-btn').addClass('true');
+	});
+	
+	/*删除*/
+	var phone = $('#cpp').MiaoDialog();
+	$('.footer-chooseAll').on('click', '.font2', function(event) {
+		if( $('.content').find('.true').length > 0 ){
+			phone.MiaoDialog('open');
+		}
+	});
+	$('.miao-shade').on('click',function(event) {
+		phone.MiaoDialog('close');
+	});
+	$('#cancel').on('click',function(event) {
+		phone.MiaoDialog('close');
+	});
+	
+	/*滑动删除*/
+	movetouch( '.history-commodity' );
+	
+    
+})
+</script>
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex">
+    <section class="header">
+        <div class="header-bg normal">
+            <div class="header-l"><a href="search/shangyedian.html"></a></div>
+            <div class="header-c header-fot marR">浏览记录</div>
+        </div>
+    </section>
+    <!-- 主体 -->
+    <section class="content">
+        <div class="part"></div>
+        <div class="part">
+        	<div class="history-date">3月11日</div>
+        	<div class="history-commodity">
+        		<div class="hc-btn none"><a href="#"></a></div>
+        		<img src="img/touxiang.png" class="hc-pic" />
+        		<div class="hc-content">
+        			<p>商品名称商品名称商品名称商品名称商品名称1</p>
+        			<i>¥ 6.00</i>
+        		</div>
+        	</div>
+        	<div class="history-commodity">
+        		<div class="hc-btn none"><a href="#"></a></div>
+        		<img src="img/touxiang.png" class="hc-pic" />
+        		<div class="hc-content">
+        			<p>商品名称商品名称商品名称商品名称商品名称</p>
+        			<i>¥ 6.00</i>
+        		</div>
+        	</div>
+        </div>
+        <div class="part">
+        	<div class="history-date">3月11日</div>
+        	<div class="history-commodity">
+        		<div class="hc-btn none"><a href="#"></a></div>
+        		<img src="img/touxiang.png" class="hc-pic" />
+        		<div class="hc-content">
+        			<p>商品名称商品名称商品名称商品名称商品名称</p>
+        			<i>¥ 6.00</i>
+        		</div>
+        	</div>
+        	<div class="history-commodity">
+        		<div class="hc-btn none"><a href="#"></a></div>
+        		<img src="img/touxiang.png" class="hc-pic" />
+        		<div class="hc-content">
+        			<p>商品名称商品名称商品名称商品名称商品名称</p>
+        			<i>¥ 6.00</i>
+        		</div>
+        	</div>
+        	<div class="history-commodity">
+        		<div class="hc-btn none"><a href="#"></a></div>
+        		<img src="img/touxiang.png" class="hc-pic" />
+        		<div class="hc-content">
+        			<p>商品名称商品名称商品名称商品名称商品名称</p>
+        			<i>¥ 6.00</i>
+        		</div>
+        	</div>
+        </div>
+    </section>
+    <section class="footer none">
+        <div class="footer-chooseAll">
+			<a class="font1" href="#">全选</a>
+			<a class="font2" href="#">删除</a>
+		</div>
+    </section>
+    <div class="confirm-pop-ups font1" id="cpp">
+		<p>确认要删除浏览记录？</p>
+		<div class="box1">
+			<div class="auto-width"><!-- auto width --></div>
+			<a href="#" id="cancel">取消</a>
+			<div class="auto-width"><!-- auto width --></div>
+			<a href="#" id="determine">确定</a>
+			<div class="auto-width"><!-- auto width --></div>
+		</div>
+	</div>
+</section>
+</body>
+</html>

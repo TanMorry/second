@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="format-detection" content="telephone=no"/>
+<title>喵</title>
+<link href="css/global.css" rel="stylesheet" type="text/css">
+<link href="css/public.css" rel="stylesheet" type="text/css">
+<link href="css/shop-fenlei.css" rel="stylesheet" type="text/css">
+<link href="css/personal.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+</style>
+
+<script src="js/jquery-2.2.4.min.js"></script>
+<script>
+    $().ready(function(){
+        $('.header-r').on('click', '.header-bg-btn', function(event) {
+            if( $(".header-r-tc").css('display') == 'none' ){
+                $(".header-r-tc").css('display','block')
+            }
+            else{
+                $(".header-r-tc").css('display','none');
+            }
+        });
+        $('.content').on('click', function(event) {
+            $(".header-r-tc").css('display','none');
+        });
+        $('.footer').on('click', function(event) {
+            $(".header-r-tc").css('display','none');
+        });
+        
+    })
+</script>
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex">
+    <section class="header">
+        <div class="header-bg normal">
+            <div class="header-l"><a href="javascript:history.go(-1)"></a></div>
+            <div class="header-c header-fot">评价管理</div>
+            <div class="header-r">
+                <a  href="#" class="header-bg-btn"></a>
+                <div class="header-r-tc">
+                    <a href="#" class="header-tc-a"><img src="img/xinfeng.png">消息</a>
+                    <a href="main.html" class="header-tc-b"><img src="img/shouy.png">首页</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 主体 -->
+    <section class="content flex">
+        <div class="personal-navigation part4" href="#">
+			<div class="pn-c1 btm02">发布评价<b id="already_com">0</b></div>
+			<div class="pn-c1 btm02">待评价<b id="wait_com">0</b></div>
+			<div class="pn-c2"><a href="my-order.html?code=wait_rate" id="write"><div class="access">写评价</div></a></div>
+		</div>
+		<div id="access_con">
+			<div class="error" style="display: none" id="error">
+				<i><img src="img/error.png"></i>
+				<a href="javascript:">还没有评价</a>
+			</div>
+			<div id="access_con_part">
+				<!--<div class="store-search part2 clearfix">-->
+					<!--<div class="store-box clearfix">-->
+						<!--<div class="store-img">-->
+							<!--<img src="img/test/item2.jpg" alt="">-->
+						<!--</div>-->
+						<!--<div class="store-info">-->
+							<!--<p class="store-i-name">商品名称商品名称</p>-->
+						<!--</div>-->
+						<!--<div class="store-access1">已评价</div>-->
+						<!--<div class="store-access2">2016-03-10</div>-->
+					<!--</div>-->
+				<!--</div>-->
+				<!--<div class="personal-access-content part4">-->
+					<!--不错不错味道很不错我喜欢吃！不错不错味道很不错我喜欢吃！不错不错味道很不错我喜欢吃！不错不错味道很不错我喜欢吃！不错不错味道很不错我喜欢吃！不错不错味道很不错我喜欢吃！不错不错味道很不错我喜欢吃！不错不错味道很不错我喜欢吃！-->
+				<!--</div>-->
+				<!--<div class="store-search part4 clearfix">-->
+					<!--<div class="store-box clearfix">-->
+						<!--<div class="store-img">-->
+							<!--<img src="img/test/item2.jpg" alt="">-->
+						<!--</div>-->
+						<!--<div class="store-info">-->
+							<!--<p class="store-i-name">商品名称商品名称</p>-->
+						<!--</div>-->
+						<!--<div class="store-access1">超时默认好评</div>-->
+						<!--<div class="store-access2">2016-03-10</div>-->
+					<!--</div>-->
+				<!--</div>-->
+				<!--<div class="store-search part2 clearfix">-->
+					<!--<div class="store-box clearfix">-->
+						<!--<div class="store-img">-->
+							<!--<img src="img/test/item2.jpg" alt="">-->
+						<!--</div>-->
+						<!--<div class="store-info">-->
+							<!--<p class="store-i-name">商品名称商品名称</p>-->
+						<!--</div>-->
+						<!--<div class="store-access1">超时默认好评</div>-->
+						<!--<div class="store-access2">2016-03-10</div>-->
+					<!--</div>-->
+				<!--</div>-->
+			</div>
+		</div>
+    </section>
+    <!--<section class="footer">-->
+        <!--<div class="footer-last">-->
+            <!--<a class="font-size-18" href="#" >退出登录</a>-->
+        <!--</div>-->
+    <!--</section>-->
+</section>
+</body>
+</html>
+<script>
+	var userid = 23;
+	var writeUrl = $("#write").attr('href');
+	$(function(){
+		IndexList()
+	})
+	function IndexList()
+	{
+		var url = '/tongrenmiao/index.php?g=Mall&m=Index&a=assessment_manage';
+		$.ajax({
+			url:url,
+			data:{'userid':userid},
+			type:'get',
+			dataType:'json',
+			beforeSend:function()
+			{
+
+			},
+			success:function(res)
+			{
+				if(res.status[0].already_com != null || res.status[0].wait_com != null)
+				{
+					if(res.Info.length>0)
+					{
+						handleHtml(res.Info);
+					}
+					else
+					{
+						//购买过商品但是都没评价
+						$("#access_con_part").hide();
+						$("#error").show();
+					}
+				}
+				else
+				{
+					//没有购买过商品，写评价按钮是灰色不能点击
+					$("#write").removeAttr('href').find('div').addClass('grey-disable');
+				}
+				$("#already_com").html(res.status[0].already_com?res.status[0].already_com:0);
+				$("#wait_com").html(res.status[0].wait_com?res.status[0].wait_com:0);
+			},
+			error:function()
+			{
+
+			}
+		})
+	}
+
+	function handleHtml(list)
+	{
+		var str = '';
+		$.each(list,function(k,v)
+		{
+			str += '<div class="store-search part2 clearfix">\
+						<div class="store-box clearfix">\
+							<div class="store-img">\
+							<img src="'+v.pic+'" alt="">\
+							</div>\
+							<div class="store-info">\
+								<p class="store-i-name">'+v.name+'</p>'
+								if(v.spec_value)
+								{
+							str += '<p class="choice-w-two content-choice-p ">'+v.spec_value+'</p>';
+								}
+					str += '</div>\
+							<div class="store-access1">已评价</div>\
+							<div class="store-access2">'+v.createtime+'</div>\
+						</div>\
+					</div>\
+					<div class="personal-access-content part4">'+v.con+'</div>'
+		})
+		$("#access_con_part").html(str)
+	}
+</script>

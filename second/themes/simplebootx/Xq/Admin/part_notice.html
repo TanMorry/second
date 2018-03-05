@@ -1,0 +1,265 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<!--[if lt IE 9]>
+<script type="text/javascript" src="lib/html5.js"></script>
+<script type="text/javascript" src="lib/respond.min.js"></script>
+<script type="text/javascript" src="lib/PIE_IE678.js"></script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/static/h-ui/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/lib/Hui-iconfont/1.0.7/iconfont.css" />
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/lib/icheck/icheck.css" />
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/static/h-ui/css/toolTip-style.css" />
+<!--[if IE 6]>
+<script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script>DD_belatedPNG.fix('*');</script>
+<![endif]-->
+<title>各板块公告</title>
+	<style>
+		#DataTables_Table_0_info
+		{
+			display:none;
+		}
+	</style>
+</head>
+<body>
+<nav class="breadcrumb">
+	<i class="Hui-iconfont">&#xe67f;</i> 
+		公告管理 <span class="c-gray en">&gt;</span> 
+		各板块公告 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" >
+	<i class="Hui-iconfont">&#xe68f;</i></a>
+</nav>
+
+<div class="page-container">
+<form action="{:U('Admin/filtering_notice')}" method="post" id="myForm">
+	<span class="text-c">属性：<span class="select-box inline">
+		<select name="attr" class="select" onchange="attr1()">
+			<option value="0" <if condition="$attr eq 0">selected</if>>全部</option>
+			<option value="1" <if condition="$attr eq 1">selected</if>>大众</option>
+			<option value="2" <if condition="$attr eq 2">selected</if>>腐向</option>
+			<option value="3" <if condition="$attr eq 3">selected</if>>百合</option>
+		</select>
+	</span>
+	</span>
+	
+	<span class="text-c"><span style="padding-right: 65px;"></span>板块：<span class="select-box inline">
+		<select name="module" class="select" onchange="attr1()">
+			<option value="0" <if condition="$module eq 0">selected</if>>全部</option>
+			<option value="1" <if condition="$module eq 1">selected</if>>闲情</option>
+			<option value="2" <if condition="$module eq 2">selected</if>>文库</option>
+		</select>
+	</span>
+	</span>
+	
+	<span class="text-c"><span style="padding-right: 65px;"></span>回帖状态：<span class="select-box inline">
+		<select name="isclosed" class="select" onchange="attr1()">
+			<option value="0" <if condition="$isclosed eq 0">selected</if>>全部</option>
+			<option value="1" <if condition="$isclosed eq 1">selected</if>>禁止</option>
+			<option value="2" <if condition="$isclosed eq 2">selected</if>>允许</option>
+		</select>
+	</span>
+	</span>
+	<div style="float: right;margin: 20px 0px;"><input name="searchInfo" value="{$searchInfo}"/> <button type="button" onclick="search()">搜索</button>
+	</div>
+</form>
+	<div class="mt-20">
+		<table class="table table-border table-bordered table-bg table-hover table-sort">
+			<thead>
+				<tr class="text-c">
+					<th width="25"><input type="checkbox" name="" value=""></th>
+					<th width="100">公告ID</th>
+					<th width="330">公告标题</th>
+					<th width="50">属性</th>
+					<th width="50">版块</th>
+					<th width="100">发布者</th>
+					<th width="150">发布时间</th>
+					<th width="150">最新回复时间</th>
+					<th width="50">回复数</th>
+					<th width="50">回帖状态</th>
+					<th width="50">置顶时间</th>
+					<th width="100">操作</th>
+				</tr>
+			</thead>
+			<tbody>
+			<volist name="part_notice" id="vo">
+				<tr class="text-c">
+					<td><input type="checkbox" value="" name=""></td>
+					<td>{$vo.id}</td>
+					<td>
+						<if condition='$vo[type] eq 6'>
+						<a class="text-ys" target="_blank" href="{:U('index/topicDetail',array('id'=>$vo[id],type=>$vo[rtype],ttype=>$vo[type],isAdmin=>1,tzAttr=>$vo[attr],address=>1))}">{$vo.title}</a>
+						<else/>
+						<a class="text-ys" target="_blank" href="{:U('index/topicDetail',array('id'=>$vo[id],type=>$vo[rtype],ttype=>$vo[type],isAdmin=>1,tzAttr=>$vo[attr],address=>2))}">{$vo.title}</a>
+						</if>
+					</td>
+					<td>{$vo.attr}</td>
+					<td>{$vo.module}</td>
+					<td>{$vo.nickname}</td>
+					<td>{$vo.createtime|date='Y-m-d H:i:s',###}</td>
+					<td>{$vo.lasttime|date='Y-m-d H:i:s',###}</td>
+					<if condition="$vo.replies gt '1'">
+						<td><a href="{:U('Admin/noticeReply',array('id'=>$vo[id],type=>$vo[type],attr=>$vo[attr]))}">{$vo.replies}</a></td>
+						<else/>
+						<td>{$vo.replies}</td>
+					</if>
+					<td><if condition="$vo.isclosed neq 1">允许<else/>禁止回帖</if></td>
+					<td><if condition="$vo.sort neq '0'">{$vo.sort|date='Y-m-d H:i:s',###}<else/>&emsp;</if></td>
+					<td width="50px">
+						<if condition="$vo.sort neq '0'">
+							<a class="text-ys" onclick="noticeState(this);" data-cate="1" data-state="1" data-id="{$vo.id}" data-type="{$vo.type}" data-attr="{$vo.attr}">取消置顶</a>
+							<else/>
+							<a class="text-ys" onclick="noticeState(this);" data-cate="1" data-state="2" data-id="{$vo.id}" data-type="{$vo.type}" data-attr="{$vo.attr}">置顶</a>
+						</if>
+						<a class="text-ys" href="{:U('admin/editNotice',array('id'=>$vo['id'],'type'=>$vo['type']))}">编辑</a>
+						<if condition="$vo.isclosed eq 1">
+							<a class="text_cs" onclick="noticeState(this)" data-cate="2" data-state="{$vo.isclosed}" data-id="{$vo.id}" data-type="{$vo.type}">允许</a>
+							<else/>
+							<a class="text_cs" onclick="noticeState(this)" data-cate="2" data-state="{$vo.isclosed}" data-id="{$vo.id}" data-type="{$vo.type}">禁止回帖</a>
+						</if>
+						<a class="text_cs" data-id="{$vo.id}" data-type="{$vo.type}" onclick="del(this)"> 删除</a>
+					</td>
+				</tr>
+			</volist>
+			</tbody>
+		</table>
+		<!--<input id="partLimit" type="hidden" value={$partLimit}>-->
+	</div>
+</div>
+
+
+<script type="text/javascript" src="__TMPL__Public/lib/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="__TMPL__Public/lib/layer/2.1/layer.js"></script> 
+<script type="text/javascript" src="__TMPL__Public/lib/My97DatePicker/WdatePicker.js"></script> 
+<script type="text/javascript" src="__TMPL__Public/lib/datatables/1.10.0/jquery.dataTables.min.js"></script> 
+<script type="text/javascript" src="__TMPL__Public/static/h-ui/js/H-ui.js"></script> 
+<script type="text/javascript" src="__TMPL__Public/static/h-ui/js/H-ui.admin.js"></script>
+<script type="text/javascript" src="__TMPL__Public/static/h-ui/js/miao-dialog.js"></script>
+<script type="text/javascript">
+
+
+
+//更改状态
+function noticeState(obj)
+{
+	var currentState = $(obj).attr('data-state');
+	var currentId = $(obj).attr('data-id');
+	var currentType = $(obj).attr('data-type');
+	var currentCate = $(obj).attr('data-cate');
+	var url = "{:U('admin/AjaxNoticeState')}";
+	var currentAttr = $(obj).attr('data-attr');//用于区分三大属性的板块公告的限制
+//	debugger;
+	$.ajax({
+		url: url,
+		data: {'noticeState':currentState,'noticeId':currentId,'noticeType':currentType,'noticeCate':currentCate,'noticeAttr':currentAttr},
+		type: 'POST',
+		success: function(res)
+		{
+			if(res)
+			{
+				var str = "";
+				var str2 = "";
+				if(currentCate == 1)
+				{
+//					debugger;
+					if(res['limit'])
+					{
+						alert('已置顶的版块公告已达最大值，请取消不需要置顶的公告，或更改公告设置');
+						return false;
+					}
+					str +="<a class='text-ys' onclick='noticeState(this);' data-cate='1'";
+					if(res['sort'] != '0')
+					{
+						str +=" data-state='1' data-id='"+currentId+"' data-type='"+currentType+"' data-attr='"+currentAttr+"'>取消置顶";
+						str2 = res['sort'];
+					}
+					else
+					{
+						str +=" data-state='2' data-id='"+currentId+"' data-type='"+currentType+"' data-attr='"+currentAttr+"'>置顶";
+						str2 = '';
+					}
+					str +="</a>";
+					$(obj).parents('td').prev().html(str2);
+					$(obj).parents('td').find('a').eq(0).replaceWith(str);
+				}
+				else
+				{
+					str +="<a class='text-ys' onclick='noticeState(this);' data-cate='2'";
+					if(res['isclosed'] == 1)
+					{
+						str +=" data-state='1' data-id='"+currentId+"' data-type='"+currentType+"'>允许";
+						str2 = "禁止回帖";
+					}
+					else
+					{
+						str +=" data-state='2' data-id='"+currentId+"' data-type='"+currentType+"'>禁止回帖";
+						str2 = "允许";
+					}
+					str +="</a>";
+					$(obj).parents('td').prev().prev().html(str2);
+					$(obj).parents('td').find('a').eq(2).replaceWith(str);
+				}
+			}
+			else
+			{
+				alert('设置失败');
+			}
+		},
+		error: function ()
+		{
+			alert('请求失败');
+		}
+	})
+}
+
+
+//删除公告
+function del(obj)
+{
+	var noticeId = $(obj).attr('data-id');
+	var noticeType = $(obj).attr('data-type');
+	var url = "{:U('admin/ajaxDel')}";
+	$.ajax({
+		url:url,
+		data:{'id':noticeId,'type':noticeType},
+		type:'POST',
+		success:function(res)
+		{
+			if(res == 1)
+			{
+				$(obj).parents('tr').remove();
+			}
+			else
+			{
+				alert('删除失败');
+			}
+		},
+		error:function()
+		{
+			alert('请求失败');
+		}
+	})
+}
+
+function attr1(){
+	$("#myForm").submit();
+}
+//搜索
+function search()
+{
+	var search = $('input[name=searchInfo]').val();
+	if(search == "")
+	{
+		alert('请输入搜索内容');
+		return false;
+	}
+	$("#myForm").submit();
+}
+</script>
+</body>
+</html>

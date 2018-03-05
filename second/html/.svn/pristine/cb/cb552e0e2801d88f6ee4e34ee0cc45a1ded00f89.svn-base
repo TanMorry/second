@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="format-detection" content="telephone=no"/>
+<title>喵</title>
+<link href="../css/global.css" rel="stylesheet" type="text/css">
+<link href="../css/public.css" rel="stylesheet" type="text/css">
+<link href="../css/electroninc-ticket.css" rel="stylesheet" type="text/css">
+<link href="../css/shop-cart-edit.css"  rel="stylesheet" type="text/css">
+
+<style type="text/css"></style>
+<script src="../js/jquery-2.2.4.min.js"></script>
+<script src="../js/jquerty-moveDelete.js"></script>
+<script src="../js/obtainArguments.js"></script>
+<script src="../js/jquerty-touchmove.js"></script>
+
+<script>
+$().ready(function(){
+//	/*滑动删除*/
+//	movetouch( $('.content-choice') );
+	
+	/*Ajax*/
+//	var Request = new Arguments();
+//	var urlMember = Request.Request();//获取url参数
+//	if( !isEmpty(urlMember.id) ){
+//		loadAjax();
+//	}
+//	else{
+//	}
+//	
+//	function loadAjax(){
+//		var url = "/tongrenmiao/index.php?g=Mall&m=index&a=personalInformation";
+//		$.ajax({
+//			url:url,
+//			data:{'userid':urlMember.id},
+//			dataType:'json',
+//			type:'get',
+//			beforeSend:function()
+//			{
+//				
+//			},
+//			success:function(ret)
+//			{
+//				
+//			}
+//		})
+//	};
+//	
+//	function isEmpty(e){
+//		if( e = "" || e == null || e == undefined  ){
+//			return true;
+//		}
+//		else{
+//			return false;
+//		}
+//	};
+})
+</script>
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex">
+    <section class="header">
+        <div class="header-bg normal">
+            <div class="header-l"><a href="../personal-information.html"></a></div>
+            <div class="header-c header-dz new-dz">我的电子票</div>
+        </div>
+        <div class="header-nav">
+            <a class="content-nav-btn">未使用</a>
+            <a href="electronic-ticket-used.html">已使用</a>
+            <a href="electronic-ticket-expired.html">已过期</a>
+        </div>
+    </section>
+    <!-- 主体 -->
+    <section class="content">
+        <a class="et-content part" href="#">
+        	<!--<div class="content-delete">删除</div>-->
+        	<img src="../img/ticket-small.png"/>
+        	<div class=""><div></div></div>
+        	<div class="box">
+        		<p class="font1">Chinajoy 2016 动漫展门票</p>
+        		<p class="font2">单价 ￥260.00 元</p>
+        		<p class="font3">购买时间： 2016.05.06 11：50</p>
+        	</div>
+        	<i></i>
+        </a>
+        <a class="et-content part" href="#">
+        	<!--<div class="content-delete">删除</div>-->
+        	<img src="../img/ticket-small.png"/>
+        	<div class=""><div></div></div>
+        	<div class="box">
+        		<p class="font1">Chinajoy 2016 动漫展门票</p>
+        		<p class="font2">单价 ￥260.00 元</p>
+        		<p class="font3">购买时间： 2016.05.06 11：50</p>
+        	</div>
+        	<i></i>
+        </a>
+        <a class="et-content part" href="#">
+        	<!--<div class="content-delete">删除</div>-->
+        	<img src="../img/ticket-small.png"/>
+        	<div class=""><div></div></div>
+        	<div class="box">
+        		<p class="font1">Chinajoy 2016 动漫展门票</p>
+        		<p class="font2">单价 ￥260.00 元</p>
+        		<p class="font3">购买时间： 2016.05.06 11：50</p>
+        	</div>
+        	<i></i>
+        </a>
+        <a class="et-content part" href="#">
+        	<!--<div class="content-delete">删除</div>-->
+        	<img src="../img/ticket-small.png"/>
+        	<div class=""><div></div></div>
+        	<div class="box">
+        		<p class="font1">Chinajoy 2016 动漫展门票</p>
+        		<p class="font2">单价 ￥260.00 元</p>
+        		<p class="font3">购买时间： 2016.05.06 11：50</p>
+        	</div>
+        	<i></i>
+        </a>
+        <a class="et-content part" href="#">
+        	<!--<div class="content-delete">删除</div>-->
+        	<img src="../img/ticket-small.png"/>
+        	<div class=""><div></div></div>
+        	<div class="box">
+        		<p class="font1">Chinajoy 2016 动漫展门票</p>
+        		<p class="font2">单价 ￥260.00 元</p>
+        		<p class="font3">购买时间： 2016.05.06 11：50</p>
+        	</div>
+        	<i></i>
+        </a>
+    </section>
+    <section class="footer">
+    </section>
+</section>
+</body>
+</html>

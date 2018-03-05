@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--<title>闲情搜索</title>-->
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+<tc_include file="Public:nav" />
+<link href="__TMPL__Public/css/advance.css" rel="stylesheet" type="text/css" />
+<link href="__TMPL__Public/css/trxq_wdr.css" rel="stylesheet" type="text/css" />
+<link href="__TMPL__Public/css/dropkick.css" rel="stylesheet" type="text/css" />
+
+
+<script src="__TMPL__Public/js/miao-GoTop.js"></script>
+<script src="__TMPL__Public/js/miao-Dialog.js"></script>
+<script src="__TMPL__Public/js/jquery.Rotate.2.2.js"></script>
+<script src="__TMPL__Public/js/jquery.dropkick-min.js"></script>
+<style>
+	#dk_container_titleType
+	{
+		height: 30px;
+	}
+</style>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+	//下拉选择框
+	$('.dropkick').dropkick({autoWidth:true});
+
+	$(".M-H-li").on('mouseout mouseover', 'a', function(event) {
+		if(event.type == 'mouseover')
+		{
+			$(this).parent().addClass('checked');
+		}
+		else if(event.type == 'mouseout')
+		{
+			$(this).parent().removeClass('checked');
+		}
+	});
+
+
+	$(".M_GoTop").MiaoGoTop({
+		fixed: true,
+		x: 960, //960是页面宽
+		xMargin: 15, //距离页面和屏幕右边最小的边距
+		y: 60 //距离底部
+	});
+
+	$(".align_left a").each(function(){
+		var text = $(this).text();
+		if($(this).text().length > 42)
+		{
+			$(this).text(text.substring(0, 42) + "...");
+		}
+	});
+});
+
+</script>
+</head>
+
+<body>
+
+	<!--上面是页头-->
+
+
+	<!--下面是海报三大块-->
+	<div class="wdr_Center">
+		<div class="top_Picture"></div>
+		<form action="{:U('index/xqTrleisureSearch',array('lib'=>$lib,attr=>$attr))}" method="post" id="search_form">
+		<div class="store-search">
+			<ul class="ss-bar">
+				<li>
+					<select name="titleType" class="dropkick" >
+						<foreach name="titleFiled" item="field">
+							<option value="{$key}" <if condition='$titleType eq $key'>selected</if>>{$field}</option>
+						</foreach>
+					</select>
+				</li>
+				<li><input name="searchInfo" type="text" value="{$info}"></li>
+				<li><a href="javascript:document:search_form.submit();"></a></li>
+				<input type="hidden" name="libSearch" value="1"/>
+			</ul>
+		</div>
+		<div class="M_Layout clearfix">
+
+			<div class="store-screen">
+				<div class="ss-result">
+					<ul>
+						<li><a href="{:U('index/index',array(attr=>$attr))}">同人闲情</a><a href="{:U('index/index',array(attr=>$attr))}"><if condition="$attr eq 1">&gt;大众</if><if condition="$attr eq 2">&gt;腐向</if><if condition="$attr eq 3">&gt;百合</if></a><if condition="$lib eq 1"><a href="{:U('index/trleisure_library',array(attr=>$attr))}">&gt;同人文库</a></if></li>
+					</ul>
+					<!--<span class="ss-count">搜索结果&gt;关键字&gt;<i>“{$info}”</i>&nbsp;共<i>{$countList}</i>件商品</span>-->
+					<div class="clear"></div>
+				</div>
+			</div>
+			<!--文章状态 star-->
+			<if condition="$lib neq null">
+				<div class="ss-dl ss-dl-single">
+					<div>
+						<div class="ss-dt">文章状态：</div>
+						<div class="ss-dd">
+							<ul>
+								<!--<li class="select_qx checked" onclick="radio(this)"><label class="select_checkbox"></label>全部</li>-->
+								<foreach name="libTag" item="libTag">
+									<if condition="$fixTagArr neq ''">
+										<li class="select_qx <in name='key' value='$fixTagArr'>checked</in>" onclick="fixedTag(this);"><label class="select_checkbox"></label>{$libTag}</li>
+										<in name='key' value='$fixTagArr'><input type="hidden" name="fixedTag[]" value="{$key}"/><else/><input type="hidden"  value="{$key}"/></in>
+										<else/>
+										<li class="select_qx checked" onclick="fixedTag(this);"><label class="select_checkbox"></label>{$libTag}</li>
+										<input type="hidden" name="fixedTag[]" value="{$key}">
+									</if>
+								</foreach>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!--文章状态 end-->
+
+				<!--文章所含部分特性 star-->
+				<div class="ss-dl ss-dl-single">
+					<div class="ss-ss">
+						<div class="ss-dt">文章所含部分特性：</div>
+						<div class="ss-dd">
+							<ul>
+								<volist name="bubble" id="bub">
+									<if condition="$tagsArr neq null">
+										<li class="select_qx <in name='bub.id' value='$tagsArr'>checked</in>" onclick="libTags(this);"><label class="select_checkbox"></label>{$bub['name']}</li>
+										<in name='bub.id' value='$tagsArr'><input type="hidden" name="tagsId[]" value="{$bub['id']}"><else/><input type="hidden"  value="{$bub['id']}"></in>
+										<else/>
+										<li class="select_qx" onclick="libTags(this);"><label class="select_checkbox"></label>{$bub['name']}</li>
+										<input type="hidden" value="{$bub['id']}">
+									</if>
+
+								</volist>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!--文章所含部分特性 end-->
+			</if>
+		</div>
+		</form>
+
+		<div class="wdr_Layout trxq-info clearfix">
+			<!-- background 100% of < IE9 -->
+			<div class="fan_post">
+				<table cellpadding="0" cellspacing="0">
+					<tr>
+						<td class="bianqian title">标签</td>
+						<td class="zhuti title">主题</td>
+						<td class="zuozhe title">作者<td>
+						<td class="fabushijian title" style="font-size: 14px;">发布时间</td>
+						<td class="huifushu title" style="font-size: 14px;">回复数</td>
+						<td class="huifushijian title" style="font-size: 14px;">回复时间</td>
+					</tr>
+
+				</table>
+
+				<!--<div class="theme_title">主题</div>-->
+				<table cellpadding="0" cellspacing="0" style="margin-top:10px;">
+					<foreach name="list" item="topic">
+						<tr class="bg" height="30px;" style="vertical-align: top;">
+							<td class="bianqian" style="color:#BBA324;">{$topic['typename']}</td>
+							<td class="zhuti align_left">
+								<if condition="$topic['sort'] neq 0">
+									<span class="ding"></span>
+								</if>
+								<if condition="$topic['isexcellent'] eq 1">
+									<span class="jing"></span>
+								</if>
+								<if condition="$lib eq 1">
+									<a target="_blank" href="{:U('index/topicDetail',array(id=>$topic['id'],type=>$topic['rtype'],address=>2,'tzAttr'=>$attr))}" class="theme" <if condition="$topic['isred'] eq 1 || $topic['type'] eq 3">style="color:red;font-size: 16px;"<else/>style="font-size: 16px;"</if>><if condition="$topic['author'] neq null">{$topic['author']}</if><if condition="$topic['cpname'] neq null">{$topic['cpname']}</if>{$topic['title']}</a>
+									<else/>
+									<a target="_blank" href="{:U('index/topicDetail',array(id=>$topic['id'],type=>$topic['rtype'],address=>1,'tzAttr'=>$attr))}"  class="theme" <if condition="$topic['isred'] eq 1 || $topic['type'] eq 6">style="color:red;font-size: 16px;"<else/>style="font-size: 16px;"</if>>{$topic['title']}</a>
+								</if>
+							</td>
+							<if condition="$topic.type eq 6 || $topic.type eq 3">
+								<td class="zuozhe" style="color: red;padding-bottom:10px;font-size: 16px;">{$topic['nickname']}</td>
+								<else/>
+								<td class="zuozhe" style="padding-bottom:10px;font-size: 16px;">{$topic['nickname']}</td>
+							</if>
+							<!--<td class="zuozhe" >{$topic['nickname']}<td>-->
+							<td class="fabushijian">{$topic['createtime']|date='Y-m-d H:i',###}</td>
+							<td class="huifushu">{$topic['replies']}</td>
+							<td class="huifushijian">{$topic['lasttime']|date='Y-m-d H:i',###}</td>
+						</tr>
+					</foreach>
+				</table>
+			</div>
+			<!-- 新的end-->
+
+			<!-- 底部开始-->
+			<div class="bottom_title">
+				{$page}
+           </div>
+			<!-- 底部end-->
+			<p style="color: #000;font-size: 12px;position: absolute; left: 0; bottom: 5px; right: 0;">沪ICP备16017797号</p>
+		</div>
+	</div>
+	<!--<a class="M_GoTop" href="javascript:;"></a>-->
+	<input type="hidden" id="fixTagArr" value={$jsonfixTagArr}>
+	<input type="hidden" id="tagsArr" value={$jsontagsArr}>
+</body>
+</html>
+<script>
+	$(function() {
+		var url = $('.tiaozhuan').attr("href");//获取跳转的url
+		var totalPage = $("#totalPage").text();//获取总页数
+		if(totalPage<2)
+		{
+			$("#jump").hide();
+		}
+		var nextUrl = $('.next').attr("href");//获取下一页的url
+		var prevUrl = $('.prev').attr("href");//获取下一页的url
+		var searchInfo = '{$info}';//搜索信息
+		var titleType = '{$titleType}';//搜索字段
+		var fixTagStr = $("#fixTagArr").val();//固定标签
+		var tagsStr = $("#tagsArr").val();//固定标签
+		var lib = '{$lib}';//文库还是闲情
+		var attr = '{$attr}';
+		if(lib)
+		{
+			var newnextUrl = nextUrl+'&searchInfo='+searchInfo+'&titleType='+titleType+'&lib='+lib+'&fixTagStr='+fixTagStr+'&tagsStr='+tagsStr+'&attr='+attr;
+			var newprevUrl = prevUrl+'&searchInfo='+searchInfo+'&titleType='+titleType+'&lib='+lib+'&fixTagStr='+fixTagStr+'&tagsStr='+tagsStr+'&attr='+attr;
+		}
+		else
+		{
+			var newnextUrl = nextUrl+'&searchInfo='+searchInfo+'&titleType='+titleType+'&lib='+lib+'&attr='+attr;
+			var newprevUrl = prevUrl+'&searchInfo='+searchInfo+'&titleType='+titleType+'&lib='+lib+'&attr='+attr;
+		}
+
+		$('.next').attr("href", newnextUrl);
+		$('.prev').attr("href", newprevUrl);
+		$("#test").removeAttr('href');//禁止跳转
+		$('#z').bind('input propertychange', function() {
+
+			var value = this.value;
+			var all = $('.all').attr("title");
+			var i = parseFloat(all);//将字符转化成数字
+			if (value <= i && !isNaN(value) && value > 0 && value !="") {
+				value = Math.ceil(value);
+				if(lib)
+				{
+					var newurl = url+ value+'&searchInfo='+searchInfo+'&titleType='+titleType+'&lib='+lib+'&fixTagStr='+fixTagStr+'&tagsStr='+tagsStr+'&attr='+attr;
+				}
+				else
+				{
+					var newurl = url+ value+'&searchInfo='+searchInfo+'&titleType='+titleType+'&lib='+lib+'&attr='+attr;
+				}
+				$('.tiaozhuan').attr("href", newurl);
+			}
+			else
+			{
+				$("#test").removeAttr('href');//禁止跳转
+			}
+		})
+	})
+
+	//回车触发按钮点击
+	document.onkeydown=function()
+	{
+		if (event.keyCode == 13)
+		{
+			document.getElementById("test").click();
+		}
+	}
+
+
+	//文章特有标签筛选
+	function libTags(obj)
+	{
+		var currentName = 'tagsId[]';
+		chooseTags(obj,currentName);
+		$("#search_form").submit();
+	}
+
+	//固定标签
+	function fixedTag(obj)
+	{
+		var currentName = 'fixedTag[]';
+		var result = chooseTags(obj,currentName);
+		if(false != result)
+		{
+			$("#search_form").submit();
+		}
+	}
+
+	//筛选标签
+	function chooseTags(obj,name)
+	{
+		var fixTagArr = $("#fixTagArr").val();
+		if($(obj).hasClass('checked'))
+		{
+			if(fixTagArr)
+			{
+				if(name == 'fixedTag[]')
+				{
+					var fixTagNum = eval("("+fixTagArr+")");
+					if(fixTagNum.length < 2)
+					{
+						alert("至少要选择一项");
+						return false;
+					}
+				}
+			}
+			$(obj).removeClass('checked');
+			$(obj).next('input').removeAttr('name');
+		}
+		else
+		{
+			$(obj).addClass('checked');
+			$(obj).next('input').attr('name',name);
+		}
+	}
+
+</script>

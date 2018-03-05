@@ -1,0 +1,132 @@
+@charset "utf-8";
+body {
+	text-align:center;
+	background:#f6f6f6;
+	font-size: 16px;
+	font-family:"Microsoft YaHei","黑体","Helvetica Neue",Helvetica,STHeiTi,sans-serif;
+}
+* {
+	margin:0;
+	padding:0;
+	border:0;
+	list-style:none;
+	outline:none;
+}
+i, em, b {
+	font-style:normal;
+	font-weight:normal;
+}
+h1,h2,h3,h4,h5,h6 {
+	font-size:100%;
+	font-weight:normal;
+}
+a{text-decoration:none;}
+a:link{text-decoration:none;}
+a:hover{text-decoration:none;}
+a:active{text-decoration:none;}
+a:visited{text-decoration:none;}
+
+.clear{
+	width: 0;
+	height: 0;
+	clear:both !important;
+}
+.clearfix:after{
+	content:" ";
+	display:block;
+	width:0;
+	height:0;
+	clear:both;
+	visibility:hidden;
+}
+.none{
+	display:none !important;
+}
+.hide{
+	display:none;
+}
+.hidden{
+	visibility:hidden !important;
+}
+.float-left{
+	float: left;
+}
+.float-right{
+	float: right;
+}
+
+/*float 居中 父级元素需要overflow:hidden 否则可能出现横向滚动条*/
+.float-center{
+	position: relative;
+	float: left;
+	left: 50%;
+}
+.float-center>*{
+	position: relative;
+	float: left;
+	right: 50%;
+}
+
+/*通用页面宽度*/
+.M_Center{
+	width: 960px;
+	margin: 0 auto;
+}
+/*阴影实现*/
+.M_Layout{
+	background: #fff;
+	
+	-webkit-box-shadow: 0 2px 3px #CCCCCC;/*兼容safari或chrome*/
+	-moz-box-shadow: 0 2px 3px #CCCCCC;/*兼容firefox*/
+	box-shadow:0 2px 3px #CCCCCC;/*兼容opera或ie9*/
+	filter:progid:DXImageTransform.Microsoft.Shadow(Strength=3,Direction=135,Color='#CCCCCC');/*IE7-8使用滤镜*/
+}
+.M_Layout{
+	/*background: #fff;*/
+}
+
+.M_BTM_15{margin-bottom: 15px;}
+.M_BTM_20{margin-bottom: 20px;}
+.M_BTM_25{margin-bottom: 25px;}
+.M_BTM_50{margin-bottom: 50px;}
+.M_BTM_100{margin-bottom: 100px;}
+.M_BTM_175{margin-bottom: 175px;}
+
+.zhbg{height: 380px;background: #ffffff;text-align: center}
+.zhbg div{height: 380px;width:719px;margin: 0 auto;background: url("../images/bg.gif")no-repeat center center }
+.zhtitle{height:49px;text-align: center;line-height: 49px;background:#fff581;font-size: 22px;font-weight: bold;width: 100%}
+.zhtitle span{color: #eb6877}
+.container{height:2950px;background:#f6f6f6}
+.content{height:2830px;width:960px;background:#ffffff;margin: 0 auto;}
+.content-ft{font-size:16px;text-align: center;color:#000000;padding-top: 37px;padding-bottom:44px;font-weight: 700}
+.content-ft span{color:#a76d22;}
+.content-hot{margin-bottom:39px;}
+.content-hot li {display: inline-block}
+.content-img1{height: 155px;width: 155px;border-radius:77px;display: inline-block;margin:0 37px;background: url("../images/icon-bg.gif")no-repeat center center }
+.content-img1:hover{background: url("../images/dasheng-1.png")no-repeat center center}
+.content-img2{height: 155px;width: 155px;border-radius:77px;display: inline-block;margin:0 37px;background: url("../images/icon-bg2.gif")no-repeat center center }
+.content-img2:hover{background: url("../images/wuyu.png")no-repeat center center}
+.content-img3{height: 155px;width: 155px;border-radius:77px;display: inline-block;margin:0 37px;background: url("../images/icon-bg3.gif")no-repeat center center }
+.content-img3:hover{background: url("../images/meidui.png")no-repeat center center}
+.news{text-align: left}
+.news span{padding-left:16px}
+.news-i{color:#eb6877}
+.news li{margin-left: 32px;font-size:16px;color:#515151;margin-bottom: 20px;font-weight: 700}
+.news-p{margin-top:22px;margin-left: 35px;}
+.news-bg{margin: 0 auto;margin-top: 42px;}
+.column-bg{margin:45px 0;}
+.column-img{margin: 0 43px;}
+.column-ft{text-align: center;font-size: 16px;color:#7f7f7f}
+.column-ft>p{margin-bottom: 26px;}
+.dong-bg{margin: 0 auto;height: 155px;width: 185px;}
+.dong-bg{background: url("../images/dong.gif")no-repeat center top; }
+.dong-bg:hover{background: url("../images/dong-bg.gif")no-repeat center top;cursor: pointer}
+.banner{padding: 35px 0;}
+.dtu-bg{text-align: center }
+.dtu-bg>img {padding-top:45px;}
+.msg{text-align: center;margin-top:25px;color:#595959;font-weight:bold}
+.msg p{padding: 15px 0;}
+.msg span{color:#eb6877 ;}
+.service{height:40px;width: 657px;background: url("../images/msg-bg.gif")no-repeat center center;margin: 0 auto;
+	text-align: center;line-height: 40px;font-size:16px;margin-top: 25px}
+.service p{color:#ffc600;font-weight: 800}

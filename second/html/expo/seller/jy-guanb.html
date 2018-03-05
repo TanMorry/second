@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>展会</title>
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link href="../css/global.css" rel="stylesheet" type="text/css">
+    <link href="../css/layout.css" rel="stylesheet" type="text/css">
+    <link href="../css/seller.css" rel="stylesheet" type="text/css">
+    <link href="../css/buyer.css" rel="stylesheet" type="text/css">
+    <link href="../css/date_input.css" rel="stylesheet" type="text/css">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/expo.public.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+
+        });
+
+    </script>
+
+<body>
+
+<div class="M_Header M_BTM_25">
+    <div class="hd-bg">
+        <p class="hd-pink"></p>
+    </div>
+    <div class="hd-index M_Center clearfix ">
+        <div class="hd-main">
+            <ul class="float-center ">
+                <li class="hd-m-btn" ><a href="#">展会</a></li>
+                <li class="hd-m-btn fixed"><a href="#">社团铺</a></li>
+                <li class="hd-m-logo"></li>
+                <li class="hd-m-btn" ><a href="#">我的</a></li>
+                <li class="hd-m-btn" ><a href="#">同人闲情</a></li>
+            </ul>
+        </div>
+        <div class="hd-nav-r">
+            <ul class="hd-nav-not">
+                <li><a href="#">登录</a></li>
+                <li><a href="#">注册</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="M_Center clearfix">
+    <div class="seller-nav clearfix">
+        <a class="sn-l" href="#">我是卖家</a>
+        <span class="sn-r"><a href="#"><i><img src="../images/miao-mass-info.png" alt=""></i>我の铺子</a></span>
+    </div>
+
+    <div class="M_Left M_Layout M_BTM_175">
+        <div class="left-tree">
+            <dl>
+                <dt><a class="fixed" href="#">商品管理</a></dt>
+                <dd><a href="#">商品发布</a></dd>
+                <dd><a href="#">出售中的商品</a></dd>
+                <dd><a href="#">仓库中的商品</a></dd>
+                <dd><a href="#">分类管理</a></dd>
+
+                <dt><a href="#">交易管理</a></dt>
+                <dd><a href="#">已售商品</a></dd>
+                <dd><a href="#">发货地址</a></dd>
+                <dd><a href="#">物流工具</a></dd>
+                <dd><a href="#">我的评论</a></dd>
+
+                <dt><a href="#">店铺设置</a></dt>
+
+                <dt><a href="#">财布</a></dt>
+                <dd><a href="#">我の财布</a></dd>
+                <dd><a href="#">交易记录</a></dd>
+
+                <dt><a href="#">我の买买买</a></dt>
+            </dl>
+        </div>
+    </div>
+    <div class="M_Right M_Layout M_BTM_175">
+        <div class="seller-site ">
+            <a class="ss-base" href="#">卖家中心</a>
+            <a class="ss-next" href="#">交易管理</a>
+            <a class="ss-next" href="#">实物订单</a>
+            <a class="ss-last" href="#">交易关闭</a>
+        </div>
+        <div class="more">
+            <div class="list">
+                <div class="more-list-a">
+                    <label class="os-radio"><input type="radio" name="order" checked="checked" /><span>实物订单</span></label>
+                    &nbsp; &nbsp;<label class="os-radio"><input type="radio" name="order"/><span>虚拟订单</span></label>
+                </div>
+                <div class="more-list-b">
+                    <input class="more-input" type="text" value="请输入订单编号">
+                    <input class="more-submit" type="button">
+                </div>
+            </div>
+        </div>
+        <div class="more-btn">
+            <ul>
+                <li><a href="">所有订单</a></li>
+                <li><a href="">等待付款</a></li>
+                <li><a href="">等待发货</a></li>
+                <li><a href="">已经发货</a></li>
+                <li><a href="">已经完成</a></li>
+                <li  class="more-btn-color"><a href="">交易关闭</a></li>
+                <li><a href="">退款中</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <div>
+                <div class="list-head">
+                    <table>
+                        <tbody><tr>
+                            <th class="l-tb-1">商品详情</th>
+                            <th class="l-tb-2">单价（元）</th>
+                            <th class="l-tb-3">数量</th>
+                            <th class="l-tb-4">退货/退款</th>
+                            <th class="l-tb-5">买家</th>
+                            <th class="l-tb-6">订单总价</th>
+                            <th class="l-tb-7">交易与操作</th>
+                        </tr>
+                        </tbody></table>
+                </div>
+                <div class="list-body">
+                    <table class="l-tb-b">
+                        <tbody><tr>
+                            <th colspan="7">
+                                <i>订单号：1633313720001</i>
+                                <i>下单时间：2016-04-05  09:47:03</i>
+                                <a href="#" class="l-tb-one">查看订单</a>
+                                <a href="#" class="l-tb-two"><img src="../images/daying.png"></a>
+                            </th>
+                        </tr>
+                        <!-- 第一件商品 -->
+                        <tr>
+                            <td class="l-tb-1 l-tb-bb">
+                                <div class="l-tb-some clearfix">
+                                    <p class="l-tb-img">
+                                        <a href="#"><img src="../images/bg-toux.png" alt=""></a>
+                                    </p>
+                                    <a href="#">迪士尼动画长 </a><br>
+                                    <a href="#">套餐类型：正本+特典  </a>
+
+                                </div>
+                            </td>
+                            <td class="l-tb-2 l-tb-bb">1.00</td>
+                            <td class="l-tb-3 l-tb-bb">1</td>
+                            <td class="l-tb-4 l-tb-bb"><a href="#" class="l-tb-color">查看退货</a> </td>
+                            <!-- 第一种方法(京东是这种): 使用rowspan -->
+                            <td class="l-tb-5 l-tb-bl" rowspan="2">UBIC&nbsp;&nbsp;<a href="#"><img src="../images/icon-xinf.png"></a> </td>
+                            <td class="l-tb-6 l-tb-bl" rowspan="2"> <i class="l-tb-nor">66.00</i> <a class="l-tb-nor" href="#">含运费65.00</a> <a class="l-tb-color" href="#"> </a></td>
+                            <td class="l-tb-7 l-tb-bl" rowspan="2"> <a  class="l-tb-nor" href="#">订单详情</a> <a class="l-tb-nor" href="#">交易关闭</a><a  class="l-tb-color2" href="#"></a> </td>
+                        </tr>
+                        <!-- 第二件商品 -->
+
+
+                        </tbody></table>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="content">
+            <div>
+                <div class="list-head">
+                    <table>
+                        <tbody><tr>
+                            <th class="l-tb-1">商品详情</th>
+                            <th class="l-tb-2">单价（元）</th>
+                            <th class="l-tb-3">数量</th>
+                            <th class="l-tb-4">退货/退款</th>
+                            <th class="l-tb-5">买家</th>
+                            <th class="l-tb-6">订单总价</th>
+                            <th class="l-tb-7">交易与操作</th>
+                        </tr>
+                        </tbody></table>
+                </div>
+                <div class="list-body">
+                    <table class="l-tb-b">
+                        <tbody><tr>
+                            <th colspan="7">
+                                <i>订单号：1633313720001</i>
+                                <i>下单时间：2016-04-05  09:47:03</i>
+                                <a href="#" class="l-tb-one">查看订单</a>
+                                <a href="#" class="l-tb-two"><img src="../images/daying.png"></a>
+                            </th>
+                        </tr>
+                        <!-- 第一件商品 -->
+                        <tr>
+                            <td class="l-tb-1 l-tb-bb">
+                                <div class="l-tb-some clearfix">
+                                    <p class="l-tb-img">
+                                        <a href="#"><img src="../images/bg-toux.png" alt=""></a>
+                                    </p>
+                                    <a href="#">迪士尼动画长 </a><br>
+                                    <a href="#">套餐类型：正本+特典  </a>
+
+                                </div>
+                            </td>
+                            <td class="l-tb-2 l-tb-bb">1.00</td>
+                            <td class="l-tb-3 l-tb-bb">4</td>
+                            <td class="l-tb-4 l-tb-bb"><a href="#" class="l-tb-color">查看退货</a> </td>
+                            <!-- 第一种方法(京东是这种): 使用rowspan -->
+                            <td class="l-tb-5 l-tb-bl" rowspan="2">UBIC&nbsp;&nbsp;<a href="#"><img src="../images/icon-xinf.png"></a> </td>
+                            <td class="l-tb-6 l-tb-bl" rowspan="2"> <i class="l-tb-nor">249.00</i> <a class="l-tb-nor" href="#">含运费245.00</a> <a class="l-tb-color" href="#"> </a></td>
+                            <td class="l-tb-7 l-tb-bl" rowspan="2"> <a  class="l-tb-nor" href="#">订单详情</a> <a class="l-tb-nor" href="#">交易关闭</a><a  class="l-tb-color2" href="#"></a> </td>
+                        </tr>
+                        <!-- 第二件商品 -->
+
+
+                        </tbody></table>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="more-div"></div>
+    </div>
+</div>
+<div class="M_Footer">
+    <div class="M_Center clearfix">
+        <dl class="ft-dl">
+            <dt>同人喵APP</dt>
+            <dd class="ft-dd-i"><img src="../images/qr.png" /></dd>
+            <dd class="ft-dd-o">
+                <a href="#">安卓客户端</a>
+                <a href="#">安卓客户端</a>
+            </dd>
+        </dl>
+        <dl class="ft-dl">
+            <dt>关于我们</dt>
+            <dd class="ft-dd-o">
+                <a href="#">法律申明</a>
+                <a href="#">商务合作</a>
+            </dd>
+            <dd class="ft-dd-t">
+                <a href="#">使用手册</a>
+                <a href="#">服务条款</a>
+                <a href="#">意见反馈</a>
+            </dd>
+        </dl>
+        <dl class="ft-dl">
+            <dt>友情链接</dt>
+            <dd class="ft-dd-c">
+                <a href="http://www.wft-wft-wft.cn">www.wft-wft-wft.cn</a>
+                <b>上海wtf-666有限公司</b>
+                <i>上海市奉贤区wft-wft-wft路666号666室旁边的菜市场</i>
+            </dd>
+        </dl>
+        <dl class="ft-dl">
+            <dt>联系方式</dt>
+            <dd class="ft-dd-l">
+                <i>电话：400(800)-020-0000000</i>
+                <i>邮箱：wtf@wft-wft-wft.cn</i>
+                <p>
+                    <a class="ft-share-s" href="#"></a>
+                    <a class="ft-share-w" href="#"></a>
+                    <a class="ft-share-q" href="#"></a>
+                </p>
+            </dd>
+        </dl>
+
+    </div>
+</div>
+</body>
+</html>

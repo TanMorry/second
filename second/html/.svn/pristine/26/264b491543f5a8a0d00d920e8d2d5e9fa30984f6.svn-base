@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="format-detection" content="telephone=no"/>
+<title>喵</title>
+<link href="../css/global.css" rel="stylesheet" type="text/css">
+<link href="../css/public.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	
+</style>
+
+<script src="../js/jquery-2.2.4.min.js"></script>
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex">
+
+	<section class="header">
+		<div class="header-bg normal">
+			<div class="header-l"><a href="../main.html"></a></div>
+			<div class="header-c"><input class="search" type="text" placeholder="输入厂商名" onclick="location.href='../sousuo-index.html?from=dinzhi'"></div>
+			<div class="header-r"><a href="javascript:"></a></div>
+		</div>
+	</section>
+	<!-- 主体 -->
+	<div id="loading" style="display:none">
+		<img src="../img/loading.jpg">
+	</div>
+	<section class="content" id="content">
+		<div class="error" style="display: none" id="error">
+			<i><img src="../img/error.png"></i>
+			<a href="javascript:"></a>
+		</div>
+		<div class="custom-search part middle-bottom" >
+			<a href="../shangye-yinshua.html"><img src="../img/test/custom1.jpg" alt="图像加载失败">
+				<div class="custom-bg"></div>
+				<div class="custom-info vertical-center">
+					<p class="custom-i-name">全 职 高 手</p>
+					<p class="custom-i-text">介绍简介等等介绍简介等等介绍简介等等介绍简介等等介绍简介等等介绍简介等等介绍简介等等介绍简介等等介绍简介等等介绍简介等等介绍简介等等介绍简介等等</p>
+				</div>
+			</a>
+		</div>
+
+		<!--<div class="custom-search part middle-bottom">-->
+			<!--<img src="../img/test/custom2.jpg" alt="图像加载失败">-->
+			<!--<div class="custom-bg"></div>-->
+			<!--<div class="custom-info vertical-center">-->
+				<!--<p class="custom-i-name">全 职 高 手</p>-->
+				<!--<p class="custom-i-text">介绍简介等等介绍简介等等介绍简介等等介绍简介等等介绍简介等等介绍简介等等</p>-->
+			<!--</div>-->
+		<!--</div>-->
+
+		<!--<div class="custom-search part middle-bottom">-->
+			<!--<img src="../img/test/custom3.jpg" alt="图像加载失败">-->
+			<!--<div class="custom-bg"></div>-->
+			<!--<div class="custom-info vertical-center">-->
+				<!--<p class="custom-i-name">全 职 高 手</p>-->
+				<!--<p class="custom-i-text">介绍简介等等介绍简介等等介绍简介等等介绍简介等等介绍简介等等介绍简介等等介绍简介等等介绍简介等等介绍简介等等介绍简介等等介绍简介等等介绍简介等等</p>-->
+			<!--</div>-->
+		<!--</div>-->
+
+		<!--<div class="custom-search part middle-bottom">-->
+			<!--<img src="../img/test/custom1.jpg" alt="图像加载失败">-->
+			<!--<div class="custom-bg"></div>-->
+			<!--<div class="custom-info vertical-center">-->
+				<!--<p class="custom-i-name">全 职 高 手</p>-->
+				<!--<p class="custom-i-text">介绍简介等等介绍简介等等介绍简介等等介绍简介等等介绍简介等等介绍简介等等</p>-->
+			<!--</div>-->
+		<!--</div>-->
+
+		<!--<div class="custom-search part middle-bottom">-->
+			<!--<img src="../img/test/custom2.jpg" alt="图像加载失败">-->
+			<!--<div class="custom-bg"></div>-->
+			<!--<div class="custom-info vertical-center">-->
+				<!--<p class="custom-i-name">全 职 高 手</p>-->
+				<!--<p class="custom-i-text">介绍简介等等介绍简介等等介绍简介等等介绍简介等等介绍简介等等介绍简介等等</p>-->
+			<!--</div>-->
+		<!--</div>-->
+
+		<!--<div class="custom-search part middle-bottom">-->
+			<!--<img src="../img/test/custom3.jpg" alt="图像加载失败">-->
+			<!--<div class="custom-bg"></div>-->
+			<!--<div class="custom-info vertical-center">-->
+				<!--<p class="custom-i-name">全 职 高 手</p>-->
+				<!--<p class="custom-i-text">介绍简介等等介绍简介等等介绍简介等等介绍简介等等介绍简介等等介绍简介等等介绍简介等等介绍简介等等介绍简介等等介绍简介等等介绍简介等等介绍简介等等</p>-->
+			<!--</div>-->
+		<!--</div>-->
+
+	</section>
+
+	<section class="footer">
+	</section>
+</section>
+</body>
+</html>
+<script>
+	$(function()
+	{
+			IndexList()
+	})
+
+	function IndexList()
+	{
+		var url = '/tongrenmiao/index.php?g=Mall&m=Index&a=dingzhichang';
+		$.ajax({
+			url:url,
+			data:{},
+			type:'get',
+			dataType:'json',
+			beforeSend:function()
+			{
+				$("#loading").show();
+				$("#content").hide();
+			},
+			success:function(res)
+			{
+				$("#loading").hide();
+				$("#content").show();
+				if(res.Info.length > 0)
+				{
+					handleHtml(res.Info)
+				}
+				else
+				{
+					$("#error").show().find('a').html('没有定制厂');
+					$("#content >.custom-search").hide();
+				}
+			},
+			error:function()
+			{
+				$("#error").show().find('a').html('请求失败');
+			}
+		})
+	}
+
+	function handleHtml(list)
+	{
+		var str = "";
+		$.each(list,function(k,v)
+		{
+			str += '<div class="custom-search part middle-bottom" >\
+						<a href="../shangye-yinshua.html?shopId='+v.id+'"><img src="'+v.logo+'">\
+							<div class="custom-bg"></div>\
+							<div class="custom-info vertical-center">\
+							<p class="custom-i-name">'+v.company+'</p>\
+							<p class="custom-i-text">'+v.main_pro+'</p>\
+							</div>\
+						</a>\
+					</div>';
+		})
+		$("#content").html(str);
+	}
+</script>

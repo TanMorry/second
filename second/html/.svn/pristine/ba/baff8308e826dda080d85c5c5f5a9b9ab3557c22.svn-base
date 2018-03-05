@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no"/>
+    <title>喵</title>
+    <link type="text/css"  rel="stylesheet" href="../css/baby-fenlei.css">
+    <link type="text/css"  rel="stylesheet" href="../css/global.css">
+    <link type="text/css"  rel="stylesheet" href="../css/public.css">
+    <link type="text/css"  rel="stylesheet" href="../css/shop-fenlei.css">
+    <link type="text/css"  rel="stylesheet" href="../css/suoyou.css">
+    <link href="../css/xinpin-more.css" rel="stylesheet" type="text/css">
+    <script src="../js/jquery-2.2.4.min.js"></script>
+	<script src="../js/jquery-footer.js"></script>
+    <style type="text/css">
+    </style>
+    <script>
+        $().ready(function () {
+            $('.header-r').on('click', '.header-bg-btn', function(event) {
+                if( $(".header-r-tc").css('display') == 'none' ){
+                    $(".header-r-tc").slideDown();
+                }
+                else{
+                    $(".header-r-tc").css('display','none');
+                }
+            });
+            $('.content').on('click', function(event) {
+                $(".header-r-tc").css('display','none');
+            });
+            $('.footer').on('click', function(event) {
+                $(".header-r-tc").css('display','none');
+            });
+
+            var h1=$(".nav-btn-color");
+            var text=$(".nav-btn-ul");
+            var none=$(".content-cover");
+            var val=text.find("li a");
+            h1.click(function(){
+                text.show();
+                none.show();
+                text.focus();
+            });
+
+            text.on('click', 'li a',function(){
+                var t = $(this).text();
+                h1.text(t);
+                text.hide();
+                none.hide();
+            });
+
+            none.click(function() {
+                text.hide();
+                none.hide();
+            });
+           
+           
+	        $('.header-X').on('click', 'a', function(event) {
+				$(this).parents('.header-X').siblings('input[type=text]').val('');
+				$(this).parents('.header-X').css('display','none');
+			});	
+			$('.header-c').on('blur', 'input[type=text]', function(event) {
+				function isEmpty (val){
+					return val == '' || val === null || val === undefined;
+				}
+				if(   !isEmpty($(this).val())  ){
+					$(this).siblings('.header-X').css('display','block');
+				}
+				else{
+					$(this).siblings('.header-X').css('display','none');
+				}
+			});	
+			
+			$(function(){
+	            var h1=$(".header-btn-a>a");
+	            var text=$(".header-input .header-in-btn");
+	            var val=text.find("a");
+	            h1.click(function () {
+	                text.slideDown();
+	                text.focus();
+	            });
+	            h1.blur(function () {
+	                text.slideUp();
+	            });
+	            val.click(function(){
+	                var tex=$(this).text();
+	                h1.html(tex);
+	            })
+	        });
+
+        });
+
+
+    </script>
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex">
+    <section class="header">
+        <div class="header-bg normal header-input">
+            <div class="header-l"><a href="#"></a></div>
+            <div class="header-c position-relative">
+            	<input type="text" value="动漫抱枕" >
+	            <div class="header-btn-a"><a href="#" >商店</a></div>
+	            <div class="header-in-btn">
+	                <a href="#">商品</a>
+	                <a href="#">同人铺</a>
+	                <a href="#">商业店</a>
+
+	            </div>
+	            <div class="header-X">
+					<a href="#">×</a>
+				</div>
+            </div>
+            <div class="header-r">
+                <a  href="#" class="header-bg-btn"></a>
+                <div class="header-r-tc">
+                    <a href="#" class="header-tc-a"><img src="../img/xinfeng.png">消息</a>
+                    <a href="../main.html" class="header-tc-b"><img src="../img/shouy.png">首页</a>
+                </div>
+            </div>
+        </div>
+        <div class="nav-btn ">
+            <a href="#" class="nav-btn-color nav-btn-a position-a nav-btn-top">人气排序</a>
+            <a href="#">销量优先</a>
+            <a href="#" class="nav-btn-a position-c">筛选</a>
+            <ul class="nav-btn-ul">
+                <li><a href="#" >人气排序</a> </li>
+                <li><a href="#">价格从低到高</a></li>
+                <li><a href="#">价格从高到低</a></li>
+            </ul>
+        </div>
+    </section>
+    <section class="content cover">
+        <div class="content-cover"></div>
+        <div class="sale-item2 part bus-goods">
+            <ul class="sale-ones tie clearfix">
+                <li>
+                    <div class="sale-ones-front tie">
+                        <p class="sale-of-img"><img src="../img/huibai-bg.png"></p>
+                        <p class="sale-of-name">商品名称</p>
+                        <p class="sale-of-text">
+                            <span>原作:伪装者</span>
+                            <span>CP圈:楼成</span>
+                        </p>
+                        <p class="sale-of-price">￥6</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="sale-ones-front tie">
+                        <p class="sale-of-img"><img src="../img/huibai-bg.png"></p>
+                        <p class="sale-of-name">商品名称</p>
+                        <p class="sale-of-text">
+                            <span>原作:伪装者</span>
+                            <span>CP圈:楼成</span>
+                        </p>
+                        <p class="sale-of-price">￥6</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="sale-ones-front tie">
+                        <p class="sale-of-img"><img src="../img/huibai-bg.png"></p>
+                        <p class="sale-of-name">商品名称</p>
+                        <p class="sale-of-text">
+                            <span>原作:伪装者</span>
+                            <span>CP圈:楼成</span>
+                        </p>
+                        <p class="sale-of-price">￥6</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="sale-ones-front tie">
+                        <p class="sale-of-img"><img src="../img/huibai-bg.png"></p>
+                        <p class="sale-of-name">商品名称</p>
+                        <p class="sale-of-text">
+                            <span>原作:伪装者</span>
+                            <span>CP圈:楼成</span>
+                        </p>
+                        <p class="sale-of-price">￥6</p>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+
+    </section>
+            <section class="footer">
+                <div class="page horizontal-center">
+                    <a class="page-up" href="#"></a>
+                    <i class="auto-width"><!-- auto width --></i>
+                    <input class="page-write" type="text">
+                    <a class="page-go" href="#">GO</a>
+                    <span class="page-count">100/100</span>
+                    <i class="auto-width"><!-- auto width --></i>
+                    <a class="page-down" href="#"></a>
+                </div>
+            </section>
+</section>
+</body>
+</html>

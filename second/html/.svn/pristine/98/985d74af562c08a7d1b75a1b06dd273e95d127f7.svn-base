@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no"/>
+    <title>喵</title>
+    <link href="css/global.css" rel="stylesheet" type="text/css">
+    <link href="css/public.css" rel="stylesheet" type="text/css">
+    <link href="css/shop-fenlei.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+    </style>
+
+    <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="js/obtainArguments.js"></script>
+    <script src="js/miao-Dialog.js"></script>
+
+    <script>
+        $().ready(function(){
+            $('.header-r').on('click', '.header-bg-btn', function(event) {
+                if( $(".header-r-tc").css('display') == 'none' ){
+                    $(".header-r-tc").css('display','block')
+                }
+                else{
+                    $(".header-r-tc").css('display','none');
+                }
+            });
+            $('.content').on('click', function(event) {
+                $(".header-r-tc").css('display','none');
+            });
+            $('.footer').on('click', function(event) {
+                $(".header-r-tc").css('display','none');
+            });
+        })
+    </script>
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex">
+    <section class="header">
+        <div class="header-bg normal">
+            <div class="header-l"><a href="search/dingzhichang.html"></a></div>
+            <div class="header-c"><input class="search" type="text" placeholder="搜索店铺内的宝贝" onclick="location.href='sousuo-index.html'"></div>
+            <div class="header-r">
+                <a  href="#" class="header-bg-btn"></a>
+                <div class="header-r-tc">
+                    <a href="#" class="header-tc-a"><img src="img/xinfeng.png">消息</a>
+                    <a href="main.html" class="header-tc-b"><img src="img/shouy.png">首页</a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- 主体 -->
+    <section class="content flex">
+        <div class="nav-more ">
+            <img src="img/bg-hear.png">
+            <div class="list clearfix">
+                <div class="list-l list-bg1">
+                    <span id="shop_name">向日葵的忧伤</span>
+                    <a href="javascript:">定制厂</a>
+                </div>
+                <div class="list-r">
+                    <div class="list-follow">
+                        <p><b id="num">60</b>人</p>
+                        <p>关注人数</p>
+                    </div>
+                    <a class="list-btn" href="javascript:" onclick="collect(this)"></a>
+                </div>
+            </div>
+        </div>
+        <div class="main think-to love">
+            <div class="think-to-first clearfix">
+                <a class="think-tf-love fixed" href="javascript:" onclick="changeCate(1,this)"><i class="think-color">本子印刷</i></a>
+                <a class="think-tf-kind" href="javascript:" onclick="changeCate(2,this)"><i>厂商信息</i></a>
+            </div>
+        </div>
+        <div class="sale-item part " >
+            <ul class="sale-ones clearfix csale-h" id="benzi">
+                <li>
+                    <div class="sale-ones-front">
+                        <p class="sale-of-img"><img src="img/csale-icon.png"></p>
+
+                    </div>
+                </li>
+            </ul>
+            <ul class="main-infor" id="buss_info">
+                <!--<li>厂商名称：XXXX</li>-->
+                <!--<li><p>厂商介绍：</p>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX XXXXXXXX</li>-->
+                <!--<li>厂商地址：XXXXXXXXXXXX </li>-->
+                <!--<li>开业时间：XXXX-XX-XX</li>-->
+                <!--<li class="main-img">厂商实景-->
+                    <!--<ul class="sale-ones clearfix main-img-d">-->
+                        <!--<li>-->
+                            <!--<div class="sale-ones-front">-->
+                                <!--<p class="sale-of-img"></p>-->
+                            <!--</div>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<div class="sale-ones-front ">-->
+                                <!--<p class="sale-of-img"></p>-->
+                            <!--</div>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<div class="sale-ones-front">-->
+                                <!--<p class="sale-of-img"></p>-->
+                            <!--</div>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</li>-->
+            </ul>
+        </div>
+    </section>
+    <section class="footer" style="display:none;">
+        <div class="footer-last">
+            <a href="#"> 联系商家</a>
+        </div>
+    </section>
+    <div class="confirm-pop-ups font3" id="cpp">
+        <p></p>
+    </div>
+</section>
+</body>
+</html>
+<script>
+    var url = new Arguments();
+    var param = url.Request();
+    var userid = 2;
+    var username = "lalala";
+    var shopname;
+    var shopInfo;
+
+    $(function()
+    {
+        IndexList();
+        changeCate(1);
+    })
+    function IndexList()
+    {
+        var url = '/tongrenmiao/index.php?g=Mall&m=Index&a=shopInfo';
+        var data = {};
+        data['shopId'] = param.shopId;
+        data['uid'] = userid;
+        $.ajax({
+            url:url,
+            data:data,
+            type:'get',
+            dataType:'json',
+            beforeSend:function()
+            {
+
+            },
+            success:function(res)
+            {
+                if(res.Info.length>0)
+                {
+                    shopInfo = res.Info[0];
+                    shopname = res.Info[0].company;
+                    $("#shop_name").html(res.Info[0].company);
+                    $("#num").html(res.Info[0].shop_collect);
+                }
+            },
+            error:function()
+            {
+
+            }
+        })
+    }
+
+    function collect(obj)
+    {
+        //先判断cookie里面有没有登陆信息没有跳转登录页
+        if(userid == "")
+        {
+            //返回登录页
+        }
+        else
+        {
+            var url="/tongrenmiao/index.php?g=Mall&m=index&a=isCollect";
+            var data = {};
+            data['collect'] = $(obj).hasClass('list-btn-bg') ? 0 : 1;
+            data['userid'] = userid;
+            data['uname'] = username;
+            data['shopid'] = param.shopId;
+            data['shopname'] = shopname;
+            //添加取消收藏
+            $.ajax({
+                url:url,
+                data:data,
+                type:'get',
+                dataType:'json',
+                beforeSend:function()
+                {
+
+                },
+                success:function(data)
+                {
+                    if(data.collect == 1)
+                    {
+                        alertInfo('收藏成功');
+                    }
+                    else
+                    {
+                        alertInfo('取消收藏');
+                    }
+                    $("#num").html(data.attenNum);
+                    $(obj).toggleClass('list-btn-bg')
+                }
+            })
+        }
+    }
+    //提示框
+    function alertInfo(mes)
+    {
+        var phone2 = $('#cpp').MiaoDialog();
+        phone2.MiaoDialog('open');
+        $('#cpp').find('p').text(mes);
+        setTimeout(function(){
+            phone2.MiaoDialog('close');
+        },1400);
+    }
+
+    function changeCate(cate,obj)
+    {
+        $(obj).addClass('think-tf-love fixed').siblings().removeClass('think-tf-love fixed');
+        if(cate == 1)
+        {
+            //本子印刷
+            shopBaby();
+            $(".footer").hide();
+        }
+        else
+        {
+            $("#benzi").hide();
+            $("#buss_info").show();
+
+            //厂家信息
+            var str = ' <li>厂商名称：'+shopInfo.company+'</li>\
+                        <li><p>厂商介绍：</p>'+shopInfo.main_pro+'</li>\
+                        <li>厂商地址：'+shopInfo.area+' </li>\
+                        <li>开业时间：'+shopInfo.time+'</li>\
+                        <li class="main-img">厂商实景\
+                            <ul class="sale-ones clearfix main-img-d">\
+                                <li>\
+                                    <div class="sale-ones-front">\
+                                        <p class="sale-of-img"><img src="'+shopInfo.logo+'"></p>\
+                                    </div>\
+                                </li>\
+                            </ul>\
+                        </li>';
+            $("#buss_info").html(str);
+            $(".footer").show();
+        }
+    }
+    function shopBaby()
+    {
+        var url = '/tongrenmiao/index.php?g=Mall&m=Index&a=shopBaby';
+        $.ajax({
+            url:url,
+            data:{'shopId':param.shopId},
+            type:'get',
+            dataType:'json',
+            beforeSend:function()
+            {
+
+            },
+            success:function(res)
+            {
+                handleHtml(res.Info);
+                $("#benzi").show();
+                $("#buss_info").hide();
+            },
+            error:function()
+            {
+
+            }
+        })
+    }
+
+    function handleHtml(list)
+    {
+        var str = '';
+        $.each(list,function(k,v)
+        {
+            str += '<li>\
+                        <div class="sale-ones-front">\
+                        <p class="sale-of-img"><img src="'+v.pic+'"></p>\
+                        </div>\
+                    </li>'
+        })
+        $("#benzi").html(str);
+    }
+</script>

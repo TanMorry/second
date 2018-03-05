@@ -1,0 +1,370 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>展会</title>
+<tc_include file="Public:head" />
+<meta id="viewport" name="viewport"
+	content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<link href="__TMPL__Public/css/global.css" rel="stylesheet"
+	type="text/css">
+<link href="__TMPL__Public/css/layout.css" rel="stylesheet"
+	type="text/css">
+<link href="__TMPL__Public/css/expo_style.css" rel="stylesheet"
+	type="text/css">
+<link href="__TMPL__Public/css/idangerous.swiper.css" rel="stylesheet"
+	type="text/css">
+
+<link href="__TMPL__Public/css/layim.css" type="text/css" rel="stylesheet"/>
+
+
+<script src="__TMPL__Public/js/jquery.min.js"></script>
+<script src="__TMPL__Public/js/idangerous.swiper.min.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+
+		$(".sidebar-list").on('click', 'li', function(event) {
+			$(".sidebar-list").find('li').removeClass('checked');
+			$(this).addClass('checked');
+		});
+
+		$(".column-list").on('click', 'li', function(event) {
+			$(".column-list").find('li').removeClass('checked');
+			$(this).addClass('checked');
+		});
+
+		var mySwiper = new Swiper('.swiper-container', {
+			autoplay : 1000,
+			speed : 800,
+			autoplayDisableOnInteraction : false,
+			slidesPerGroup : 4,
+			slidesPerView : 4,
+			pagination : '.pagination',
+			paginationClickable : true,
+			createPagination : true,
+			paginationAsRange : true
+		});
+	});
+</script>
+
+<script src="http://res.websdk.rongcloud.cn/RongIMClient-0.9.17.min.js"></script> 
+  <!-- Demo 逻辑文件 -->
+  <script>
+	// 初始化。
+        RongIMClient.init("uwd1c0sxdbna1");
+
+        // 从您的应用服务器请求，以获取 Token。在本示例中我们直接在下面 hardcode 给 token 赋值。
+        // var token = getTokenFromAppServer();
+        // 此处直接 hardcode 给 token 赋值，请替换为您自己的 Token。
+        var token = '{$token}';
+
+        // 连接融云服务器。
+        RongIMClient.connect(token,{
+                onSuccess: function (userId) {
+                    // 此处处理连接成功。
+                    console.log("Login successfully." + userId);
+                },
+                onError: function (errorCode) {
+                    // 此处处理连接错误。
+                    var info = '';
+                    switch (errorCode) {
+                           case RongIMClient.callback.ErrorCode.TIMEOUT:
+                                info = '超时';
+                                break;
+                           case RongIMClient.callback.ErrorCode.UNKNOWN_ERROR:
+                                info = '未知错误';
+                                break;
+                           case RongIMClient.ConnectErrorStatus.UNACCEPTABLE_PROTOCOL_VERSION:
+                                info = '不可接受的协议版本';
+                                break;
+                           case RongIMClient.ConnectErrorStatus.IDENTIFIER_REJECTED:
+                                info = 'appkey不正确';
+                                break;
+                           case RongIMClient.ConnectErrorStatus.SERVER_UNAVAILABLE:
+                                info = '服务器不可用';
+                                break;
+                           case RongIMClient.ConnectErrorStatus.TOKEN_INCORRECT:
+                                info = 'token无效';
+                                break;
+                           case RongIMClient.ConnectErrorStatus.NOT_AUTHORIZED:
+                                info = '未认证';
+                                break;
+                           case RongIMClient.ConnectErrorStatus.REDIRECT:
+                                info = '重新获取导航';
+                                break;
+                           case RongIMClient.ConnectErrorStatus.PACKAGE_ERROR:
+                                info = '包名错误';
+                                break;
+                           case RongIMClient.ConnectErrorStatus.APP_BLOCK_OR_DELETE:
+                                info = '应用已被封禁或已被删除';
+                                break;
+                           case RongIMClient.ConnectErrorStatus.BLOCK:
+                                info = '用户被封禁';
+                                break;
+                           case RongIMClient.ConnectErrorStatus.TOKEN_EXPIRE:
+                                info = 'token已过期';
+                                break;
+                           case RongIMClient.ConnectErrorStatus.DEVICE_ERROR:
+                                info = '设备号错误';
+                                break;
+                    }
+                    console.log("失败:" + info);
+                }
+            });
+  // 设置连接监听状态 （ status 标识当前连接状态）
+     // 连接状态
+     RongIMClient.setConnectionStatusListener({
+        onChanged: function (status) {
+            switch (status) {
+                    //链接成功
+                    case RongIMClient.ConnectionStatus.CONNECTED:
+                        console.log('链接成功');
+                        break;
+                    //正在链接
+                    case RongIMClient.ConnectionStatus.CONNECTING:
+                        console.log('正在链接');
+                        break;
+                    //重新链接
+                    case RongIMClient.ConnectionStatus.RECONNECT:
+                        console.log('重新链接');
+                        break;
+                    //其他设备登陆
+                    case RongIMClient.ConnectionStatus.OTHER_DEVICE_LOGIN:
+                    //连接关闭
+                    case RongIMClient.ConnectionStatus.CLOSURE:
+                    //未知错误
+                    case RongIMClient.ConnectionStatus.UNKNOWN_ERROR:
+                    //登出
+                    case RongIMClient.ConnectionStatus.LOGOUT:
+                    //用户已被封禁
+                    case RongIMClient.ConnectionStatus.BLOCK:
+                        break;
+            }
+        }});
+
+     // 消息监听器
+     RongIMClient.getInstance().setOnReceiveMessageListener({
+        // 接收到的消息
+        onReceived: function (message) {
+            // 判断消息类型
+            switch(message.getMessageType()){
+                case RongIMClient.MessageType.TextMessage:
+                	reciveMsg(message)
+                    break;
+                case RongIMClient.MessageType.ImageMessage:
+                    // do something...
+                    break;
+                case RongIMClient.MessageType.VoiceMessage:
+                    // do something...
+                    break;
+                case RongIMClient.MessageType.RichContentMessage:
+                    // do something...
+                    break;
+                case RongIMClient.MessageType.LocationMessage:
+                    // do something...
+                    break;
+                case RongIMClient.MessageType.DiscussionNotificationMessage:
+                    // do something...
+                    break;
+                case RongIMClient.MessageType.InformationNotificationMessage:
+                    // do something...
+                    break;
+                case RongIMClient.MessageType.ContactNotificationMessage:
+                    // do something...
+                    break;
+                case RongIMClient.MessageType.ProfileNotificationMessage:
+                    // do something...
+                    break;
+                case RongIMClient.MessageType.CommandNotificationMessage:
+                    // do something...
+                    break;
+                case RongIMClient.MessageType.UnknownMessage:
+                    // do something...
+                    break;
+                default:
+                    // 自定义消息
+                    // do something...
+            }
+        }
+    });
+	
+     
+     function sendMsg(receveid,content)
+     {
+     	$.ajax({
+
+     	     type: 'get',
+
+     	    url: '/tongrenmiao/?g=exhibition',
+
+     	    data: 'm=index&a=send&receveid='+receveid+'&content='+content,
+
+     	    success: function(data){
+     	    	
+     	    } ,
+
+     	});
+     }
+     
+     function getUser()
+     {
+     	return { //当前用户信息
+             name: '<?php echo $_SESSION['user']['user_nicename'];?>',
+             face: '{:sp_get_user_avatar_url($_SESSION['user']['avatar'])}?t={:time()}'
+        };
+     }
+  </script>
+<body>
+	<tc_include file="Public:nav" />
+	<tc_include file="Public:scripts" />
+<div class="spot-im-frame-inpage" data-post-id="POST_ID_GOES_HERE"></div>
+	
+	<div class="containe-center">
+		<div class="sidebar">
+			<div class="show-popup-login">
+				<a href="{:U('index/reg')}">主办方注册</a>
+			</div>
+			<ul class="sidebar-list">
+				<li class="sidebar-1 checked">展会列表</li>
+				<li class="sidebar-2">参展作品</li>
+				<li class="sidebar-3">比赛活动</li>
+				<li class="sidebar-4">我的展会</li>
+			</ul>
+		</div>
+
+		<div class="content r-public">
+			<div class="expo-title-new">最新展会</div>
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<!-- <div class="swiper-slide expo-box1">
+						 <div class="expo-content-shade1"></div>
+						 <div class="expo-content-text1">武汉XXOO铜人惠</div>
+					</div>
+					</div> -->
+					<div class="swiper-slide expo-box">
+						<img src="__TMPL__Public/images/box1.jpg" class="expo-content-img">
+						<div class="expo-content-shade"></div>
+						<div class="expo-content-text">武汉XXOO铜人惠</div>
+					</div>
+					<div class="swiper-slide expo-box">
+						<img src="__TMPL__Public/images/box1.jpg" class="expo-content-img">
+						<div class="expo-content-shade"></div>
+						<div class="expo-content-text">武汉XXOO铜人惠</div>
+					</div>
+					<div class="swiper-slide expo-box">
+						<img src="__TMPL__Public/images/box1.jpg" class="expo-content-img">
+						<div class="expo-content-shade"></div>
+						<div class="expo-content-text">武汉XXOO铜人惠</div>
+					</div>
+					<div class="swiper-slide expo-box">
+						<img src="__TMPL__Public/images/box1.jpg" class="expo-content-img">
+						<div class="expo-content-shade"></div>
+						<div class="expo-content-text">武汉XXOO铜人惠</div>
+					</div>
+					<div class="swiper-slide expo-box">
+						<img src="__TMPL__Public/images/box1.jpg" class="expo-content-img">
+						<div class="expo-content-shade"></div>
+						<div class="expo-content-text">武汉XXOO铜人惠</div>
+					</div>
+					<div class="swiper-slide expo-box">
+						<img src="__TMPL__Public/images/box1.jpg" class="expo-content-img">
+						<div class="expo-content-shade"></div>
+						<div class="expo-content-text">武汉XXOO铜人惠</div>
+					</div>
+					<div class="swiper-slide expo-box">
+						<img src="__TMPL__Public/images/box1.jpg" class="expo-content-img">
+						<div class="expo-content-shade"></div>
+						<div class="expo-content-text">武汉XXOO铜人惠</div>
+					</div>
+					<div class="swiper-slide expo-box">
+						<img src="__TMPL__Public/images/box1.jpg" class="expo-content-img">
+						<div class="expo-content-shade"></div>
+						<div class="expo-content-text">武汉XXOO铜人惠</div>
+					</div>
+					<div class="swiper-slide expo-box">
+						<img src="__TMPL__Public/images/box1.jpg" class="expo-content-img">
+						<div class="expo-content-shade"></div>
+						<div class="expo-content-text">武汉XXOO铜人惠</div>
+					</div>
+				</div>
+				<div class="pagination"></div>
+			</div>
+		</div>
+
+		<div class="column r-public">
+			<ul class="column-list">
+				<li class="checked">全部</li>
+				<li>同人本</li>
+				<li>原创本</li>
+				<li>同人周边</li>
+				<li>原创手作</li>
+			</ul>
+		</div>
+
+		<div class="artwork-list">
+			<div class="artwork-box">
+				<img src="__TMPL__Public/images/artwork-box-1.jpg"
+					class="artwork-box-img">
+				<div class="artwork-box-text">来自:<i>XX展会</i>
+				</div>
+				<p class="artwork-box-p1">神的情书</p>
+				<p class="artwork-box-p2">作者:<i>xxxxxx</i>
+				</p>
+			</div>
+
+			<div class="artwork-box">
+				<img src="__TMPL__Public/images/artwork-box-2.jpg"
+					class="artwork-box-img">
+				<div class="artwork-box-text">来自:<i>斗图大会</i>
+				</div>
+				<p class="artwork-box-p1">神的情书</p>
+				<p class="artwork-box-p2">作者:<i>xxxxxx</i>
+				</p>
+			</div>
+
+			<div class="artwork-box">
+				<img src="__TMPL__Public/images/artwork-box-1.jpg"
+					class="artwork-box-img">
+				<div class="artwork-box-text">来自:<i>XX展会</i>
+				</div>
+				<p class="artwork-box-p1">神的情书</p>
+				<p class="artwork-box-p2">作者:<i>xxxxxx</i>
+				</p>
+			</div>
+
+			<div class="artwork-box">
+				<img src="__TMPL__Public/images/artwork-box-1.jpg"
+					class="artwork-box-img">
+				<div class="artwork-box-text">来自:<i>XX展会</i>
+				</div>
+				<p class="artwork-box-p1">神的情书</p>
+				<p class="artwork-box-p2">作者:<i>xxxxxx</i>
+				</p>
+			</div>
+
+			<div class="artwork-box">
+				<img src="__TMPL__Public/images/artwork-box-1.jpg"
+					class="artwork-box-img">
+				<div class="artwork-box-text">来自:<i>XX展会</i>
+				</div>
+				<p class="artwork-box-p1">神的情书</p>
+				<p class="artwork-box-p2">作者:<i>xxxxxx</i>
+				</p>
+			</div>
+		</div>
+
+	</div>
+<script src="__TMPL__Public/js/lay/lib.js"></script>
+<script src="__TMPL__Public/js/lay/layer/layer.min.js"></script>
+<script src="__TMPL__Public/js/lay/layim.js"></script>
+</body>
+</html>

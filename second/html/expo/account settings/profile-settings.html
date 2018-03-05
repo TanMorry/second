@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>我の资料</title>
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<link href="../css/global.css" rel="stylesheet" type="text/css">
+<link href="../css/layout.css" rel="stylesheet" type="text/css">
+<link href="../css/buyer.css" rel="stylesheet" type="text/css">
+<link href="../css/account.css" rel="stylesheet" type="text/css">
+<link href="../css/dropkick.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.dk_toggle,
+.dk_container{
+	height: 28px;
+	line-height: 28px;
+}
+.dk_container{
+	border: #ff7c8b solid 1px;
+}
+.rf-select{
+	margin-left: 15px;
+	margin: 8px;
+}
+</style>
+
+
+<script src="../js/jquery.min.js"></script>
+<script src="../js/jquery.date_input.pack.js"></script>
+<script src="../js/jedate.min.js"></script>
+<script src="../js/expo.public.js"></script>
+<script src="../js/jquery.dropkick-min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+	//
+	$('.settings-input').on('click', '.settings-cho-ra', function(event){
+		$(this).parents('.settings-input').find('.true').each(function(){
+			$(this).removeClass('true');
+		});
+		$(this).addClass('true');
+		console.log(1);
+	});
+	
+	/*日历插件*/
+	jeDate({
+		dateCell:'.birthday input',
+		format:"YYYY-MM-DD",
+		isClear:true
+	});
+	
+	/*点击输入框清空内容*/
+	$(".settings-input-r").on('focus blur', 'input', function(event) {
+		if(event.type == 'focus'|| event.type == 'focusin')
+		{
+			if($(this).val() == $(this)[0].defaultValue)
+			{
+				$(this).val('');
+			}
+		}
+		else if(event.type == 'blur' || event.type == 'focusout')
+		{
+			if( $(this).val() == '' || $(this).val() == null || $(this).val() == undefined)
+			{
+				$(this).val( $(this).attr("name")  );
+			}
+		}
+	});
+	
+	//
+	$(".settings-input-signature-r").on('focus', 'textarea', function(event) {
+		$(this).html('');
+	});
+	
+	/*下拉选择框*/
+	$('.rf-select').dropkick({autoWidth:true});
+});
+
+
+
+</script>
+
+<body>
+	<div class="M_Header M_BTM_25">
+		<div class="hd-bg">
+			<p class="hd-pink"></p>
+		</div>
+		<div class="hd-index M_Center">
+			<div class="hd-main">
+				<ul class="float-center clearfix">
+					<li class="hd-m-btn" ><a href="#">展会</a></li>
+					<li class="hd-m-btn"><a href="#">社团铺</a></li>
+					<li class="hd-m-logo"></li>
+					<li class="hd-m-btn fixed" ><a href="#">我的</a></li>
+					<li class="hd-m-btn" ><a href="#">同人闲情</a></li>
+				</ul>
+			</div>
+			<div class="hd-nav-r">
+				<ul class="hd-nav-not">
+					<li><a href="#">登录</a></li>
+					<li><a href="#">注册</a></li>
+				</ul>
+			</div>
+		</div>
+		
+	</div>
+
+	<div class="M_Center">
+
+		<div class="M_Left M_Layout M_BTM_175">
+			<div class="left-tree">
+				<div class="user-img">
+					<a href="#"><img src="../images/security_settings.png"></a>
+				</div>
+				<dl>
+					<dt class="fixed"><a href="#">已买到的商品</a></dt>
+					<dt><a href="#">关注の铺</a></dt>
+					<dt><a href="#">评价管理</a></dt>
+					<dt><a href="#">退货/退款</a></dt>
+					<dt><a href="#">账户设置</a></dt>
+					<dd><a href="#">我の资料</a></dd>
+					<dd><a href="#">收货地址</a></dd>
+					<dd><a href="#">安全设置</a></dd>
+					<dt><a href="#">财布</a></dt>
+					<dd><a href="#">我の财布</a></dd>
+					<dd><a href="#">交易记录</a></dd>
+					<dt><a href="#">站内信</a></dt>
+				</dl>
+			</div>
+		</div>
+
+		<div class="M_Right M_Layout M_BTM_175">
+			<div class="user-step header-settings">
+				<a href="#">我の资料</a>
+				<p>收货地址</p>
+				<p>安全设置</p>
+			</div>
+			<div class="setting-head-portrait">
+				<div class="settings-input-blank"></div>
+				<div class="settings-input-h">
+					<div class="user-img">
+						<a href="#"><img src="../images/security_settings.png"></a>
+					</div>
+					<a href="#">
+						<div class="black-alpha">
+							<ins>修改头像</ins>
+						</div>
+					</a>
+				</div>
+				<div class="settings-input-signature-l">
+					<p>个性签名&nbsp;:</p>
+				</div>
+				<div class="settings-input-signature-r">
+					<textarea >这家伙很懒什么都没留下</textarea>
+				</div>
+			</div>
+			<div class="settings-input clearfix">
+				<div class="settings-input-h-l">
+					<p>昵称&nbsp;:</p>
+				</div>
+				<div class="settings-input-r">
+					<input type="text" name="BABYFACE" value="BABYFACE"/>
+				</div>
+				<div class="settings-input-blank2"></div>
+				<div class="settings-input-h-l">
+					<p>性别&nbsp;:</p>
+				</div>
+				<div>
+					<label class="lab"><input type="radio" name="sex" />&nbsp;男</label>
+					<label class="lab"><input type="radio" name="sex" />&nbsp;女</label>
+				</div>
+			</div>
+			<div class="M_BLANK_5"></div>
+			<div class="settings-input clearfix">
+				<div class="settings-input-h-l">
+					<p>生日&nbsp;:</p>
+				</div>
+				<div class="settings-input-r birthday">
+					<input type="text" name="1993-10-07" value="1993-10-07" readonly="readonly"/>
+				</div>
+				<div class="settings-input-blank2"></div>
+				<div class="settings-input-h-l">
+					<p>Q&nbsp;Q:</p>
+				</div>
+				<div class="settings-input-r">
+					<input type="text" name="56987852" value="56987852"/>
+				</div>
+			</div>
+			<div class="M_BLANK_5"></div>
+			<div class="settings-input clearfix">
+				<div class="settings-input-h-l">
+					<p>公司&nbsp;:</p>
+				</div>
+				<div class="settings-input-r">
+					<input type="text" name="上海市" value="上海市"/>
+				</div>
+				<div class="settings-input-blank2"></div>
+				<div class="settings-input-h-l">
+					<p>学校&nbsp;:</p>
+				</div>
+				<div class="settings-input-r">
+					<input type="text" name="上海市" value="上海市"/>
+				</div>
+			</div>
+			<div class="M_BLANK_5"></div>
+			<div class="settings-input clearfix">
+				<div class="settings-input-h-l">
+					<p>所在地&nbsp;:</p>
+				</div>
+				<div class="settings-input-r">
+					<select class="rf-select">
+						<option value="请选择">请选择</option>
+					</select>
+					<select class="rf-select">
+						<option value="请选择">请选择</option>
+					</select>
+					<select class="rf-select">
+						<option value="请选择">请选择</option>
+					</select>
+				</div>
+			</div>
+			<div class="M_BLANK_15"></div>
+			<div class="settings-input clearfix">
+				<div class="settings-input-h-l">
+					<p>二次元属性&nbsp;:</p>
+				</div>
+				<div>
+					<label class="lab"><input type="radio" name="secondary element properties" />&nbsp;大众</label>
+					<label class="lab"><input type="radio" name="secondary element properties" />&nbsp;腐向</label>
+					<label class="lab"><input type="radio" name="secondary element properties" />&nbsp;百合</label>
+				</div>
+				
+			</div>
+			<div class="M_BLANK_30"></div>
+			<div class="settings-deter">
+				<input type="submit" name="codes" value="保存"/>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>展会</title>
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<link href="css/global.css" rel="stylesheet" type="text/css">
+<link href="css/rec-layout.css" rel="stylesheet" type="text/css">
+
+<script src="js/jquery.min.js"></script>
+<script src="js/expo.public.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+	/*input提示判定*/
+	$(".rm-input").on('focus blur input propertychange', function(event) {
+		if(event.type == 'focus' || event.type == 'input' || event.type == 'propertychange')
+		{
+			$(this).parent("div").addClass('rm-be');
+		}
+		else if(event.type == 'blur')
+		{
+			!$(this).val().length && $(this).parent("div").removeClass('rm-be');
+		}
+	});
+
+	
+});
+</script>
+
+<body>
+	<div class="M_Header M_BTM_25">
+		<div class="header-bg">
+			<p class="header-pink"></p>
+			<p class="header-beige"></p>
+		</div>
+		<div class="header-rec">
+			<div class="M_Center clearfix">
+				<ul class="clearfix">
+					<li class="M_LOGO"></li>
+					<li><b href="#">找回密码</b></li>
+				</ul>
+				<div class="header-info">
+					<a href="#" type="login">登录</a>
+					<a href="#" type="register">注册</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="M_Layout M_Center M_BTM_50">
+
+		<p class="rec-tips">你正在找回帐号1*****147@163.com的密码</p>
+
+		<div class="run-step clearfix">
+			<ul class="rs-ul float-center">
+				<li><b>01</b>选择找回方式<i></i></li>
+				<li class="fixed"><b>02</b>进行安全验证<i></i></li>
+				<li><b>03</b>设置新密码</li>
+			</ul>
+		</div>
+
+		<div class="rec-main">
+
+			<div class="rm-main clearfix">
+				<i><img src="images/mail-icon.png"/></i>
+				<div class="rm-mail">
+					<p>密码找回邮件 1*****147@163.com 发送成功，请注意<a href="#">接收邮件！</a></p>
+				</div>
+			</div>
+
+			<div class="rm-main clearfix">
+				<div class="rm-mail-content">
+					<p>请注意接收邮件，并按照邮件中的提示操作，完全安全验证没有收到邮件？<a href="#">重新发送</a>或者<a href="#">使用其他方式找回</a></p>
+				</div>
+			</div>
+
+			
+		</div>
+	</div>
+</body>
+</html>

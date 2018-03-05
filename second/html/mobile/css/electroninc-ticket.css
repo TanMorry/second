@@ -1,0 +1,112 @@
+/**/
+.part2{
+	overflow: hidden;
+	border-bottom: 1px solid #e5e5e5;
+	background: #fff;
+}
+.et-content{
+	display: -webkit-box;
+	padding: 0.5rem;
+	position: relative;
+}
+.et-content img{
+	height: 5rem;
+	width: 5rem;
+	margin-right: 0.5rem;
+}
+.et-content .box{
+	-webkit-box-flex: 1;
+	text-align: left;
+	white-space:nowrap; 
+}
+.et-content i{
+	display: block;
+	margin: 1.8rem 0rem;
+	height: 1.4rem;
+	width: 0.8rem;
+	background: url(../img/you-iocn.png) 0rem 0rem no-repeat;
+	background-size: 0.75rem;
+}
+.et-content p{
+	font-size: 0.7rem;
+	line-height: 1rem;
+}
+.et-content p.font1{
+	color: #777777;
+}
+.et-content p.font2{
+	color: #EB6877;
+	margin-top: 0.2rem;
+}
+.et-content p.font3{
+	color: #bcb5b5;
+	margin-top: 1.8rem;
+}
+.et-content .expired{
+	position: absolute;
+	top: 0.5rem;
+	left: 0.5rem;
+	z-index: 5;
+	font-size: 0.7rem;
+	color: #fff;
+	height: 1rem; 
+	line-height: 1rem;
+	width: 2.5rem;
+	background-color: #00baff;
+}
+.et-content .expired div{
+	position: absolute;
+	top: 0rem;
+	left: 2.5rem;
+	z-index: 5;
+	height: 0rem; 
+	width: 0rem;
+	border-top: 0.5rem solid transparent;
+	border-bottom: 0.5rem solid transparent;
+	border-right: 0.5rem solid transparent;
+	border-left: 0.5rem solid #00baff;
+}
+.et-content .used{
+	position: absolute;
+	top: 0.5rem;
+	left: 0.5rem;
+	z-index: 5;
+	font-size: 0.7rem;
+	color: #fff;
+	height: 1rem; 
+	line-height: 1rem;
+	width: 2.5rem;
+	background-color: #eb6877;
+}
+.et-content .used div{
+	position: absolute;
+	top: 0rem;
+	left: 2.5rem;
+	z-index: 5;
+	height: 0rem; 
+	width: 0rem;
+	border-top: 0.5rem solid transparent;
+	border-bottom: 0.5rem solid transparent;
+	border-right: 0.5rem solid transparent;
+	border-left: 0.5rem solid #eb6877;
+}
+.et-QR{
+	padding-top: 1.5rem;
+}
+.et-QR img{
+	height: 12rem;
+	width: 12rem;
+	border: 1px solid #777777;
+}
+.et-QR p{
+	font-size: 0.7rem;
+	line-height: 1rem;
+	margin: 0.5rem 0rem 1rem;
+	color: #777777;
+}
+.et-prompt{
+	padding: 0.5rem;
+	font-size: 0.7rem;
+	text-align: left;
+	color: #777777;
+}

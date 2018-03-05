@@ -1,0 +1,39 @@
+.content-more{padding-left: 48px;text-align: left}
+.content-more>p{font-size: 14px;color:#141414;padding:20px 0; }
+.content-more i{color:#ff7f47;padding-right:9px;}
+.content-more ul li{font-size:12px;color:#545454;margin-bottom: 20px; }
+.content-more span{display: inline-block;width:100px;text-align: right }
+.content-more-s{height: 35px;width:225px;}
+.content-more-s,.content-li-one input[type="text"]{border: 1px solid #a9a9a9;font-size: 16px;color:#000000;padding-left:15px; }
+.content-li-one input[type="text"]{height: 35px;width: 244px;}
+.content-li-one{position: relative}
+.content-one-di{position: absolute;height:30px;width: 527px;background:#ffe3e7;left: 121px;top:37px;;text-align: left;line-height: 30px; }
+.content-one-di a{display: inline-block;height: 18px; width: 18px;padding: 6px 10px;
+    background: url("../images/icon-gatn.png")no-repeat center center;float: left}
+.content-one-di i{color: #545454}
+.content-li-two,.content-li-three{margin-top: 50px;}
+.content-li-two i{ color: #545454;}
+.content-li-three input[type="text"]{width: 523px;height:58px;border: 1px solid #a9a9a9;margin-left:22px }
+.content-li-three div{float: left}
+.content-li-four div{float: left}
+.content-four-b label{height: 25px;width:96px;background:url("../images/shangchuan.png")no-repeat center center;
+ border: 1px solid #a9a9a9;margin-left: 18px;}
+.content-a-two{color:#a9a9a9 }
+.content-four-a{height: 20px ;line-height: 20px;}
+.content-four-a .content-a-one{display: inline-block;height: 18px; width: 18px;background: url("../images/jinggao.png")no-repeat center center;
+ padding:1px 8px;float: left}
+.content-four-b label input{opacity: 0;width: 96px;filter:alpha(opacity=0)}
+.content-li-five a{display: inline-block;width: 115px;height: 35px;background:#eb6877;color:#ffffff;
+    margin:20px 0;line-height: 35px;text-align: center;float: left;margin-left: 120px;}
+.content-more-ft{width: 640px;margin: 0 auto;border-top: 1px dashed #d3d3d3 }
+.content-more-ft p{font-size: 16px;color:#616161;margin: 50px 0;text-align: left}
+.content-more-ft a{color: #ff7c8b;padding:0 20px;display: inline-block}
+.content-ft-a{border-right:1px solid #d3d3d3}
+.content-li-two .content-two-i{color:#ff7f47}
+
+
+
+
+
+
+

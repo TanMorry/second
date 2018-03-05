@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="format-detection" content="telephone=no"/>
+<title>喵</title>
+<link href="css/global.css" rel="stylesheet" type="text/css">
+<link href="css/public.css" rel="stylesheet" type="text/css">
+<link href="plugin/swiper.css" rel="stylesheet" type="text/css">
+<link href="css/detail.css" rel="stylesheet" type="text/css">
+	<link href="css/fengxiang.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	
+	
+</style>
+
+<script src="js/jquery-2.2.4.min.js"></script>
+<script src="plugin/swiper.jquery.min.js"></script>
+<script src="plugin/iscroll.js"></script>
+<script src="plugin/pullToRefresh.js"></script>
+<script src="js/obtainArguments.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+	var mySwiper = new Swiper('.swiper-container', {
+		autoplay: 2000,
+		speed: 500,
+		autoplayDisableOnInteraction: false,
+		autoHeight: true,
+		loop: true,
+		pagination : '.swiper-pagination'
+	});
+	
+	/*页面部分隐藏*/
+	$('#page1').css('display','block');
+	$('#page2').css('display','none');
+	
+	
+	/*弹框*/
+	$('.header').on('click', '.other', function(event) {
+		if( $(".header-pop-ups").css('display') == 'none' ){
+			$(".header-pop-ups").slideDown();
+		}
+		else{
+			$(".header-pop-ups").css('display','none');
+		}
+	});	
+	$('.content').on('click', function(event) {
+		$(".header-pop-ups").css('display','none');
+	});	
+	$('.footer').on('click', function(event) {
+		$(".header-pop-ups").css('display','none');
+	});	
+	
+	/*弹框*/
+	$('.dp-style').on('click', function(event) {
+		if( $(".footer-pop-ups").css('display') == 'none' ){
+			$(".footer-pop-ups-blackground").css('display','block');
+			$(".footer-pop-ups").slideDown();
+		}
+		else{
+
+		}
+	});
+	$('.foot-right').on('click','a', function(event) {
+		if( $(".footer-pop-ups").css('display') == 'none' ){
+			$(".footer-pop-ups-blackground").css('display','block');
+			$(".footer-pop-ups").slideDown();
+		}
+		else{
+
+		}
+	});
+	$('.fpp-X').on('click','a', function(event) {
+		$(".footer-pop-ups-blackground").css('display','none');
+		$(".footer-pop-ups").css('display','none');
+	});	
+
+	/*分享弹窗*/
+	$('#btn-fx').on('click', function(event) {
+		if( $(".btn-fenxiang").css('display') == 'none' ){
+			$(".footer-pop-ups-blackground").css('display','block');
+			$(".btn-fenxiang").slideDown();
+		}
+		else{
+
+		}
+	});
+	$('.detail-share').on('click','a', function(event) {
+		if( $(".btn-fenxiang").css('display') == 'none' ){
+			$(".footer-pop-ups-blackground").css('display','block');
+			$(".btn-fenxiang").slideDown();
+		}
+		else{
+
+		}
+	});
+	$('.btn-bottom').on('click', function(event) {
+		$(".footer-pop-ups-blackground").css('display','none');
+		$(".btn-fenxiang").css('display','none');
+	});
+
+	/*数量加减*/
+	$(".detail-count").on('click', 'a', function(event) {
+		var $count = $(this).parents(".detail-count").find("input");
+		if($(this).hasClass('detail-count-sub'))
+		{
+			$count.val(parseInt($count.val(), 10) - 1 || 1);
+		}
+		else if($(this).hasClass('detail-count-add'))
+		{
+			$count.val(parseInt($count.val(), 10) + 1 || 1);
+		}
+	});
+	/*输入数量验证*/
+	$(".detail-count input").on('blur input propertychange', function(event) {
+
+		function isEmpty (val)
+		{
+			return val == '' || val === null || val === undefined;
+		}
+
+		var val = $(this).val();
+		/*如果不是空则强转数字*/
+		if (!isEmpty(val))
+		{
+			val = parseInt(val.replace(/[^\d]/ig,''), 10);
+		}
+
+		isNaN(val) ? $(this).val(1) : $(this).val(val);
+		
+		if(event.type == 'blur' || event.type == 'focusout')
+		{
+			if(isEmpty(val))
+			{
+				$(this).val(1);
+			}
+		}
+	});
+	
+	/*颜色选择*/
+	$(".fpp-color").on('click', 'a', function(event) {
+		$(this).addClass('fpp-color-select');
+		$(this).siblings('a').removeClass('fpp-color-select');
+	});
+	
+	/*头部更变*/
+	if( $('#page1').css('display') == 'block' && $('#page2').css('display') == 'none' ){
+		var changeY = ( $('#moveSwiper').height() - $('#moveMask').height() ) / 2;
+		$('.content').scroll(function(){
+			functionScroll();
+		});
+	}
+	
+	/*滚动侦听事件*/
+	function functionScroll(){
+		var positionSwiper = - $('#moveSwiper').offset().top;
+		if( positionSwiper <= changeY ){
+			var opacityMask ;
+			var opacityHeader ;
+			$('.header-bg').removeClass('float2').addClass('float');
+			opacityMask = positionSwiper / changeY / 2;
+			opacityHeader = (changeY-positionSwiper) / changeY;
+			$('.header-mask').css('opacity',opacityMask);
+			$('.header-bg').css('opacity',opacityHeader);
+		}
+		else if ( positionSwiper > changeY && positionSwiper <= 2 *  changeY ){
+			var opacityMask ;
+			var opacityHeader ;
+			$('.header-bg').removeClass('float').addClass('float2');
+			opacityMask = positionSwiper / changeY / 2;
+			opacityHeader = (positionSwiper-changeY) / changeY;
+			$('.header-mask').css('opacity',opacityMask);
+			$('.header-bg').css('opacity',opacityHeader);
+		}
+		else {
+			$('.header-mask').css('opacity','1');
+			$('.header-bg').removeClass('float').addClass('float2').css('opacity',1);
+		}
+	}
+	
+	/*切换页面2*/
+	$('.dropdown').on('click',function(){
+		moveToPage2();
+	});
+	
+	function moveToPage2(){
+		$('.content').off('scroll');
+		$('#page2').css('display','block');
+		var pageHeight = $('#page2').offset().top - $('#page1').offset().top - $('#moveMask').height();
+		$('.content').animate({scrollTop: pageHeight+'px'}, 500, function(){
+			$('#page1').css('display', 'none');
+			$('.content').scrollTop(0);
+			$('.header-bg').removeClass('float').addClass('float2');
+			$('.header-mask').css('position', 'static');
+		});
+	}
+	
+});
+	
+	
+	
+</script>
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex">
+
+	<section class="header" id="moveHeader">
+		<div class="header-bg float">
+			<div class="header-l"><a href="main.html"></a></div>
+			<div class="header-c"><p class="cart"></p></div>
+			<div class="header-r horizontal-center"><a class="cart" href="#"></a><a class="other" href="#"></a></div>
+		</div>
+		<div class="header-mask" id="moveMask">
+		</div>
+		<div class="header-pop-ups">
+			<div class="hpp-arrow"></div>
+			<a href="shop-cart/information/information-center.html">
+				<div class="hpp-content border-dashed">
+					<i class="nav1"></i>消息
+				</div>
+			</a>
+			<a href="main.html">
+				<div class="hpp-content border-dashed">
+					<i class="nav2"></i>首页
+				</div>
+			</a>
+			<a href="#">
+				<div class="hpp-content " id="btn-fx">
+					<i class="nav3"></i>分享
+				</div>
+			</a>
+		</div>
+	</section>
+	<!-- 主体 1-->
+	<section class="content">
+		<div id="page1">
+			<div class="swiper-container" id="moveSwiper">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide"><a href="#"><img src="img/slide/1.jpg"></a></div>
+					<div class="swiper-slide"><a href="#"><img src="img/slide/2.jpg"></a></div>
+					<div class="swiper-slide"><a href="#"><img src="img/slide/3.jpg"></a></div>
+				</div>
+				<!-- 分页器 -->
+				<div class="swiper-pagination"></div>
+			</div>
+			
+			<div class="detail part">
+				<div class="detail-share clearfix">
+					<p  id="goodsName">满踪二次元主题多款开衫针织衫卡通游戏毛衣动漫外套周边衣服现货</p>
+					<div><a class="nav1" href="#">分享</a></div>
+				</div>
+					<p class="detail-money" id="goodsPrice">￥69</p>
+				<ul class="detail-share-foot">
+					<li class="text-left">快递：6.00</li>
+					<li>月销200笔</li>
+					<li class="text-right" id="goodsArea">广州广东</li>
+				</ul>
+			</div>
+			<div class="detail part">
+				<a class="detail-share-enter dp-style clearfix" href="#">
+					<p>选择 规格/样式</p>
+					<i class="enter"></i>
+				</a>
+			</div>	
+			<div class="detail part">
+				<div class="detail-share-enter clearfix">
+					<p>商品价格(176)</p>
+				</div>
+				<div class="detail-access-img clearfix">
+					<img class="img2" src="img/flower.png"/><p>好评(123)</p>
+					<img class="img3" src="img/flower.png"/><p>中评(32)</p>
+					<img class="img4" src="img/flower.png"/><p>差评(12)</p>
+				</div>
+				<div class="detail-access clearfix">
+					<div class="detail-access-title clearfix">
+						<img src="img/test/item2.jpg"/><p>狗*蛋</p>
+					</div>
+					<div class="detail-access-content clearfix">
+						<p>很好看！！很好看！！很好看！！很好看！！很好看！！很好看！！很好看！！很好看！！很好看！！很好看！！很好看！！很好看！！很好看！！很好看！！</p>
+					</div>
+					<div class="detail-access-foot clearfix">
+						<p>规格/样式</p><p>2016-04-12</p>
+					</div>
+					<div class="detail-access-all">
+						<a class="detail-access-pad" href="detail-access.html">查看全部评价</a>
+					</div>
+				</div>
+			</div>
+			<div class="detail part">
+				<div class="detail-commodity detail-access-borderbtm clearfix">
+					<div class="detail-commodity-box1">
+						<img src="img/test/item2.jpg"/>
+					</div>
+					<div class="detail-commodity-box1">
+						<p>二次元之家</p>
+						<a href="shop-xiangqiye/shop-xiangqing.html"><div class="detail-commodity-enter">进店逛逛</div></a>
+					</div>
+					<div class="detail-commodity-box3">
+						<div class="detail-commodity-box3-pad borderl">
+							<p class="font1">60</p>
+							<p class="font2">全部宝贝</p>
+						</div>
+					</div>
+					<div class="detail-commodity-box3">
+						<div class="detail-commodity-box3-pad">
+							<p class="font1">60</p>
+							<p class="font2">关注人数</p>
+						</div>
+					</div>
+				</div>
+				<div class="detail-commodity clearfix">
+					<div class="detail-commodity-box2">
+						<p>热卖商品</p>
+					</div>
+					<div class="detail-commodity-box1">
+						<img src="img/test/item2.jpg"/>
+					</div>
+					<div class="detail-commodity-box1">
+						<p>商品名称</p>
+						<p class="price">￥69</p>
+					</div>
+				</div>
+			</div>	
+			<div class="detail part2">
+				<a class="dropdown" href="#">点击或下拉加载图文详情</a>
+			</div>
+		</div>
+		<div id="page2">
+			<div class="detail love part">
+				<div class="detail-access detail-access-borderbtm clearfix">
+					<div class="detail-access-content clearfix">
+						<p>同人圈类型：corssover</p>
+						<p>偏好：腐向</p>
+						<p>原作：学界战线</p>
+						<p>作者：千早</p>
+						<p>角色名：史蒂芬 克劳斯</p>
+						<p>CP：史蒂芬X克劳斯，史蒂芬X钢铁侠</p>
+						<p>类型：本子 同人本</p>
+						<p>语言：简体中文</p>
+						<p>页数：280P</p>
+						<p>尺寸：A8</p>
+						<p>发售日：2016.04.01</p>
+						<p>作者简介：</p>
+						<p class="font-small">关于“如果我死去”这个话题，花京院是有问过的。他清楚地记得承太郎的眉头皱了皱，这使得他不得不补</p>
+					</div>
+				</div>
+				<a href="#"><img src="img/slide/1.jpg"></a>
+				<a href="#"><img src="img/slide/1.jpg"></a>
+			</div>
+	
+			<div class="sale-item part">
+				<div class="shopping horizontal-center">
+					<p class="sp-l"></p>
+					<p class="sp-w">• 看了又看 •</p>
+					<p class="sp-r"></p>
+				</div>
+	
+				<ul class="sale-ones tie clearfix">
+					<li>
+						<div class="sale-ones-front tie">
+							<p class="sale-of-img"><img src="img/test/item1.png"></p>
+							<p class="sale-of-name">商品名称</p>
+							<p class="sale-of-price">￥321</p>
+						</div>
+					</li>
+					<li>
+						<div class="sale-ones-front tie">
+							<p class="sale-of-img"><img src="img/test/item2.png"></p>
+							<p class="sale-of-name">商品名称</p>
+							<p class="sale-of-price">￥123</p>
+						</div>
+					</li>
+					<li>
+						<div class="sale-ones-front tie">
+							<p class="sale-of-img"><img src="img/test/item3.png"></p>
+							<p class="sale-of-name">商品名称超级长长长</p>
+							<p class="sale-of-price">￥321333</p>
+						</div>
+					</li>
+					<li>
+						<div class="sale-ones-front tie">
+							<p class="sale-of-img"><img src="img/test/item1.jpg"></p>
+							<p class="sale-of-name">商品名称</p>
+							<p class="sale-of-price">￥321333</p>
+						</div>
+					</li>
+					<li>
+						<div class="sale-ones-front tie">
+							<p class="sale-of-img"><img src="img/test/item2.jpg"></p>
+							<p class="sale-of-name">商品名称超级长长长</p>
+							<p class="sale-of-price">￥321333</p>
+						</div>
+					</li>
+					<li>
+						<div class="sale-ones-front tie">
+							<p class="sale-of-img"><img src="img/test/item3.jpg"></p>
+							<p class="sale-of-name">商品名称</p>
+							<p class="sale-of-price">￥321333</p>
+						</div>
+					</li>
+					<li>
+						<div class="sale-ones-front tie">
+							<p class="sale-of-img"><img src="img/test/item3.png"></p>
+							<p class="sale-of-name">商品名称超级长长长</p>
+							<p class="sale-of-price">￥321333</p>
+						</div>
+					</li>
+					<li>
+						<div class="sale-ones-front tie">
+							<p class="sale-of-img"><img src="img/test/item1.jpg"></p>
+							<p class="sale-of-name">商品名称</p>
+							<p class="sale-of-price">￥321333</p>
+						</div>
+					</li>
+					<li>
+						<div class="sale-ones-front tie">
+							<p class="sale-of-img"><img src="img/test/item2.jpg"></p>
+							<p class="sale-of-name">商品名称超级长长长</p>
+							<p class="sale-of-price">￥321333</p>
+						</div>
+					</li>
+					<li>
+						<div class="sale-ones-front tie">
+							<p class="sale-of-img"><img src="img/test/item3.jpg"></p>
+							<p class="sale-of-name">商品名称</p>
+							<p class="sale-of-price">￥321333</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+	</section>
+	
+	
+
+	<section class="footer">
+		<div class="foot-border"></div>
+		<div class="foot-left">
+			<div><a class="nav1" href="#">客服</a></div>
+			<div><a class="nav2" href="shop-xiangqiye/shop-xiangqing.html">店铺</a></div>
+		</div>
+		<div class="foot-right">
+			<div><a class="nav1" href="#">加入购物车</a></div>
+			<div><a class="nav2" href="#">立即购买</a></div>
+		</div>
+		
+		
+	</section>
+		<div class="footer-pop-ups-blackground">
+			
+		</div>
+		<div class="footer-pop-ups">
+			<div class="fpp-alpha">
+				<img src="img/test/item2.jpg" class="fpp-logo"/>
+			</div>
+			<div class="fpp-pad">
+				<div class="detail part">
+					<div class="fpp-title detail-access-borderbtm">
+						<b id="goodsPrice2">￥69</b>
+						<p>库存</p>
+						<p>选择颜色</p>
+						<div class="fpp-X">
+							<a href="#">×</a>
+						</div>
+					</div>
+					<div class="fpp-color clearfix">
+						<p class="clearfix">颜色分类</p>
+						<a class="fpp-color-select" href="#">颜色分类</a>
+						<a href="#">颜色分类</a>
+						<a href="#">颜色分类</a>
+						<a href="#">颜色分类</a>
+						<a href="#">颜色分类颜色分类</a>
+						<a href="#">颜色分类颜色分类颜色分类</a>
+					</div>
+				</div>
+				<div class="detail part">
+					<div class="detail-count horizontal-center">
+						<p>购买数量</p>
+						<i class="auto-width"></i>
+						<a class="detail-count-sub" href="#">-</a>
+						<input class="detail-count-write" type="text" value="1">
+						<a class="detail-count-add" href="#">+</a>
+					</div>
+				</div>
+				<div class="dpp-blank"></div>
+				<div class="fpp-cart">
+					<a class="font1" href="shop-cart/shop-cart-edit.html">加入购物车</a>
+					<a class="font2" href="detail-confirm.html">立即购买</a>
+				</div>
+			</div>
+		</div>
+	   <div class=" btn-fenxiang">
+		<div class="header header-top">
+			<p>分享到</p>
+		</div>
+		<!-- 主体 -->
+		<div class="content flex con-bg">
+			<div class="more clearfix">
+				<ul>
+					<li>
+						<a href="#" class="btn1"></a>
+						<p>微信</p>
+					</li>
+					<li>
+						<a href="#" class="btn2"></a>
+						<p>微信朋友圈</p>
+					</li>
+					<li>
+						<a href="#" class="btn3"></a>
+						<p>微博</p>
+					</li>
+					<li>
+						<a href="#" class="btn4"></a>
+						<p>QQ</p>
+					</li>
+					<li>
+						<a href="#" class="btn5"></a>
+						<p>QQ空间</p>
+					</li>
+					<li style="display: none">
+						<a href="#" class="btn6"></a>
+						<p>我的喵窝</p>
+					</li>
+				</ul>
+
+			</div>
+			<div class="btn-bottom">
+				<a href="#">取消</a>
+			</div>
+		</div>
+		<section class="footer">
+
+		</section>
+	</div>
+	 	<section class="footer">
+
+		</section>
+	</section>
+</body>
+</html>
+<script>
+	var url = new Arguments();
+	var param = url.Request();
+	$(function(){
+		IndexList();
+	})
+	function IndexList()
+	{
+		var id = param.id;
+
+		var url = "/tongrenmiao/index.php?g=Mall&m=index&a=goodsDetails";
+		$.ajax({
+			url:url,
+			data:{'id':id},
+			dataType:'json',
+			type:'get',
+		}).done(function(ret)
+		{
+			var goodsName = "";
+			var goodsPrice = "";
+			var goodsArea = "";
+			if(ret == "")
+			{
+				alert('数据加载失败');
+			}
+			else
+			{
+				
+				goodsName = ret.name;
+				goodsPrice = '￥' + ret.price;
+				goodsArea = ret.area;
+				$("#goodsName").html(goodsName);
+				$("#goodsPrice").html(goodsPrice);
+				$("#goodsPrice2").html(goodsPrice);
+				$("#goodsArea").html(goodsArea);
+			}
+		})
+	}
+</script>

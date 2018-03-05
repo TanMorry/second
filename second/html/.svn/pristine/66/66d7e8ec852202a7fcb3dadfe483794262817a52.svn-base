@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>展会</title>
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<link href="css/global.css" rel="stylesheet" type="text/css">
+<link href="css/layout.css" rel="stylesheet" type="text/css">
+<link href="css/flexslider.css" rel="stylesheet" type="text/css">
+<link href="css/dropkick.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+/*下拉选择框高度*/
+.dk_toggle,
+.dk_container{
+	height: 28px;
+	line-height: 28px;
+}
+
+.mc-select{
+	margin-right: 10px;
+	border: #cdcdcd solid 1px;
+	-webkit-border-radius: 24px;
+	   -moz-border-radius: 24px;
+	    -ms-border-radius: 24px;
+	     -o-border-radius: 24px;
+	        border-radius: 24px;
+}
+
+.M_Banner{
+	position: relative;
+	height: 360px;
+	background: #fff;
+	margin: 0 0 40px;
+}
+.M_Banner>div{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 360px;
+}
+
+#M_BookList{
+	padding: 20px 42px 12px;
+}
+#M_BookList .M_Book{
+	margin: 0 0 18px;
+}
+
+#Banner-Background{
+	z-index: 8;
+	overflow: hidden;
+}
+#Banner-Main{
+	z-index: 9;
+}
+#Banner-Background img{
+	/*margin: -8% 0 0;*/
+	width: 100%;
+	-webkit-filter: blur(8px);
+	   -moz-filter: blur(8px);
+	    -ms-filter: blur(8px);
+	        filter: blur(8px);
+	filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=8, MakeShadow=false);
+}
+#Banner-Main>div{
+	position: relative;
+}
+@media screen and (min-width: 1440px) {
+	#Banner-Background img {
+		margin: -8% 0 0;
+	}
+}
+@media screen and (min-width: 1280px) {
+	#Banner-Background img {
+		margin: -4% 0 0;
+	}
+}
+</style>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.flexslider-min.js"></script>
+<script src="js/jquery.dropkick-min.js"></script>
+<script src="js/miao-GoTop.js"></script>
+<script src="js/miao-Dialog.js"></script>
+<script src="js/miao-Menu.js"></script>
+<script src="js/expo.public.js"></script>
+<script type="text/javascript">
+
+$().ready(function() {
+	/*图片轮播插件*/
+	$("#Banner-Main .flexslider").flexslider({
+		slideshowSpeed: 2500, //展示时间间隔ms
+		animationSpeed: 500, //滚动时间ms
+		slideToStart: 0,
+		animation: "slide",
+		keyboardNav: false,
+		directionNav: false,
+		pauseOnAction: false,
+		pauseOnHover: true,
+		before: function(slider) {
+			/*设置模糊背景的图片*/
+			$("#Banner-Background img").fadeOut(500,function() {
+				var src = slider.find('.flex-active-slide img').attr('src');
+				$(this).attr('src', src).fadeIn(500);
+			})
+		}
+	});
+	/*返回顶部按钮*/
+	$(".M_GoTop").MiaoGoTop({
+		fixed: true,
+		x: 960, //960是页面宽
+		xMargin: 15, //距离页面和屏幕右边最小的边距
+		y: 60 //距离底部
+	});
+	/*bar-top鼠标移入移出动画*/
+	$(".bar-top li").mouseenter(function(event) {
+		$(this).find('a').stop().animate({top: 0}, 166);
+		$(this).find('b').stop().animate({top: 0}, 166);
+	});
+	$(".bar-top li").mouseleave(function(event) {
+		$(this).find('a').stop().animate({top: '40%'}, 166);
+		$(this).find('b').stop().animate({top: '80%'}, 166);
+	});
+	/*三级联动菜单初始化*/
+	$(".category-sort").MiaoMenu();
+	/*中部list切换*/
+	$("#M_BookList .flexslider").flexslider({
+		slideshow: false,
+		animationSpeed: 500,
+		slideToStart: 0,
+		animation: "slide",
+		itemWidth: 126,
+		itemMargin: 24,
+		keyboardNav: false,
+		directionNav: true,
+		controlNav: false,
+		pauseOnHover: true,
+		prevText: "",
+		nextText: "",
+		pauseText: "",
+		playText: "",
+		//animationLoop: false
+	});
+	/*下拉选择框*/
+	$('.mc-select').dropkick({autoWidth:false});
+});
+</script>
+
+<body>
+	<div class="M_Header">
+		<div class="hd-bg">
+			<p class="hd-pink"></p>
+		</div>
+		<div class="hd-index M_Center">
+			<div class="hd-main">
+				<ul class="float-center clearfix">
+					<li class="hd-m-btn" ><a href="#">展会</a></li>
+					<li class="hd-m-btn fixed"><a href="#">社团铺</a></li>
+					<li class="hd-m-logo"></li>
+					<li class="hd-m-btn" ><a href="#">我的</a></li>
+					<li class="hd-m-btn" ><a href="#">同人闲情</a></li>
+				</ul>
+			</div>
+			<div class="hd-nav-r">
+				<ul class="hd-nav-not">
+					<li><a href="#">登录</a></li>
+					<li><a href="#">注册</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="M_Column">
+		<div class="M_Center clearfix">
+			<ul class="column-tab">
+				<li class="ct-icon1 fixed">同人铺</li>
+				<li class="ct-icon2">官方店</li>
+				<li class="ct-icon3">定制厂</li>
+			</ul>
+			<div class="column-search">
+				<select name="country-nofake" class="mc-select">
+					<option value="">货品</option>
+					<option value="AU">同人圈</option>
+					<option value="CA">巴拉拉小魔仙</option>
+				</select>
+				<input class="cs-in" type="text" name="search">
+				<a class="cs-btn" href="#">搜索</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="M_Banner">
+		<div id="Banner-Background">
+			<!-- 直接设置默认底图就不用js设置了 -->
+			<img src="images/banner-1.jpg">
+		</div>
+		<div id="Banner-Main">
+			<div class="M_Center">
+				<div class="flexslider">
+					<ul class="slides">
+						<li><img src="images/banner-1.jpg"></li>
+						<li><img src="images/banner-2.jpg"></li>
+						<li><img src="images/banner-3.jpg"></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="M_Center M_Category">
+		<div class="category-sort clearfix">
+			<div class="cs-first">
+				<h6>爱の属性</h6>
+				<ul class="clearfix">
+					<li><a class="fixed" href="#" menu="trq">CP圈</a></li>
+					<li><a href="#" menu="yz">原作</a></li>
+					<li><a href="#" menu="cross">crossover</a></li>
+					<li><a href="#" menu="ph">偏好</a></li>
+				</ul>
+			</div>
+			<div class="cs-second">
+				<h6>物の类型</h6>
+				<ul class="clearfix">
+					<li><a href="#" menu="bz">同人本</a></li>
+					<li><a href="#" menu="zb">原创本</a></li>
+					<li><a href="#" menu="xnhp">同人周边</a></li>
+					<li><a href="#" menu="xnhp">原创手作</a></li>
+					<li><a href="#" menu="xnhp">虚拟货品</a></li>
+				</ul>
+			</div>
+			<div class="cs-menu">
+				<b parent="trq">
+					<a href="#" menu="asd">有三级菜单</a>
+					<a href="#">数码用品</a>
+					<a href="#">数码用品</a>
+					<a href="#">测试</a>
+					<a href="#">测试2</a>
+					<a href="#">数码用品测试2测试</a>
+					<a href="#">测试</a>
+				</b>
+				<b parent="yz">
+					<a href="#">数码用品</a>
+					<a href="#" menu="asd">有三级菜单</a>
+					<a href="#">测试4</a>
+					<a href="#">测试3</a>
+					<a href="#">测试2</a>
+					<a href="#">数码用品</a>
+					<a href="#">数码用品</a>
+					<a href="#">数码用品</a>
+					<a href="#">测试</a>
+					<a href="#" menu="dsa">有三级菜单</a>
+					<a href="#">测试3</a>
+					<a href="#">测试3</a>
+					<a href="#">测试3</a>
+					<a href="#">测试3</a>
+					<a href="#">测试3</a>
+				</b>
+				<b parent="cross">
+					<a href="#">数码用品</a>
+				</b>
+				<b parent="ph">
+					<a href="#">数码用品</a>
+					<a href="#">测试2</a>
+				</b>
+				<b parent="bz">
+					<a href="#">数码用品</a>
+					<a href="#">测试</a>
+					<a href="#">测试2</a>
+				</b>
+				<b parent="zb">
+					<a href="#">数码用品</a>
+				</b>
+				<b parent="xnhp">
+					<a href="#">数码用品</a>
+					<a href="#">测试</a>
+					<a href="#">测试</a>
+					<a href="#">数码用品</a>
+				</b>
+			</div>
+
+			<div class="cs-item">
+				<div class="cs-arrow"></div>
+				<div class="cs-i-list">
+					<b parent="zb">
+						<a href="#">永远不会出现</a>
+					</b>
+					<b parent="asd">
+						<a href="#">asd</a>
+						<a href="#">测试</a>
+						<a href="#">测试</a>
+						<a href="#">asd</a>
+						<a href="#">asd</a>
+						<a href="#">测试</a>
+						<a href="#">测试</a>
+						<a href="#">asd</a>
+						<a href="#">asd</a>
+						<a href="#">测试</a>
+						<a href="#">测试</a>
+						<a href="#">asd</a>
+					</b>
+					<b parent="dsa">
+						<a href="#">dsa</a>
+						<a href="#">测试</a>
+						<a href="#">测试</a>
+						<a href="#">dsa</a>
+						<a href="#">dsa</a>
+						<a href="#">测试</a>
+						<a href="#">dsa</a>
+						<a href="#">测试</a>
+						<a href="#">测试</a>
+						<a href="#">dsa</a>
+					</b>
+					<b parent="dsa">
+						<a href="#">第二个dsa</a>
+						<a href="#">测试</a>
+						<a href="#">测试</a>
+						<a href="#">第二个dsa</a>
+						<a href="#">第二个dsa</a>
+						<a href="#">测试</a>
+						<a href="#">测试</a>
+						<a href="#">第二个dsa</a>
+						<a href="#">第二个dsa</a>
+						<a href="#">测试</a>
+						<a href="#">测试</a>
+						<a href="#">三级标签允许多个,自动换行</a>
+					</b>
+				</div>
+			</div>
+		</div>
+		<a class="M_LikeShop" href="#"></a>
+	</div>
+
+	<div class="M_Center">
+		<div class="bar-top">
+			<ul>
+				<li>
+					<img src="images/bar-top-1.png">
+					<b></b>
+					<a href="#">中华IP</a>
+				</li>
+				<li>
+					<img src="images/bar-top-2.png">
+					<b></b>
+					<a href="#">11区ACG</a>
+				</li>
+				<li>
+					<img src="images/bar-top-3.png">
+					<b></b>
+					<a href="#">欧美SLASH</a>
+				</li>
+				<li>
+					<img src="images/bar-top-4.png">
+					<b></b>
+					<a href="#">其他</a>
+				</li>
+			</ul>
+		</div>
+
+		<div class="M_Layout M_BTM_15">
+			<div class="M_Layout_hl">
+				<span type="text">人气本子</span>
+				<span type="icon1"></span>
+				<a href="#">查看更多&gt;&gt;</a>
+				<div class="clear"></div>
+			</div>
+
+			<div id="M_BookList" class="clearfix">
+				<div class="flexslider">
+					<ul class="slides">
+						<li>
+							<div class="M_Book">
+								<ul>
+									<li class="M_Book_1"><img src="images/book-1.png"></li>
+									<li class="M_Book_2"><i>神的情书</i></li>
+									<li class="M_Book_3">伪装者/楼城</li>
+									<li class="M_Book_4">￥58</li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<div class="M_Book">
+								<ul>
+									<li class="M_Book_1"><img src="images/book-1.png"></li>
+									<li class="M_Book_2"><i>神的情书</i></li>
+									<li class="M_Book_3">伪装者/楼城</li>
+									<li class="M_Book_4">￥88</li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<div class="M_Book">
+								<ul>
+									<li class="M_Book_1"><img src="images/book-1.png"></li>
+									<li class="M_Book_2"><i>神的情书</i></li>
+									<li class="M_Book_3">伪装者/楼城</li>
+									<li class="M_Book_4">￥78</li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<div class="M_Book">
+								<ul>
+									<li class="M_Book_1"><img src="images/book-1.png"></li>
+									<li class="M_Book_2"><i>神的情书</i></li>
+									<li class="M_Book_3">伪装者/楼城</li>
+									<li class="M_Book_4">￥98</li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<div class="M_Book">
+								<ul>
+									<li class="M_Book_1"><img src="images/book-1.png"></li>
+									<li class="M_Book_2"><i>神的情书</i></li>
+									<li class="M_Book_3">伪装者/楼城</li>
+									<li class="M_Book_4">￥158</li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<div class="M_Book">
+								<ul>
+									<li class="M_Book_1"><img src="images/book-1.png"></li>
+									<li class="M_Book_2"><i>神的情书</i></li>
+									<li class="M_Book_3">伪装者/楼城</li>
+									<li class="M_Book_4">￥258</li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<div class="M_Book">
+								<ul>
+									<li class="M_Book_1"><img src="images/book-1.png"></li>
+									<li class="M_Book_2"><i>神的情书</i></li>
+									<li class="M_Book_3">伪装者/楼城</li>
+									<li class="M_Book_4">￥508</li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<div class="M_Book">
+								<ul>
+									<li class="M_Book_1"><img src="images/book-1.png"></li>
+									<li class="M_Book_2"><i>神的情书</i></li>
+									<li class="M_Book_3">伪装者/楼城</li>
+									<li class="M_Book_4">￥408</li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<div class="M_Book">
+								<ul>
+									<li class="M_Book_1"><img src="images/book-1.png"></li>
+									<li class="M_Book_2"><i>神的情书</i></li>
+									<li class="M_Book_3">伪装者/楼城</li>
+									<li class="M_Book_4">￥608</li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<div class="M_Book">
+								<ul>
+									<li class="M_Book_1"><img src="images/book-1.png"></li>
+									<li class="M_Book_2"><i>神的情书</i></li>
+									<li class="M_Book_3">伪装者/楼城</li>
+									<li class="M_Book_4">￥8</li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<div class="M_Book">
+								<ul>
+									<li class="M_Book_1"><img src="images/book-1.png"></li>
+									<li class="M_Book_2"><i>神的情书</i></li>
+									<li class="M_Book_3">伪装者/楼城</li>
+									<li class="M_Book_4">￥1118</li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<div class="M_Book">
+								<ul>
+									<li class="M_Book_1"><img src="images/book-1.png"></li>
+									<li class="M_Book_2"><i>神的情书</i></li>
+									<li class="M_Book_3">伪装者/楼城</li>
+									<li class="M_Book_4">￥118</li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<div class="M_Book">
+								<ul>
+									<li class="M_Book_1"><img src="images/book-1.png"></li>
+									<li class="M_Book_2"><i>神的情书</i></li>
+									<li class="M_Book_3">伪装者/楼城</li>
+									<li class="M_Book_4">￥8888</li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="M_Layout M_BTM_15">
+			<div class="M_Layout_hl">
+				<span type="text">人气周边</span>
+				<span type="icon2"></span>
+				<a href="#">查看更多&gt;&gt;</a>
+				<div class="clear"></div>
+			</div>
+			<div>
+				<div class="M_Relate">
+					<ul>
+						<li><img src="images/miao-relate-1.png"></li>
+						<li><a href="#">手办手办</a><i>111</i></li>
+					</ul>
+				</div>
+				<div class="M_Relate">
+					<ul>
+						<li><img src="images/miao-relate-2.png"></li>
+						<li><a href="#">手办手办</a><i>111</i></li>
+					</ul>
+					<ul>
+						<li><img src="images/miao-relate-3.png"></li>
+						<li><a href="#">手办手办</a><i>111</i></li>
+					</ul>
+				</div>
+				<div class="M_Relate">
+					<ul>
+						<li><img src="images/miao-relate-2.png"></li>
+						<li><a href="#">手办手办</a><i>111</i></li>
+					</ul>
+					<ul>
+						<li><img src="images/miao-relate-3.png"></li>
+						<li><a href="#">手办手办</a><i>111</i></li>
+					</ul>
+				</div>
+				<div class="M_Relate">
+					<ul>
+						<li><img src="images/miao-relate-2.png"></li>
+						<li><a href="#">手办手办</a><i>111</i></li>
+					</ul>
+					<ul>
+						<li><img src="images/miao-relate-3.png"></li>
+						<li><a href="#">手办手办</a><i>111</i></li>
+					</ul>
+				</div>
+				<div class="M_Relate">
+					<ul>
+						<li><img src="images/miao-relate-4.png"></li>
+						<li><a href="#">手办手办</a><i>111</i></li>
+					</ul>
+					<ul>
+						<li><img src="images/miao-relate-5.png"></li>
+						<li><a href="#">手办手办</a><i>111</i></li>
+					</ul>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+
+		<div class="M_Layout M_BTM_175">
+			<div class="M_Layout_hl">
+				<span type="text">人气社团铺</span>
+				<span type="icon3"></span>
+				<a href="#">查看更多&gt;&gt;</a>
+				<div class="clear"></div>
+			</div>
+			<div>
+				<ul class="M_Mass">
+					<li><img src="images/miao-mass-1.png">我们都爱电影</li>
+					<li><img src="images/miao-mass-2.png">我们都爱电影</li>
+					<li><img src="images/miao-mass-3.png">我们都爱电影</li>
+					<li><img src="images/miao-mass-3.png">我们都爱电影</li>
+					<li><img src="images/miao-mass-3.png">我们都爱电影</li>
+					<li><img src="images/miao-mass-1.png">我们都爱电影</li>
+					<li><img src="images/miao-mass-2.png">我们都爱电影</li>
+					<li><img src="images/miao-mass-3.png">我们都爱电影</li>
+					<li><img src="images/miao-mass-3.png">我们都爱电影</li>
+					<li><img src="images/miao-mass-2.png">我们都爱电影</li>
+					<li><img src="images/miao-mass-3.png">我们都爱电影</li>
+					<li><img src="images/miao-mass-3.png">我们都爱电影</li>
+					<li><img src="images/miao-relate-2.png">我们都爱电影</li>
+					<li><img src="images/miao-relate-3.png">我们都爱电影</li>
+					<li><img src="images/miao-relate-3.png">我们都爱电影</li>
+				</ul>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+
+	<a class="M_GoTop" href="#Top"></a>
+
+	<div class="M_Footer">
+		<div class="M_Center">
+			<p>底部暂时没定稿</p>
+		</div>
+	</div>
+</body>
+</html>

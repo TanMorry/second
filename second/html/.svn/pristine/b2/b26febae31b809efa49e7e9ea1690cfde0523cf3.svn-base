@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="format-detection" content="telephone=no"/>
+<title>喵</title>
+<link href="../css/global.css" rel="stylesheet" type="text/css">
+<link href="../css/public.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+</style>
+
+<script src="../js/jquery-2.2.4.min.js"></script>
+<script src="../js/miao-Dialog.js"></script>
+<script>
+	$().ready(function(){
+		$('.store-up').click(function(){
+			$(this).toggleClass('store-up-btn');
+			return false;
+		});
+
+		$('.store-box ').click(function(){
+			window.location.href='../shangye_xiangqi.html'
+		})
+
+	})
+</script>
+
+</head>
+<body>
+<!-- 首页 -->
+<section class="flex">
+	<section class="header">
+		<div class="header-bg normal">
+			<div class="header-l"><a href="../main.html"></a></div>
+			<div class="header-c"><input class="search" type="text" placeholder="输入铺名关键字" onclick="location.href='../sousuo-index.html?filterType=2'"></div>
+			<div class="header-r"><a href="#"></a></div>
+		</div>
+	</section>
+	<!-- 主体 -->
+	<section class="content" id="content">
+			<div class="store-search part clearfix">
+				<div class="store-box clearfix">
+					<div class="store-img">
+					 <img src="../img/test/item2.jpg" alt="">
+					</div>
+					<div class="store-info">
+						<p class="store-i-name">二次元之家二次元之家</p>
+						<p class="store-i-text">关注人数 60</p>
+						<p class="store-i-text">全部宝贝 60</p>
+					</div>
+					<div class="store-up"><a href="javascript:void(0)">收藏</a></div>
+				</div>
+				<div class="store-box clearfix">
+					<ul class="sale-ones clearfix">
+						<li>
+							<div class="sale-ones-front">
+								<p class="sale-of-img"><img src="../img/test/item1.jpg"></p>
+							</div>
+						</li>
+						<li>
+							<div class="sale-ones-front">
+								<p class="sale-of-img"><img src="../img/test/item2.png"></p>
+							</div>
+						</li>
+						<li>
+							<div class="sale-ones-front">
+								<p class="sale-of-img"><img src="../img/test/item3.png"></p>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!--<div class="store-search part clearfix">-->
+				<!--<div class="store-box clearfix">-->
+					<!--<div class="store-img">-->
+						<!--<img src="../img/test/item2.jpg" alt="">-->
+					<!--</div>-->
+					<!--<div class="store-info">-->
+						<!--<p class="store-i-name">二次元之家二次元之家</p>-->
+						<!--<p class="store-i-text">关注人数 60</p>-->
+						<!--<p class="store-i-text">全部宝贝 60</p>-->
+					<!--</div>-->
+					<!--<div class="store-up"><a href="#">收 藏</a></div>-->
+				<!--</div>-->
+				<!--<div class="store-box clearfix">-->
+					<!--<ul class="sale-ones clearfix">-->
+						<!--<li>-->
+							<!--<div class="sale-ones-front">-->
+								<!--<p class="sale-of-img"><img src="../img/test/item1.jpg"></p>-->
+							<!--</div>-->
+						<!--</li>-->
+						<!--<li>-->
+							<!--<div class="sale-ones-front">-->
+								<!--<p class="sale-of-img"><img src="../img/test/item2.png"></p>-->
+							<!--</div>-->
+						<!--</li>-->
+						<!--<li>-->
+							<!--<div class="sale-ones-front">-->
+								<!--<p class="sale-of-img"><img src="../img/test/item3.png"></p>-->
+							<!--</div>-->
+						<!--</li>-->
+					<!--</ul>-->
+				<!--</div>-->
+			<!--</div>-->
+			<!--<div class="store-search part clearfix">-->
+				<!--<div class="store-box clearfix">-->
+					<!--<div class="store-img">-->
+						<!--<img src="../img/test/item2.jpg" alt="">-->
+					<!--</div>-->
+					<!--<div class="store-info">-->
+						<!--<p class="store-i-name">二次元之家二次元之家</p>-->
+						<!--<p class="store-i-text">关注人数 60</p>-->
+						<!--<p class="store-i-text">全部宝贝 60</p>-->
+					<!--</div>-->
+					<!--<div class="store-up"><a href="#">收 藏</a></div>-->
+				<!--</div>-->
+				<!--<div class="store-box clearfix">-->
+					<!--<ul class="sale-ones clearfix">-->
+						<!--<li>-->
+							<!--<div class="sale-ones-front">-->
+								<!--<p class="sale-of-img"><img src="../img/test/item1.jpg"></p>-->
+							<!--</div>-->
+						<!--</li>-->
+						<!--<li>-->
+							<!--<div class="sale-ones-front">-->
+								<!--<p class="sale-of-img"><img src="../img/test/item2.png"></p>-->
+							<!--</div>-->
+						<!--</li>-->
+						<!--<li>-->
+							<!--<div class="sale-ones-front">-->
+								<!--<p class="sale-of-img"><img src="../img/test/item3.png"></p>-->
+							<!--</div>-->
+						<!--</li>-->
+					<!--</ul>-->
+				<!--</div>-->
+			<!--</div>-->
+			<!--<div class="store-search part clearfix">-->
+				<!--<div class="store-box clearfix">-->
+					<!--<div class="store-img">-->
+						<!--<img src="../img/test/item2.jpg" alt="">-->
+					<!--</div>-->
+					<!--<div class="store-info">-->
+						<!--<p class="store-i-name">二次元之家二次元之家</p>-->
+						<!--<p class="store-i-text">关注人数 60</p>-->
+						<!--<p class="store-i-text">全部宝贝 60</p>-->
+					<!--</div>-->
+					<!--<div class="store-up"><a href="#">收 藏</a></div>-->
+				<!--</div>-->
+				<!--<div class="store-box clearfix">-->
+					<!--<ul class="sale-ones clearfix">-->
+						<!--<li>-->
+							<!--<div class="sale-ones-front">-->
+								<!--<p class="sale-of-img"><img src="../img/test/item1.jpg"></p>-->
+							<!--</div>-->
+						<!--</li>-->
+						<!--<li>-->
+							<!--<div class="sale-ones-front">-->
+								<!--<p class="sale-of-img"><img src="../img/test/item2.png"></p>-->
+							<!--</div>-->
+						<!--</li>-->
+						<!--<li>-->
+							<!--<div class="sale-ones-front">-->
+								<!--<p class="sale-of-img"><img src="../img/test/item3.png"></p>-->
+							<!--</div>-->
+						<!--</li>-->
+					<!--</ul>-->
+				<!--</div>-->
+			<!--</div>-->
+			<!--<div class="store-search part clearfix">-->
+				<!--<div class="store-box clearfix">-->
+					<!--<div class="store-img">-->
+						<!--<img src="../img/test/item2.jpg" alt="">-->
+					<!--</div>-->
+					<!--<div class="store-info">-->
+						<!--<p class="store-i-name">二次元之家二次元之家</p>-->
+						<!--<p class="store-i-text">关注人数 60</p>-->
+						<!--<p class="store-i-text">全部宝贝 60</p>-->
+					<!--</div>-->
+					<!--<div class="store-up"><a href="#">收 藏</a></div>-->
+				<!--</div>-->
+				<!--<div class="store-box clearfix">-->
+					<!--<ul class="sale-ones clearfix">-->
+						<!--<li>-->
+							<!--<div class="sale-ones-front">-->
+								<!--<p class="sale-of-img"><img src="../img/test/item1.jpg"></p>-->
+							<!--</div>-->
+						<!--</li>-->
+						<!--<li>-->
+							<!--<div class="sale-ones-front">-->
+								<!--<p class="sale-of-img"><img src="../img/test/item2.png"></p>-->
+							<!--</div>-->
+						<!--</li>-->
+						<!--<li>-->
+							<!--<div class="sale-ones-front">-->
+								<!--<p class="sale-of-img"><img src="../img/test/item3.png"></p>-->
+							<!--</div>-->
+						<!--</li>-->
+					<!--</ul>-->
+				<!--</div>-->
+			<!--</div>-->
+	</section>
+	<section class="footer">
+	</section>
+</section>
+<div class="confirm-pop-ups font3" id="cpp2">
+	<p></p>
+</div>
+</body>
+</html>
+<script>
+	var username = "lalala";
+	var userid = 2;
+	$(function(){
+		shopInfo();
+	})
+	//第一次请求所有店铺和该店铺的三个最新上架的商品和该商品是否被收藏
+	function shopInfo()
+	{
+		var data={};
+		data['uid'] = userid;
+		data['type'] = 2;//商业店
+//		var shopUrl = RequestUrl('shop');
+		var shopUrl = '/tongrenmiao/index.php?g=Mall&m=Index&a=business'
+		$.ajax({
+			url:shopUrl,
+			data:data,
+			type:'get',
+			dataType:'json',
+			beforeSend:function()
+			{
+				$("#content").html("<img src='../img/loading.jpg'>");
+				$("#content").css('background-color','#fff');
+			},
+			success:function(res)
+			{
+				if(res.Info != "")
+				{
+					handHtml(res.Info)
+				}
+				else
+				{
+					$("#content").html('<div class="load-fail">没有找到该店铺商品</div><div>');
+				}
+			},
+			error:function()
+			{
+
+			}
+		})
+	}
+
+	function handHtml(list)
+	{
+		var str = "";
+		$.each(list,function(ke,va)
+		{
+			str += '<div class="store-search part clearfix">\
+						<div class="store-box clearfix">\
+							<div class="store-img">\
+								<a href="../shangye_xiangqi.html?shopId='+va.userid+'"><img src="'+va.logo+'" alt=""></a>\
+							</div>\
+							<div class="store-info">\
+								<p class="store-i-name">'+va.company+'</p>\
+								<p class="store-i-text">关注人数 '+va.shop_collect+'</p>\
+								<p class="store-i-text">全部宝贝 '+va.allbaby+'</p>\
+							</div>'
+			if(va.collectStatus == 1)
+			{
+				str += '<div class="store-up"><a class="btn-color" href="#" data-id="' + va.userid + '">收 藏</a></div>'
+			}
+			else
+			{
+				str += '<div class="store-up"><a href="#" data-id="' + va.userid + '">收 藏</a></div>'
+			}
+				str += '</div>\
+						<div class="store-box clearfix">\
+							<ul class="sale-ones clearfix">'
+								$.each(va.product,function(k,v)
+								{
+									str += '<li><div class="sale-ones-front"><p class="sale-of-img"><a href="../detail-page1.html?id='+v.id+'"><img src="'+v.pic+'"></a></p></div></li>';
+								})
+
+						str +='	</ul></div>	</div>';
+		})
+		$('#content').html(str);
+		
+		$('.store-up').on('click', 'a', function(){
+			var obj = $(this);
+	        var data = {};
+	        data['collect'] = $(this).hasClass('btn-color') ? 0 : 1;
+	        data['userid'] = userid;
+	        data['uname'] = username;
+	        data['shopid'] = $(this).attr('data-id');
+	        data['shopname'] = $(this).parents('.store-up').siblings('.store-info').find('.store-i-name').text();
+	        $.ajax({
+				url:"/tongrenmiao/index.php?g=Mall&m=index&a=isCollect",
+				data:data,
+				dataType:'json',
+				type:'get',
+				beforeSend:function()
+				{
+					
+				},
+				success:function(data)
+				{
+					if(data.collect == '0')
+					{
+						//取消收藏
+						alertInfo('收藏已取消');
+					}
+					else
+					{
+						alertInfo('已收藏');
+					}
+					obj.toggleClass('btn-color');
+				},
+				error:function()
+				{
+
+				}
+			})
+	    });
+	}
+
+	//提示框
+	function alertInfo(mes)
+	{
+		var phone2 = $('#cpp2').MiaoDialog();
+		phone2.MiaoDialog('open');
+		$('#cpp2').find('p').text(mes);
+		setTimeout(function(){
+			phone2.MiaoDialog('close');
+		},1400);
+	}
+</script>

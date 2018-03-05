@@ -1,0 +1,181 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<!--[if lt IE 9]>
+<script type="text/javascript" src="lib/html5.js"></script>
+<script type="text/javascript" src="lib/respond.min.js"></script>
+<script type="text/javascript" src="lib/PIE_IE678.js"></script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/static/h-ui/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/lib/Hui-iconfont/1.0.7/iconfont.css" />
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/lib/icheck/icheck.css" />
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/static/h-ui/css/style.css" />
+<!--[if IE 6]>
+<script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script>DD_belatedPNG.fix('*');</script>
+<![endif]-->
+<title>IP管理</title>
+<style>
+	.className1{
+	  line-height:26px;
+	  height:30px;
+	  width:70px;
+	  color:#ffffff;
+	  background-color:#3ba354;
+	  font-size:16px;
+	  font-weight:normal;
+	  font-family:Arial;
+	  border:0px solid #dcdcdc;
+	  -moz-box-shadow: inset 0px 0px 0px 0px #ffffff;
+	  -webkit-box-shadow: inset 0px 0px 0px 0px #ffffff;
+	  box-shadow: inset 0px 0px 0px 0px #ffffff;
+	  text-align:center;
+	  display:inline-block;
+	  text-decoration:none;
+}
+</style>
+</head>
+<body>
+<nav class="breadcrumb">
+	<i class="Hui-iconfont">&#xe67f;</i> 
+		首页 <span class="c-gray en">&gt;</span> 
+		IP管理 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" >
+	<i class="Hui-iconfont">&#xe68f;</i></a>
+</nav>
+
+<div class="page-container">
+	<form action="{:U('admin/banIp')}" method="post" id="myForm">
+	<div class="zhuti_2" style="margin-top: 20px;">
+		<span style="padding-right: 0px;">输入IP：<input type="text" name="ip" style="width:200px" class="input-text"></span>
+		<!--<span style="padding-right: 3px;">-&nbsp;<input type="text" name="" id=""  style="width:50px" class="input-text"></span>-->
+		<!--<span style="padding-right: 3px;">-&nbsp;<input type="text" name="" id=""  style="width:50px" class="input-text"></span>-->
+		<!--<span style="padding-right: 3px;">-&nbsp;<input type="text" name="" id=""  style="width:50px" class="input-text"></span>-->
+		
+		<span style="padding-left: 30px;">封禁时间：
+			<select class="input-text" style="width:50px;" name="banTime">
+				<option value="3">3</option>
+				<option value="7">7</option>
+				<option value="30">30</option>
+			</select><span style="padding:0 10px 0 5px;">天</span></span>
+			<!--<input type="text" name="" id="" placeholder="30" style="width:50px" class="input-text">-->
+		<button class="btn btn-danger radius" style="background: mediumseagreen;border: none;" onclick="return banIp()" type="button">封禁IP</button>
+	</div>
+	<div class="cl pd-5 bg-1 bk-gray mt-20"> 
+		<span class="l">
+			<button type="button" onclick="return jieIp()" class="btn btn-danger radius" name="jiejin"><i class="Hui-iconfont">&#xe6e2;</i> 解禁</button>
+			<!--<a class="btn btn-primary radius" data-title="添加资讯" _href="article-add.html" onclick="Hui_admin_tab(this)" href="javascript:;">
+				
+			<i class="Hui-iconfont">&#xe600;</i> 添加资讯</a>-->
+		</span> 
+		<!--<span class="r">共有数据：<strong>3</strong> 条</span>-->
+	</div>
+
+	<div class="mt-20">
+		<table class="table table-border table-bordered table-bg table-hover table-sort">
+			<thead>
+				<tr class="text-c">
+					<th width="25"><input type="checkbox" onclick="selectAll()"></th>
+					<th width="300">IP地址</th>
+					<th width="130">地理位置</th>
+					<th width="100">操作者</th>
+					<th width="150">起始时间</th>
+					<th width="150">终止时间</th>
+				</tr>
+			</thead>
+			<tbody>
+			<foreach name="list" item="vo">
+				<tr class="text-c quanxuan">
+					<td><input type="checkbox" name="jieId[]" value="{$vo.id}"></td>
+					<td>{$vo.ip}</td>
+					<td>{$vo.area}</td>
+					<td>{$vo.user_nicename}</td>
+					<td>{$vo.begintime|date='Y-m-d H:i:s',###}</td>
+					<td>{$vo.bannedtime|date='Y-m-d H:i:s',###}</td>
+				</tr>
+			</foreach>
+			</tbody>
+		</table>
+	</div>
+	</form>
+</div>
+<script type="text/javascript" src="__TMPL__Public/lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="__TMPL__Public/lib/layer/2.1/layer.js"></script> 
+<script type="text/javascript" src="__TMPL__Public/lib/My97DatePicker/WdatePicker.js"></script> 
+<script type="text/javascript" src="__TMPL__Public/lib/datatables/1.10.0/jquery.dataTables.min.js"></script> 
+<script type="text/javascript" src="__TMPL__Public/static/h-ui/js/H-ui.js"></script> 
+<script type="text/javascript" src="__TMPL__Public/static/h-ui/js/H-ui.admin.js"></script>
+<script type="text/javascript">
+
+//$('.table-sort').dataTable({
+//	"aaSorting": [[ 1, "desc" ]],//默认第几个排序
+//	"bStateSave": true,//状态保存
+//	"aoColumnDefs": [
+//	  //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
+//	  {"orderable":false,"aTargets":[0,8]}// 不参与排序的列
+//	]
+//});
+
+//封禁ip
+function banIp()
+{
+	var checkNum = /((?:(?:25[0-5]|2[0-4]\d|((1\d{2})|([1-9]?\d)))\.){3}(?:25[0-5]|2[0-4]\d|((1\d{2})|([1-9]?\d))))/;
+	var ip = $.trim($('input[name=ip]').val());
+	var url = "{:U('Admin/banIp')}";
+	if(ip == "")
+	{
+		alert('请输入ip');
+		return false;
+	}
+	else
+	{
+		if(!checkNum.test(ip))
+		{
+			alert('ip地址错误');
+			return false;
+		}
+		$.ajax({
+			url:url,
+			data:{'isRepeatIp':ip},
+			async:true,
+			type:'GET',
+			success:function(res)
+			{
+				if(res['id'])
+				{
+					alert('ip已禁');
+				}
+				else
+				{
+					$("#myForm").submit();
+				}
+			}
+		})
+	}
+}
+
+//批量解禁
+	function jieIp()
+	{
+		var url = "{:U('Admin/jieIp')}";
+		$("#myForm").attr('action',url).submit();
+//		if(ipIdArr.length < 1)
+//		{
+//			alert('请选择需要解禁的ip');
+//			return false;
+//		}
+	}
+
+//全选
+	function selectAll()
+	{
+	}
+
+</script> 
+</body>
+</html>

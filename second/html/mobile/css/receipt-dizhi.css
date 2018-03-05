@@ -1,0 +1,129 @@
+.content-receipt{background: #ffffff}
+.new-dz{;padding-right: 2rem}
+.header-r-btn{font-size: 0.7rem;color:#ffffff;display: block;}
+.content-top{font-size: 0.8rem;text-align: left}
+.content-top ul li{padding: 0.6rem  0.5rem;border-bottom:1px solid #bcb5b5;color: #a4a4a4}
+.content-dz-sp{padding-left: 0.5rem;color:#000000;}
+.content-di-a{color: #a4a4a4;display: block;position: relative}
+.content-di-a:before{position: absolute;height: 1.36rem;width: 0.7rem;background: url("../img/you-iocn.png") 0 0 no-repeat;
+    right: 0;top:0;content: "";background-size: 0.6rem }
+.content-dz-li span:first-child{color:#a4a4a4;display: block;float: left !important;}
+.content-dz-li span:last-child{display:block;height: 1rem;width:1rem;float: right;
+    border:1px solid #767777;border-radius: 0.5rem }
+.footer-btn{padding: 0.4rem  0;background:#eb6877 }
+.footer-btn>a{display:block;color: #ffffff;font-size:0.9rem;}
+.footer-btn.inactivated{background:#E5E5E5}
+.btn-color-sc{background:#eb6877}
+.content{position: relative}
+.cover-more{position: absolute;height: 100%;width:100%;background: rgba(76, 76, 76, 0);
+    z-index:10;top: 0;left: 0;display: none}
+.cover-btn{;position:absolute;padding:1.5rem 15% 1rem 15%;background: rgba(76, 76, 76, 0.87);
+    width:80%;border-radius: 0.2rem;z-index: 10;top:30%;left:10%;box-sizing: border-box;display: none}
+.cover-btn p:first-child{font-size: 0.8rem;color:#cacaca }
+.cover-btn-sp{padding-top: 1.5rem;display: -webkit-box;-webkit-box-pack:justify}
+.cover-btn-sp span{font-size: 0.8rem;padding: 0.2rem 0;width:40%;color:#00fffd;border: 1px solid  #00fffd;
+    border-radius: 0.3rem;display: block;}
+.cover-block{display: block}
+.choice-dz{border-top:0.2rem solid #e5e5e5}
+.choice-dz-top{display: -webkit-box;-webkit-box-pack:justify;padding: 0 0.5rem}
+.choice-dz-top>a {display: block;font-size: 0.9rem;color:#00baff;padding: 0.7rem 0;font-weight:600}
+.choice-dz-more{background:#e5e5e5 }
+
+.content-top  .more{;display: -webkit-box;padding: 0.6rem  0.5rem }
+.content-top  .more a{display: block;font-size: 0.8rem;color: #a4a4a4;}
+.content-top  .more input{display: block;-webkit-box-flex: 1; -webkit-box-pack: center;
+    -webkit-box-align: center;padding-left: 0.7rem;font-size: 0.8rem}
+
+.cover-btn>div{width: 6rem;height: 4.25rem;margin: 0 auto}
+.cover-btn>div img{background-size: 100%}
+.content-cancel{background: #ffffff}
+.content-gl{border-bottom: 0.2rem solid #e5e5e5}
+.content-gl-one{display:-webkit-box;text-align: center;padding: 0 0.5rem}
+.content-gl-one>span{display: block;flex: 1;font-size: 0.7rem;color:#777777;padding: 0.7rem  0;width: 33.33%}
+.content-gl-one span:first-child{text-align: left}
+.content-gl-one span:last-child{text-align:right}
+.content-gl-two{font-size: 0.7rem;text-align: left;color:#c9c9c9;padding:0 0.5rem 1rem 0.5rem;
+    border-bottom: 1px solid #bcb5b5 }
+.content-gl-three{padding: 0.7rem 0.5rem;}
+.content-three-l{float: left}
+.content-three-r{float: right}
+.content-three-l span{font-size: 0.7rem;color:#777777;display: block;float: left;margin-right: 0.7rem}
+.content-gl-btn{height:0.8rem;width:0.8rem;border: 1px solid #767777;display: block;border-radius:0.5rem;float: left;}
+.content-three-r p{float: left;margin-left: 1.2rem;text-align: right}
+.content-r-first span:first-child,.content-r-last span:first-child{display: block;height: 1rem;width: 0.9rem;float: left}
+.content-r-first span:last-child,.content-r-last span:last-child{display: block;font-size:0.7rem;color:#777777;float: left;padding-left: 0.5rem}
+.content-r-last{display:none}
+.content-r-first .content-r-icon{background: url("../img/guanli-icon.png") 0 0 no-repeat;background-size: cover;}
+.content-r-last .content-r-icon2{background: url("../img/guanli-icon.png") -1.8rem 0 no-repeat;background-size: cover;}
+.content-dag{background:url("../img/dagou.png") no-repeat 0 0;background-size: cover}
+.content-gl-bg{background: url("../img/dagou.png") 0 0 no-repeat;background-size:100%;}
+.content-gl-one  .content-gl-color{color: #eb6877}
+
+
+
+
+.header-nav{display:-webkit-box;-webkit-box-align:center;background: #ffffff}
+.header-nav>div{flex: 1;font-size: 0.7rem;color:#777777;padding: 0.7rem 0;border-bottom: 0.2rem solid #e5e5e5;width: 20%}
+.header-nav .content-nav-btn{color:#eb6877;border-bottom-color:#eb6877 }
+.commodity-t{color:#00baff}
+.choice-w-three span{font-size: 0.8rem; color:#777777;display: block;margin-top: 0.3rem }
+.commodity-r i{font-size: 0.8rem;color: #777777}
+.content-shop{text-align: right;color:#777777;}
+.content-xixnxi{padding: 0.5rem 0.3rem;;font-size: 0.7rem}
+.content-xixnxi-border{border-bottom:1px solid #bcb5b5}
+.content-xixnxi>p{float: right}
+.content-xixnxi>p a{display: block;width:4rem;height:1.5rem;float: left;line-height:1.5rem;
+    border: 1px solid #777777;color: #777777;border-radius: 0.3rem;margin-left: 0.3rem;text-align: center}
+.content-xixnxi .more-color{border-color:#eb6877;color:#eb6877 }
+.content-xixnxi-border2{border-bottom: 0.2rem solid #e5e5e5}
+
+
+.list-border{border-top: 1px solid #c9c4c4}
+.content-fk-sj{font-size: 0.7rem;color:#c9c9c9;text-align: left;padding-left: 0.5rem }
+.countdown{font-size: 0.6rem;color:#c9c9c9;text-align: left;padding-left: 0.5rem }
+.details{;padding-top:0.7rem;border-top: 0.2rem solid #e5e5e5;}
+.details>p{text-align: left;font-size: 0.7rem;color: #c9c9c9;padding-bottom: 0.6rem;padding-left: 0.5rem}
+.detail-p{border-bottom: 1px solid #bcb5b5}
+.sp-t{width:10rem;max-width: calc(100% - 1rem);height: 0.8rem;margin: 0 0.5rem;background: url(../img/mai-mai.png) 0 0 no-repeat;
+    background-size: contain}
+
+.cancel-pos{position: relative}
+.cancel-reason{position:absolute;bottom:0;left: 0;z-index: 13;background: #e5e5e5;width: 100%;display:none;border-top: 0.2rem solid #e5e5e5}
+.cancel-reason-top{padding: 0.3rem 0.5rem;background: #ffffff;text-align: right}
+.cancel-reason-top>a {font-size: 0.9rem;color:#00baff;}
+.cancel-block{display: block}
+.cancel-reason-bottom >a{font-size: 0.8rem;color:#777777;;display: block;padding: 0.5rem 0 }
+
+
+.content-choice{position: relative}
+.cancel-cc{position: absolute;width:35%;height:2rem;background: rgba(76, 76, 76, 0.72);color:#ffffff;display: none;
+    line-height: 2rem;text-align: center;z-index: 9;margin:0 auto;top:20% ;font-size: 0.8rem;left:33%;border-radius: 0.3rem;}
+
+
+.content-down-a>a{
+    float: right;
+    display: block;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    padding: 0 0.9rem;
+    color:#777777;
+    border: 1px solid #777777;
+    font-size: 0.7rem;
+    border-radius: 0.3rem;
+}
+.content-down-b{
+    float: left
+}
+.more-before{
+    position: relative;
+}
+.more-before .more-b:before{
+    position: absolute;
+    height: 1.36rem;
+    width: 0.7rem;
+    background: url("../img/you-iocn.png") 0 0 no-repeat;
+    right: 0.5rem;
+    top: 0.6rem;
+    content: "";
+    background-size: 0.6rem;
+}
